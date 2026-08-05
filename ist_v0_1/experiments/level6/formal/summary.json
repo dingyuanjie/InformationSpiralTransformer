@@ -1,0 +1,1521 @@
+{
+  "protocol": {
+    "variants": [
+      "transformer",
+      "ist-persistent",
+      "ist-reset"
+    ],
+    "seeds": [
+      313,
+      42
+    ],
+    "chunk_size": 512,
+    "batch_size": 8,
+    "eval_batch_size": 2,
+    "stage1_steps": 800,
+    "later_steps": 400,
+    "eval_every": 100,
+    "eval_batches": 5,
+    "long_eval_batches": 10,
+    "output": "experiments/level6/formal",
+    "force": false
+  },
+  "summary": [
+    {
+      "variant": "transformer",
+      "parameters": 152403,
+      "mean_accuracy": {
+        "2": 0.07500000000000001,
+        "4": 0.125,
+        "8": 0.05,
+        "16": 0.025
+      },
+      "mean_seconds": 96.9890691999999,
+      "mean_memory_mb": 88.16064453125
+    },
+    {
+      "variant": "ist-persistent",
+      "parameters": 345171,
+      "mean_accuracy": {
+        "2": 0.05,
+        "4": 0.025,
+        "8": 0.07500000000000001,
+        "16": 0.05
+      },
+      "mean_seconds": 312.4189054999988,
+      "mean_memory_mb": 153.25830078125
+    },
+    {
+      "variant": "ist-reset",
+      "parameters": 345171,
+      "mean_accuracy": {
+        "2": 0.05,
+        "4": 0.025,
+        "8": 0.07500000000000001,
+        "16": 0.05
+      },
+      "mean_seconds": 185.8139204500003,
+      "mean_memory_mb": 155.08642578125
+    }
+  ],
+  "runs": [
+    {
+      "variant": "transformer",
+      "seed": 313,
+      "parameters": 152403,
+      "seconds": 99.15725469999961,
+      "peak_memory_mb": 88.16064453125,
+      "history": [
+        {
+          "stage": 1,
+          "step": 100,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.06415700000070501,
+          "tokens_per_second": 159608.46049359345
+        },
+        {
+          "stage": 1,
+          "step": 200,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.06637210000008054,
+          "tokens_per_second": 154281.69366326477
+        },
+        {
+          "stage": 1,
+          "step": 300,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.041516900000715395,
+          "tokens_per_second": 246646.54634193666
+        },
+        {
+          "stage": 1,
+          "step": 400,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.042532999999821186,
+          "tokens_per_second": 240754.23788688902
+        },
+        {
+          "stage": 1,
+          "step": 500,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.038770699999076896,
+          "tokens_per_second": 264116.9749383892
+        },
+        {
+          "stage": 1,
+          "step": 600,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.03860440000062226,
+          "tokens_per_second": 265254.73779763293
+        },
+        {
+          "stage": 1,
+          "step": 700,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.04952400000001944,
+          "tokens_per_second": 206768.43550593613
+        },
+        {
+          "stage": 1,
+          "step": 800,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.0386051999994379,
+          "tokens_per_second": 265249.2410387486
+        },
+        {
+          "stage": 2,
+          "step": 100,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.07691570000133652,
+          "tokens_per_second": 266265.5348601668
+        },
+        {
+          "stage": 2,
+          "step": 200,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.0677653000002465,
+          "tokens_per_second": 302219.57255299547
+        },
+        {
+          "stage": 2,
+          "step": 300,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.07412569999905827,
+          "tokens_per_second": 276287.4414711792
+        },
+        {
+          "stage": 2,
+          "step": 400,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.06961670000055165,
+          "tokens_per_second": 294182.2867191021
+        },
+        {
+          "stage": 3,
+          "step": 100,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.14006159999917145,
+          "tokens_per_second": 292442.75376150425
+        },
+        {
+          "stage": 3,
+          "step": 200,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.1394309000006615,
+          "tokens_per_second": 293765.58567581273
+        },
+        {
+          "stage": 3,
+          "step": 300,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.14033500000005006,
+          "tokens_per_second": 291873.01813507243
+        },
+        {
+          "stage": 3,
+          "step": 400,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.1484414000005927,
+          "tokens_per_second": 275933.80283287854
+        },
+        {
+          "stage": 4,
+          "step": 100,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.26366349999989325,
+          "tokens_per_second": 310699.05390785285
+        },
+        {
+          "stage": 4,
+          "step": 200,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.2836558999988483,
+          "tokens_per_second": 288800.62075328804
+        },
+        {
+          "stage": 4,
+          "step": 300,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.29198709999946004,
+          "tokens_per_second": 280560.3398237507
+        },
+        {
+          "stage": 4,
+          "step": 400,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.25896130000000994,
+          "tokens_per_second": 316340.70419015066
+        }
+      ],
+      "tests": [
+        {
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.0811969999995199,
+          "tokens_per_second": 252226.0674670381
+        },
+        {
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.2,
+          "samples": 20,
+          "seconds": 0.16452819999904023,
+          "tokens_per_second": 248954.28261075573
+        },
+        {
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.27988139999979467,
+          "tokens_per_second": 292695.4059828917
+        },
+        {
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 20,
+          "seconds": 0.5568369000011444,
+          "tokens_per_second": 294233.3742603324
+        }
+      ]
+    },
+    {
+      "variant": "transformer",
+      "seed": 42,
+      "parameters": 152403,
+      "seconds": 94.8208837000002,
+      "peak_memory_mb": 88.16064453125,
+      "history": [
+        {
+          "stage": 1,
+          "step": 100,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.2,
+          "samples": 10,
+          "seconds": 0.0421836000004987,
+          "tokens_per_second": 242748.36666095216
+        },
+        {
+          "stage": 1,
+          "step": 200,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.07602059999953781,
+          "tokens_per_second": 134700.33122682874
+        },
+        {
+          "stage": 1,
+          "step": 300,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.03610189999926661,
+          "tokens_per_second": 283641.5811967797
+        },
+        {
+          "stage": 1,
+          "step": 400,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.04229709999890474,
+          "tokens_per_second": 242096.97592187548
+        },
+        {
+          "stage": 1,
+          "step": 500,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.038702899999407236,
+          "tokens_per_second": 264579.65682563407
+        },
+        {
+          "stage": 1,
+          "step": 600,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.03943250000156695,
+          "tokens_per_second": 259684.27057866196
+        },
+        {
+          "stage": 1,
+          "step": 700,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.049327499998980784,
+          "tokens_per_second": 207592.11393667996
+        },
+        {
+          "stage": 1,
+          "step": 800,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.036163000000669854,
+          "tokens_per_second": 283162.3482512602
+        },
+        {
+          "stage": 2,
+          "step": 100,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.0962865999990754,
+          "tokens_per_second": 212698.3401656789
+        },
+        {
+          "stage": 2,
+          "step": 200,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.07575580000047921,
+          "tokens_per_second": 270342.33682266506
+        },
+        {
+          "stage": 2,
+          "step": 300,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.073476200001096,
+          "tokens_per_second": 278729.71111318376
+        },
+        {
+          "stage": 2,
+          "step": 400,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.07782200000110606,
+          "tokens_per_second": 263164.65780510555
+        },
+        {
+          "stage": 3,
+          "step": 100,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.142224700000952,
+          "tokens_per_second": 287994.98258548504
+        },
+        {
+          "stage": 3,
+          "step": 200,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.22539900000083435,
+          "tokens_per_second": 181722.19042608165
+        },
+        {
+          "stage": 3,
+          "step": 300,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.1540456999991875,
+          "tokens_per_second": 265895.1207350549
+        },
+        {
+          "stage": 3,
+          "step": 400,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.13297050000073796,
+          "tokens_per_second": 308038.2490836139
+        },
+        {
+          "stage": 4,
+          "step": 100,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.24933570000030159,
+          "tokens_per_second": 328553.03111387946
+        },
+        {
+          "stage": 4,
+          "step": 200,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.25792619999992894,
+          "tokens_per_second": 317610.2311437247
+        },
+        {
+          "stage": 4,
+          "step": 300,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.27924499999971886,
+          "tokens_per_second": 293362.4594892746
+        },
+        {
+          "stage": 4,
+          "step": 400,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.2564770999997563,
+          "tokens_per_second": 319404.734380098
+        }
+      ],
+      "tests": [
+        {
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 20,
+          "seconds": 0.0721759000007296,
+          "tokens_per_second": 283751.22443631425
+        },
+        {
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.14117939999960072,
+          "tokens_per_second": 290127.31319240516
+        },
+        {
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.2687118999983795,
+          "tokens_per_second": 304861.8241339294
+        },
+        {
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.5206706000008126,
+          "tokens_per_second": 314671.11836109875
+        }
+      ]
+    },
+    {
+      "variant": "ist-persistent",
+      "seed": 313,
+      "parameters": 345171,
+      "seconds": 329.9117469999983,
+      "peak_memory_mb": 153.25830078125,
+      "history": [
+        {
+          "stage": 1,
+          "step": 100,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.13949890000003506,
+          "tokens_per_second": 73405.59674662256
+        },
+        {
+          "stage": 1,
+          "step": 200,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.11720369999966351,
+          "tokens_per_second": 87369.25540771664
+        },
+        {
+          "stage": 1,
+          "step": 300,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08574919999955455,
+          "tokens_per_second": 119418.02372562303
+        },
+        {
+          "stage": 1,
+          "step": 400,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.08455739999953948,
+          "tokens_per_second": 121101.1691472984
+        },
+        {
+          "stage": 1,
+          "step": 500,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.09700639999937266,
+          "tokens_per_second": 105560.04552345228
+        },
+        {
+          "stage": 1,
+          "step": 600,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.13182039999992412,
+          "tokens_per_second": 77681.45142941376
+        },
+        {
+          "stage": 1,
+          "step": 700,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.10835369999949762,
+          "tokens_per_second": 94505.30992524922
+        },
+        {
+          "stage": 1,
+          "step": 800,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.08876889999919513,
+          "tokens_per_second": 115355.71579790722
+        },
+        {
+          "stage": 2,
+          "step": 100,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.17799639999975625,
+          "tokens_per_second": 115058.50680141871
+        },
+        {
+          "stage": 2,
+          "step": 200,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.1816233999998076,
+          "tokens_per_second": 112760.80064585122
+        },
+        {
+          "stage": 2,
+          "step": 300,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.17730389999996987,
+          "tokens_per_second": 115507.89350941226
+        },
+        {
+          "stage": 2,
+          "step": 400,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.18899509999937436,
+          "tokens_per_second": 108362.59776082975
+        },
+        {
+          "stage": 3,
+          "step": 100,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.3499998000006599,
+          "tokens_per_second": 117028.63830185839
+        },
+        {
+          "stage": 3,
+          "step": 200,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.33591530000012426,
+          "tokens_per_second": 121935.49981196107
+        },
+        {
+          "stage": 3,
+          "step": 300,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.3377120000004652,
+          "tokens_per_second": 121286.77689849214
+        },
+        {
+          "stage": 3,
+          "step": 400,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.3529419999995298,
+          "tokens_per_second": 116053.06254300868
+        },
+        {
+          "stage": 4,
+          "step": 100,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.6853059999994002,
+          "tokens_per_second": 119537.84148989167
+        },
+        {
+          "stage": 4,
+          "step": 200,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.7541692000013427,
+          "tokens_per_second": 108622.83954297545
+        },
+        {
+          "stage": 4,
+          "step": 300,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.67398730000059,
+          "tokens_per_second": 121545.31695171153
+        },
+        {
+          "stage": 4,
+          "step": 400,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.816792900001019,
+          "tokens_per_second": 100294.70138623609
+        }
+      ],
+      "tests": [
+        {
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 20,
+          "seconds": 0.2145554999988235,
+          "tokens_per_second": 95453.15780817691
+        },
+        {
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 20,
+          "seconds": 0.37972660000014,
+          "tokens_per_second": 107867.08121049433
+        },
+        {
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 20,
+          "seconds": 0.9472812000003614,
+          "tokens_per_second": 86479.07295106114
+        },
+        {
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 2.0421802999990177,
+          "tokens_per_second": 80227.97987037619
+        }
+      ]
+    },
+    {
+      "variant": "ist-persistent",
+      "seed": 42,
+      "parameters": 345171,
+      "seconds": 294.9260639999993,
+      "peak_memory_mb": 153.25830078125,
+      "history": [
+        {
+          "stage": 1,
+          "step": 100,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.2,
+          "samples": 10,
+          "seconds": 0.0880539999998291,
+          "tokens_per_second": 116292.27519499254
+        },
+        {
+          "stage": 1,
+          "step": 200,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.0877732000008109,
+          "tokens_per_second": 116664.31211241469
+        },
+        {
+          "stage": 1,
+          "step": 300,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08914299999923969,
+          "tokens_per_second": 114871.61078365477
+        },
+        {
+          "stage": 1,
+          "step": 400,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08970849999968777,
+          "tokens_per_second": 114147.48881137952
+        },
+        {
+          "stage": 1,
+          "step": 500,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08993740000005346,
+          "tokens_per_second": 113856.97162686395
+        },
+        {
+          "stage": 1,
+          "step": 600,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.09504350000133854,
+          "tokens_per_second": 107740.1400396217
+        },
+        {
+          "stage": 1,
+          "step": 700,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.10782560000006924,
+          "tokens_per_second": 94968.17082393628
+        },
+        {
+          "stage": 1,
+          "step": 800,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08809669999936887,
+          "tokens_per_second": 116235.9089508842
+        },
+        {
+          "stage": 2,
+          "step": 100,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.1788927000015974,
+          "tokens_per_second": 114482.03308361451
+        },
+        {
+          "stage": 2,
+          "step": 200,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.1825029000010545,
+          "tokens_per_second": 112217.39490102166
+        },
+        {
+          "stage": 2,
+          "step": 300,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.17426960000011604,
+          "tokens_per_second": 117519.0624181519
+        },
+        {
+          "stage": 2,
+          "step": 400,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.18452480000087235,
+          "tokens_per_second": 110987.79134242758
+        },
+        {
+          "stage": 3,
+          "step": 100,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.3475345999995625,
+          "tokens_per_second": 117858.76859469982
+        },
+        {
+          "stage": 3,
+          "step": 200,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.3189957999984472,
+          "tokens_per_second": 128402.94449080329
+        },
+        {
+          "stage": 3,
+          "step": 300,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.33334589999867603,
+          "tokens_per_second": 122875.36759912956
+        },
+        {
+          "stage": 3,
+          "step": 400,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.30385999999998603,
+          "tokens_per_second": 134798.9205555252
+        },
+        {
+          "stage": 4,
+          "step": 100,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.590912900001058,
+          "tokens_per_second": 138632.95250425793
+        },
+        {
+          "stage": 4,
+          "step": 200,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.5782806000006531,
+          "tokens_per_second": 141661.33188612497
+        },
+        {
+          "stage": 4,
+          "step": 300,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.5909197999990283,
+          "tokens_per_second": 138631.333727749
+        },
+        {
+          "stage": 4,
+          "step": 400,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.8201581000012084,
+          "tokens_per_second": 99883.18105969971
+        }
+      ],
+      "tests": [
+        {
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 20,
+          "seconds": 0.21269000000029337,
+          "tokens_per_second": 96290.37566397927
+        },
+        {
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.3984914000011486,
+          "tokens_per_second": 102787.6636732485
+        },
+        {
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.7280351000008523,
+          "tokens_per_second": 112522.04735720037
+        },
+        {
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 1.3439526000001933,
+          "tokens_per_second": 121909.0613761054
+        }
+      ]
+    },
+    {
+      "variant": "ist-reset",
+      "seed": 313,
+      "parameters": 345171,
+      "seconds": 184.6973263,
+      "peak_memory_mb": 155.08642578125,
+      "history": [
+        {
+          "stage": 1,
+          "step": 100,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08378149999953166,
+          "tokens_per_second": 122222.68639326392
+        },
+        {
+          "stage": 1,
+          "step": 200,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08102510000026086,
+          "tokens_per_second": 126380.59070543612
+        },
+        {
+          "stage": 1,
+          "step": 300,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.0885894000002736,
+          "tokens_per_second": 115589.44975322527
+        },
+        {
+          "stage": 1,
+          "step": 400,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.0813309000004665,
+          "tokens_per_second": 125905.40618561045
+        },
+        {
+          "stage": 1,
+          "step": 500,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.07759319999968284,
+          "tokens_per_second": 131970.3272972613
+        },
+        {
+          "stage": 1,
+          "step": 600,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.07925799999975425,
+          "tokens_per_second": 129198.31436614286
+        },
+        {
+          "stage": 1,
+          "step": 700,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.07865669999955571,
+          "tokens_per_second": 130185.98542855015
+        },
+        {
+          "stage": 1,
+          "step": 800,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.08541369999875315,
+          "tokens_per_second": 119887.09071436411
+        },
+        {
+          "stage": 2,
+          "step": 100,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.1693620000005467,
+          "tokens_per_second": 120924.41043406367
+        },
+        {
+          "stage": 2,
+          "step": 200,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.18871059999946738,
+          "tokens_per_second": 108525.96515541684
+        },
+        {
+          "stage": 2,
+          "step": 300,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.17296650000025693,
+          "tokens_per_second": 118404.43091563729
+        },
+        {
+          "stage": 2,
+          "step": 400,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.1685739000004105,
+          "tokens_per_second": 121489.74426023322
+        },
+        {
+          "stage": 3,
+          "step": 100,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.3041059999995923,
+          "tokens_per_second": 134689.8778717122
+        },
+        {
+          "stage": 3,
+          "step": 200,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.3106113000012556,
+          "tokens_per_second": 131868.9951068568
+        },
+        {
+          "stage": 3,
+          "step": 300,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.312696799999685,
+          "tokens_per_second": 130989.508047544
+        },
+        {
+          "stage": 3,
+          "step": 400,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.29363519999969867,
+          "tokens_per_second": 139492.81285091853
+        },
+        {
+          "stage": 4,
+          "step": 100,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.603012999999919,
+          "tokens_per_second": 135851.1342210052
+        },
+        {
+          "stage": 4,
+          "step": 200,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.6136739000012312,
+          "tokens_per_second": 133491.09355935725
+        },
+        {
+          "stage": 4,
+          "step": 300,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.610146099999838,
+          "tokens_per_second": 134262.92489622033
+        },
+        {
+          "stage": 4,
+          "step": 400,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.5805526000003738,
+          "tokens_per_second": 141106.9384581987
+        }
+      ],
+      "tests": [
+        {
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 20,
+          "seconds": 0.16015390000029583,
+          "tokens_per_second": 127876.99831201219
+        },
+        {
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 20,
+          "seconds": 0.29964550000113377,
+          "tokens_per_second": 136694.86109367575
+        },
+        {
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 20,
+          "seconds": 0.637088199999198,
+          "tokens_per_second": 128585.02166592181
+        },
+        {
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 1.360759599998346,
+          "tokens_per_second": 120403.33942909472
+        }
+      ]
+    },
+    {
+      "variant": "ist-reset",
+      "seed": 42,
+      "parameters": 345171,
+      "seconds": 186.9305146000006,
+      "peak_memory_mb": 155.08642578125,
+      "history": [
+        {
+          "stage": 1,
+          "step": 100,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.2,
+          "samples": 10,
+          "seconds": 0.08139209999899322,
+          "tokens_per_second": 125810.7359329304
+        },
+        {
+          "stage": 1,
+          "step": 200,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08042330000171205,
+          "tokens_per_second": 127326.28479286488
+        },
+        {
+          "stage": 1,
+          "step": 300,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08451989999957732,
+          "tokens_per_second": 121154.89961596274
+        },
+        {
+          "stage": 1,
+          "step": 400,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.10111109999888868,
+          "tokens_per_second": 101274.73640493031
+        },
+        {
+          "stage": 1,
+          "step": 500,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.08884720000060042,
+          "tokens_per_second": 115254.05415061813
+        },
+        {
+          "stage": 1,
+          "step": 600,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.08306599999923492,
+          "tokens_per_second": 123275.46770151825
+        },
+        {
+          "stage": 1,
+          "step": 700,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.0806351999999606,
+          "tokens_per_second": 126991.68601311838
+        },
+        {
+          "stage": 1,
+          "step": 800,
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.0795866999997088,
+          "tokens_per_second": 128664.71407958199
+        },
+        {
+          "stage": 2,
+          "step": 100,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.15676600000006147,
+          "tokens_per_second": 130640.57257308326
+        },
+        {
+          "stage": 2,
+          "step": 200,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.15279019999979937,
+          "tokens_per_second": 134040.01041969244
+        },
+        {
+          "stage": 2,
+          "step": 300,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.1634806000001845,
+          "tokens_per_second": 125274.80324868447
+        },
+        {
+          "stage": 2,
+          "step": 400,
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.16983839999920747,
+          "tokens_per_second": 120585.21512270233
+        },
+        {
+          "stage": 3,
+          "step": 100,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.3625222999999096,
+          "tokens_per_second": 112986.15285186653
+        },
+        {
+          "stage": 3,
+          "step": 200,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.30357130000084,
+          "tokens_per_second": 134927.11596875812
+        },
+        {
+          "stage": 3,
+          "step": 300,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.3057227999997849,
+          "tokens_per_second": 133977.57707318137
+        },
+        {
+          "stage": 3,
+          "step": 400,
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.2941977999998926,
+          "tokens_per_second": 139226.0581146934
+        },
+        {
+          "stage": 4,
+          "step": 100,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.5888254000001325,
+          "tokens_per_second": 139124.43315112012
+        },
+        {
+          "stage": 4,
+          "step": 200,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.0,
+          "samples": 10,
+          "seconds": 0.5927498000000924,
+          "tokens_per_second": 138203.33638237792
+        },
+        {
+          "stage": 4,
+          "step": 300,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.6143659999997908,
+          "tokens_per_second": 133340.71221393746
+        },
+        {
+          "stage": 4,
+          "step": 400,
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.1,
+          "samples": 10,
+          "seconds": 0.6278376999998727,
+          "tokens_per_second": 130479.58094905198
+        }
+      ],
+      "tests": [
+        {
+          "chunks": 2,
+          "total_tokens": 1024,
+          "accuracy": 0.1,
+          "samples": 20,
+          "seconds": 0.16278310000052443,
+          "tokens_per_second": 125811.58609176273
+        },
+        {
+          "chunks": 4,
+          "total_tokens": 2048,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.3120420999985072,
+          "tokens_per_second": 131264.33901129352
+        },
+        {
+          "chunks": 8,
+          "total_tokens": 4096,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 0.6344693000010011,
+          "tokens_per_second": 129115.78227641707
+        },
+        {
+          "chunks": 16,
+          "total_tokens": 8192,
+          "accuracy": 0.05,
+          "samples": 20,
+          "seconds": 1.393540099999882,
+          "tokens_per_second": 117571.06953722672
+        }
+      ]
+    }
+  ]
+}

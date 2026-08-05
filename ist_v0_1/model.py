@@ -32,7 +32,14 @@ class InformationSpiralTransformer(nn.Module):
         )
         self.output = nn.Linear(hidden_size, vocab_size)
 
-    def forward(self, tokens):
+    def forward(
+        self,
+        tokens,
+        memory=None,
+        return_memory=False,
+        detach_memory=False,
+        per_layer_memory=False,
+    ):
         sequence_length = tokens.size(1)
         if sequence_length > self.max_sequence_length:
             raise ValueError(
@@ -47,12 +54,27 @@ class InformationSpiralTransformer(nn.Module):
             x = x + self.sinusoidal_position(
                 sequence_length, x.device, x.dtype
             )[None, :, :]
-        memory = None
-
-        for block in self.blocks:
-            x, memory = block(x, memory)
-
-        return self.output(x)
+        if per_layer_memory or isinstance(memory, (list, tuple)):
+            memories = [None] * len(self.blocks) if memory is None else list(memory)
+            if len(memories) != len(self.blocks):
+                raise ValueError("per-layer memory count must equal model layer count")
+            new_memories = []
+            for index, block in enumerate(self.blocks):
+                x, layer_memory = block(x, memories[index])
+                new_memories.append(layer_memory)
+            memory = new_memories
+        else:
+            for block in self.blocks:
+                x, memory = block(x, memory)
+        logits = self.output(x)
+        if return_memory:
+            if detach_memory:
+                if isinstance(memory, list):
+                    memory = [item.detach() for item in memory]
+                else:
+                    memory = memory.detach()
+            return logits, memory
+        return logits
 
     def memory_diversity_loss(self):
         return torch.stack(

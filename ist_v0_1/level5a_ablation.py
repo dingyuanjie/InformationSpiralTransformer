@@ -8,7 +8,8 @@ from marked_retrieval_level2 import make_batch
 from model import InformationSpiralTransformer
 
 SEEDS=[313,42]
-STAGES=[(128,64,800),(256,128,250),(512,509,250)]
+STAGES=[(128,64,600),(256,128,100),(512,509,100)]
+BATCH_SIZE=16
 VARIANTS={
  "Transformer":{"kind":"baseline","diversity":0.0,"fusion":False},
  "IST-A":{"kind":"ist","diversity":0.0,"fusion":False},
@@ -24,7 +25,7 @@ def build(config):
 def evaluate(model,length,needle_range,device,batches=10):
     model.eval(); correct=local_correct=total=0
     for _ in range(batches):
-        x,y,pos=make_batch(32,length,needle_range,16,device); logits=model(x)[...,:16]
+        x,y,pos=make_batch(BATCH_SIZE,length,needle_range,16,device); logits=model(x)[...,:16]
         rows=torch.arange(len(y),device=device); correct+=(logits[:,-1].argmax(-1)==y).sum().item()
         local_correct+=(logits[rows,pos].argmax(-1)==y).sum().item(); total+=len(y)
     return {"query_accuracy":correct/total,"local_accuracy":local_correct/total}
@@ -37,7 +38,7 @@ def run(name,config,seed,device):
     stages=[]
     for length,needle_range,steps in STAGES:
         for step in range(1,steps+1):
-            global_step+=1; model.train(); x,y,pos=make_batch(32,length,needle_range,16,device)
+            global_step+=1; model.train(); x,y,pos=make_batch(BATCH_SIZE,length,needle_range,16,device)
             opt.zero_grad(set_to_none=True); logits=model(x)[...,:16]; rows=torch.arange(len(y),device=device)
             query=F.cross_entropy(logits[:,-1],y); local=F.cross_entropy(logits[rows,pos],y)
             loss=query+0.5*local
@@ -56,10 +57,12 @@ def run(name,config,seed,device):
 
 def main():
     device=torch.device("cuda" if torch.cuda.is_available() else "cpu"); runs=[]
+    out=Path("experiments/level5a"); out.mkdir(parents=True,exist_ok=True)
     for name,config in VARIANTS.items():
         for seed in SEEDS:
             print(f"running {name} seed={seed}",flush=True); result=run(name,config,seed,device); runs.append(result)
             print(result["stages"],flush=True); torch.cuda.empty_cache() if device.type=="cuda" else None
+            (out/"runs.partial.json").write_text(json.dumps(runs,indent=2),encoding="utf-8")
     summary=[]
     for name in VARIANTS:
         selected=[r for r in runs if r["model"]==name]; finals=[r["stages"][-1]["query_accuracy"] for r in selected]
@@ -67,7 +70,6 @@ def main():
           "std_512_accuracy":statistics.stdev(finals),"mean_auc":statistics.mean(r["accuracy_auc"] for r in selected),
           "mean_seconds":statistics.mean(r["seconds"] for r in selected)})
     summary.sort(key=lambda x:(x["mean_512_accuracy"],x["mean_auc"]),reverse=True)
-    out=Path("experiments/level5a"); out.mkdir(parents=True,exist_ok=True)
     (out/"results.json").write_text(json.dumps({"protocol":{"seeds":SEEDS,"stages":STAGES},"summary":summary,"runs":runs},indent=2),encoding="utf-8")
     print(json.dumps(summary,indent=2)); print(f"saved={out/'results.json'}")
 if __name__=="__main__": main()
