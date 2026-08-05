@@ -11,11 +11,13 @@ class SpiralBlock(nn.Module):
         self.attention = SpiralAttention(hidden_size, position_encoding=position_encoding)
         self.memory = SpiralMemory(hidden_size)
         self.use_memory_fusion = use_memory_fusion
-        self.memory_read = nn.MultiheadAttention(
-            hidden_size, 8, batch_first=True
+        self.memory_read = (
+            nn.MultiheadAttention(hidden_size, 8, batch_first=True)
+            if use_memory_fusion else None
         )
-        self.memory_fusion_gate = nn.Sequential(
-            nn.Linear(hidden_size * 2, hidden_size), nn.Sigmoid()
+        self.memory_fusion_gate = (
+            nn.Sequential(nn.Linear(hidden_size * 2, hidden_size), nn.Sigmoid())
+            if use_memory_fusion else None
         )
         self.ffn = nn.Sequential(
             nn.Linear(hidden_size, hidden_size * 4),

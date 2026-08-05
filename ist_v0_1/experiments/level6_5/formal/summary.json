@@ -1,0 +1,6252 @@
+{
+  "protocol": {
+    "profiles": [
+      "zero",
+      "hard50",
+      "hard100",
+      "hard200",
+      "hard400",
+      "hard800",
+      "anneal200"
+    ],
+    "seeds": [
+      313
+    ],
+    "chunk_size": 128,
+    "stage1_steps": 3000,
+    "later_steps": 1000,
+    "maintenance_steps": 500,
+    "eval_every": 100,
+    "eval_batch_size": 8,
+    "eval_batches": 10,
+    "final_eval_batches": 50,
+    "output": "experiments/level6_5/formal",
+    "force": false
+  },
+  "summary": [
+    {
+      "profile": "zero",
+      "successes": 0,
+      "runs": 1,
+      "success_rate": 0,
+      "mean_seconds": 186.75541650000014,
+      "weighted_probe_steps": 0.0
+    },
+    {
+      "profile": "hard50",
+      "successes": 0,
+      "runs": 1,
+      "success_rate": 0,
+      "mean_seconds": 198.1384070999993,
+      "weighted_probe_steps": 25.0
+    },
+    {
+      "profile": "hard100",
+      "successes": 0,
+      "runs": 1,
+      "success_rate": 0,
+      "mean_seconds": 192.12247560000105,
+      "weighted_probe_steps": 50.0
+    },
+    {
+      "profile": "hard200",
+      "successes": 0,
+      "runs": 1,
+      "success_rate": 0,
+      "mean_seconds": 192.79209150000315,
+      "weighted_probe_steps": 100.0
+    },
+    {
+      "profile": "hard400",
+      "successes": 0,
+      "runs": 1,
+      "success_rate": 0,
+      "mean_seconds": 197.62938000000213,
+      "weighted_probe_steps": 200.0
+    },
+    {
+      "profile": "hard800",
+      "successes": 0,
+      "runs": 1,
+      "success_rate": 0,
+      "mean_seconds": 192.33547660000113,
+      "weighted_probe_steps": 400.0
+    },
+    {
+      "profile": "anneal200",
+      "successes": 0,
+      "runs": 1,
+      "success_rate": 0,
+      "mean_seconds": 194.9914073,
+      "weighted_probe_steps": 49.99999999999999
+    }
+  ],
+  "runs": [
+    {
+      "profile": "zero",
+      "seed": 313,
+      "scaffold_steps": 0,
+      "weighted_probe_steps": 0.0,
+      "curriculum_passed": false,
+      "maintenance": null,
+      "passed": false,
+      "stages": [
+        {
+          "chunks": 2,
+          "steps": 3000,
+          "passed": false,
+          "validation": {
+            "chunks": 2,
+            "total_tokens": 256,
+            "query": 0.075,
+            "local": 0.9875,
+            "probe_first": 0.05,
+            "probe_final": 0.1375,
+            "probe_min": 0.05,
+            "probe_by_chunk": [
+              0.05,
+              0.1375
+            ],
+            "memory_first_final_cosine": 0.2831490457057953,
+            "gate_means": [
+              0.15139472484588623,
+              0.19776186347007751,
+              0.12645691633224487
+            ],
+            "samples": 80
+          }
+        }
+      ],
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "probe_weight": 0.0,
+          "loss": 4.586328029632568,
+          "query_loss": 2.927734375,
+          "local_loss": 3.1171875,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9790532290935516,
+          "gate_means": [
+            0.4994739294052124,
+            0.501230001449585,
+            0.5001727342605591
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 100,
+          "probe_weight": 0.0,
+          "loss": 4.179203987121582,
+          "query_loss": 2.744140625,
+          "local_loss": 2.7734375,
+          "probe_loss": 2.7587890625,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.0625,
+          "probe_first": 0.0375,
+          "probe_final": 0.075,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9451295912265778,
+          "gate_means": [
+            0.49731361865997314,
+            0.49673306941986084,
+            0.49577367305755615
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 200,
+          "probe_weight": 0.0,
+          "loss": 4.229719638824463,
+          "query_loss": 2.81640625,
+          "local_loss": 2.765625,
+          "probe_loss": 2.794921875,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.0625,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0625,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9167494177818298,
+          "gate_means": [
+            0.47529488801956177,
+            0.4844282865524292,
+            0.47916585206985474
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 300,
+          "probe_weight": 0.0,
+          "loss": 4.208683490753174,
+          "query_loss": 2.775390625,
+          "local_loss": 2.810546875,
+          "probe_loss": 2.7197265625,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.075,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9363293707370758,
+          "gate_means": [
+            0.4558228850364685,
+            0.470924437046051,
+            0.4665986895561218
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 400,
+          "probe_weight": 0.0,
+          "loss": 4.143187522888184,
+          "query_loss": 2.76171875,
+          "local_loss": 2.716796875,
+          "probe_loss": 2.8095703125,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9328910768032074,
+          "gate_means": [
+            0.4318934679031372,
+            0.45925629138946533,
+            0.4672333002090454
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 500,
+          "probe_weight": 0.0,
+          "loss": 3.98618221282959,
+          "query_loss": 2.630859375,
+          "local_loss": 2.673828125,
+          "probe_loss": 2.7431640625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.0375,
+          "probe_first": 0.125,
+          "probe_final": 0.1375,
+          "probe_min": 0.125,
+          "probe_by_chunk": [
+            0.125,
+            0.1375
+          ],
+          "memory_first_final_cosine": 0.9189085304737091,
+          "gate_means": [
+            0.4070284962654114,
+            0.4362456202507019,
+            0.45551204681396484
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 600,
+          "probe_weight": 0.0,
+          "loss": 4.096887111663818,
+          "query_loss": 2.73046875,
+          "local_loss": 2.697265625,
+          "probe_loss": 2.7509765625,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.0875,
+          "probe_first": 0.025,
+          "probe_final": 0.05,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9361958503723145,
+          "gate_means": [
+            0.4229598343372345,
+            0.42576271295547485,
+            0.4517495036125183
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 700,
+          "probe_weight": 0.0,
+          "loss": 4.13201379776001,
+          "query_loss": 2.74609375,
+          "local_loss": 2.740234375,
+          "probe_loss": 2.8134765625,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.0875,
+          "probe_first": 0.075,
+          "probe_final": 0.125,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.125
+          ],
+          "memory_first_final_cosine": 0.8665722370147705,
+          "gate_means": [
+            0.39983972907066345,
+            0.4143304228782654,
+            0.4390135407447815
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 800,
+          "probe_weight": 0.0,
+          "loss": 4.271198272705078,
+          "query_loss": 2.828125,
+          "local_loss": 2.857421875,
+          "probe_loss": 2.7744140625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.1125,
+          "probe_first": 0.05,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.05,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.8749426662921905,
+          "gate_means": [
+            0.38092705607414246,
+            0.38151752948760986,
+            0.43517985939979553
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 900,
+          "probe_weight": 0.0,
+          "loss": 4.037567138671875,
+          "query_loss": 2.6875,
+          "local_loss": 2.673828125,
+          "probe_loss": 2.740234375,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.1625,
+          "probe_first": 0.0875,
+          "probe_final": 0.1,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.8902214050292969,
+          "gate_means": [
+            0.35578227043151855,
+            0.3648667633533478,
+            0.433833509683609
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1000,
+          "probe_weight": 0.0,
+          "loss": 4.0894365310668945,
+          "query_loss": 2.865234375,
+          "local_loss": 2.4228515625,
+          "probe_loss": 2.796875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.1,
+          "probe_first": 0.1,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.1,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8612635970115662,
+          "gate_means": [
+            0.3322681486606598,
+            0.34830528497695923,
+            0.4486205279827118
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1100,
+          "probe_weight": 0.0,
+          "loss": 4.05588436126709,
+          "query_loss": 2.8203125,
+          "local_loss": 2.4482421875,
+          "probe_loss": 2.791015625,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.25,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.8746924936771393,
+          "gate_means": [
+            0.31420713663101196,
+            0.3602220416069031,
+            0.4036167860031128
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1200,
+          "probe_weight": 0.0,
+          "loss": 4.038174629211426,
+          "query_loss": 2.74609375,
+          "local_loss": 2.560546875,
+          "probe_loss": 2.7666015625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.25,
+          "probe_first": 0.075,
+          "probe_final": 0.0875,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.7770346462726593,
+          "gate_means": [
+            0.3045247197151184,
+            0.3417501449584961,
+            0.3925436735153198
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1300,
+          "probe_weight": 0.0,
+          "loss": 3.9183380603790283,
+          "query_loss": 2.7421875,
+          "local_loss": 2.32861328125,
+          "probe_loss": 2.76953125,
+          "total_tokens": 256,
+          "query": 0.125,
+          "local": 0.325,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.810148048400879,
+          "gate_means": [
+            0.2998114824295044,
+            0.33272185921669006,
+            0.397175133228302
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1400,
+          "probe_weight": 0.0,
+          "loss": 3.8276052474975586,
+          "query_loss": 2.84375,
+          "local_loss": 1.9462890625,
+          "probe_loss": 2.7724609375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.4,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.7132949352264404,
+          "gate_means": [
+            0.30122753977775574,
+            0.3113733232021332,
+            0.3757151961326599
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1500,
+          "probe_weight": 0.0,
+          "loss": 3.793860912322998,
+          "query_loss": 2.7109375,
+          "local_loss": 2.14501953125,
+          "probe_loss": 2.775390625,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.55,
+          "probe_first": 0.0125,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.7392318189144135,
+          "gate_means": [
+            0.28201383352279663,
+            0.2987111806869507,
+            0.37843021750450134
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1600,
+          "probe_weight": 0.0,
+          "loss": 3.1161186695098877,
+          "query_loss": 2.84765625,
+          "local_loss": 0.5166015625,
+          "probe_loss": 2.7763671875,
+          "total_tokens": 256,
+          "query": 0.1125,
+          "local": 0.6625,
+          "probe_first": 0.1,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.1,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7989331364631653,
+          "gate_means": [
+            0.2613590359687805,
+            0.26606976985931396,
+            0.36353951692581177
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1700,
+          "probe_weight": 0.0,
+          "loss": 2.9783473014831543,
+          "query_loss": 2.76953125,
+          "local_loss": 0.3990478515625,
+          "probe_loss": 2.75390625,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.8625,
+          "probe_first": 0.0875,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0875,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.7547493278980255,
+          "gate_means": [
+            0.26551225781440735,
+            0.29187509417533875,
+            0.3346909284591675
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1800,
+          "probe_weight": 0.0,
+          "loss": 2.9543845653533936,
+          "query_loss": 2.884765625,
+          "local_loss": 0.12091064453125,
+          "probe_loss": 2.736328125,
+          "total_tokens": 256,
+          "query": 0.025,
+          "local": 0.9375,
+          "probe_first": 0.0875,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.0875,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.6944025695323944,
+          "gate_means": [
+            0.26209717988967896,
+            0.25794321298599243,
+            0.3187050223350525
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1900,
+          "probe_weight": 0.0,
+          "loss": 3.0257046222686768,
+          "query_loss": 2.986328125,
+          "local_loss": 0.06304931640625,
+          "probe_loss": 2.7900390625,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.9625,
+          "probe_first": 0.0375,
+          "probe_final": 0.0625,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.6961297333240509,
+          "gate_means": [
+            0.24198412895202637,
+            0.25589466094970703,
+            0.2957995533943176
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2000,
+          "probe_weight": 0.0,
+          "loss": 2.9017508029937744,
+          "query_loss": 2.78515625,
+          "local_loss": 0.2182464599609375,
+          "probe_loss": 2.7939453125,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.9375,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.6401866495609283,
+          "gate_means": [
+            0.23111602663993835,
+            0.25124669075012207,
+            0.28791069984436035
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2100,
+          "probe_weight": 0.0,
+          "loss": 2.9272592067718506,
+          "query_loss": 2.8515625,
+          "local_loss": 0.1360626220703125,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.975,
+          "probe_first": 0.05,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.05,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.4846831619739532,
+          "gate_means": [
+            0.2285124808549881,
+            0.28643888235092163,
+            0.2562096118927002
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2200,
+          "probe_weight": 0.0,
+          "loss": 3.0535976886749268,
+          "query_loss": 3.03125,
+          "local_loss": 0.031494140625,
+          "probe_loss": 2.7607421875,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.975,
+          "probe_first": 0.05,
+          "probe_final": 0.1,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.6631957352161407,
+          "gate_means": [
+            0.2242472618818283,
+            0.23548725247383118,
+            0.21463952958583832
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2300,
+          "probe_weight": 0.0,
+          "loss": 2.890984296798706,
+          "query_loss": 2.87109375,
+          "local_loss": 0.02869415283203125,
+          "probe_loss": 2.779296875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9125,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.5835458040237427,
+          "gate_means": [
+            0.20427973568439484,
+            0.2289418876171112,
+            0.21576111018657684
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2400,
+          "probe_weight": 0.0,
+          "loss": 2.828610897064209,
+          "query_loss": 2.73828125,
+          "local_loss": 0.1707000732421875,
+          "probe_loss": 2.7763671875,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.9875,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.4707617938518524,
+          "gate_means": [
+            0.20147165656089783,
+            0.23336705565452576,
+            0.17848347127437592
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2500,
+          "probe_weight": 0.0,
+          "loss": 2.8158762454986572,
+          "query_loss": 2.79296875,
+          "local_loss": 0.03684234619140625,
+          "probe_loss": 2.7568359375,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 1.0,
+          "probe_first": 0.1,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.1,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.4636930197477341,
+          "gate_means": [
+            0.18449150025844574,
+            0.2192525863647461,
+            0.17898961901664734
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2600,
+          "probe_weight": 0.0,
+          "loss": 2.831852436065674,
+          "query_loss": 2.818359375,
+          "local_loss": 0.0183563232421875,
+          "probe_loss": 2.7724609375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.975,
+          "probe_first": 0.125,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.125,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.4844402015209198,
+          "gate_means": [
+            0.18245719373226166,
+            0.20617859065532684,
+            0.1681041419506073
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2700,
+          "probe_weight": 0.0,
+          "loss": 2.919905424118042,
+          "query_loss": 2.90625,
+          "local_loss": 0.01978302001953125,
+          "probe_loss": 2.7705078125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.0875,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0875,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.42733924388885497,
+          "gate_means": [
+            0.17055371403694153,
+            0.20406320691108704,
+            0.152847021818161
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2800,
+          "probe_weight": 0.0,
+          "loss": 2.897960901260376,
+          "query_loss": 2.884765625,
+          "local_loss": 0.019763946533203125,
+          "probe_loss": 2.7744140625,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 1.0,
+          "probe_first": 0.025,
+          "probe_final": 0.0625,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.3574604243040085,
+          "gate_means": [
+            0.16620168089866638,
+            0.1986638903617859,
+            0.13584835827350616
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2900,
+          "probe_weight": 0.0,
+          "loss": 2.8040432929992676,
+          "query_loss": 2.794921875,
+          "local_loss": 0.012073516845703125,
+          "probe_loss": 2.76171875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.1,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.1,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.3420098155736923,
+          "gate_means": [
+            0.15404625236988068,
+            0.19493120908737183,
+            0.12778006494045258
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 3000,
+          "probe_weight": 0.0,
+          "loss": 2.839142322540283,
+          "query_loss": 2.828125,
+          "local_loss": 0.01595306396484375,
+          "probe_loss": 2.810546875,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.9875,
+          "probe_first": 0.05,
+          "probe_final": 0.1375,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1375
+          ],
+          "memory_first_final_cosine": 0.2831490457057953,
+          "gate_means": [
+            0.15139472484588623,
+            0.19776186347007751,
+            0.12645691633224487
+          ],
+          "samples": 80
+        }
+      ],
+      "seconds": 186.75541650000014,
+      "peak_memory_mb": 58.4169921875
+    },
+    {
+      "profile": "hard50",
+      "seed": 313,
+      "scaffold_steps": 50,
+      "weighted_probe_steps": 25.0,
+      "curriculum_passed": false,
+      "maintenance": null,
+      "passed": false,
+      "stages": [
+        {
+          "chunks": 2,
+          "steps": 3000,
+          "passed": false,
+          "validation": {
+            "chunks": 2,
+            "total_tokens": 256,
+            "query": 1.0,
+            "local": 1.0,
+            "probe_first": 0.05,
+            "probe_final": 0.1375,
+            "probe_min": 0.05,
+            "probe_by_chunk": [
+              0.05,
+              0.1375
+            ],
+            "memory_first_final_cosine": 0.1803012363612652,
+            "gate_means": [
+              0.15046681463718414,
+              0.18998947739601135,
+              0.2252272516489029
+            ],
+            "samples": 80
+          }
+        }
+      ],
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "probe_weight": 0.5,
+          "loss": 5.970117092132568,
+          "query_loss": 2.927734375,
+          "local_loss": 3.1171875,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9793352842330932,
+          "gate_means": [
+            0.4997776746749878,
+            0.5011228322982788,
+            0.5006051063537598
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 50,
+          "probe_weight": 0.5,
+          "loss": 5.65091609954834,
+          "query_loss": 2.771484375,
+          "local_loss": 2.771484375,
+          "probe_loss": 2.7880859375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.0875,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9633462786674499,
+          "gate_means": [
+            0.49615478515625,
+            0.4938126802444458,
+            0.4947941303253174
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 100,
+          "probe_weight": 0.0,
+          "loss": 4.363597393035889,
+          "query_loss": 2.859375,
+          "local_loss": 2.91015625,
+          "probe_loss": 2.7490234375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.0625,
+          "probe_first": 0.05,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.05,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.9541532576084137,
+          "gate_means": [
+            0.49867796897888184,
+            0.49467504024505615,
+            0.495059609413147
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 200,
+          "probe_weight": 0.0,
+          "loss": 4.349254131317139,
+          "query_loss": 2.87109375,
+          "local_loss": 2.88671875,
+          "probe_loss": 2.8154296875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.0625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9501411497592926,
+          "gate_means": [
+            0.4763147532939911,
+            0.4916802644729614,
+            0.47494783997535706
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 300,
+          "probe_weight": 0.0,
+          "loss": 4.172906875610352,
+          "query_loss": 2.75,
+          "local_loss": 2.7890625,
+          "probe_loss": 2.779296875,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.075,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9482895731925964,
+          "gate_means": [
+            0.4596511721611023,
+            0.47741106152534485,
+            0.46831822395324707
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 400,
+          "probe_weight": 0.0,
+          "loss": 4.165781497955322,
+          "query_loss": 2.70703125,
+          "local_loss": 2.8671875,
+          "probe_loss": 2.7568359375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9548538804054261,
+          "gate_means": [
+            0.4411543011665344,
+            0.46956539154052734,
+            0.4637396037578583
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 500,
+          "probe_weight": 0.0,
+          "loss": 4.270179271697998,
+          "query_loss": 2.83203125,
+          "local_loss": 2.833984375,
+          "probe_loss": 2.7685546875,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.0625,
+          "probe_first": 0.0625,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0625,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9503322243690491,
+          "gate_means": [
+            0.4236273169517517,
+            0.46955442428588867,
+            0.4557381272315979
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 600,
+          "probe_weight": 0.0,
+          "loss": 4.085115432739258,
+          "query_loss": 2.7578125,
+          "local_loss": 2.6162109375,
+          "probe_loss": 2.77734375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.15,
+          "probe_first": 0.0125,
+          "probe_final": 0.025,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.9447854697704315,
+          "gate_means": [
+            0.40020737051963806,
+            0.45028048753738403,
+            0.44254183769226074
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 700,
+          "probe_weight": 0.0,
+          "loss": 4.042919635772705,
+          "query_loss": 2.732421875,
+          "local_loss": 2.5859375,
+          "probe_loss": 2.76171875,
+          "total_tokens": 256,
+          "query": 0.025,
+          "local": 0.1,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9468079566955566,
+          "gate_means": [
+            0.3796984553337097,
+            0.43721604347229004,
+            0.43687695264816284
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 800,
+          "probe_weight": 0.0,
+          "loss": 4.064870834350586,
+          "query_loss": 2.75390625,
+          "local_loss": 2.587890625,
+          "probe_loss": 2.7958984375,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0875,
+          "probe_first": 0.0875,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9403862476348877,
+          "gate_means": [
+            0.3614145517349243,
+            0.4328465461730957,
+            0.43919607996940613
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 900,
+          "probe_weight": 0.0,
+          "loss": 4.31272554397583,
+          "query_loss": 2.92578125,
+          "local_loss": 2.740234375,
+          "probe_loss": 2.7529296875,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.2375,
+          "probe_first": 0.05,
+          "probe_final": 0.075,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9231559574604035,
+          "gate_means": [
+            0.3501584529876709,
+            0.43034958839416504,
+            0.44596707820892334
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1000,
+          "probe_weight": 0.0,
+          "loss": 4.148129463195801,
+          "query_loss": 2.74609375,
+          "local_loss": 2.7734375,
+          "probe_loss": 2.7646484375,
+          "total_tokens": 256,
+          "query": 0.025,
+          "local": 0.2875,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8837009072303772,
+          "gate_means": [
+            0.3288969099521637,
+            0.42131543159484863,
+            0.41695624589920044
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1100,
+          "probe_weight": 0.0,
+          "loss": 3.95957612991333,
+          "query_loss": 2.8828125,
+          "local_loss": 2.123046875,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.2375,
+          "probe_first": 0.0875,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.7366412460803986,
+          "gate_means": [
+            0.3229723870754242,
+            0.41846132278442383,
+            0.36805278062820435
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1200,
+          "probe_weight": 0.0,
+          "loss": 4.120581150054932,
+          "query_loss": 3.015625,
+          "local_loss": 2.18017578125,
+          "probe_loss": 2.78515625,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.4625,
+          "probe_first": 0.0875,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0875,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.5008639305830002,
+          "gate_means": [
+            0.2385668307542801,
+            0.3734528422355652,
+            0.3637067377567291
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1300,
+          "probe_weight": 0.0,
+          "loss": 3.6322884559631348,
+          "query_loss": 2.83203125,
+          "local_loss": 1.574951171875,
+          "probe_loss": 2.7890625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.525,
+          "probe_first": 0.0375,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.0375,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.45036610066890714,
+          "gate_means": [
+            0.20818912982940674,
+            0.32683050632476807,
+            0.3497124910354614
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1400,
+          "probe_weight": 0.0,
+          "loss": 3.8227474689483643,
+          "query_loss": 2.69921875,
+          "local_loss": 2.223876953125,
+          "probe_loss": 2.8115234375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.725,
+          "probe_first": 0.0875,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0875,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.3441062062978745,
+          "gate_means": [
+            0.21034198999404907,
+            0.3187059760093689,
+            0.33664804697036743
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1500,
+          "probe_weight": 0.0,
+          "loss": 3.3950774669647217,
+          "query_loss": 2.734375,
+          "local_loss": 1.300048828125,
+          "probe_loss": 2.76953125,
+          "total_tokens": 256,
+          "query": 0.0125,
+          "local": 0.7375,
+          "probe_first": 0.0875,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.0875,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.37580635845661164,
+          "gate_means": [
+            0.20082296431064606,
+            0.30693376064300537,
+            0.3452308475971222
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1600,
+          "probe_weight": 0.0,
+          "loss": 3.2657248973846436,
+          "query_loss": 2.681640625,
+          "local_loss": 1.1448974609375,
+          "probe_loss": 2.7548828125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.7875,
+          "probe_first": 0.0875,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0875,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.5366564869880677,
+          "gate_means": [
+            0.2149941623210907,
+            0.3382123112678528,
+            0.3347150683403015
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1700,
+          "probe_weight": 0.0,
+          "loss": 3.2274181842803955,
+          "query_loss": 2.751953125,
+          "local_loss": 0.92974853515625,
+          "probe_loss": 2.7880859375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9625,
+          "probe_first": 0.0625,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0625,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.4441461622714996,
+          "gate_means": [
+            0.20285162329673767,
+            0.3244227170944214,
+            0.325900137424469
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1800,
+          "probe_weight": 0.0,
+          "loss": 3.1688787937164307,
+          "query_loss": 2.833984375,
+          "local_loss": 0.650634765625,
+          "probe_loss": 2.794921875,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.9375,
+          "probe_first": 0.025,
+          "probe_final": 0.0375,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.39338062405586244,
+          "gate_means": [
+            0.201104536652565,
+            0.3312901258468628,
+            0.3023221790790558
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1900,
+          "probe_weight": 0.0,
+          "loss": 2.898223876953125,
+          "query_loss": 2.849609375,
+          "local_loss": 0.0784912109375,
+          "probe_loss": 2.7529296875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.0125,
+          "probe_final": 0.025,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.3736345410346985,
+          "gate_means": [
+            0.19907143712043762,
+            0.31953397393226624,
+            0.31701815128326416
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2000,
+          "probe_weight": 0.0,
+          "loss": 2.760483741760254,
+          "query_loss": 2.673828125,
+          "local_loss": 0.15679931640625,
+          "probe_loss": 2.7490234375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.0625,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0625,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.26189489513635633,
+          "gate_means": [
+            0.19636964797973633,
+            0.318134069442749,
+            0.30253806710243225
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2100,
+          "probe_weight": 0.0,
+          "loss": 2.8213305473327637,
+          "query_loss": 2.76953125,
+          "local_loss": 0.0858917236328125,
+          "probe_loss": 2.787109375,
+          "total_tokens": 256,
+          "query": 0.175,
+          "local": 0.95,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.2520470157265663,
+          "gate_means": [
+            0.1948448121547699,
+            0.3001018166542053,
+            0.2969844341278076
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2200,
+          "probe_weight": 0.0,
+          "loss": 1.0422993898391724,
+          "query_loss": 0.989990234375,
+          "local_loss": 0.08379364013671875,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.55,
+          "local": 0.9875,
+          "probe_first": 0.0125,
+          "probe_final": 0.0875,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.29948313236236573,
+          "gate_means": [
+            0.1820179969072342,
+            0.3019556403160095,
+            0.27330127358436584
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2300,
+          "probe_weight": 0.0,
+          "loss": 0.5371271371841431,
+          "query_loss": 0.4937744140625,
+          "local_loss": 0.06693267822265625,
+          "probe_loss": 2.8037109375,
+          "total_tokens": 256,
+          "query": 0.8,
+          "local": 0.975,
+          "probe_first": 0.025,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.025,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.4074912428855896,
+          "gate_means": [
+            0.18862032890319824,
+            0.296181321144104,
+            0.26380062103271484
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2400,
+          "probe_weight": 0.0,
+          "loss": 1.076351284980774,
+          "query_loss": 0.8556671142578125,
+          "local_loss": 0.42218780517578125,
+          "probe_loss": 2.7861328125,
+          "total_tokens": 256,
+          "query": 0.975,
+          "local": 1.0,
+          "probe_first": 0.0875,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0875,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.2950888887047768,
+          "gate_means": [
+            0.19337277114391327,
+            0.29094478487968445,
+            0.26519617438316345
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2500,
+          "probe_weight": 0.0,
+          "loss": 0.02432635799050331,
+          "query_loss": 0.009097099304199219,
+          "local_loss": 0.01453399658203125,
+          "probe_loss": 2.7646484375,
+          "total_tokens": 256,
+          "query": 0.925,
+          "local": 0.95,
+          "probe_first": 0.0375,
+          "probe_final": 0.0625,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.29173222184181213,
+          "gate_means": [
+            0.17472834885120392,
+            0.2657155990600586,
+            0.24227823317050934
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2600,
+          "probe_weight": 0.0,
+          "loss": 0.010683964006602764,
+          "query_loss": 0.0027618408203125,
+          "local_loss": 0.003376007080078125,
+          "probe_loss": 2.7578125,
+          "total_tokens": 256,
+          "query": 1.0,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.1125,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1125
+          ],
+          "memory_first_final_cosine": 0.13214528188109398,
+          "gate_means": [
+            0.1579245626926422,
+            0.24962469935417175,
+            0.2626888155937195
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2700,
+          "probe_weight": 0.0,
+          "loss": 0.01297752559185028,
+          "query_loss": 0.005650520324707031,
+          "local_loss": 0.0029363632202148438,
+          "probe_loss": 2.7724609375,
+          "total_tokens": 256,
+          "query": 0.9875,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.1,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.27315622121095656,
+          "gate_means": [
+            0.1608273833990097,
+            0.231685608625412,
+            0.21789783239364624
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2800,
+          "probe_weight": 0.0,
+          "loss": 0.10487346351146698,
+          "query_loss": 0.09221458435058594,
+          "local_loss": 0.016188621520996094,
+          "probe_loss": 2.7998046875,
+          "total_tokens": 256,
+          "query": 1.0,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.0875,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.20110292136669158,
+          "gate_means": [
+            0.15166553854942322,
+            0.21609792113304138,
+            0.21664831042289734
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2900,
+          "probe_weight": 0.0,
+          "loss": 0.006234250497072935,
+          "query_loss": 0.0011382102966308594,
+          "local_loss": 0.0014758110046386719,
+          "probe_loss": 2.7490234375,
+          "total_tokens": 256,
+          "query": 1.0,
+          "local": 1.0,
+          "probe_first": 0.1,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.1,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.20583758652210235,
+          "gate_means": [
+            0.15001077950000763,
+            0.19921085238456726,
+            0.21916057169437408
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 3000,
+          "probe_weight": 0.0,
+          "loss": 0.005218518432229757,
+          "query_loss": 0.0007538795471191406,
+          "local_loss": 0.0010733604431152344,
+          "probe_loss": 2.71484375,
+          "total_tokens": 256,
+          "query": 1.0,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.1375,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1375
+          ],
+          "memory_first_final_cosine": 0.1803012363612652,
+          "gate_means": [
+            0.15046681463718414,
+            0.18998947739601135,
+            0.2252272516489029
+          ],
+          "samples": 80
+        }
+      ],
+      "seconds": 198.1384070999993,
+      "peak_memory_mb": 58.45068359375
+    },
+    {
+      "profile": "hard100",
+      "seed": 313,
+      "scaffold_steps": 100,
+      "weighted_probe_steps": 50.0,
+      "curriculum_passed": false,
+      "maintenance": null,
+      "passed": false,
+      "stages": [
+        {
+          "chunks": 2,
+          "steps": 3000,
+          "passed": false,
+          "validation": {
+            "chunks": 2,
+            "total_tokens": 256,
+            "query": 0.2125,
+            "local": 0.95,
+            "probe_first": 0.1375,
+            "probe_final": 0.1375,
+            "probe_min": 0.1375,
+            "probe_by_chunk": [
+              0.1375,
+              0.1375
+            ],
+            "memory_first_final_cosine": 0.6271456241607666,
+            "gate_means": [
+              0.22535014152526855,
+              0.248017817735672,
+              0.21403342485427856
+            ],
+            "samples": 80
+          }
+        }
+      ],
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "probe_weight": 0.5,
+          "loss": 5.970117092132568,
+          "query_loss": 2.927734375,
+          "local_loss": 3.1171875,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9793353080749512,
+          "gate_means": [
+            0.4997776746749878,
+            0.5011228322982788,
+            0.5006051063537598
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 100,
+          "probe_weight": 0.5,
+          "loss": 5.5748982429504395,
+          "query_loss": 2.744140625,
+          "local_loss": 2.77734375,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.0625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9514041244983673,
+          "gate_means": [
+            0.4998863935470581,
+            0.4940680265426636,
+            0.49413836002349854
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 200,
+          "probe_weight": 0.0,
+          "loss": 4.243762016296387,
+          "query_loss": 2.81640625,
+          "local_loss": 2.77734375,
+          "probe_loss": 2.7138671875,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.075,
+          "probe_final": 0.0875,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9453385055065155,
+          "gate_means": [
+            0.47502225637435913,
+            0.49217766523361206,
+            0.48528802394866943
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 300,
+          "probe_weight": 0.0,
+          "loss": 4.2071051597595215,
+          "query_loss": 2.771484375,
+          "local_loss": 2.814453125,
+          "probe_loss": 2.724609375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.0625,
+          "probe_first": 0.05,
+          "probe_final": 0.0625,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9471386790275573,
+          "gate_means": [
+            0.46948593854904175,
+            0.48193150758743286,
+            0.47281569242477417
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 400,
+          "probe_weight": 0.0,
+          "loss": 4.136767864227295,
+          "query_loss": 2.755859375,
+          "local_loss": 2.7109375,
+          "probe_loss": 2.8037109375,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.05,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9606931626796722,
+          "gate_means": [
+            0.446663498878479,
+            0.4688301980495453,
+            0.46737152338027954
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 500,
+          "probe_weight": 0.0,
+          "loss": 3.987907648086548,
+          "query_loss": 2.62890625,
+          "local_loss": 2.67578125,
+          "probe_loss": 2.7451171875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.0375,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.9567265510559082,
+          "gate_means": [
+            0.42471450567245483,
+            0.45228925347328186,
+            0.4545151889324188
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 600,
+          "probe_weight": 0.0,
+          "loss": 4.086211204528809,
+          "query_loss": 2.716796875,
+          "local_loss": 2.69921875,
+          "probe_loss": 2.79296875,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.1,
+          "probe_first": 0.05,
+          "probe_final": 0.0875,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.939275985956192,
+          "gate_means": [
+            0.4282161593437195,
+            0.44586536288261414,
+            0.4525919556617737
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 700,
+          "probe_weight": 0.0,
+          "loss": 4.14172887802124,
+          "query_loss": 2.771484375,
+          "local_loss": 2.705078125,
+          "probe_loss": 2.7783203125,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.1375,
+          "probe_first": 0.0875,
+          "probe_final": 0.1,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.9245290279388427,
+          "gate_means": [
+            0.42096519470214844,
+            0.432550847530365,
+            0.447701096534729
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 800,
+          "probe_weight": 0.0,
+          "loss": 4.119227409362793,
+          "query_loss": 2.775390625,
+          "local_loss": 2.65625,
+          "probe_loss": 2.8203125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.125,
+          "probe_first": 0.025,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.9432598948478699,
+          "gate_means": [
+            0.4160947799682617,
+            0.4286336302757263,
+            0.4492541253566742
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 900,
+          "probe_weight": 0.0,
+          "loss": 4.120059490203857,
+          "query_loss": 2.6796875,
+          "local_loss": 2.8515625,
+          "probe_loss": 2.7919921875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.225,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9399215042591095,
+          "gate_means": [
+            0.39960312843322754,
+            0.40409302711486816,
+            0.41740089654922485
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1000,
+          "probe_weight": 0.0,
+          "loss": 4.240803241729736,
+          "query_loss": 2.876953125,
+          "local_loss": 2.69921875,
+          "probe_loss": 2.7646484375,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.2125,
+          "probe_first": 0.0375,
+          "probe_final": 0.05,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9365980982780456,
+          "gate_means": [
+            0.39101719856262207,
+            0.40612804889678955,
+            0.41763389110565186
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1100,
+          "probe_weight": 0.0,
+          "loss": 3.8632652759552,
+          "query_loss": 2.85546875,
+          "local_loss": 1.98828125,
+          "probe_loss": 2.78515625,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.25,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9074744284152985,
+          "gate_means": [
+            0.3817541003227234,
+            0.40120983123779297,
+            0.41294926404953003
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1200,
+          "probe_weight": 0.0,
+          "loss": 4.01010274887085,
+          "query_loss": 2.728515625,
+          "local_loss": 2.537109375,
+          "probe_loss": 2.7861328125,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.2125,
+          "probe_first": 0.0625,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0625,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9052158534526825,
+          "gate_means": [
+            0.3795357346534729,
+            0.39184340834617615,
+            0.40638500452041626
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1300,
+          "probe_weight": 0.0,
+          "loss": 3.7127819061279297,
+          "query_loss": 2.7421875,
+          "local_loss": 1.91650390625,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.3125,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.8591940820217132,
+          "gate_means": [
+            0.3562430739402771,
+            0.37484151124954224,
+            0.40294674038887024
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1400,
+          "probe_weight": 0.0,
+          "loss": 3.57171368598938,
+          "query_loss": 2.8125,
+          "local_loss": 1.49462890625,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.3875,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.8352436244487762,
+          "gate_means": [
+            0.359605073928833,
+            0.37004542350769043,
+            0.3966391980648041
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1500,
+          "probe_weight": 0.0,
+          "loss": 3.510613203048706,
+          "query_loss": 2.748046875,
+          "local_loss": 1.50146484375,
+          "probe_loss": 2.7275390625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.55,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7722019076347351,
+          "gate_means": [
+            0.3575761318206787,
+            0.3458588719367981,
+            0.3889862895011902
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1600,
+          "probe_weight": 0.0,
+          "loss": 3.4669759273529053,
+          "query_loss": 2.859375,
+          "local_loss": 1.1923828125,
+          "probe_loss": 2.7744140625,
+          "total_tokens": 256,
+          "query": 0.125,
+          "local": 0.4875,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7941154479980469,
+          "gate_means": [
+            0.3529887795448303,
+            0.3582647442817688,
+            0.37161654233932495
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1700,
+          "probe_weight": 0.0,
+          "loss": 3.400280714035034,
+          "query_loss": 2.755859375,
+          "local_loss": 1.26611328125,
+          "probe_loss": 2.7548828125,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.6125,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.8335556089878082,
+          "gate_means": [
+            0.331933856010437,
+            0.3538559079170227,
+            0.3882174491882324
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1800,
+          "probe_weight": 0.0,
+          "loss": 3.3396849632263184,
+          "query_loss": 2.794921875,
+          "local_loss": 1.067626953125,
+          "probe_loss": 2.7412109375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.75,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.7952712893486023,
+          "gate_means": [
+            0.34042131900787354,
+            0.3359963297843933,
+            0.37619930505752563
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1900,
+          "probe_weight": 0.0,
+          "loss": 3.385056972503662,
+          "query_loss": 3.0,
+          "local_loss": 0.74853515625,
+          "probe_loss": 2.7783203125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.8,
+          "probe_first": 0.025,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.780983817577362,
+          "gate_means": [
+            0.3468414843082428,
+            0.33577272295951843,
+            0.38349074125289917
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2000,
+          "probe_weight": 0.0,
+          "loss": 2.955066442489624,
+          "query_loss": 2.771484375,
+          "local_loss": 0.3465576171875,
+          "probe_loss": 2.775390625,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.8125,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8182311356067657,
+          "gate_means": [
+            0.3275856375694275,
+            0.3352862000465393,
+            0.3535991311073303
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2100,
+          "probe_weight": 0.0,
+          "loss": 3.2529375553131104,
+          "query_loss": 2.8203125,
+          "local_loss": 0.845458984375,
+          "probe_loss": 2.779296875,
+          "total_tokens": 256,
+          "query": 0.15,
+          "local": 0.875,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8391232967376709,
+          "gate_means": [
+            0.3035796880722046,
+            0.33169740438461304,
+            0.3518761694431305
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2200,
+          "probe_weight": 0.0,
+          "loss": 3.0561859607696533,
+          "query_loss": 2.943359375,
+          "local_loss": 0.206634521484375,
+          "probe_loss": 2.78125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.95,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.7840205788612366,
+          "gate_means": [
+            0.310040682554245,
+            0.3095793128013611,
+            0.34115684032440186
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2300,
+          "probe_weight": 0.0,
+          "loss": 3.007438898086548,
+          "query_loss": 2.859375,
+          "local_loss": 0.2777252197265625,
+          "probe_loss": 2.779296875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.925,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.796197110414505,
+          "gate_means": [
+            0.30289214849472046,
+            0.3268069624900818,
+            0.3318021297454834
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2400,
+          "probe_weight": 0.0,
+          "loss": 2.968721628189087,
+          "query_loss": 2.78515625,
+          "local_loss": 0.3492279052734375,
+          "probe_loss": 2.7626953125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.925,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7800486743450165,
+          "gate_means": [
+            0.27650508284568787,
+            0.3010401129722595,
+            0.30895859003067017
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2500,
+          "probe_weight": 0.0,
+          "loss": 2.843109130859375,
+          "query_loss": 2.82421875,
+          "local_loss": 0.01993560791015625,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.9625,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7462485790252685,
+          "gate_means": [
+            0.29487526416778564,
+            0.28738346695899963,
+            0.2953166365623474
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2600,
+          "probe_weight": 0.0,
+          "loss": 3.036381721496582,
+          "query_loss": 2.81640625,
+          "local_loss": 0.42406463623046875,
+          "probe_loss": 2.7626953125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9625,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.7116704642772674,
+          "gate_means": [
+            0.2626037299633026,
+            0.2836802005767822,
+            0.2777395248413086
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2700,
+          "probe_weight": 0.0,
+          "loss": 2.9837446212768555,
+          "query_loss": 2.955078125,
+          "local_loss": 0.04216766357421875,
+          "probe_loss": 2.7734375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.925,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.71991828083992,
+          "gate_means": [
+            0.25357499718666077,
+            0.2706180512905121,
+            0.28372490406036377
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2800,
+          "probe_weight": 0.0,
+          "loss": 2.9798531532287598,
+          "query_loss": 2.904296875,
+          "local_loss": 0.137115478515625,
+          "probe_loss": 2.791015625,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.975,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.66043701171875,
+          "gate_means": [
+            0.23641246557235718,
+            0.2678452432155609,
+            0.27271685004234314
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2900,
+          "probe_weight": 0.0,
+          "loss": 2.818249464035034,
+          "query_loss": 2.8046875,
+          "local_loss": 0.0136871337890625,
+          "probe_loss": 2.7841796875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.0875,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.6792310059070588,
+          "gate_means": [
+            0.2281683087348938,
+            0.2667190134525299,
+            0.24681714177131653
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 3000,
+          "probe_weight": 0.0,
+          "loss": 3.0173747539520264,
+          "query_loss": 2.763671875,
+          "local_loss": 0.490966796875,
+          "probe_loss": 2.7900390625,
+          "total_tokens": 256,
+          "query": 0.2125,
+          "local": 0.95,
+          "probe_first": 0.1375,
+          "probe_final": 0.1375,
+          "probe_min": 0.1375,
+          "probe_by_chunk": [
+            0.1375,
+            0.1375
+          ],
+          "memory_first_final_cosine": 0.6271456241607666,
+          "gate_means": [
+            0.22535014152526855,
+            0.248017817735672,
+            0.21403342485427856
+          ],
+          "samples": 80
+        }
+      ],
+      "seconds": 192.12247560000105,
+      "peak_memory_mb": 58.45068359375
+    },
+    {
+      "profile": "hard200",
+      "seed": 313,
+      "scaffold_steps": 200,
+      "weighted_probe_steps": 100.0,
+      "curriculum_passed": false,
+      "maintenance": null,
+      "passed": false,
+      "stages": [
+        {
+          "chunks": 2,
+          "steps": 3000,
+          "passed": false,
+          "validation": {
+            "chunks": 2,
+            "total_tokens": 256,
+            "query": 0.075,
+            "local": 0.9875,
+            "probe_first": 0.075,
+            "probe_final": 0.0875,
+            "probe_min": 0.075,
+            "probe_by_chunk": [
+              0.075,
+              0.0875
+            ],
+            "memory_first_final_cosine": 0.6965255022048951,
+            "gate_means": [
+              0.3084258437156677,
+              0.33458438515663147,
+              0.3580241799354553
+            ],
+            "samples": 80
+          }
+        }
+      ],
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "probe_weight": 0.5,
+          "loss": 5.970117092132568,
+          "query_loss": 2.927734375,
+          "local_loss": 3.1171875,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9793352842330932,
+          "gate_means": [
+            0.4997776746749878,
+            0.5011228322982788,
+            0.5006051063537598
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 100,
+          "probe_weight": 0.5,
+          "loss": 5.5719685554504395,
+          "query_loss": 2.7421875,
+          "local_loss": 2.775390625,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.0625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9514643013477325,
+          "gate_means": [
+            0.4998807907104492,
+            0.4940396547317505,
+            0.49415016174316406
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 200,
+          "probe_weight": 0.5,
+          "loss": 5.598339080810547,
+          "query_loss": 2.798828125,
+          "local_loss": 2.7421875,
+          "probe_loss": 2.7666015625,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.0125,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.9383144497871398,
+          "gate_means": [
+            0.49135497212409973,
+            0.49205636978149414,
+            0.4897272288799286
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 300,
+          "probe_weight": 0.0,
+          "loss": 4.20825719833374,
+          "query_loss": 2.775390625,
+          "local_loss": 2.802734375,
+          "probe_loss": 2.7734375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.075,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.943340641260147,
+          "gate_means": [
+            0.47866469621658325,
+            0.4906890392303467,
+            0.4814533293247223
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 400,
+          "probe_weight": 0.0,
+          "loss": 4.153303146362305,
+          "query_loss": 2.763671875,
+          "local_loss": 2.72265625,
+          "probe_loss": 2.685546875,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9496618568897247,
+          "gate_means": [
+            0.469138503074646,
+            0.48553159832954407,
+            0.47301581501960754
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 500,
+          "probe_weight": 0.0,
+          "loss": 3.996840238571167,
+          "query_loss": 2.63671875,
+          "local_loss": 2.671875,
+          "probe_loss": 2.763671875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.025,
+          "probe_first": 0.0875,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0875,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9357303738594055,
+          "gate_means": [
+            0.4521823227405548,
+            0.47246065735816956,
+            0.46759095788002014
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 600,
+          "probe_weight": 0.0,
+          "loss": 4.080413818359375,
+          "query_loss": 2.703125,
+          "local_loss": 2.708984375,
+          "probe_loss": 2.798828125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9082768857479095,
+          "gate_means": [
+            0.43925994634628296,
+            0.47773483395576477,
+            0.46718358993530273
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 700,
+          "probe_weight": 0.0,
+          "loss": 4.096238136291504,
+          "query_loss": 2.751953125,
+          "local_loss": 2.646484375,
+          "probe_loss": 2.80078125,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.1,
+          "probe_first": 0.1,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.1,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9575710296630859,
+          "gate_means": [
+            0.4317474067211151,
+            0.45973706245422363,
+            0.450429767370224
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 800,
+          "probe_weight": 0.0,
+          "loss": 4.0567474365234375,
+          "query_loss": 2.78125,
+          "local_loss": 2.5107421875,
+          "probe_loss": 2.8134765625,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.175,
+          "probe_first": 0.0375,
+          "probe_final": 0.125,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.125
+          ],
+          "memory_first_final_cosine": 0.9274482131004333,
+          "gate_means": [
+            0.4400123357772827,
+            0.45854508876800537,
+            0.47562044858932495
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 900,
+          "probe_weight": 0.0,
+          "loss": 3.821403980255127,
+          "query_loss": 2.6015625,
+          "local_loss": 2.40234375,
+          "probe_loss": 2.8134765625,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.225,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9362226665019989,
+          "gate_means": [
+            0.4377412796020508,
+            0.452294260263443,
+            0.4458027184009552
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1000,
+          "probe_weight": 0.0,
+          "loss": 4.1267218589782715,
+          "query_loss": 2.8671875,
+          "local_loss": 2.48388671875,
+          "probe_loss": 2.7470703125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.275,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9148732185363769,
+          "gate_means": [
+            0.42224040627479553,
+            0.44204044342041016,
+            0.4415266513824463
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1100,
+          "probe_weight": 0.0,
+          "loss": 3.914497137069702,
+          "query_loss": 2.810546875,
+          "local_loss": 2.173828125,
+          "probe_loss": 2.775390625,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.2125,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9446805000305176,
+          "gate_means": [
+            0.41102856397628784,
+            0.43964165449142456,
+            0.4333537220954895
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1200,
+          "probe_weight": 0.0,
+          "loss": 3.7468199729919434,
+          "query_loss": 2.759765625,
+          "local_loss": 1.9423828125,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.2625,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.9188384652137757,
+          "gate_means": [
+            0.39936578273773193,
+            0.4327157735824585,
+            0.4362183213233948
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1300,
+          "probe_weight": 0.0,
+          "loss": 3.598083972930908,
+          "query_loss": 2.771484375,
+          "local_loss": 1.6240234375,
+          "probe_loss": 2.7890625,
+          "total_tokens": 256,
+          "query": 0.1125,
+          "local": 0.375,
+          "probe_first": 0.1,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.1,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.8963390290737152,
+          "gate_means": [
+            0.3927178382873535,
+            0.42778337001800537,
+            0.43690428137779236
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1400,
+          "probe_weight": 0.0,
+          "loss": 3.735607862472534,
+          "query_loss": 2.779296875,
+          "local_loss": 1.8828125,
+          "probe_loss": 2.7744140625,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.475,
+          "probe_first": 0.0375,
+          "probe_final": 0.075,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8981064975261688,
+          "gate_means": [
+            0.40034598112106323,
+            0.42006716132164,
+            0.4354255199432373
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1500,
+          "probe_weight": 0.0,
+          "loss": 3.339024066925049,
+          "query_loss": 2.767578125,
+          "local_loss": 1.11279296875,
+          "probe_loss": 2.77734375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.475,
+          "probe_first": 0.0625,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0625,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.8569447815418243,
+          "gate_means": [
+            0.39944231510162354,
+            0.4179026782512665,
+            0.461341917514801
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1600,
+          "probe_weight": 0.0,
+          "loss": 3.6175854206085205,
+          "query_loss": 2.8828125,
+          "local_loss": 1.4423828125,
+          "probe_loss": 2.7763671875,
+          "total_tokens": 256,
+          "query": 0.125,
+          "local": 0.4875,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.7059377610683442,
+          "gate_means": [
+            0.38837671279907227,
+            0.42074960470199585,
+            0.4392595887184143
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1700,
+          "probe_weight": 0.0,
+          "loss": 3.2007405757904053,
+          "query_loss": 2.763671875,
+          "local_loss": 0.8477783203125,
+          "probe_loss": 2.728515625,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.4625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.7185088813304901,
+          "gate_means": [
+            0.3828393220901489,
+            0.4000656008720398,
+            0.42983561754226685
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1800,
+          "probe_weight": 0.0,
+          "loss": 3.3674192428588867,
+          "query_loss": 2.79296875,
+          "local_loss": 1.123779296875,
+          "probe_loss": 2.72265625,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.575,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.804945421218872,
+          "gate_means": [
+            0.38397541642189026,
+            0.399655282497406,
+            0.43270665407180786
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1900,
+          "probe_weight": 0.0,
+          "loss": 3.65108323097229,
+          "query_loss": 2.93359375,
+          "local_loss": 1.4090576171875,
+          "probe_loss": 2.787109375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.7125,
+          "probe_first": 0.0625,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0625,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.7779442965984344,
+          "gate_means": [
+            0.3906205892562866,
+            0.38481372594833374,
+            0.4295261800289154
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2000,
+          "probe_weight": 0.0,
+          "loss": 3.173260450363159,
+          "query_loss": 2.798828125,
+          "local_loss": 0.7236328125,
+          "probe_loss": 2.7607421875,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.5875,
+          "probe_first": 0.0375,
+          "probe_final": 0.0625,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.7890047192573547,
+          "gate_means": [
+            0.4078124165534973,
+            0.38577497005462646,
+            0.43202006816864014
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2100,
+          "probe_weight": 0.0,
+          "loss": 3.1794302463531494,
+          "query_loss": 2.837890625,
+          "local_loss": 0.6585693359375,
+          "probe_loss": 2.7900390625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.7125,
+          "probe_first": 0.0375,
+          "probe_final": 0.075,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.899295300245285,
+          "gate_means": [
+            0.39682143926620483,
+            0.3816353678703308,
+            0.41630497574806213
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2200,
+          "probe_weight": 0.0,
+          "loss": 3.2521731853485107,
+          "query_loss": 2.896484375,
+          "local_loss": 0.685546875,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.8625,
+          "probe_first": 0.0875,
+          "probe_final": 0.1125,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.1125
+          ],
+          "memory_first_final_cosine": 0.8763674557209015,
+          "gate_means": [
+            0.4025256633758545,
+            0.38946855068206787,
+            0.3895069360733032
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2300,
+          "probe_weight": 0.0,
+          "loss": 2.9970321655273438,
+          "query_loss": 2.814453125,
+          "local_loss": 0.34152984619140625,
+          "probe_loss": 2.7900390625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.8125,
+          "probe_first": 0.075,
+          "probe_final": 0.1,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.896734070777893,
+          "gate_means": [
+            0.40027058124542236,
+            0.38737374544143677,
+            0.4128988981246948
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2400,
+          "probe_weight": 0.0,
+          "loss": 2.877743721008301,
+          "query_loss": 2.6953125,
+          "local_loss": 0.341461181640625,
+          "probe_loss": 2.7724609375,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.9125,
+          "probe_first": 0.0625,
+          "probe_final": 0.1,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.8731091320514679,
+          "gate_means": [
+            0.3916652798652649,
+            0.3759182095527649,
+            0.3849286139011383
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2500,
+          "probe_weight": 0.0,
+          "loss": 3.0570077896118164,
+          "query_loss": 2.763671875,
+          "local_loss": 0.5644989013671875,
+          "probe_loss": 2.74609375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9375,
+          "probe_first": 0.0875,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0875,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.8654057562351227,
+          "gate_means": [
+            0.3874802589416504,
+            0.350935697555542,
+            0.3701564371585846
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2600,
+          "probe_weight": 0.0,
+          "loss": 2.8952183723449707,
+          "query_loss": 2.8359375,
+          "local_loss": 0.0971221923828125,
+          "probe_loss": 2.748046875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 1.0,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.8465068459510803,
+          "gate_means": [
+            0.38125288486480713,
+            0.3570362329483032,
+            0.3851175904273987
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2700,
+          "probe_weight": 0.0,
+          "loss": 2.9337830543518066,
+          "query_loss": 2.90625,
+          "local_loss": 0.0352630615234375,
+          "probe_loss": 2.7763671875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 1.0,
+          "probe_first": 0.0375,
+          "probe_final": 0.05,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.7812800765037536,
+          "gate_means": [
+            0.3910391330718994,
+            0.3459818959236145,
+            0.34206533432006836
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2800,
+          "probe_weight": 0.0,
+          "loss": 3.1170103549957275,
+          "query_loss": 2.841796875,
+          "local_loss": 0.53253173828125,
+          "probe_loss": 2.765625,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.975,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7572621762752533,
+          "gate_means": [
+            0.37018030881881714,
+            0.3404133915901184,
+            0.34503740072250366
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2900,
+          "probe_weight": 0.0,
+          "loss": 2.8710663318634033,
+          "query_loss": 2.755859375,
+          "local_loss": 0.21402359008789062,
+          "probe_loss": 2.732421875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.0625,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.6599032759666443,
+          "gate_means": [
+            0.3318597078323364,
+            0.338589608669281,
+            0.3463422656059265
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 3000,
+          "probe_weight": 0.0,
+          "loss": 2.789147138595581,
+          "query_loss": 2.759765625,
+          "local_loss": 0.0438385009765625,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.9875,
+          "probe_first": 0.075,
+          "probe_final": 0.0875,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.6965255022048951,
+          "gate_means": [
+            0.3084258437156677,
+            0.33458438515663147,
+            0.3580241799354553
+          ],
+          "samples": 80
+        }
+      ],
+      "seconds": 192.79209150000315,
+      "peak_memory_mb": 58.45068359375
+    },
+    {
+      "profile": "hard400",
+      "seed": 313,
+      "scaffold_steps": 400,
+      "weighted_probe_steps": 200.0,
+      "curriculum_passed": false,
+      "maintenance": null,
+      "passed": false,
+      "stages": [
+        {
+          "chunks": 2,
+          "steps": 3000,
+          "passed": false,
+          "validation": {
+            "chunks": 2,
+            "total_tokens": 256,
+            "query": 0.075,
+            "local": 1.0,
+            "probe_first": 0.05,
+            "probe_final": 0.0625,
+            "probe_min": 0.05,
+            "probe_by_chunk": [
+              0.05,
+              0.0625
+            ],
+            "memory_first_final_cosine": 0.8072745442390442,
+            "gate_means": [
+              0.41282400488853455,
+              0.3005977272987366,
+              0.37534117698669434
+            ],
+            "samples": 80
+          }
+        }
+      ],
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "probe_weight": 0.5,
+          "loss": 5.970117092132568,
+          "query_loss": 2.927734375,
+          "local_loss": 3.1171875,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9793353080749512,
+          "gate_means": [
+            0.4997776746749878,
+            0.5011228322982788,
+            0.5006051063537598
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 100,
+          "probe_weight": 0.5,
+          "loss": 5.574904918670654,
+          "query_loss": 2.744140625,
+          "local_loss": 2.77734375,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.0625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9514167189598084,
+          "gate_means": [
+            0.49988603591918945,
+            0.49405694007873535,
+            0.4941592216491699
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 200,
+          "probe_weight": 0.5,
+          "loss": 5.598801136016846,
+          "query_loss": 2.798828125,
+          "local_loss": 2.744140625,
+          "probe_loss": 2.765625,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.0125,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.9382696866989135,
+          "gate_means": [
+            0.4913393557071686,
+            0.4920647144317627,
+            0.48969632387161255
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 300,
+          "probe_weight": 0.5,
+          "loss": 5.579732894897461,
+          "query_loss": 2.775390625,
+          "local_loss": 2.8046875,
+          "probe_loss": 2.7392578125,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.1,
+          "probe_first": 0.0375,
+          "probe_final": 0.05,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9279175996780396,
+          "gate_means": [
+            0.48349225521087646,
+            0.49051833152770996,
+            0.4850226640701294
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 400,
+          "probe_weight": 0.5,
+          "loss": 5.531243324279785,
+          "query_loss": 2.763671875,
+          "local_loss": 2.72265625,
+          "probe_loss": 2.7529296875,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.0875,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0875,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9004938185214997,
+          "gate_means": [
+            0.4900081157684326,
+            0.4876353144645691,
+            0.4922696352005005
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 500,
+          "probe_weight": 0.0,
+          "loss": 3.9925291538238525,
+          "query_loss": 2.634765625,
+          "local_loss": 2.662109375,
+          "probe_loss": 2.7529296875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.0875,
+          "probe_first": 0.0125,
+          "probe_final": 0.025,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.9255072057247162,
+          "gate_means": [
+            0.48264485597610474,
+            0.47890588641166687,
+            0.4805564284324646
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 600,
+          "probe_weight": 0.0,
+          "loss": 4.1233906745910645,
+          "query_loss": 2.720703125,
+          "local_loss": 2.76171875,
+          "probe_loss": 2.7568359375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.1125,
+          "probe_first": 0.05,
+          "probe_final": 0.075,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9278347373008728,
+          "gate_means": [
+            0.48231038451194763,
+            0.48220473527908325,
+            0.4776255786418915
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 700,
+          "probe_weight": 0.0,
+          "loss": 4.14971399307251,
+          "query_loss": 2.76953125,
+          "local_loss": 2.716796875,
+          "probe_loss": 2.7861328125,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.0875,
+          "probe_first": 0.075,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.075,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9289591193199158,
+          "gate_means": [
+            0.4779828190803528,
+            0.4790511429309845,
+            0.4671400189399719
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 800,
+          "probe_weight": 0.0,
+          "loss": 4.107516288757324,
+          "query_loss": 2.779296875,
+          "local_loss": 2.61328125,
+          "probe_loss": 2.83203125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.1875,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.942161351442337,
+          "gate_means": [
+            0.4785890281200409,
+            0.47364845871925354,
+            0.46212267875671387
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 900,
+          "probe_weight": 0.0,
+          "loss": 3.716081380844116,
+          "query_loss": 2.6640625,
+          "local_loss": 2.0615234375,
+          "probe_loss": 2.775390625,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.25,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9172059535980225,
+          "gate_means": [
+            0.48249107599258423,
+            0.47570833563804626,
+            0.46767890453338623
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1000,
+          "probe_weight": 0.0,
+          "loss": 3.9957034587860107,
+          "query_loss": 2.91015625,
+          "local_loss": 2.12890625,
+          "probe_loss": 2.751953125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.2375,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9413222193717956,
+          "gate_means": [
+            0.47728481888771057,
+            0.4639517664909363,
+            0.4581460952758789
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1100,
+          "probe_weight": 0.0,
+          "loss": 3.9807963371276855,
+          "query_loss": 2.859375,
+          "local_loss": 2.203125,
+          "probe_loss": 2.796875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.2,
+          "probe_first": 0.075,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.075,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.9320670902729035,
+          "gate_means": [
+            0.47074171900749207,
+            0.4665904641151428,
+            0.46780046820640564
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1200,
+          "probe_weight": 0.0,
+          "loss": 3.7606301307678223,
+          "query_loss": 2.759765625,
+          "local_loss": 1.962890625,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.325,
+          "probe_first": 0.1125,
+          "probe_final": 0.1125,
+          "probe_min": 0.1125,
+          "probe_by_chunk": [
+            0.1125,
+            0.1125
+          ],
+          "memory_first_final_cosine": 0.940712821483612,
+          "gate_means": [
+            0.47974690794944763,
+            0.45711749792099,
+            0.4633249342441559
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1300,
+          "probe_weight": 0.0,
+          "loss": 3.756227493286133,
+          "query_loss": 2.716796875,
+          "local_loss": 2.04052734375,
+          "probe_loss": 2.73828125,
+          "total_tokens": 256,
+          "query": 0.1125,
+          "local": 0.3125,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9402228116989135,
+          "gate_means": [
+            0.47439682483673096,
+            0.44341224431991577,
+            0.4523204267024994
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1400,
+          "probe_weight": 0.0,
+          "loss": 3.8465867042541504,
+          "query_loss": 2.794921875,
+          "local_loss": 2.0634765625,
+          "probe_loss": 2.732421875,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.3375,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9444695949554444,
+          "gate_means": [
+            0.47576066851615906,
+            0.43206608295440674,
+            0.4504093825817108
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1500,
+          "probe_weight": 0.0,
+          "loss": 3.5958478450775146,
+          "query_loss": 2.759765625,
+          "local_loss": 1.63525390625,
+          "probe_loss": 2.763671875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.4875,
+          "probe_first": 0.025,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.025,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.9282288372516632,
+          "gate_means": [
+            0.4695923328399658,
+            0.42365556955337524,
+            0.45235586166381836
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1600,
+          "probe_weight": 0.0,
+          "loss": 3.4682133197784424,
+          "query_loss": 2.89453125,
+          "local_loss": 1.107421875,
+          "probe_loss": 2.7841796875,
+          "total_tokens": 256,
+          "query": 0.1375,
+          "local": 0.5375,
+          "probe_first": 0.0375,
+          "probe_final": 0.0875,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9251594126224518,
+          "gate_means": [
+            0.46137604117393494,
+            0.4274398684501648,
+            0.45214712619781494
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1700,
+          "probe_weight": 0.0,
+          "loss": 3.4327614307403564,
+          "query_loss": 2.80078125,
+          "local_loss": 1.227294921875,
+          "probe_loss": 2.7255859375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.5625,
+          "probe_first": 0.1,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.1,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9043965697288513,
+          "gate_means": [
+            0.46193593740463257,
+            0.4203487038612366,
+            0.451143354177475
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1800,
+          "probe_weight": 0.0,
+          "loss": 3.381063938140869,
+          "query_loss": 2.7890625,
+          "local_loss": 1.1484375,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.525,
+          "probe_first": 0.0625,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0625,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.9235641360282898,
+          "gate_means": [
+            0.4572325646877289,
+            0.4163568615913391,
+            0.4445257782936096
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1900,
+          "probe_weight": 0.0,
+          "loss": 3.5619242191314697,
+          "query_loss": 2.9765625,
+          "local_loss": 1.13800048828125,
+          "probe_loss": 2.763671875,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.7125,
+          "probe_first": 0.05,
+          "probe_final": 0.075,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9233061134815216,
+          "gate_means": [
+            0.45258602499961853,
+            0.40304329991340637,
+            0.44973069429397583
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2000,
+          "probe_weight": 0.0,
+          "loss": 3.0461390018463135,
+          "query_loss": 2.78125,
+          "local_loss": 0.49688720703125,
+          "probe_loss": 2.7470703125,
+          "total_tokens": 256,
+          "query": 0.1125,
+          "local": 0.775,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.9219431221485138,
+          "gate_means": [
+            0.4605576694011688,
+            0.3968205451965332,
+            0.4677155613899231
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2100,
+          "probe_weight": 0.0,
+          "loss": 2.9923911094665527,
+          "query_loss": 2.83984375,
+          "local_loss": 0.27197265625,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.025,
+          "local": 0.8375,
+          "probe_first": 0.025,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.8804766297340393,
+          "gate_means": [
+            0.4516887068748474,
+            0.3935120105743408,
+            0.4577368497848511
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2200,
+          "probe_weight": 0.0,
+          "loss": 3.1505284309387207,
+          "query_loss": 2.97265625,
+          "local_loss": 0.324676513671875,
+          "probe_loss": 2.7666015625,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.9375,
+          "probe_first": 0.0875,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8943881690502167,
+          "gate_means": [
+            0.45062577724456787,
+            0.38866183161735535,
+            0.440156489610672
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2300,
+          "probe_weight": 0.0,
+          "loss": 3.005657196044922,
+          "query_loss": 2.900390625,
+          "local_loss": 0.1805877685546875,
+          "probe_loss": 2.8212890625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.95,
+          "probe_first": 0.1,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.1,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9113743901252747,
+          "gate_means": [
+            0.4535030424594879,
+            0.3665725588798523,
+            0.4417562782764435
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2400,
+          "probe_weight": 0.0,
+          "loss": 2.7775912284851074,
+          "query_loss": 2.703125,
+          "local_loss": 0.1197357177734375,
+          "probe_loss": 2.7646484375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.95,
+          "probe_first": 0.0875,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0875,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9095308542251587,
+          "gate_means": [
+            0.44641515612602234,
+            0.3606547713279724,
+            0.42063117027282715
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2500,
+          "probe_weight": 0.0,
+          "loss": 2.835608959197998,
+          "query_loss": 2.798828125,
+          "local_loss": 0.04467010498046875,
+          "probe_loss": 2.75,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.975,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8805361032485962,
+          "gate_means": [
+            0.44006550312042236,
+            0.3503682613372803,
+            0.42451733350753784
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2600,
+          "probe_weight": 0.0,
+          "loss": 2.862370252609253,
+          "query_loss": 2.833984375,
+          "local_loss": 0.029022216796875,
+          "probe_loss": 2.7724609375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 1.0,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8912951052188873,
+          "gate_means": [
+            0.4329988360404968,
+            0.3309224247932434,
+            0.4015476405620575
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2700,
+          "probe_weight": 0.0,
+          "loss": 2.979236125946045,
+          "query_loss": 2.9375,
+          "local_loss": 0.05631256103515625,
+          "probe_loss": 2.7841796875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.025,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.9083859205245972,
+          "gate_means": [
+            0.4282592535018921,
+            0.3178766071796417,
+            0.3744885325431824
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2800,
+          "probe_weight": 0.0,
+          "loss": 2.898960590362549,
+          "query_loss": 2.873046875,
+          "local_loss": 0.026630401611328125,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.1,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.8577629268169403,
+          "gate_means": [
+            0.4246567487716675,
+            0.32802286744117737,
+            0.3934389054775238
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2900,
+          "probe_weight": 0.0,
+          "loss": 2.844876527786255,
+          "query_loss": 2.80859375,
+          "local_loss": 0.047710418701171875,
+          "probe_loss": 2.7255859375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.0375,
+          "probe_final": 0.0875,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8618098318576812,
+          "gate_means": [
+            0.41600000858306885,
+            0.31308525800704956,
+            0.3693004250526428
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 3000,
+          "probe_weight": 0.0,
+          "loss": 2.8116750717163086,
+          "query_loss": 2.783203125,
+          "local_loss": 0.034423828125,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.0625,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.8072745442390442,
+          "gate_means": [
+            0.41282400488853455,
+            0.3005977272987366,
+            0.37534117698669434
+          ],
+          "samples": 80
+        }
+      ],
+      "seconds": 197.62938000000213,
+      "peak_memory_mb": 58.45068359375
+    },
+    {
+      "profile": "hard800",
+      "seed": 313,
+      "scaffold_steps": 800,
+      "weighted_probe_steps": 400.0,
+      "curriculum_passed": false,
+      "maintenance": null,
+      "passed": false,
+      "stages": [
+        {
+          "chunks": 2,
+          "steps": 3000,
+          "passed": false,
+          "validation": {
+            "chunks": 2,
+            "total_tokens": 256,
+            "query": 0.075,
+            "local": 0.9625,
+            "probe_first": 0.0625,
+            "probe_final": 0.0375,
+            "probe_min": 0.0375,
+            "probe_by_chunk": [
+              0.0625,
+              0.0375
+            ],
+            "memory_first_final_cosine": 0.8090808093547821,
+            "gate_means": [
+              0.47626954317092896,
+              0.3745864927768707,
+              0.37788933515548706
+            ],
+            "samples": 80
+          }
+        }
+      ],
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "probe_weight": 0.5,
+          "loss": 5.970117092132568,
+          "query_loss": 2.927734375,
+          "local_loss": 3.1171875,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9793352842330932,
+          "gate_means": [
+            0.4997776746749878,
+            0.5011228322982788,
+            0.5006051063537598
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 100,
+          "probe_weight": 0.5,
+          "loss": 5.5729570388793945,
+          "query_loss": 2.7421875,
+          "local_loss": 2.77734375,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.0625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9513460636138916,
+          "gate_means": [
+            0.4998784065246582,
+            0.49406611919403076,
+            0.49416375160217285
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 200,
+          "probe_weight": 0.5,
+          "loss": 5.599794387817383,
+          "query_loss": 2.798828125,
+          "local_loss": 2.74609375,
+          "probe_loss": 2.765625,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.0125,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.9386290669441223,
+          "gate_means": [
+            0.49133774638175964,
+            0.49210846424102783,
+            0.4897255599498749
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 300,
+          "probe_weight": 0.5,
+          "loss": 5.576862812042236,
+          "query_loss": 2.7734375,
+          "local_loss": 2.802734375,
+          "probe_loss": 2.7392578125,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.0875,
+          "probe_first": 0.0375,
+          "probe_final": 0.05,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9278665781021118,
+          "gate_means": [
+            0.48355430364608765,
+            0.4904888868331909,
+            0.4850517511367798
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 400,
+          "probe_weight": 0.5,
+          "loss": 5.532161235809326,
+          "query_loss": 2.763671875,
+          "local_loss": 2.724609375,
+          "probe_loss": 2.7529296875,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.1,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.1,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9000875294208527,
+          "gate_means": [
+            0.48993170261383057,
+            0.48757970333099365,
+            0.4921870827674866
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 500,
+          "probe_weight": 0.5,
+          "loss": 5.329364776611328,
+          "query_loss": 2.630859375,
+          "local_loss": 2.66796875,
+          "probe_loss": 2.673828125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.0875,
+          "probe_first": 0.1125,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.1125,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9152427613735199,
+          "gate_means": [
+            0.486918568611145,
+            0.48924851417541504,
+            0.4894673824310303
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 600,
+          "probe_weight": 0.5,
+          "loss": 5.502060890197754,
+          "query_loss": 2.728515625,
+          "local_loss": 2.76953125,
+          "probe_loss": 2.7314453125,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.0875,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8828048408031464,
+          "gate_means": [
+            0.48653221130371094,
+            0.47357118129730225,
+            0.4813103675842285
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 700,
+          "probe_weight": 0.5,
+          "loss": 5.5084686279296875,
+          "query_loss": 2.76953125,
+          "local_loss": 2.65625,
+          "probe_loss": 2.77734375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.1,
+          "probe_first": 0.075,
+          "probe_final": 0.1,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.9340654373168945,
+          "gate_means": [
+            0.4731443226337433,
+            0.4767204523086548,
+            0.46478602290153503
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 800,
+          "probe_weight": 0.5,
+          "loss": 5.458072662353516,
+          "query_loss": 2.751953125,
+          "local_loss": 2.607421875,
+          "probe_loss": 2.759765625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.15,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.8018599092960358,
+          "gate_means": [
+            0.4900531768798828,
+            0.48330891132354736,
+            0.4768061637878418
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 900,
+          "probe_weight": 0.0,
+          "loss": 4.0162200927734375,
+          "query_loss": 2.712890625,
+          "local_loss": 2.5634765625,
+          "probe_loss": 2.755859375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.2375,
+          "probe_first": 0.1,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.1,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8812819600105286,
+          "gate_means": [
+            0.48041486740112305,
+            0.47734105587005615,
+            0.47854313254356384
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1000,
+          "probe_weight": 0.0,
+          "loss": 4.125156402587891,
+          "query_loss": 2.853515625,
+          "local_loss": 2.5009765625,
+          "probe_loss": 2.7880859375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.2,
+          "probe_first": 0.05,
+          "probe_final": 0.0875,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8752773225307464,
+          "gate_means": [
+            0.4775763750076294,
+            0.4768742322921753,
+            0.4768933951854706
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1100,
+          "probe_weight": 0.0,
+          "loss": 3.958242893218994,
+          "query_loss": 2.845703125,
+          "local_loss": 2.18359375,
+          "probe_loss": 2.8076171875,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.2125,
+          "probe_first": 0.05,
+          "probe_final": 0.1,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.8836597979068757,
+          "gate_means": [
+            0.47432875633239746,
+            0.4758039712905884,
+            0.4736690819263458
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1200,
+          "probe_weight": 0.0,
+          "loss": 3.907148838043213,
+          "query_loss": 2.7578125,
+          "local_loss": 2.259765625,
+          "probe_loss": 2.77734375,
+          "total_tokens": 256,
+          "query": 0.025,
+          "local": 0.1875,
+          "probe_first": 0.0875,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0875,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9022142291069031,
+          "gate_means": [
+            0.4771513342857361,
+            0.47129949927330017,
+            0.4698673486709595
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1300,
+          "probe_weight": 0.0,
+          "loss": 3.817321300506592,
+          "query_loss": 2.7265625,
+          "local_loss": 2.14208984375,
+          "probe_loss": 2.7236328125,
+          "total_tokens": 256,
+          "query": 0.1125,
+          "local": 0.35,
+          "probe_first": 0.0875,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0875,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.8996621072292328,
+          "gate_means": [
+            0.4751889705657959,
+            0.4690254330635071,
+            0.472771018743515
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1400,
+          "probe_weight": 0.0,
+          "loss": 3.6996796131134033,
+          "query_loss": 2.7890625,
+          "local_loss": 1.7822265625,
+          "probe_loss": 2.7587890625,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.3375,
+          "probe_first": 0.075,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.075,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.8616637051105499,
+          "gate_means": [
+            0.47358226776123047,
+            0.4674944281578064,
+            0.4647231698036194
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1500,
+          "probe_weight": 0.0,
+          "loss": 3.6041674613952637,
+          "query_loss": 2.791015625,
+          "local_loss": 1.58740234375,
+          "probe_loss": 2.8017578125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.4375,
+          "probe_first": 0.0125,
+          "probe_final": 0.05,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.0125,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.7762447476387024,
+          "gate_means": [
+            0.47670406103134155,
+            0.46301090717315674,
+            0.4636392593383789
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1600,
+          "probe_weight": 0.0,
+          "loss": 3.689502000808716,
+          "query_loss": 2.865234375,
+          "local_loss": 1.60595703125,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.4375,
+          "probe_first": 0.0875,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8889667749404907,
+          "gate_means": [
+            0.46846699714660645,
+            0.44645386934280396,
+            0.47066667675971985
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1700,
+          "probe_weight": 0.0,
+          "loss": 3.8052985668182373,
+          "query_loss": 2.783203125,
+          "local_loss": 2.005859375,
+          "probe_loss": 2.7353515625,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.5,
+          "probe_first": 0.05,
+          "probe_final": 0.075,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7609903812408447,
+          "gate_means": [
+            0.4745786786079407,
+            0.44475236535072327,
+            0.4684486985206604
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1800,
+          "probe_weight": 0.0,
+          "loss": 3.3922812938690186,
+          "query_loss": 2.810546875,
+          "local_loss": 1.125,
+          "probe_loss": 2.7490234375,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.6125,
+          "probe_first": 0.1125,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.1125,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8486089408397675,
+          "gate_means": [
+            0.47601306438446045,
+            0.4374995231628418,
+            0.47083961963653564
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1900,
+          "probe_weight": 0.0,
+          "loss": 3.575922966003418,
+          "query_loss": 2.978515625,
+          "local_loss": 1.15826416015625,
+          "probe_loss": 2.7490234375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.6875,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.8854771554470062,
+          "gate_means": [
+            0.47804802656173706,
+            0.42441433668136597,
+            0.4668564796447754
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2000,
+          "probe_weight": 0.0,
+          "loss": 3.2000374794006348,
+          "query_loss": 2.765625,
+          "local_loss": 0.8314208984375,
+          "probe_loss": 2.7705078125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.7375,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.8392013490200043,
+          "gate_means": [
+            0.47817462682724,
+            0.4260207414627075,
+            0.4765351116657257
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2100,
+          "probe_weight": 0.0,
+          "loss": 3.3264760971069336,
+          "query_loss": 2.896484375,
+          "local_loss": 0.823486328125,
+          "probe_loss": 2.751953125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9375,
+          "probe_first": 0.05,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.05,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.9131252110004425,
+          "gate_means": [
+            0.4779338836669922,
+            0.4217252731323242,
+            0.47822484374046326
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2200,
+          "probe_weight": 0.0,
+          "loss": 2.995915651321411,
+          "query_loss": 2.931640625,
+          "local_loss": 0.0919342041015625,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.9375,
+          "probe_first": 0.05,
+          "probe_final": 0.075,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.914964747428894,
+          "gate_means": [
+            0.4796760082244873,
+            0.41939109563827515,
+            0.46644821763038635
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2300,
+          "probe_weight": 0.0,
+          "loss": 2.953791618347168,
+          "query_loss": 2.89453125,
+          "local_loss": 0.08331298828125,
+          "probe_loss": 2.798828125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.925,
+          "probe_first": 0.075,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.075,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.8406453728675842,
+          "gate_means": [
+            0.47843945026397705,
+            0.4164472818374634,
+            0.45188242197036743
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2400,
+          "probe_weight": 0.0,
+          "loss": 2.837348222732544,
+          "query_loss": 2.7890625,
+          "local_loss": 0.0619354248046875,
+          "probe_loss": 2.771484375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9625,
+          "probe_first": 0.05,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.8840085923671722,
+          "gate_means": [
+            0.4807419776916504,
+            0.4147118926048279,
+            0.4353293478488922
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2500,
+          "probe_weight": 0.0,
+          "loss": 2.854470729827881,
+          "query_loss": 2.810546875,
+          "local_loss": 0.05434417724609375,
+          "probe_loss": 2.791015625,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.975,
+          "probe_first": 0.025,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.025,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.8217759191989898,
+          "gate_means": [
+            0.4783409833908081,
+            0.4074218273162842,
+            0.4164908528327942
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2600,
+          "probe_weight": 0.0,
+          "loss": 2.864947557449341,
+          "query_loss": 2.828125,
+          "local_loss": 0.04328155517578125,
+          "probe_loss": 2.791015625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.975,
+          "probe_first": 0.0875,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.0875,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8730141222476959,
+          "gate_means": [
+            0.4833559989929199,
+            0.40491974353790283,
+            0.40603381395339966
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2700,
+          "probe_weight": 0.0,
+          "loss": 2.902735948562622,
+          "query_loss": 2.875,
+          "local_loss": 0.02655029296875,
+          "probe_loss": 2.8134765625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9625,
+          "probe_first": 0.1125,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.1125,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8590311110019684,
+          "gate_means": [
+            0.48034054040908813,
+            0.4035450220108032,
+            0.4109228551387787
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2800,
+          "probe_weight": 0.0,
+          "loss": 2.878330707550049,
+          "query_loss": 2.857421875,
+          "local_loss": 0.013881683349609375,
+          "probe_loss": 2.8037109375,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.9875,
+          "probe_first": 0.1,
+          "probe_final": 0.1,
+          "probe_min": 0.1,
+          "probe_by_chunk": [
+            0.1,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.8291732549667359,
+          "gate_means": [
+            0.4777669310569763,
+            0.395317405462265,
+            0.38731205463409424
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2900,
+          "probe_weight": 0.0,
+          "loss": 2.901254415512085,
+          "query_loss": 2.818359375,
+          "local_loss": 0.13925933837890625,
+          "probe_loss": 2.8017578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.1,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.1,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.7764434456825257,
+          "gate_means": [
+            0.4769256114959717,
+            0.383774071931839,
+            0.3998083472251892
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 3000,
+          "probe_weight": 0.0,
+          "loss": 2.829965353012085,
+          "query_loss": 2.8046875,
+          "local_loss": 0.025524139404296875,
+          "probe_loss": 2.79296875,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.9625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0625,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.8090808093547821,
+          "gate_means": [
+            0.47626954317092896,
+            0.3745864927768707,
+            0.37788933515548706
+          ],
+          "samples": 80
+        }
+      ],
+      "seconds": 192.33547660000113,
+      "peak_memory_mb": 58.45068359375
+    },
+    {
+      "profile": "anneal200",
+      "seed": 313,
+      "scaffold_steps": 200,
+      "weighted_probe_steps": 49.99999999999999,
+      "curriculum_passed": false,
+      "maintenance": null,
+      "passed": false,
+      "stages": [
+        {
+          "chunks": 2,
+          "steps": 3000,
+          "passed": false,
+          "validation": {
+            "chunks": 2,
+            "total_tokens": 256,
+            "query": 0.075,
+            "local": 0.975,
+            "probe_first": 0.075,
+            "probe_final": 0.075,
+            "probe_min": 0.075,
+            "probe_by_chunk": [
+              0.075,
+              0.075
+            ],
+            "memory_first_final_cosine": 0.15377401262521745,
+            "gate_means": [
+              0.20652982592582703,
+              0.2583281993865967,
+              0.1641002893447876
+            ],
+            "samples": 80
+          }
+        }
+      ],
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "probe_weight": 0.49875,
+          "loss": 5.966657638549805,
+          "query_loss": 2.927734375,
+          "local_loss": 3.1171875,
+          "probe_loss": 2.767578125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.075,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9793313145637512,
+          "gate_means": [
+            0.49978160858154297,
+            0.5011278390884399,
+            0.500607967376709
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 100,
+          "probe_weight": 0.25125,
+          "loss": 4.8771653175354,
+          "query_loss": 2.740234375,
+          "local_loss": 2.775390625,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.0625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.9519709348678589,
+          "gate_means": [
+            0.4999351501464844,
+            0.4947932958602905,
+            0.49472594261169434
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 200,
+          "probe_weight": 0.00125,
+          "loss": 4.229577541351318,
+          "query_loss": 2.80859375,
+          "local_loss": 2.75390625,
+          "probe_loss": 2.705078125,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9431999385356903,
+          "gate_means": [
+            0.47325336933135986,
+            0.49439501762390137,
+            0.4876834750175476
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 300,
+          "probe_weight": 0.0,
+          "loss": 4.201156139373779,
+          "query_loss": 2.771484375,
+          "local_loss": 2.802734375,
+          "probe_loss": 2.716796875,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.05,
+          "probe_first": 0.0625,
+          "probe_final": 0.075,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.9496960163116455,
+          "gate_means": [
+            0.4647315442562103,
+            0.48364344239234924,
+            0.470380961894989
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 400,
+          "probe_weight": 0.0,
+          "loss": 4.142829418182373,
+          "query_loss": 2.759765625,
+          "local_loss": 2.71484375,
+          "probe_loss": 2.779296875,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.0375,
+          "probe_first": 0.0875,
+          "probe_final": 0.0875,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9577294707298278,
+          "gate_means": [
+            0.44246190786361694,
+            0.47338002920150757,
+            0.4598461389541626
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 500,
+          "probe_weight": 0.0,
+          "loss": 3.9903929233551025,
+          "query_loss": 2.6328125,
+          "local_loss": 2.671875,
+          "probe_loss": 2.7353515625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.05,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.9412505328655243,
+          "gate_means": [
+            0.4263001084327698,
+            0.4529893398284912,
+            0.452776700258255
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 600,
+          "probe_weight": 0.0,
+          "loss": 4.078773021697998,
+          "query_loss": 2.71484375,
+          "local_loss": 2.6875,
+          "probe_loss": 2.7724609375,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.1125,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.9487425327301026,
+          "gate_means": [
+            0.42374640703201294,
+            0.4507138431072235,
+            0.442438006401062
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 700,
+          "probe_weight": 0.0,
+          "loss": 4.14477014541626,
+          "query_loss": 2.765625,
+          "local_loss": 2.72265625,
+          "probe_loss": 2.8125,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.1,
+          "probe_first": 0.05,
+          "probe_final": 0.1,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.9509187996387481,
+          "gate_means": [
+            0.41059955954551697,
+            0.42229163646698,
+            0.4415217936038971
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 800,
+          "probe_weight": 0.0,
+          "loss": 4.162755012512207,
+          "query_loss": 2.80078125,
+          "local_loss": 2.689453125,
+          "probe_loss": 2.8173828125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.1,
+          "probe_first": 0.05,
+          "probe_final": 0.025,
+          "probe_min": 0.025,
+          "probe_by_chunk": [
+            0.05,
+            0.025
+          ],
+          "memory_first_final_cosine": 0.9346753716468811,
+          "gate_means": [
+            0.3891236186027527,
+            0.42478442192077637,
+            0.44421786069869995
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 900,
+          "probe_weight": 0.0,
+          "loss": 3.894294500350952,
+          "query_loss": 2.666015625,
+          "local_loss": 2.423828125,
+          "probe_loss": 2.7939453125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.2375,
+          "probe_first": 0.0375,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.9321067750453949,
+          "gate_means": [
+            0.40282580256462097,
+            0.4101223945617676,
+            0.4031323194503784
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1000,
+          "probe_weight": 0.0,
+          "loss": 4.155124664306641,
+          "query_loss": 2.90234375,
+          "local_loss": 2.4755859375,
+          "probe_loss": 2.765625,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.2125,
+          "probe_first": 0.1,
+          "probe_final": 0.1125,
+          "probe_min": 0.1,
+          "probe_by_chunk": [
+            0.1,
+            0.1125
+          ],
+          "memory_first_final_cosine": 0.9015186250209808,
+          "gate_means": [
+            0.38778483867645264,
+            0.40018314123153687,
+            0.4695624113082886
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1100,
+          "probe_weight": 0.0,
+          "loss": 4.020473003387451,
+          "query_loss": 2.794921875,
+          "local_loss": 2.421875,
+          "probe_loss": 2.7529296875,
+          "total_tokens": 256,
+          "query": 0.025,
+          "local": 0.35,
+          "probe_first": 0.0875,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.0875,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.8606573283672333,
+          "gate_means": [
+            0.40298956632614136,
+            0.39587339758872986,
+            0.4167512059211731
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1200,
+          "probe_weight": 0.0,
+          "loss": 3.8310868740081787,
+          "query_loss": 2.7421875,
+          "local_loss": 2.14990234375,
+          "probe_loss": 2.7890625,
+          "total_tokens": 256,
+          "query": 0.0375,
+          "local": 0.3625,
+          "probe_first": 0.0375,
+          "probe_final": 0.05,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.9243947029113769,
+          "gate_means": [
+            0.3804246187210083,
+            0.3849078416824341,
+            0.42623060941696167
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1300,
+          "probe_weight": 0.0,
+          "loss": 3.528895378112793,
+          "query_loss": 2.76171875,
+          "local_loss": 1.5087890625,
+          "probe_loss": 2.78515625,
+          "total_tokens": 256,
+          "query": 0.1125,
+          "local": 0.45,
+          "probe_first": 0.1,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.1,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7824339210987091,
+          "gate_means": [
+            0.38405823707580566,
+            0.38495898246765137,
+            0.3389948010444641
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1400,
+          "probe_weight": 0.0,
+          "loss": 3.5973384380340576,
+          "query_loss": 2.82421875,
+          "local_loss": 1.521240234375,
+          "probe_loss": 2.78515625,
+          "total_tokens": 256,
+          "query": 0.0125,
+          "local": 0.625,
+          "probe_first": 0.075,
+          "probe_final": 0.0875,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.8590539216995239,
+          "gate_means": [
+            0.3772057294845581,
+            0.3866935670375824,
+            0.3250875771045685
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1500,
+          "probe_weight": 0.0,
+          "loss": 3.220792531967163,
+          "query_loss": 2.73046875,
+          "local_loss": 0.9569091796875,
+          "probe_loss": 2.7744140625,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.8125,
+          "probe_first": 0.075,
+          "probe_final": 0.0125,
+          "probe_min": 0.0125,
+          "probe_by_chunk": [
+            0.075,
+            0.0125
+          ],
+          "memory_first_final_cosine": 0.8272824048995971,
+          "gate_means": [
+            0.3768919110298157,
+            0.3777889609336853,
+            0.32299211621284485
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1600,
+          "probe_weight": 0.0,
+          "loss": 3.106757402420044,
+          "query_loss": 2.8984375,
+          "local_loss": 0.3936767578125,
+          "probe_loss": 2.78125,
+          "total_tokens": 256,
+          "query": 0.1125,
+          "local": 0.825,
+          "probe_first": 0.0375,
+          "probe_final": 0.075,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.7298760294914246,
+          "gate_means": [
+            0.3575492203235626,
+            0.3693491220474243,
+            0.2856639623641968
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1700,
+          "probe_weight": 0.0,
+          "loss": 2.981384515762329,
+          "query_loss": 2.798828125,
+          "local_loss": 0.343841552734375,
+          "probe_loss": 2.76171875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.7,
+          "probe_first": 0.0625,
+          "probe_final": 0.0875,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0875
+          ],
+          "memory_first_final_cosine": 0.7832287192344666,
+          "gate_means": [
+            0.340680867433548,
+            0.3700956404209137,
+            0.2872680425643921
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1800,
+          "probe_weight": 0.0,
+          "loss": 3.0438594818115234,
+          "query_loss": 2.837890625,
+          "local_loss": 0.391082763671875,
+          "probe_loss": 2.7275390625,
+          "total_tokens": 256,
+          "query": 0.0875,
+          "local": 0.8375,
+          "probe_first": 0.075,
+          "probe_final": 0.0375,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.075,
+            0.0375
+          ],
+          "memory_first_final_cosine": 0.7098230183124542,
+          "gate_means": [
+            0.33622440695762634,
+            0.36259329319000244,
+            0.2625383138656616
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1900,
+          "probe_weight": 0.0,
+          "loss": 3.4598677158355713,
+          "query_loss": 3.021484375,
+          "local_loss": 0.857421875,
+          "probe_loss": 2.7861328125,
+          "total_tokens": 256,
+          "query": 0.0625,
+          "local": 0.85,
+          "probe_first": 0.0625,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0625,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.6432679176330567,
+          "gate_means": [
+            0.3195349872112274,
+            0.36587291955947876,
+            0.2616618871688843
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2000,
+          "probe_weight": 0.0,
+          "loss": 2.9901301860809326,
+          "query_loss": 2.79296875,
+          "local_loss": 0.3761749267578125,
+          "probe_loss": 2.7880859375,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.8875,
+          "probe_first": 0.0375,
+          "probe_final": 0.0625,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.5700781881809235,
+          "gate_means": [
+            0.31268903613090515,
+            0.36522752046585083,
+            0.24666693806648254
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2100,
+          "probe_weight": 0.0,
+          "loss": 3.213801860809326,
+          "query_loss": 2.853515625,
+          "local_loss": 0.7037353515625,
+          "probe_loss": 2.7861328125,
+          "total_tokens": 256,
+          "query": 0.1625,
+          "local": 0.95,
+          "probe_first": 0.0375,
+          "probe_final": 0.075,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.4491095572710037,
+          "gate_means": [
+            0.2725643515586853,
+            0.3582591414451599,
+            0.23926590383052826
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2200,
+          "probe_weight": 0.0,
+          "loss": 3.1362338066101074,
+          "query_loss": 2.94921875,
+          "local_loss": 0.359161376953125,
+          "probe_loss": 2.7705078125,
+          "total_tokens": 256,
+          "query": 0.025,
+          "local": 0.9,
+          "probe_first": 0.0875,
+          "probe_final": 0.1125,
+          "probe_min": 0.0875,
+          "probe_by_chunk": [
+            0.0875,
+            0.1125
+          ],
+          "memory_first_final_cosine": 0.4272077828645706,
+          "gate_means": [
+            0.2757313549518585,
+            0.3424525856971741,
+            0.2487396001815796
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2300,
+          "probe_weight": 0.0,
+          "loss": 2.9253931045532227,
+          "query_loss": 2.849609375,
+          "local_loss": 0.1371307373046875,
+          "probe_loss": 2.7734375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9625,
+          "probe_first": 0.0625,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.0625,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.40407685935497284,
+          "gate_means": [
+            0.2566639482975006,
+            0.33163881301879883,
+            0.2289845049381256
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2400,
+          "probe_weight": 0.0,
+          "loss": 2.7893967628479004,
+          "query_loss": 2.7578125,
+          "local_loss": 0.0505218505859375,
+          "probe_loss": 2.77734375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.975,
+          "probe_first": 0.075,
+          "probe_final": 0.0625,
+          "probe_min": 0.0625,
+          "probe_by_chunk": [
+            0.075,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.3960334837436676,
+          "gate_means": [
+            0.24700143933296204,
+            0.3300321102142334,
+            0.23687607049942017
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2500,
+          "probe_weight": 0.0,
+          "loss": 2.800671100616455,
+          "query_loss": 2.78515625,
+          "local_loss": 0.01975250244140625,
+          "probe_loss": 2.7607421875,
+          "total_tokens": 256,
+          "query": 0.0125,
+          "local": 0.975,
+          "probe_first": 0.0375,
+          "probe_final": 0.0625,
+          "probe_min": 0.0375,
+          "probe_by_chunk": [
+            0.0375,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.3999646633863449,
+          "gate_means": [
+            0.24228256940841675,
+            0.31596431136131287,
+            0.19328999519348145
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2600,
+          "probe_weight": 0.0,
+          "loss": 3.036381483078003,
+          "query_loss": 2.849609375,
+          "local_loss": 0.3630828857421875,
+          "probe_loss": 2.7529296875,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 1.0,
+          "probe_first": 0.05,
+          "probe_final": 0.0625,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.0625
+          ],
+          "memory_first_final_cosine": 0.322234708070755,
+          "gate_means": [
+            0.23490947484970093,
+            0.30271586775779724,
+            0.19751182198524475
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2700,
+          "probe_weight": 0.0,
+          "loss": 2.875311851501465,
+          "query_loss": 2.857421875,
+          "local_loss": 0.0255889892578125,
+          "probe_loss": 2.783203125,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.975,
+          "probe_first": 0.0625,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.0625,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.31155313849449157,
+          "gate_means": [
+            0.23122012615203857,
+            0.30328893661499023,
+            0.18640030920505524
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2800,
+          "probe_weight": 0.0,
+          "loss": 2.8475990295410156,
+          "query_loss": 2.8359375,
+          "local_loss": 0.0143280029296875,
+          "probe_loss": 2.7578125,
+          "total_tokens": 256,
+          "query": 0.1,
+          "local": 0.9625,
+          "probe_first": 0.075,
+          "probe_final": 0.05,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.075,
+            0.05
+          ],
+          "memory_first_final_cosine": 0.32786494493484497,
+          "gate_means": [
+            0.22143340110778809,
+            0.2813453674316406,
+            0.18322518467903137
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 2900,
+          "probe_weight": 0.0,
+          "loss": 2.868251085281372,
+          "query_loss": 2.8359375,
+          "local_loss": 0.05573272705078125,
+          "probe_loss": 2.755859375,
+          "total_tokens": 256,
+          "query": 0.05,
+          "local": 0.9875,
+          "probe_first": 0.05,
+          "probe_final": 0.1,
+          "probe_min": 0.05,
+          "probe_by_chunk": [
+            0.05,
+            0.1
+          ],
+          "memory_first_final_cosine": 0.22988365739583969,
+          "gate_means": [
+            0.2142622470855713,
+            0.270118772983551,
+            0.15701813995838165
+          ],
+          "samples": 80
+        },
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 3000,
+          "probe_weight": 0.0,
+          "loss": 2.7834761142730713,
+          "query_loss": 2.76171875,
+          "local_loss": 0.03527069091796875,
+          "probe_loss": 2.7900390625,
+          "total_tokens": 256,
+          "query": 0.075,
+          "local": 0.975,
+          "probe_first": 0.075,
+          "probe_final": 0.075,
+          "probe_min": 0.075,
+          "probe_by_chunk": [
+            0.075,
+            0.075
+          ],
+          "memory_first_final_cosine": 0.15377401262521745,
+          "gate_means": [
+            0.20652982592582703,
+            0.2583281993865967,
+            0.1641002893447876
+          ],
+          "samples": 80
+        }
+      ],
+      "seconds": 194.9914073,
+      "peak_memory_mb": 58.45068359375
+    }
+  ]
+}

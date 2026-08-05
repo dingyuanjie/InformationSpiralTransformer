@@ -1,0 +1,4213 @@
+{
+  "protocol": {
+    "variants": [
+      "transformer",
+      "ist-c"
+    ],
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "batch_size": 16,
+    "eval_batch_size": 16,
+    "eval_batches": 10,
+    "eval_every": 100,
+    "minimum_stage_steps": 500,
+    "stage1_max_steps": 3000,
+    "later_max_steps": 1000,
+    "gate_accuracy": 0.9,
+    "consecutive_passes": 2,
+    "lr": 0.001,
+    "output": "experiments/level5a1/formal",
+    "force": false
+  },
+  "summary": [
+    {
+      "variant": "transformer",
+      "parameters": 152403,
+      "successes": 5,
+      "runs": 5,
+      "success_rate": 1.0,
+      "mean_stage1_steps": 1600,
+      "std_stage1_steps": 282.842712474619,
+      "mean_seconds": 62.681440659999495,
+      "mean_peak_memory_mb": 93.8876953125
+    },
+    {
+      "variant": "ist-c",
+      "parameters": 345171,
+      "successes": 5,
+      "runs": 5,
+      "success_rate": 1.0,
+      "mean_stage1_steps": 2000,
+      "std_stage1_steps": 463.6809247747852,
+      "mean_seconds": 121.03976460000013,
+      "mean_peak_memory_mb": 165.478515625
+    }
+  ],
+  "runs": [
+    {
+      "variant": "transformer",
+      "seed": 313,
+      "parameters": 152403,
+      "completed_all_stages": true,
+      "seconds": 70.29945939999925,
+      "peak_memory_mb": 93.8876953125,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1800,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.94375,
+            "local_accuracy": 0.98125,
+            "query_loss": 0.19706668853759765,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 800,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.98125,
+            "local_accuracy": 1.0,
+            "query_loss": 0.06619582176208497,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 1.0,
+            "local_accuracy": 1.0,
+            "query_loss": 0.0011423945426940918,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.06875,
+          "query_loss": 2.894775390625,
+          "gradient_norm": 4.996071815490723
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.08125,
+          "query_loss": 2.7783203125,
+          "gradient_norm": 1.4227266311645508
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.1,
+          "query_loss": 2.79169921875,
+          "gradient_norm": 1.3514857292175293
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.25,
+          "query_loss": 2.761328125,
+          "gradient_norm": 2.45162296295166
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.1,
+          "local_accuracy": 0.45625,
+          "query_loss": 2.7607421875,
+          "gradient_norm": 2.5716402530670166
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.7,
+          "query_loss": 2.78876953125,
+          "gradient_norm": 3.052276372909546
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.0625,
+          "local_accuracy": 0.7875,
+          "query_loss": 2.773046875,
+          "gradient_norm": 6.453781604766846
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.89375,
+          "query_loss": 2.76396484375,
+          "gradient_norm": 3.2348692417144775
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.0625,
+          "local_accuracy": 0.9,
+          "query_loss": 2.79404296875,
+          "gradient_norm": 2.9227936267852783
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.88125,
+          "query_loss": 2.77578125,
+          "gradient_norm": 4.437057018280029
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.16875,
+          "local_accuracy": 0.88125,
+          "query_loss": 2.484619140625,
+          "gradient_norm": 7.330077171325684
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.60625,
+          "local_accuracy": 0.9125,
+          "query_loss": 1.277569580078125,
+          "gradient_norm": 16.5614013671875
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.9,
+          "local_accuracy": 0.975,
+          "query_loss": 0.38773040771484374,
+          "gradient_norm": 21.623870849609375
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.9125,
+          "query_loss": 0.6399017333984375,
+          "gradient_norm": 22.15496826171875
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.78125,
+          "local_accuracy": 0.9375,
+          "query_loss": 0.7491695404052734,
+          "gradient_norm": 18.616592407226562
+        },
+        {
+          "global_step": 1500,
+          "stage": 1,
+          "stage_step": 1500,
+          "length": 128,
+          "query_accuracy": 0.80625,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.5570693969726562,
+          "gradient_norm": 8.897077560424805
+        },
+        {
+          "global_step": 1600,
+          "stage": 1,
+          "stage_step": 1600,
+          "length": 128,
+          "query_accuracy": 0.88125,
+          "local_accuracy": 0.93125,
+          "query_loss": 0.5001407623291015,
+          "gradient_norm": 6.093008041381836
+        },
+        {
+          "global_step": 1700,
+          "stage": 1,
+          "stage_step": 1700,
+          "length": 128,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.30555877685546873,
+          "gradient_norm": 12.29639720916748
+        },
+        {
+          "global_step": 1800,
+          "stage": 1,
+          "stage_step": 1800,
+          "length": 128,
+          "query_accuracy": 0.94375,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.19706668853759765,
+          "gradient_norm": 17.887969970703125
+        },
+        {
+          "global_step": 1801,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.59375,
+          "local_accuracy": 0.6625,
+          "query_loss": 1.7630741119384765,
+          "gradient_norm": 27.35945701599121
+        },
+        {
+          "global_step": 1900,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.65,
+          "local_accuracy": 0.8,
+          "query_loss": 1.2799484252929687,
+          "gradient_norm": 17.94215202331543
+        },
+        {
+          "global_step": 2000,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.8125,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.628995704650879,
+          "gradient_norm": 46.56260299682617
+        },
+        {
+          "global_step": 2100,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.88125,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.39685688018798826,
+          "gradient_norm": 26.96803855895996
+        },
+        {
+          "global_step": 2200,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.90625,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.2484966278076172,
+          "gradient_norm": 16.883399963378906
+        },
+        {
+          "global_step": 2300,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.91875,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.26781129837036133,
+          "gradient_norm": 23.201168060302734
+        },
+        {
+          "global_step": 2400,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.875,
+          "local_accuracy": 0.95,
+          "query_loss": 0.4057034969329834,
+          "gradient_norm": 6.110386371612549
+        },
+        {
+          "global_step": 2500,
+          "stage": 2,
+          "stage_step": 700,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 1.0,
+          "query_loss": 0.02080714702606201,
+          "gradient_norm": 14.147553443908691
+        },
+        {
+          "global_step": 2600,
+          "stage": 2,
+          "stage_step": 800,
+          "length": 256,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 1.0,
+          "query_loss": 0.06619582176208497,
+          "gradient_norm": 0.011645802296698093
+        },
+        {
+          "global_step": 2601,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.34375,
+          "local_accuracy": 0.76875,
+          "query_loss": 3.3227296590805055,
+          "gradient_norm": 46.59126281738281
+        },
+        {
+          "global_step": 2700,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.9375,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.17224175930023194,
+          "gradient_norm": 7.115326404571533
+        },
+        {
+          "global_step": 2800,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.013485169410705567,
+          "gradient_norm": 0.21398930251598358
+        },
+        {
+          "global_step": 2900,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.95625,
+          "local_accuracy": 0.975,
+          "query_loss": 0.1725737929344177,
+          "gradient_norm": 2.502716302871704
+        },
+        {
+          "global_step": 3000,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.08565342426300049,
+          "gradient_norm": 8.912642478942871
+        },
+        {
+          "global_step": 3100,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.003787505626678467,
+          "gradient_norm": 0.01036166027188301
+        },
+        {
+          "global_step": 3200,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0011423945426940918,
+          "gradient_norm": 0.015394207090139389
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "transformer",
+      "seed": 42,
+      "parameters": 152403,
+      "completed_all_stages": true,
+      "seconds": 71.20641889999933,
+      "peak_memory_mb": 93.8876953125,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1800,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.9,
+            "local_accuracy": 0.95,
+            "query_loss": 0.35821056365966797,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 900,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.90625,
+            "local_accuracy": 0.9625,
+            "query_loss": 0.3239619255065918,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 800,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.93125,
+            "local_accuracy": 0.96875,
+            "query_loss": 0.25160624980926516,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.0375,
+          "local_accuracy": 0.03125,
+          "query_loss": 2.91806640625,
+          "gradient_norm": 2.453700304031372
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.10625,
+          "query_loss": 2.78544921875,
+          "gradient_norm": 1.4008054733276367
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.04375,
+          "local_accuracy": 0.04375,
+          "query_loss": 2.84248046875,
+          "gradient_norm": 1.5158600807189941
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.04375,
+          "local_accuracy": 0.19375,
+          "query_loss": 2.78720703125,
+          "gradient_norm": 1.0556795597076416
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.10625,
+          "local_accuracy": 0.3625,
+          "query_loss": 2.73447265625,
+          "gradient_norm": 2.9209089279174805
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.54375,
+          "query_loss": 2.78310546875,
+          "gradient_norm": 2.6875412464141846
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.71875,
+          "query_loss": 2.7427734375,
+          "gradient_norm": 4.634725570678711
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.775,
+          "query_loss": 2.76982421875,
+          "gradient_norm": 3.4724133014678955
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.8875,
+          "query_loss": 2.796044921875,
+          "gradient_norm": 3.7617602348327637
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.94375,
+          "query_loss": 2.78857421875,
+          "gradient_norm": 5.8961639404296875
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.18125,
+          "local_accuracy": 0.95,
+          "query_loss": 2.649169921875,
+          "gradient_norm": 4.321159839630127
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.53125,
+          "local_accuracy": 0.94375,
+          "query_loss": 1.35123291015625,
+          "gradient_norm": 9.39365291595459
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.7125,
+          "local_accuracy": 0.91875,
+          "query_loss": 1.0528396606445312,
+          "gradient_norm": 21.60951805114746
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.875,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.4498878479003906,
+          "gradient_norm": 9.827558517456055
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.9375,
+          "query_loss": 0.529079818725586,
+          "gradient_norm": 10.636765480041504
+        },
+        {
+          "global_step": 1500,
+          "stage": 1,
+          "stage_step": 1500,
+          "length": 128,
+          "query_accuracy": 0.90625,
+          "local_accuracy": 0.95,
+          "query_loss": 0.3216564178466797,
+          "gradient_norm": 2.8946492671966553
+        },
+        {
+          "global_step": 1600,
+          "stage": 1,
+          "stage_step": 1600,
+          "length": 128,
+          "query_accuracy": 0.875,
+          "local_accuracy": 0.90625,
+          "query_loss": 0.5040346145629883,
+          "gradient_norm": 8.08682632446289
+        },
+        {
+          "global_step": 1700,
+          "stage": 1,
+          "stage_step": 1700,
+          "length": 128,
+          "query_accuracy": 0.925,
+          "local_accuracy": 0.94375,
+          "query_loss": 0.3324567794799805,
+          "gradient_norm": 7.927382469177246
+        },
+        {
+          "global_step": 1800,
+          "stage": 1,
+          "stage_step": 1800,
+          "length": 128,
+          "query_accuracy": 0.9,
+          "local_accuracy": 0.95,
+          "query_loss": 0.35821056365966797,
+          "gradient_norm": 33.53754806518555
+        },
+        {
+          "global_step": 1801,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.48125,
+          "local_accuracy": 0.5625,
+          "query_loss": 2.2352788925170897,
+          "gradient_norm": 24.834348678588867
+        },
+        {
+          "global_step": 1900,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.625,
+          "local_accuracy": 0.6875,
+          "query_loss": 1.382638168334961,
+          "gradient_norm": 23.746618270874023
+        },
+        {
+          "global_step": 2000,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.725,
+          "local_accuracy": 0.78125,
+          "query_loss": 0.8448810577392578,
+          "gradient_norm": 12.07126522064209
+        },
+        {
+          "global_step": 2100,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.80625,
+          "local_accuracy": 0.85625,
+          "query_loss": 0.585612678527832,
+          "gradient_norm": 13.009349822998047
+        },
+        {
+          "global_step": 2200,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.85625,
+          "local_accuracy": 0.8875,
+          "query_loss": 0.4990871429443359,
+          "gradient_norm": 32.539180755615234
+        },
+        {
+          "global_step": 2300,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.88125,
+          "local_accuracy": 0.93125,
+          "query_loss": 0.40115747451782224,
+          "gradient_norm": 13.095653533935547
+        },
+        {
+          "global_step": 2400,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.925,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.21465892791748048,
+          "gradient_norm": 16.182497024536133
+        },
+        {
+          "global_step": 2500,
+          "stage": 2,
+          "stage_step": 700,
+          "length": 256,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.925,
+          "query_loss": 0.42888402938842773,
+          "gradient_norm": 32.190914154052734
+        },
+        {
+          "global_step": 2600,
+          "stage": 2,
+          "stage_step": 800,
+          "length": 256,
+          "query_accuracy": 0.925,
+          "local_accuracy": 0.95,
+          "query_loss": 0.21978797912597656,
+          "gradient_norm": 45.631591796875
+        },
+        {
+          "global_step": 2700,
+          "stage": 2,
+          "stage_step": 900,
+          "length": 256,
+          "query_accuracy": 0.90625,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.3239619255065918,
+          "gradient_norm": 3.799187421798706
+        },
+        {
+          "global_step": 2701,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.8125,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.5687466621398926,
+          "gradient_norm": 11.721821784973145
+        },
+        {
+          "global_step": 2800,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.85625,
+          "local_accuracy": 0.88125,
+          "query_loss": 0.42524733543396,
+          "gradient_norm": 23.94446563720703
+        },
+        {
+          "global_step": 2900,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 0.79375,
+          "local_accuracy": 0.9375,
+          "query_loss": 0.5286418437957764,
+          "gradient_norm": 17.39103126525879
+        },
+        {
+          "global_step": 3000,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.95625,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.13458237648010254,
+          "gradient_norm": 6.978336811065674
+        },
+        {
+          "global_step": 3100,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 0.90625,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.1699930191040039,
+          "gradient_norm": 20.094783782958984
+        },
+        {
+          "global_step": 3200,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 0.95625,
+          "local_accuracy": 0.975,
+          "query_loss": 0.1631598711013794,
+          "gradient_norm": 11.276721000671387
+        },
+        {
+          "global_step": 3300,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 0.89375,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.27665510177612307,
+          "gradient_norm": 4.743508338928223
+        },
+        {
+          "global_step": 3400,
+          "stage": 3,
+          "stage_step": 700,
+          "length": 512,
+          "query_accuracy": 0.94375,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.2427739143371582,
+          "gradient_norm": 16.357759475708008
+        },
+        {
+          "global_step": 3500,
+          "stage": 3,
+          "stage_step": 800,
+          "length": 512,
+          "query_accuracy": 0.93125,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.25160624980926516,
+          "gradient_norm": 9.829286575317383
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "transformer",
+      "seed": 2026,
+      "parameters": 152403,
+      "completed_all_stages": true,
+      "seconds": 70.55694620000031,
+      "peak_memory_mb": 93.8876953125,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1800,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.925,
+            "local_accuracy": 0.9875,
+            "query_loss": 0.21747026443481446,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 900,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.9,
+            "local_accuracy": 0.96875,
+            "query_loss": 0.3386859893798828,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.98125,
+            "local_accuracy": 0.99375,
+            "query_loss": 0.092276930809021,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.075,
+          "query_loss": 2.86689453125,
+          "gradient_norm": 3.3920106887817383
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.05,
+          "query_loss": 2.80673828125,
+          "gradient_norm": 1.9732969999313354
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.0875,
+          "query_loss": 2.77431640625,
+          "gradient_norm": 1.6092135906219482
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.20625,
+          "query_loss": 2.79521484375,
+          "gradient_norm": 2.9234776496887207
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.025,
+          "local_accuracy": 0.46875,
+          "query_loss": 2.80283203125,
+          "gradient_norm": 2.801398754119873
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.7,
+          "query_loss": 2.76318359375,
+          "gradient_norm": 3.9061567783355713
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.11875,
+          "local_accuracy": 0.76875,
+          "query_loss": 2.74208984375,
+          "gradient_norm": 3.80119252204895
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.79375,
+          "query_loss": 2.7875,
+          "gradient_norm": 5.262131690979004
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.8875,
+          "query_loss": 2.7953125,
+          "gradient_norm": 4.345144748687744
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.9375,
+          "query_loss": 2.7685546875,
+          "gradient_norm": 2.79848051071167
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.94375,
+          "query_loss": 2.74736328125,
+          "gradient_norm": 3.9176290035247803
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.11875,
+          "local_accuracy": 0.93125,
+          "query_loss": 2.55697021484375,
+          "gradient_norm": 3.033414125442505
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.425,
+          "local_accuracy": 0.90625,
+          "query_loss": 1.7580413818359375,
+          "gradient_norm": 5.600059509277344
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.5875,
+          "local_accuracy": 0.96875,
+          "query_loss": 1.3762313842773437,
+          "gradient_norm": 9.011197090148926
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.8,
+          "local_accuracy": 0.95,
+          "query_loss": 0.6543876647949218,
+          "gradient_norm": 14.148576736450195
+        },
+        {
+          "global_step": 1500,
+          "stage": 1,
+          "stage_step": 1500,
+          "length": 128,
+          "query_accuracy": 0.8,
+          "local_accuracy": 0.9375,
+          "query_loss": 0.8600860595703125,
+          "gradient_norm": 8.478411674499512
+        },
+        {
+          "global_step": 1600,
+          "stage": 1,
+          "stage_step": 1600,
+          "length": 128,
+          "query_accuracy": 0.81875,
+          "local_accuracy": 0.9125,
+          "query_loss": 0.6581069946289062,
+          "gradient_norm": 21.530065536499023
+        },
+        {
+          "global_step": 1700,
+          "stage": 1,
+          "stage_step": 1700,
+          "length": 128,
+          "query_accuracy": 0.94375,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.2453014373779297,
+          "gradient_norm": 9.351790428161621
+        },
+        {
+          "global_step": 1800,
+          "stage": 1,
+          "stage_step": 1800,
+          "length": 128,
+          "query_accuracy": 0.925,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.21747026443481446,
+          "gradient_norm": 4.224498271942139
+        },
+        {
+          "global_step": 1801,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.49375,
+          "local_accuracy": 0.65,
+          "query_loss": 2.1373401641845704,
+          "gradient_norm": 12.93118953704834
+        },
+        {
+          "global_step": 1900,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.6375,
+          "local_accuracy": 0.825,
+          "query_loss": 1.2316154479980468,
+          "gradient_norm": 11.893803596496582
+        },
+        {
+          "global_step": 2000,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.6625,
+          "local_accuracy": 0.85625,
+          "query_loss": 0.9879644393920899,
+          "gradient_norm": 9.912518501281738
+        },
+        {
+          "global_step": 2100,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.70625,
+          "local_accuracy": 0.89375,
+          "query_loss": 0.8516308784484863,
+          "gradient_norm": 14.459427833557129
+        },
+        {
+          "global_step": 2200,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.7875,
+          "local_accuracy": 0.925,
+          "query_loss": 0.5086175918579101,
+          "gradient_norm": 9.646219253540039
+        },
+        {
+          "global_step": 2300,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.8875,
+          "local_accuracy": 0.95,
+          "query_loss": 0.34887990951538084,
+          "gradient_norm": 23.329633712768555
+        },
+        {
+          "global_step": 2400,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.4197111129760742,
+          "gradient_norm": 12.690027236938477
+        },
+        {
+          "global_step": 2500,
+          "stage": 2,
+          "stage_step": 700,
+          "length": 256,
+          "query_accuracy": 0.89375,
+          "local_accuracy": 0.975,
+          "query_loss": 0.3160839080810547,
+          "gradient_norm": 10.797445297241211
+        },
+        {
+          "global_step": 2600,
+          "stage": 2,
+          "stage_step": 800,
+          "length": 256,
+          "query_accuracy": 0.90625,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.3520360469818115,
+          "gradient_norm": 7.678120136260986
+        },
+        {
+          "global_step": 2700,
+          "stage": 2,
+          "stage_step": 900,
+          "length": 256,
+          "query_accuracy": 0.9,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.3386859893798828,
+          "gradient_norm": 8.767295837402344
+        },
+        {
+          "global_step": 2701,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.4125,
+          "local_accuracy": 0.6125,
+          "query_loss": 2.868824863433838,
+          "gradient_norm": 34.103641510009766
+        },
+        {
+          "global_step": 2800,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.80625,
+          "local_accuracy": 0.9,
+          "query_loss": 0.5918153762817383,
+          "gradient_norm": 16.25855255126953
+        },
+        {
+          "global_step": 2900,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 0.85625,
+          "local_accuracy": 0.88125,
+          "query_loss": 0.44294538497924807,
+          "gradient_norm": 28.254716873168945
+        },
+        {
+          "global_step": 3000,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.8375,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.569324541091919,
+          "gradient_norm": 15.853877067565918
+        },
+        {
+          "global_step": 3100,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 0.84375,
+          "local_accuracy": 0.95,
+          "query_loss": 0.5280653476715088,
+          "gradient_norm": 18.430461883544922
+        },
+        {
+          "global_step": 3200,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 0.925,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.15953032970428466,
+          "gradient_norm": 8.043519020080566
+        },
+        {
+          "global_step": 3300,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.092276930809021,
+          "gradient_norm": 23.690370559692383
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "transformer",
+      "seed": 7,
+      "parameters": 152403,
+      "completed_all_stages": true,
+      "seconds": 49.90549749999991,
+      "peak_memory_mb": 93.8876953125,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1200,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.925,
+            "local_accuracy": 0.95,
+            "query_loss": 0.19064044952392578,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.98125,
+            "local_accuracy": 0.9875,
+            "query_loss": 0.05038447380065918,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 1.0,
+            "local_accuracy": 1.0,
+            "query_loss": 0.001007413864135742,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.0375,
+          "local_accuracy": 0.03125,
+          "query_loss": 2.9357421875,
+          "gradient_norm": 3.19431209564209
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.0625,
+          "query_loss": 2.7724609375,
+          "gradient_norm": 1.6039314270019531
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.0375,
+          "query_loss": 2.7900390625,
+          "gradient_norm": 1.0510061979293823
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.2,
+          "query_loss": 2.77626953125,
+          "gradient_norm": 2.0671393871307373
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.36875,
+          "query_loss": 2.786328125,
+          "gradient_norm": 2.688225746154785
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.0625,
+          "local_accuracy": 0.625,
+          "query_loss": 2.78271484375,
+          "gradient_norm": 2.6401939392089844
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.0625,
+          "local_accuracy": 0.86875,
+          "query_loss": 2.75546875,
+          "gradient_norm": 3.500800848007202
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.11875,
+          "local_accuracy": 0.875,
+          "query_loss": 2.777490234375,
+          "gradient_norm": 3.667705774307251
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.375,
+          "local_accuracy": 0.8125,
+          "query_loss": 1.7589111328125,
+          "gradient_norm": 6.920068264007568
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.675,
+          "local_accuracy": 0.8875,
+          "query_loss": 1.075555419921875,
+          "gradient_norm": 14.58545970916748
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.88125,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.42345504760742186,
+          "gradient_norm": 3.6893157958984375
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.93125,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.26381988525390626,
+          "gradient_norm": 11.997415542602539
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.925,
+          "local_accuracy": 0.95,
+          "query_loss": 0.19064044952392578,
+          "gradient_norm": 15.080222129821777
+        },
+        {
+          "global_step": 1201,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.59375,
+          "local_accuracy": 0.6125,
+          "query_loss": 1.7104000091552733,
+          "gradient_norm": 25.86953353881836
+        },
+        {
+          "global_step": 1300,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.89375,
+          "query_loss": 0.5107242584228515,
+          "gradient_norm": 7.350937843322754
+        },
+        {
+          "global_step": 1400,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.9375,
+          "local_accuracy": 0.95,
+          "query_loss": 0.19780025482177735,
+          "gradient_norm": 5.882396697998047
+        },
+        {
+          "global_step": 1500,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.050150299072265626,
+          "gradient_norm": 0.3873451054096222
+        },
+        {
+          "global_step": 1600,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.9875,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.05646572113037109,
+          "gradient_norm": 14.242240905761719
+        },
+        {
+          "global_step": 1700,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.03771257400512695,
+          "gradient_norm": 11.05782413482666
+        },
+        {
+          "global_step": 1800,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.05038447380065918,
+          "gradient_norm": 0.24271708726882935
+        },
+        {
+          "global_step": 1801,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.8125,
+          "local_accuracy": 0.975,
+          "query_loss": 0.5739081859588623,
+          "gradient_norm": 8.576936721801758
+        },
+        {
+          "global_step": 1900,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.9875,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.032961583137512206,
+          "gradient_norm": 2.2327017784118652
+        },
+        {
+          "global_step": 2000,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.0027007341384887697,
+          "gradient_norm": 1.0316051244735718
+        },
+        {
+          "global_step": 2100,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.012559866905212403,
+          "gradient_norm": 0.6229222416877747
+        },
+        {
+          "global_step": 2200,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0020093202590942385,
+          "gradient_norm": 0.011943941935896873
+        },
+        {
+          "global_step": 2300,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.004537260532379151,
+          "gradient_norm": 0.07005715370178223
+        },
+        {
+          "global_step": 2400,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.001007413864135742,
+          "gradient_norm": 0.07356559485197067
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "transformer",
+      "seed": 1234,
+      "parameters": 152403,
+      "completed_all_stages": true,
+      "seconds": 51.438881299998684,
+      "peak_memory_mb": 93.8876953125,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1400,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.9,
+            "local_accuracy": 0.94375,
+            "query_loss": 0.34205169677734376,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.93125,
+            "local_accuracy": 0.95625,
+            "query_loss": 0.38843445777893065,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.98125,
+            "local_accuracy": 0.99375,
+            "query_loss": 0.049156022071838376,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.04375,
+          "query_loss": 2.86708984375,
+          "gradient_norm": 4.177928924560547
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.0375,
+          "local_accuracy": 0.04375,
+          "query_loss": 2.82841796875,
+          "gradient_norm": 1.523990273475647
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.18125,
+          "query_loss": 2.78935546875,
+          "gradient_norm": 1.551031231880188
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.3625,
+          "query_loss": 2.7857421875,
+          "gradient_norm": 3.87812876701355
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.1125,
+          "local_accuracy": 0.53125,
+          "query_loss": 2.75927734375,
+          "gradient_norm": 3.875993013381958
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.1,
+          "local_accuracy": 0.76875,
+          "query_loss": 2.798046875,
+          "gradient_norm": 2.8024075031280518
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.875,
+          "query_loss": 2.7599609375,
+          "gradient_norm": 3.514784574508667
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.925,
+          "query_loss": 2.80390625,
+          "gradient_norm": 4.48814582824707
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.9375,
+          "query_loss": 2.782568359375,
+          "gradient_norm": 4.89074182510376
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.91875,
+          "query_loss": 2.80068359375,
+          "gradient_norm": 2.6994364261627197
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.13125,
+          "local_accuracy": 0.95625,
+          "query_loss": 2.682421875,
+          "gradient_norm": 2.7177271842956543
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.71875,
+          "local_accuracy": 0.9375,
+          "query_loss": 0.972845458984375,
+          "gradient_norm": 11.07487678527832
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.8625,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.5052001953125,
+          "gradient_norm": 4.899519443511963
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.90625,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.4126701354980469,
+          "gradient_norm": 13.394795417785645
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.9,
+          "local_accuracy": 0.94375,
+          "query_loss": 0.34205169677734376,
+          "gradient_norm": 7.193481922149658
+        },
+        {
+          "global_step": 1401,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.54375,
+          "local_accuracy": 0.6125,
+          "query_loss": 2.022573471069336,
+          "gradient_norm": 21.170766830444336
+        },
+        {
+          "global_step": 1500,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.74375,
+          "local_accuracy": 0.88125,
+          "query_loss": 0.807430648803711,
+          "gradient_norm": 14.361763000488281
+        },
+        {
+          "global_step": 1600,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 0.975,
+          "query_loss": 0.31968212127685547,
+          "gradient_norm": 12.482556343078613
+        },
+        {
+          "global_step": 1700,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.94375,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.18390073776245117,
+          "gradient_norm": 5.468480587005615
+        },
+        {
+          "global_step": 1800,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 1.0,
+          "query_loss": 0.01961069107055664,
+          "gradient_norm": 0.44561538100242615
+        },
+        {
+          "global_step": 1900,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.95625,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.1955944538116455,
+          "gradient_norm": 1.2350711822509766
+        },
+        {
+          "global_step": 2000,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.93125,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.38843445777893065,
+          "gradient_norm": 8.19044017791748
+        },
+        {
+          "global_step": 2001,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.45625,
+          "local_accuracy": 0.53125,
+          "query_loss": 2.71468243598938,
+          "gradient_norm": 32.84044647216797
+        },
+        {
+          "global_step": 2100,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.91875,
+          "local_accuracy": 0.975,
+          "query_loss": 0.34230995178222656,
+          "gradient_norm": 31.071901321411133
+        },
+        {
+          "global_step": 2200,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 1.0,
+          "query_loss": 0.015250086784362793,
+          "gradient_norm": 1.3165924549102783
+        },
+        {
+          "global_step": 2300,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.9875,
+          "local_accuracy": 1.0,
+          "query_loss": 0.08386423587799072,
+          "gradient_norm": 0.016995398327708244
+        },
+        {
+          "global_step": 2400,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 0.9875,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.03308701515197754,
+          "gradient_norm": 0.21966949105262756
+        },
+        {
+          "global_step": 2500,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0034201860427856444,
+          "gradient_norm": 0.017136050388216972
+        },
+        {
+          "global_step": 2600,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.049156022071838376,
+          "gradient_norm": 0.023172883316874504
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "ist-c",
+      "seed": 313,
+      "parameters": 345171,
+      "completed_all_stages": true,
+      "seconds": 109.31564900000012,
+      "peak_memory_mb": 165.478515625,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1400,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.95,
+            "local_accuracy": 0.95625,
+            "query_loss": 0.19234046936035157,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 1.0,
+            "local_accuracy": 1.0,
+            "query_loss": 0.0006212353706359863,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 1.0,
+            "local_accuracy": 1.0,
+            "query_loss": 0.0003179788589477539,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.05625,
+          "query_loss": 2.898046875,
+          "gradient_norm": 3.277339220046997
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.0625,
+          "query_loss": 2.772265625,
+          "gradient_norm": 1.7485346794128418
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.2375,
+          "query_loss": 2.795703125,
+          "gradient_norm": 1.8733924627304077
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.34375,
+          "query_loss": 2.738671875,
+          "gradient_norm": 2.963573932647705
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.14375,
+          "local_accuracy": 0.54375,
+          "query_loss": 2.7310546875,
+          "gradient_norm": 2.9326229095458984
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.0375,
+          "local_accuracy": 0.65625,
+          "query_loss": 2.79697265625,
+          "gradient_norm": 3.1757946014404297
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.11875,
+          "local_accuracy": 0.85625,
+          "query_loss": 2.7560546875,
+          "gradient_norm": 4.213242053985596
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.10625,
+          "local_accuracy": 0.875,
+          "query_loss": 2.713330078125,
+          "gradient_norm": 3.8364453315734863
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.90625,
+          "query_loss": 2.784521484375,
+          "gradient_norm": 4.282474517822266
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.0625,
+          "local_accuracy": 0.9125,
+          "query_loss": 2.78046875,
+          "gradient_norm": 4.168043613433838
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.94375,
+          "query_loss": 2.742333984375,
+          "gradient_norm": 2.6499645709991455
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.4625,
+          "local_accuracy": 0.9,
+          "query_loss": 1.875177001953125,
+          "gradient_norm": 8.717570304870605
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.95,
+          "query_loss": 0.5798599243164062,
+          "gradient_norm": 6.089111328125
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 0.94375,
+          "query_loss": 0.398883056640625,
+          "gradient_norm": 14.66547679901123
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.95,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.19234046936035157,
+          "gradient_norm": 8.879651069641113
+        },
+        {
+          "global_step": 1401,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.6375,
+          "local_accuracy": 0.68125,
+          "query_loss": 1.1865055084228515,
+          "gradient_norm": 24.431665420532227
+        },
+        {
+          "global_step": 1500,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.014290618896484374,
+          "gradient_norm": 0.9678382873535156
+        },
+        {
+          "global_step": 1600,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.002652549743652344,
+          "gradient_norm": 0.09949064999818802
+        },
+        {
+          "global_step": 1700,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 1.0,
+          "query_loss": 0.011102676391601562,
+          "gradient_norm": 0.015223643742501736
+        },
+        {
+          "global_step": 1800,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0013272523880004882,
+          "gradient_norm": 0.05933861806988716
+        },
+        {
+          "global_step": 1900,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0007930397987365723,
+          "gradient_norm": 0.006252978462725878
+        },
+        {
+          "global_step": 2000,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0006212353706359863,
+          "gradient_norm": 0.005819473881274462
+        },
+        {
+          "global_step": 2001,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.54375,
+          "local_accuracy": 1.0,
+          "query_loss": 1.774422550201416,
+          "gradient_norm": 44.86015319824219
+        },
+        {
+          "global_step": 2100,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0012550950050354004,
+          "gradient_norm": 0.03818608075380325
+        },
+        {
+          "global_step": 2200,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.000565183162689209,
+          "gradient_norm": 0.007048015948385
+        },
+        {
+          "global_step": 2300,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0006973981857299804,
+          "gradient_norm": 0.0032326888758689165
+        },
+        {
+          "global_step": 2400,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.00360795259475708,
+          "gradient_norm": 0.002768371719866991
+        },
+        {
+          "global_step": 2500,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0003659546375274658,
+          "gradient_norm": 0.004064755979925394
+        },
+        {
+          "global_step": 2600,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0003179788589477539,
+          "gradient_norm": 0.0031051887199282646
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "ist-c",
+      "seed": 42,
+      "parameters": 345171,
+      "completed_all_stages": true,
+      "seconds": 145.55300530000022,
+      "peak_memory_mb": 165.478515625,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 2300,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.95,
+            "local_accuracy": 0.975,
+            "query_loss": 0.1980912208557129,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 700,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.925,
+            "local_accuracy": 0.96875,
+            "query_loss": 0.21124029159545898,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 700,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.98125,
+            "local_accuracy": 0.98125,
+            "query_loss": 0.11522395610809326,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.06875,
+          "query_loss": 2.82958984375,
+          "gradient_norm": 2.2427620887756348
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.15625,
+          "query_loss": 2.77734375,
+          "gradient_norm": 1.8230348825454712
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.04375,
+          "local_accuracy": 0.2625,
+          "query_loss": 2.84482421875,
+          "gradient_norm": 2.439723491668701
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.4,
+          "query_loss": 2.77392578125,
+          "gradient_norm": 2.53863263130188
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.13125,
+          "local_accuracy": 0.53125,
+          "query_loss": 2.7197265625,
+          "gradient_norm": 4.571984767913818
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.1,
+          "local_accuracy": 0.63125,
+          "query_loss": 2.749267578125,
+          "gradient_norm": 2.829772710800171
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.13125,
+          "local_accuracy": 0.83125,
+          "query_loss": 2.724169921875,
+          "gradient_norm": 7.566461563110352
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.825,
+          "query_loss": 2.77158203125,
+          "gradient_norm": 3.047431707382202
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.83125,
+          "query_loss": 2.753125,
+          "gradient_norm": 3.0816802978515625
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.13125,
+          "local_accuracy": 0.86875,
+          "query_loss": 2.759619140625,
+          "gradient_norm": 4.61648416519165
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.1125,
+          "local_accuracy": 0.93125,
+          "query_loss": 2.72216796875,
+          "gradient_norm": 3.319869041442871
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.95,
+          "query_loss": 2.78779296875,
+          "gradient_norm": 3.6053192615509033
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.95625,
+          "query_loss": 2.762109375,
+          "gradient_norm": 3.08408260345459
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.95,
+          "query_loss": 2.80029296875,
+          "gradient_norm": 3.096999168395996
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.10625,
+          "local_accuracy": 0.93125,
+          "query_loss": 2.74970703125,
+          "gradient_norm": 4.4207000732421875
+        },
+        {
+          "global_step": 1500,
+          "stage": 1,
+          "stage_step": 1500,
+          "length": 128,
+          "query_accuracy": 0.11875,
+          "local_accuracy": 0.96875,
+          "query_loss": 2.722265625,
+          "gradient_norm": 3.5537185668945312
+        },
+        {
+          "global_step": 1600,
+          "stage": 1,
+          "stage_step": 1600,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.9625,
+          "query_loss": 2.744677734375,
+          "gradient_norm": 3.186750650405884
+        },
+        {
+          "global_step": 1700,
+          "stage": 1,
+          "stage_step": 1700,
+          "length": 128,
+          "query_accuracy": 0.25625,
+          "local_accuracy": 0.9625,
+          "query_loss": 2.291279602050781,
+          "gradient_norm": 4.935073375701904
+        },
+        {
+          "global_step": 1800,
+          "stage": 1,
+          "stage_step": 1800,
+          "length": 128,
+          "query_accuracy": 0.34375,
+          "local_accuracy": 0.9375,
+          "query_loss": 1.944329071044922,
+          "gradient_norm": 5.376395225524902
+        },
+        {
+          "global_step": 1900,
+          "stage": 1,
+          "stage_step": 1900,
+          "length": 128,
+          "query_accuracy": 0.75,
+          "local_accuracy": 0.88125,
+          "query_loss": 1.0015464782714845,
+          "gradient_norm": 28.91964340209961
+        },
+        {
+          "global_step": 2000,
+          "stage": 1,
+          "stage_step": 2000,
+          "length": 128,
+          "query_accuracy": 0.9,
+          "local_accuracy": 0.93125,
+          "query_loss": 0.5038105010986328,
+          "gradient_norm": 2.0174431800842285
+        },
+        {
+          "global_step": 2100,
+          "stage": 1,
+          "stage_step": 2100,
+          "length": 128,
+          "query_accuracy": 0.8125,
+          "local_accuracy": 0.875,
+          "query_loss": 0.9047853469848632,
+          "gradient_norm": 52.2542724609375
+        },
+        {
+          "global_step": 2200,
+          "stage": 1,
+          "stage_step": 2200,
+          "length": 128,
+          "query_accuracy": 0.96875,
+          "local_accuracy": 0.975,
+          "query_loss": 0.12402310371398925,
+          "gradient_norm": 22.320650100708008
+        },
+        {
+          "global_step": 2300,
+          "stage": 1,
+          "stage_step": 2300,
+          "length": 128,
+          "query_accuracy": 0.95,
+          "local_accuracy": 0.975,
+          "query_loss": 0.1980912208557129,
+          "gradient_norm": 41.103790283203125
+        },
+        {
+          "global_step": 2301,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.5375,
+          "local_accuracy": 0.5875,
+          "query_loss": 2.9466986656188965,
+          "gradient_norm": 48.649200439453125
+        },
+        {
+          "global_step": 2400,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.8375,
+          "local_accuracy": 0.84375,
+          "query_loss": 0.544218635559082,
+          "gradient_norm": 12.583240509033203
+        },
+        {
+          "global_step": 2500,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.94375,
+          "local_accuracy": 0.95625,
+          "query_loss": 0.2331632614135742,
+          "gradient_norm": 26.436016082763672
+        },
+        {
+          "global_step": 2600,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.91875,
+          "local_accuracy": 0.93125,
+          "query_loss": 0.27701616287231445,
+          "gradient_norm": 34.03572463989258
+        },
+        {
+          "global_step": 2700,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.9375,
+          "local_accuracy": 0.9375,
+          "query_loss": 0.22918462753295898,
+          "gradient_norm": 15.513800621032715
+        },
+        {
+          "global_step": 2800,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.89375,
+          "local_accuracy": 0.91875,
+          "query_loss": 0.5365598917007446,
+          "gradient_norm": 5.008514404296875
+        },
+        {
+          "global_step": 2900,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.9625,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.16343212127685547,
+          "gradient_norm": 22.740036010742188
+        },
+        {
+          "global_step": 3000,
+          "stage": 2,
+          "stage_step": 700,
+          "length": 256,
+          "query_accuracy": 0.925,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.21124029159545898,
+          "gradient_norm": 57.980430603027344
+        },
+        {
+          "global_step": 3001,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.15,
+          "local_accuracy": 0.1625,
+          "query_loss": 5.082984542846679,
+          "gradient_norm": 30.370716094970703
+        },
+        {
+          "global_step": 3100,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.7,
+          "local_accuracy": 0.7375,
+          "query_loss": 1.1035709381103516,
+          "gradient_norm": 14.899596214294434
+        },
+        {
+          "global_step": 3200,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 0.83125,
+          "local_accuracy": 0.8625,
+          "query_loss": 0.5555061340332031,
+          "gradient_norm": 16.952011108398438
+        },
+        {
+          "global_step": 3300,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.875,
+          "local_accuracy": 0.88125,
+          "query_loss": 0.43344430923461913,
+          "gradient_norm": 24.928049087524414
+        },
+        {
+          "global_step": 3400,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 0.89375,
+          "local_accuracy": 0.91875,
+          "query_loss": 0.40801248550415037,
+          "gradient_norm": 3.188028335571289
+        },
+        {
+          "global_step": 3500,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.86875,
+          "query_loss": 0.6005682468414306,
+          "gradient_norm": 72.79817962646484
+        },
+        {
+          "global_step": 3600,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 0.9375,
+          "local_accuracy": 0.94375,
+          "query_loss": 0.29570086002349855,
+          "gradient_norm": 5.638637542724609
+        },
+        {
+          "global_step": 3700,
+          "stage": 3,
+          "stage_step": 700,
+          "length": 512,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.11522395610809326,
+          "gradient_norm": 0.2124003767967224
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "ist-c",
+      "seed": 2026,
+      "parameters": 345171,
+      "completed_all_stages": true,
+      "seconds": 107.36681959999987,
+      "peak_memory_mb": 165.478515625,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1800,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.95,
+            "local_accuracy": 0.99375,
+            "query_loss": 0.09080843925476074,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 1.0,
+            "local_accuracy": 1.0,
+            "query_loss": 0.0005715370178222656,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 1.0,
+            "local_accuracy": 1.0,
+            "query_loss": 0.0003167629241943359,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.0625,
+          "local_accuracy": 0.09375,
+          "query_loss": 2.86162109375,
+          "gradient_norm": 2.612647533416748
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.05,
+          "query_loss": 2.79736328125,
+          "gradient_norm": 2.4149811267852783
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.05,
+          "query_loss": 2.76953125,
+          "gradient_norm": 1.9354466199874878
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.30625,
+          "query_loss": 2.78583984375,
+          "gradient_norm": 3.1678788661956787
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.49375,
+          "query_loss": 2.77705078125,
+          "gradient_norm": 2.864597797393799
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.85,
+          "query_loss": 2.784033203125,
+          "gradient_norm": 2.793107748031616
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.10625,
+          "local_accuracy": 0.8875,
+          "query_loss": 2.709765625,
+          "gradient_norm": 2.5507335662841797
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.975,
+          "query_loss": 2.7873046875,
+          "gradient_norm": 3.0017433166503906
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.1,
+          "local_accuracy": 0.95625,
+          "query_loss": 2.759716796875,
+          "gradient_norm": 1.8253109455108643
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.9875,
+          "query_loss": 2.752392578125,
+          "gradient_norm": 2.4156441688537598
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.15,
+          "local_accuracy": 0.99375,
+          "query_loss": 2.68857421875,
+          "gradient_norm": 3.5682153701782227
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.41875,
+          "local_accuracy": 0.925,
+          "query_loss": 1.96480712890625,
+          "gradient_norm": 4.2065653800964355
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.525,
+          "local_accuracy": 0.975,
+          "query_loss": 1.4732177734375,
+          "gradient_norm": 3.7371320724487305
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.675,
+          "local_accuracy": 0.99375,
+          "query_loss": 1.0907520294189452,
+          "gradient_norm": 5.72219181060791
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.68125,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.8387542724609375,
+          "gradient_norm": 4.62221097946167
+        },
+        {
+          "global_step": 1500,
+          "stage": 1,
+          "stage_step": 1500,
+          "length": 128,
+          "query_accuracy": 0.725,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.689576530456543,
+          "gradient_norm": 5.547032833099365
+        },
+        {
+          "global_step": 1600,
+          "stage": 1,
+          "stage_step": 1600,
+          "length": 128,
+          "query_accuracy": 0.84375,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.3609286308288574,
+          "gradient_norm": 1.7326319217681885
+        },
+        {
+          "global_step": 1700,
+          "stage": 1,
+          "stage_step": 1700,
+          "length": 128,
+          "query_accuracy": 0.9875,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.09400172233581543,
+          "gradient_norm": 9.24626350402832
+        },
+        {
+          "global_step": 1800,
+          "stage": 1,
+          "stage_step": 1800,
+          "length": 128,
+          "query_accuracy": 0.95,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.09080843925476074,
+          "gradient_norm": 0.12868863344192505
+        },
+        {
+          "global_step": 1801,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.5375,
+          "local_accuracy": 0.75,
+          "query_loss": 2.7178457021713256,
+          "gradient_norm": 56.785308837890625
+        },
+        {
+          "global_step": 1900,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.93125,
+          "local_accuracy": 0.875,
+          "query_loss": 0.2681939125061035,
+          "gradient_norm": 24.26215934753418
+        },
+        {
+          "global_step": 2000,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.007953000068664551,
+          "gradient_norm": 0.14426222443580627
+        },
+        {
+          "global_step": 2100,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.02226424217224121,
+          "gradient_norm": 23.196264266967773
+        },
+        {
+          "global_step": 2200,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.05104196071624756,
+          "gradient_norm": 0.05579705908894539
+        },
+        {
+          "global_step": 2300,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0007516026496887207,
+          "gradient_norm": 0.017166290432214737
+        },
+        {
+          "global_step": 2400,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0005715370178222656,
+          "gradient_norm": 0.007723011542111635
+        },
+        {
+          "global_step": 2401,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.55,
+          "local_accuracy": 0.91875,
+          "query_loss": 3.3483163118362427,
+          "gradient_norm": 34.79117202758789
+        },
+        {
+          "global_step": 2500,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.96875,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.15417165756225587,
+          "gradient_norm": 66.89256286621094
+        },
+        {
+          "global_step": 2600,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.023296427726745606,
+          "gradient_norm": 0.1423470377922058
+        },
+        {
+          "global_step": 2700,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.000954890251159668,
+          "gradient_norm": 0.03991510719060898
+        },
+        {
+          "global_step": 2800,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0019950568675994873,
+          "gradient_norm": 0.007383181247860193
+        },
+        {
+          "global_step": 2900,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.00039443373680114746,
+          "gradient_norm": 0.003444195492193103
+        },
+        {
+          "global_step": 3000,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 1.0,
+          "local_accuracy": 1.0,
+          "query_loss": 0.0003167629241943359,
+          "gradient_norm": 0.0023250728845596313
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "ist-c",
+      "seed": 7,
+      "parameters": 345171,
+      "completed_all_stages": true,
+      "seconds": 113.75322629999937,
+      "peak_memory_mb": 165.478515625,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 1900,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.95625,
+            "local_accuracy": 0.975,
+            "query_loss": 0.17371711730957032,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.99375,
+            "local_accuracy": 1.0,
+            "query_loss": 0.024577569961547852,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.99375,
+            "local_accuracy": 1.0,
+            "query_loss": 0.014231836795806885,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.0625,
+          "query_loss": 3.01826171875,
+          "gradient_norm": 1.9078837633132935
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.08125,
+          "query_loss": 2.77734375,
+          "gradient_norm": 1.9139456748962402
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.04375,
+          "query_loss": 2.78603515625,
+          "gradient_norm": 1.0367565155029297
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.1875,
+          "query_loss": 2.76259765625,
+          "gradient_norm": 1.9832812547683716
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.575,
+          "query_loss": 2.7990234375,
+          "gradient_norm": 2.9116604328155518
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.86875,
+          "query_loss": 2.801171875,
+          "gradient_norm": 2.355604887008667
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.9125,
+          "query_loss": 2.7521484375,
+          "gradient_norm": 2.470810651779175
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.05,
+          "local_accuracy": 0.925,
+          "query_loss": 2.8103515625,
+          "gradient_norm": 3.4944992065429688
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.9625,
+          "query_loss": 2.74814453125,
+          "gradient_norm": 2.019092082977295
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.9625,
+          "query_loss": 2.7759765625,
+          "gradient_norm": 2.0641565322875977
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.99375,
+          "query_loss": 2.8033203125,
+          "gradient_norm": 2.3020713329315186
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.0875,
+          "local_accuracy": 0.9875,
+          "query_loss": 2.812890625,
+          "gradient_norm": 3.0431528091430664
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.9875,
+          "query_loss": 2.81142578125,
+          "gradient_norm": 2.3998312950134277
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.14375,
+          "local_accuracy": 0.9875,
+          "query_loss": 2.718017578125,
+          "gradient_norm": 2.3328468799591064
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.175,
+          "local_accuracy": 0.98125,
+          "query_loss": 2.5423423767089846,
+          "gradient_norm": 1.7403911352157593
+        },
+        {
+          "global_step": 1500,
+          "stage": 1,
+          "stage_step": 1500,
+          "length": 128,
+          "query_accuracy": 0.1125,
+          "local_accuracy": 0.99375,
+          "query_loss": 2.6373531341552736,
+          "gradient_norm": 12.825681686401367
+        },
+        {
+          "global_step": 1600,
+          "stage": 1,
+          "stage_step": 1600,
+          "length": 128,
+          "query_accuracy": 0.45,
+          "local_accuracy": 0.975,
+          "query_loss": 1.8865537643432617,
+          "gradient_norm": 5.011505603790283
+        },
+        {
+          "global_step": 1700,
+          "stage": 1,
+          "stage_step": 1700,
+          "length": 128,
+          "query_accuracy": 0.76875,
+          "local_accuracy": 1.0,
+          "query_loss": 0.7651603698730469,
+          "gradient_norm": 6.464536666870117
+        },
+        {
+          "global_step": 1800,
+          "stage": 1,
+          "stage_step": 1800,
+          "length": 128,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 1.0,
+          "query_loss": 0.39404926300048826,
+          "gradient_norm": 4.585916996002197
+        },
+        {
+          "global_step": 1900,
+          "stage": 1,
+          "stage_step": 1900,
+          "length": 128,
+          "query_accuracy": 0.95625,
+          "local_accuracy": 0.975,
+          "query_loss": 0.17371711730957032,
+          "gradient_norm": 1.3857674598693848
+        },
+        {
+          "global_step": 1901,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.73125,
+          "local_accuracy": 0.84375,
+          "query_loss": 1.2376920700073242,
+          "gradient_norm": 22.675819396972656
+        },
+        {
+          "global_step": 2000,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.89375,
+          "local_accuracy": 0.975,
+          "query_loss": 0.34781389236450194,
+          "gradient_norm": 26.213470458984375
+        },
+        {
+          "global_step": 2100,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.9,
+          "local_accuracy": 0.975,
+          "query_loss": 0.3373908996582031,
+          "gradient_norm": 26.376277923583984
+        },
+        {
+          "global_step": 2200,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 1.0,
+          "query_loss": 0.25773138999938966,
+          "gradient_norm": 13.540019035339355
+        },
+        {
+          "global_step": 2300,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.2257005214691162,
+          "gradient_norm": 18.107229232788086
+        },
+        {
+          "global_step": 2400,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.9875,
+          "local_accuracy": 1.0,
+          "query_loss": 0.04541411399841309,
+          "gradient_norm": 0.08694926649332047
+        },
+        {
+          "global_step": 2500,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 1.0,
+          "query_loss": 0.024577569961547852,
+          "gradient_norm": 0.058622002601623535
+        },
+        {
+          "global_step": 2501,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.34375,
+          "local_accuracy": 0.59375,
+          "query_loss": 5.226031923294068,
+          "gradient_norm": 57.30615234375
+        },
+        {
+          "global_step": 2600,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.93125,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.23332064151763915,
+          "gradient_norm": 13.119868278503418
+        },
+        {
+          "global_step": 2700,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 0.95,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.1972510576248169,
+          "gradient_norm": 25.71017074584961
+        },
+        {
+          "global_step": 2800,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.013922297954559326,
+          "gradient_norm": 0.8462884426116943
+        },
+        {
+          "global_step": 2900,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.09039412140846252,
+          "gradient_norm": 0.13165932893753052
+        },
+        {
+          "global_step": 3000,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 0.975,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.04373870491981506,
+          "gradient_norm": 0.7493331432342529
+        },
+        {
+          "global_step": 3100,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 0.99375,
+          "local_accuracy": 1.0,
+          "query_loss": 0.014231836795806885,
+          "gradient_norm": 0.06465274095535278
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    },
+    {
+      "variant": "ist-c",
+      "seed": 1234,
+      "parameters": 345171,
+      "completed_all_stages": true,
+      "seconds": 129.21012280000105,
+      "peak_memory_mb": 165.478515625,
+      "stages": [
+        {
+          "stage": 1,
+          "length": 128,
+          "steps": 2600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.93125,
+            "local_accuracy": 0.9625,
+            "query_loss": 0.26522626876831057,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 2,
+          "length": 256,
+          "steps": 700,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.975,
+            "local_accuracy": 1.0,
+            "query_loss": 0.07950199842453003,
+            "samples": 160
+          }
+        },
+        {
+          "stage": 3,
+          "length": 512,
+          "steps": 600,
+          "passed": true,
+          "validation": {
+            "query_accuracy": 0.95,
+            "local_accuracy": 0.9875,
+            "query_loss": 0.2862255573272705,
+            "samples": 160
+          }
+        }
+      ],
+      "history": [
+        {
+          "global_step": 1,
+          "stage": 1,
+          "stage_step": 1,
+          "length": 128,
+          "query_accuracy": 0.075,
+          "local_accuracy": 0.10625,
+          "query_loss": 2.89091796875,
+          "gradient_norm": 2.8231842517852783
+        },
+        {
+          "global_step": 100,
+          "stage": 1,
+          "stage_step": 100,
+          "length": 128,
+          "query_accuracy": 0.06875,
+          "local_accuracy": 0.06875,
+          "query_loss": 2.817578125,
+          "gradient_norm": 1.8433704376220703
+        },
+        {
+          "global_step": 200,
+          "stage": 1,
+          "stage_step": 200,
+          "length": 128,
+          "query_accuracy": 0.0625,
+          "local_accuracy": 0.14375,
+          "query_loss": 2.80224609375,
+          "gradient_norm": 2.039559841156006
+        },
+        {
+          "global_step": 300,
+          "stage": 1,
+          "stage_step": 300,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.3875,
+          "query_loss": 2.7703125,
+          "gradient_norm": 3.136456251144409
+        },
+        {
+          "global_step": 400,
+          "stage": 1,
+          "stage_step": 400,
+          "length": 128,
+          "query_accuracy": 0.10625,
+          "local_accuracy": 0.6,
+          "query_loss": 2.76591796875,
+          "gradient_norm": 3.6425063610076904
+        },
+        {
+          "global_step": 500,
+          "stage": 1,
+          "stage_step": 500,
+          "length": 128,
+          "query_accuracy": 0.09375,
+          "local_accuracy": 0.70625,
+          "query_loss": 2.77021484375,
+          "gradient_norm": 3.8634302616119385
+        },
+        {
+          "global_step": 600,
+          "stage": 1,
+          "stage_step": 600,
+          "length": 128,
+          "query_accuracy": 0.125,
+          "local_accuracy": 0.76875,
+          "query_loss": 2.73779296875,
+          "gradient_norm": 3.547389507293701
+        },
+        {
+          "global_step": 700,
+          "stage": 1,
+          "stage_step": 700,
+          "length": 128,
+          "query_accuracy": 0.05625,
+          "local_accuracy": 0.88125,
+          "query_loss": 2.787646484375,
+          "gradient_norm": 5.538357734680176
+        },
+        {
+          "global_step": 800,
+          "stage": 1,
+          "stage_step": 800,
+          "length": 128,
+          "query_accuracy": 0.08125,
+          "local_accuracy": 0.94375,
+          "query_loss": 2.786474609375,
+          "gradient_norm": 3.886375665664673
+        },
+        {
+          "global_step": 900,
+          "stage": 1,
+          "stage_step": 900,
+          "length": 128,
+          "query_accuracy": 0.1375,
+          "local_accuracy": 0.925,
+          "query_loss": 2.741796875,
+          "gradient_norm": 3.163936138153076
+        },
+        {
+          "global_step": 1000,
+          "stage": 1,
+          "stage_step": 1000,
+          "length": 128,
+          "query_accuracy": 0.1,
+          "local_accuracy": 0.91875,
+          "query_loss": 2.742724609375,
+          "gradient_norm": 4.0436320304870605
+        },
+        {
+          "global_step": 1100,
+          "stage": 1,
+          "stage_step": 1100,
+          "length": 128,
+          "query_accuracy": 0.23125,
+          "local_accuracy": 0.93125,
+          "query_loss": 2.5008544921875,
+          "gradient_norm": 5.763306617736816
+        },
+        {
+          "global_step": 1200,
+          "stage": 1,
+          "stage_step": 1200,
+          "length": 128,
+          "query_accuracy": 0.29375,
+          "local_accuracy": 0.96875,
+          "query_loss": 2.1838794708251954,
+          "gradient_norm": 8.72191333770752
+        },
+        {
+          "global_step": 1300,
+          "stage": 1,
+          "stage_step": 1300,
+          "length": 128,
+          "query_accuracy": 0.275,
+          "local_accuracy": 0.95625,
+          "query_loss": 2.3213245391845705,
+          "gradient_norm": 3.9973669052124023
+        },
+        {
+          "global_step": 1400,
+          "stage": 1,
+          "stage_step": 1400,
+          "length": 128,
+          "query_accuracy": 0.35,
+          "local_accuracy": 0.9625,
+          "query_loss": 2.2197498321533202,
+          "gradient_norm": 3.5470433235168457
+        },
+        {
+          "global_step": 1500,
+          "stage": 1,
+          "stage_step": 1500,
+          "length": 128,
+          "query_accuracy": 0.58125,
+          "local_accuracy": 0.98125,
+          "query_loss": 1.5804893493652343,
+          "gradient_norm": 8.37043285369873
+        },
+        {
+          "global_step": 1600,
+          "stage": 1,
+          "stage_step": 1600,
+          "length": 128,
+          "query_accuracy": 0.61875,
+          "local_accuracy": 0.9625,
+          "query_loss": 1.012258529663086,
+          "gradient_norm": 18.909883499145508
+        },
+        {
+          "global_step": 1700,
+          "stage": 1,
+          "stage_step": 1700,
+          "length": 128,
+          "query_accuracy": 0.6875,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.90035400390625,
+          "gradient_norm": 8.890252113342285
+        },
+        {
+          "global_step": 1800,
+          "stage": 1,
+          "stage_step": 1800,
+          "length": 128,
+          "query_accuracy": 0.76875,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.6638534545898438,
+          "gradient_norm": 6.895387172698975
+        },
+        {
+          "global_step": 1900,
+          "stage": 1,
+          "stage_step": 1900,
+          "length": 128,
+          "query_accuracy": 0.79375,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.6438250541687012,
+          "gradient_norm": 12.377291679382324
+        },
+        {
+          "global_step": 2000,
+          "stage": 1,
+          "stage_step": 2000,
+          "length": 128,
+          "query_accuracy": 0.79375,
+          "local_accuracy": 0.975,
+          "query_loss": 0.5652087211608887,
+          "gradient_norm": 9.876254081726074
+        },
+        {
+          "global_step": 2100,
+          "stage": 1,
+          "stage_step": 2100,
+          "length": 128,
+          "query_accuracy": 0.81875,
+          "local_accuracy": 0.975,
+          "query_loss": 0.5762432098388672,
+          "gradient_norm": 2.200986862182617
+        },
+        {
+          "global_step": 2200,
+          "stage": 1,
+          "stage_step": 2200,
+          "length": 128,
+          "query_accuracy": 0.8,
+          "local_accuracy": 0.96875,
+          "query_loss": 0.6123265266418457,
+          "gradient_norm": 8.575839042663574
+        },
+        {
+          "global_step": 2300,
+          "stage": 1,
+          "stage_step": 2300,
+          "length": 128,
+          "query_accuracy": 0.86875,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.45470638275146485,
+          "gradient_norm": 20.374887466430664
+        },
+        {
+          "global_step": 2400,
+          "stage": 1,
+          "stage_step": 2400,
+          "length": 128,
+          "query_accuracy": 0.8875,
+          "local_accuracy": 0.95,
+          "query_loss": 0.34732666015625,
+          "gradient_norm": 20.074199676513672
+        },
+        {
+          "global_step": 2500,
+          "stage": 1,
+          "stage_step": 2500,
+          "length": 128,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.2909444570541382,
+          "gradient_norm": 21.416034698486328
+        },
+        {
+          "global_step": 2600,
+          "stage": 1,
+          "stage_step": 2600,
+          "length": 128,
+          "query_accuracy": 0.93125,
+          "local_accuracy": 0.9625,
+          "query_loss": 0.26522626876831057,
+          "gradient_norm": 7.309445381164551
+        },
+        {
+          "global_step": 2601,
+          "stage": 2,
+          "stage_step": 1,
+          "length": 256,
+          "query_accuracy": 0.2,
+          "local_accuracy": 0.4875,
+          "query_loss": 4.115135192871094,
+          "gradient_norm": 33.988319396972656
+        },
+        {
+          "global_step": 2700,
+          "stage": 2,
+          "stage_step": 100,
+          "length": 256,
+          "query_accuracy": 0.8125,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.5500964164733887,
+          "gradient_norm": 32.486141204833984
+        },
+        {
+          "global_step": 2800,
+          "stage": 2,
+          "stage_step": 200,
+          "length": 256,
+          "query_accuracy": 0.9375,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.20545606613159179,
+          "gradient_norm": 2.90409779548645
+        },
+        {
+          "global_step": 2900,
+          "stage": 2,
+          "stage_step": 300,
+          "length": 256,
+          "query_accuracy": 0.875,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.5387733936309814,
+          "gradient_norm": 15.850446701049805
+        },
+        {
+          "global_step": 3000,
+          "stage": 2,
+          "stage_step": 400,
+          "length": 256,
+          "query_accuracy": 0.9875,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.05662131309509277,
+          "gradient_norm": 4.968530654907227
+        },
+        {
+          "global_step": 3100,
+          "stage": 2,
+          "stage_step": 500,
+          "length": 256,
+          "query_accuracy": 0.8875,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.38362702131271365,
+          "gradient_norm": 26.8448486328125
+        },
+        {
+          "global_step": 3200,
+          "stage": 2,
+          "stage_step": 600,
+          "length": 256,
+          "query_accuracy": 0.98125,
+          "local_accuracy": 0.99375,
+          "query_loss": 0.0471476674079895,
+          "gradient_norm": 5.888339519500732
+        },
+        {
+          "global_step": 3300,
+          "stage": 2,
+          "stage_step": 700,
+          "length": 256,
+          "query_accuracy": 0.975,
+          "local_accuracy": 1.0,
+          "query_loss": 0.07950199842453003,
+          "gradient_norm": 2.0661652088165283
+        },
+        {
+          "global_step": 3301,
+          "stage": 3,
+          "stage_step": 1,
+          "length": 512,
+          "query_accuracy": 0.1875,
+          "local_accuracy": 0.7125,
+          "query_loss": 5.17926435470581,
+          "gradient_norm": 30.385238647460938
+        },
+        {
+          "global_step": 3400,
+          "stage": 3,
+          "stage_step": 100,
+          "length": 512,
+          "query_accuracy": 0.65,
+          "local_accuracy": 0.91875,
+          "query_loss": 1.2999483585357665,
+          "gradient_norm": 30.943950653076172
+        },
+        {
+          "global_step": 3500,
+          "stage": 3,
+          "stage_step": 200,
+          "length": 512,
+          "query_accuracy": 0.76875,
+          "local_accuracy": 0.98125,
+          "query_loss": 0.8511922121047973,
+          "gradient_norm": 59.94725036621094
+        },
+        {
+          "global_step": 3600,
+          "stage": 3,
+          "stage_step": 300,
+          "length": 512,
+          "query_accuracy": 0.9125,
+          "local_accuracy": 0.975,
+          "query_loss": 0.30874173641204833,
+          "gradient_norm": 133.86093139648438
+        },
+        {
+          "global_step": 3700,
+          "stage": 3,
+          "stage_step": 400,
+          "length": 512,
+          "query_accuracy": 0.94375,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.16276776790618896,
+          "gradient_norm": 0.5748869776725769
+        },
+        {
+          "global_step": 3800,
+          "stage": 3,
+          "stage_step": 500,
+          "length": 512,
+          "query_accuracy": 0.9375,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.1414403200149536,
+          "gradient_norm": 0.8360479474067688
+        },
+        {
+          "global_step": 3900,
+          "stage": 3,
+          "stage_step": 600,
+          "length": 512,
+          "query_accuracy": 0.95,
+          "local_accuracy": 0.9875,
+          "query_loss": 0.2862255573272705,
+          "gradient_norm": 16.673397064208984
+        }
+      ],
+      "config": {
+        "variants": [
+          "transformer",
+          "ist-c"
+        ],
+        "seeds": [
+          313,
+          42,
+          2026,
+          7,
+          1234
+        ],
+        "batch_size": 16,
+        "eval_batch_size": 16,
+        "eval_batches": 10,
+        "eval_every": 100,
+        "minimum_stage_steps": 500,
+        "stage1_max_steps": 3000,
+        "later_max_steps": 1000,
+        "gate_accuracy": 0.9,
+        "consecutive_passes": 2,
+        "lr": 0.001,
+        "output": "experiments/level5a1/formal",
+        "force": false
+      }
+    }
+  ]
+}
