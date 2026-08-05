@@ -1,0 +1,46 @@
+{
+  "config": {
+    "encoding": "rope",
+    "seed": 313,
+    "batch_size": 32,
+    "eval_batch_size": 8,
+    "eval_batches": 20,
+    "output_root": "experiments/level4",
+    "resume_checkpoint": "experiments/level4/rope_seed313/checkpoint_512_509.pt"
+  },
+  "device": "cuda",
+  "stages": [
+    {
+      "length": 1024,
+      "accuracy": 0.9875,
+      "loss": 0.11740369515609927,
+      "samples": 80
+    },
+    {
+      "length": 2048,
+      "accuracy": 0.95,
+      "loss": 0.3600048205349594,
+      "samples": 40
+    }
+  ],
+  "tests": [
+    {
+      "length": 512,
+      "accuracy": 0.9875,
+      "loss": 0.03784400862787152,
+      "samples": 160
+    },
+    {
+      "length": 1024,
+      "accuracy": 0.98125,
+      "loss": 0.10504741254117107,
+      "samples": 160
+    },
+    {
+      "length": 2048,
+      "accuracy": 0.95625,
+      "loss": 0.1985719783901004,
+      "samples": 160
+    }
+  ]
+}

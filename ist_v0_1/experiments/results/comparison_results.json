@@ -1,0 +1,33 @@
+{
+  "config": {
+    "epochs": 20,
+    "train_samples": 2048,
+    "validation_samples": 512,
+    "batch_size": 64,
+    "sequence_length": 32,
+    "vocab_size": 32,
+    "hidden_size": 64,
+    "layers": 2,
+    "mask_rate": 0.1,
+    "learning_rate": 0.0003,
+    "seed": 313,
+    "device": "auto",
+    "output": "comparison_results.json"
+  },
+  "results": [
+    {
+      "model": "IST-v0.1",
+      "parameters": 176865,
+      "best_validation_loss": 3.3646798818278283,
+      "best_validation_accuracy": 0.045670225385527875,
+      "training_seconds": 32.840040700000145
+    },
+    {
+      "model": "Transformer",
+      "parameters": 106273,
+      "best_validation_loss": 3.3732002955173117,
+      "best_validation_accuracy": 0.04744958481613286,
+      "training_seconds": 3.813651200000095
+    }
+  ]
+}

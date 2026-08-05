@@ -1,0 +1,367 @@
+﻿{
+    "config":  {
+                   "position_encodings":  [
+                                              "rope",
+                                              "absolute"
+                                          ],
+                   "diversity_weights":  [
+                                             0.0,
+                                             0.001,
+                                             0.01,
+                                             0.05,
+                                             0.1
+                                         ],
+                   "train_steps":  200,
+                   "train_lengths":  [
+                                         32,
+                                         64
+                                     ],
+                   "test_lengths":  [
+                                        128,
+                                        256,
+                                        512
+                                    ],
+                   "batch_size":  64,
+                   "eval_batch_size":  32,
+                   "eval_batches":  5,
+                   "vocab_size":  16,
+                   "hidden_size":  64,
+                   "layers":  2,
+                   "learning_rate":  0.001,
+                   "seed":  313,
+                   "device":  "auto",
+                   "output":  "ablation_results.json"
+               },
+    "best":  {
+                 "position_encoding":  "absolute",
+                 "diversity_weight":  0.1,
+                 "mean_long_context_accuracy":  1.0,
+                 "slot_diversity_loss":  0.24345509707927704,
+                 "training_seconds":  3.1319776000000275,
+                 "measurements":  [
+                                      {
+                                          "length":  128,
+                                          "accuracy":  1.0,
+                                          "latency_ms_per_batch":  3.8417000000663393,
+                                          "tokens_per_second":  1066194.653390236,
+                                          "peak_memory_mb":  37.09130859375
+                                      },
+                                      {
+                                          "length":  256,
+                                          "accuracy":  1.0,
+                                          "latency_ms_per_batch":  4.846579999957612,
+                                          "tokens_per_second":  1690264.062508335,
+                                          "peak_memory_mb":  53.64697265625
+                                      },
+                                      {
+                                          "length":  512,
+                                          "accuracy":  1.0,
+                                          "latency_ms_per_batch":  13.062839999929565,
+                                          "tokens_per_second":  1254244.8655949505,
+                                          "peak_memory_mb":  86.94580078125
+                                      }
+                                  ]
+             },
+    "results":  [
+                    {
+                        "position_encoding":  "absolute",
+                        "diversity_weight":  0.1,
+                        "mean_long_context_accuracy":  1.0,
+                        "slot_diversity_loss":  0.24345509707927704,
+                        "training_seconds":  3.1319776000000275,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  3.8417000000663393,
+                                                 "tokens_per_second":  1066194.653390236,
+                                                 "peak_memory_mb":  37.09130859375
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  4.846579999957612,
+                                                 "tokens_per_second":  1690264.062508335,
+                                                 "peak_memory_mb":  53.64697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  13.062839999929565,
+                                                 "tokens_per_second":  1254244.8655949505,
+                                                 "peak_memory_mb":  86.94580078125
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "absolute",
+                        "diversity_weight":  0.05,
+                        "mean_long_context_accuracy":  1.0,
+                        "slot_diversity_loss":  0.2679762691259384,
+                        "training_seconds":  3.3856564000002436,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  3.8744800000131363,
+                                                 "tokens_per_second":  1057174.1240078958,
+                                                 "peak_memory_mb":  37.09130859375
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  4.797659999803727,
+                                                 "tokens_per_second":  1707499.072534347,
+                                                 "peak_memory_mb":  53.64697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  12.588019999930111,
+                                                 "tokens_per_second":  1301554.9705268154,
+                                                 "peak_memory_mb":  86.94580078125
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "absolute",
+                        "diversity_weight":  0.01,
+                        "mean_long_context_accuracy":  1.0,
+                        "slot_diversity_loss":  0.4430079162120819,
+                        "training_seconds":  3.5458826000003683,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  6.110380000063742,
+                                                 "tokens_per_second":  670334.7418584885,
+                                                 "peak_memory_mb":  37.09130859375
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  9.497119999832648,
+                                                 "tokens_per_second":  862577.2866031338,
+                                                 "peak_memory_mb":  53.64697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  23.358380000081524,
+                                                 "tokens_per_second":  701418.5059042115,
+                                                 "peak_memory_mb":  86.94580078125
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "absolute",
+                        "diversity_weight":  0.001,
+                        "mean_long_context_accuracy":  1.0,
+                        "slot_diversity_loss":  0.9998287558555603,
+                        "training_seconds":  3.6195354999999836,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  5.660960000113846,
+                                                 "tokens_per_second":  723552.1890134582,
+                                                 "peak_memory_mb":  37.09130859375
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  9.789039999850502,
+                                                 "tokens_per_second":  836854.2778582076,
+                                                 "peak_memory_mb":  53.64697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  23.585199999979523,
+                                                 "tokens_per_second":  694672.9304824307,
+                                                 "peak_memory_mb":  86.94580078125
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "absolute",
+                        "diversity_weight":  0.0,
+                        "mean_long_context_accuracy":  1.0,
+                        "slot_diversity_loss":  0.9998863935470581,
+                        "training_seconds":  3.9057257999998,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  5.069339999954536,
+                                                 "tokens_per_second":  807994.7291041308,
+                                                 "peak_memory_mb":  37.09130859375
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  10.035199999947508,
+                                                 "tokens_per_second":  816326.5306165149,
+                                                 "peak_memory_mb":  53.64697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  1.0,
+                                                 "latency_ms_per_batch":  23.86082000011811,
+                                                 "tokens_per_second":  686648.656664729,
+                                                 "peak_memory_mb":  86.94580078125
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "rope",
+                        "diversity_weight":  0.01,
+                        "mean_long_context_accuracy":  0.15416666666666667,
+                        "slot_diversity_loss":  0.42780619859695435,
+                        "training_seconds":  4.149881499999992,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  0.34375,
+                                                 "latency_ms_per_batch":  6.722439999884955,
+                                                 "tokens_per_second":  609302.5746708185,
+                                                 "peak_memory_mb":  36.84228515625
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  0.08125,
+                                                 "latency_ms_per_batch":  10.876039999948262,
+                                                 "tokens_per_second":  753215.3246989686,
+                                                 "peak_memory_mb":  53.39697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  0.0375,
+                                                 "latency_ms_per_batch":  24.19342000002871,
+                                                 "tokens_per_second":  677208.9270545692,
+                                                 "peak_memory_mb":  86.69384765625
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "rope",
+                        "diversity_weight":  0.001,
+                        "mean_long_context_accuracy":  0.15416666666666665,
+                        "slot_diversity_loss":  0.9996722638607025,
+                        "training_seconds":  6.045445799999925,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  0.35,
+                                                 "latency_ms_per_batch":  6.511240000054386,
+                                                 "tokens_per_second":  629066.0457863307,
+                                                 "peak_memory_mb":  36.84228515625
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  0.0625,
+                                                 "latency_ms_per_batch":  10.168720000001485,
+                                                 "tokens_per_second":  805607.7854438713,
+                                                 "peak_memory_mb":  53.39697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  0.05,
+                                                 "latency_ms_per_batch":  23.583620000044903,
+                                                 "tokens_per_second":  694719.4705464558,
+                                                 "peak_memory_mb":  86.69384765625
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "rope",
+                        "diversity_weight":  0.0,
+                        "mean_long_context_accuracy":  0.15416666666666665,
+                        "slot_diversity_loss":  0.9998612105846405,
+                        "training_seconds":  6.739629399999558,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  0.35,
+                                                 "latency_ms_per_batch":  8.731559999978344,
+                                                 "tokens_per_second":  469102.88654148387,
+                                                 "peak_memory_mb":  36.84228515625
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  0.0625,
+                                                 "latency_ms_per_batch":  10.459820000050968,
+                                                 "tokens_per_second":  783187.4735855954,
+                                                 "peak_memory_mb":  53.39697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  0.05,
+                                                 "latency_ms_per_batch":  23.72457999990729,
+                                                 "tokens_per_second":  690591.7828709306,
+                                                 "peak_memory_mb":  86.69384765625
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "rope",
+                        "diversity_weight":  0.05,
+                        "mean_long_context_accuracy":  0.14791666666666667,
+                        "slot_diversity_loss":  0.3638814091682434,
+                        "training_seconds":  5.414442700000109,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  0.33125,
+                                                 "latency_ms_per_batch":  8.738240000002406,
+                                                 "tokens_per_second":  468744.27802382084,
+                                                 "peak_memory_mb":  36.84228515625
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  0.06875,
+                                                 "latency_ms_per_batch":  10.214199999973061,
+                                                 "tokens_per_second":  802020.716259874,
+                                                 "peak_memory_mb":  53.39697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  0.04375,
+                                                 "latency_ms_per_batch":  23.94002000010005,
+                                                 "tokens_per_second":  684377.038946982,
+                                                 "peak_memory_mb":  86.69384765625
+                                             }
+                                         ]
+                    },
+                    {
+                        "position_encoding":  "rope",
+                        "diversity_weight":  0.1,
+                        "mean_long_context_accuracy":  0.14583333333333334,
+                        "slot_diversity_loss":  0.2824767380952835,
+                        "training_seconds":  5.591286500000024,
+                        "measurements":  [
+                                             {
+                                                 "length":  128,
+                                                 "accuracy":  0.31875,
+                                                 "latency_ms_per_batch":  7.329180000033375,
+                                                 "tokens_per_second":  558861.9736425286,
+                                                 "peak_memory_mb":  36.84228515625
+                                             },
+                                             {
+                                                 "length":  256,
+                                                 "accuracy":  0.075,
+                                                 "latency_ms_per_batch":  10.270479999962845,
+                                                 "tokens_per_second":  797625.8169072561,
+                                                 "peak_memory_mb":  53.39697265625
+                                             },
+                                             {
+                                                 "length":  512,
+                                                 "accuracy":  0.04375,
+                                                 "latency_ms_per_batch":  24.050639999950363,
+                                                 "tokens_per_second":  681229.2729022518,
+                                                 "peak_memory_mb":  86.69384765625
+                                             }
+                                         ]
+                    }
+                ]
+}
