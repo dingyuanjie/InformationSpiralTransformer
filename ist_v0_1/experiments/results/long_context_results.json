@@ -1,0 +1,132 @@
+{
+  "task": "first-token needle retrieval at final masked position",
+  "chance_accuracy": 0.0625,
+  "config": {
+    "train_lengths": [
+      32,
+      64
+    ],
+    "test_lengths": [
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "train_steps": 300,
+    "batch_size": 64,
+    "eval_batch_size": 32,
+    "eval_batches": 10,
+    "vocab_size": 16,
+    "hidden_size": 64,
+    "layers": 2,
+    "learning_rate": 0.001,
+    "diversity_weight": 0.1,
+    "position_encoding": "absolute",
+    "seed": 313,
+    "log_every": 50,
+    "device": "auto",
+    "output": "long_context_results.json"
+  },
+  "results": [
+    {
+      "model": "IST-v0.2",
+      "parameters": 296209,
+      "training_seconds": 5.385823199999777,
+      "measurements": [
+        {
+          "length": 32,
+          "accuracy": 1.0,
+          "latency_ms_per_batch": 3.918260000045848,
+          "tokens_per_second": 261340.49297086414,
+          "peak_memory_mb": 25.36669921875
+        },
+        {
+          "length": 64,
+          "accuracy": 1.0,
+          "latency_ms_per_batch": 3.7684099999751197,
+          "tokens_per_second": 543465.2811168428,
+          "peak_memory_mb": 29.1884765625
+        },
+        {
+          "length": 128,
+          "accuracy": 1.0,
+          "latency_ms_per_batch": 4.155490000039208,
+          "tokens_per_second": 985683.998748969,
+          "peak_memory_mb": 37.34130859375
+        },
+        {
+          "length": 256,
+          "accuracy": 0.93125,
+          "latency_ms_per_batch": 5.2947700000913756,
+          "tokens_per_second": 1547187.129914732,
+          "peak_memory_mb": 53.89697265625
+        },
+        {
+          "length": 512,
+          "accuracy": 0.615625,
+          "latency_ms_per_batch": 12.68580000005386,
+          "tokens_per_second": 1291522.8050206087,
+          "peak_memory_mb": 87.44580078125
+        },
+        {
+          "length": 1024,
+          "accuracy": 0.896875,
+          "latency_ms_per_batch": 39.85059000001456,
+          "tokens_per_second": 822271.3892062332,
+          "peak_memory_mb": 151.48095703125
+        }
+      ]
+    },
+    {
+      "model": "Transformer",
+      "parameters": 167697,
+      "training_seconds": 1.546473800000058,
+      "measurements": [
+        {
+          "length": 32,
+          "accuracy": 1.0,
+          "latency_ms_per_batch": 1.1435600000822888,
+          "tokens_per_second": 895449.2986168759,
+          "peak_memory_mb": 21.365234375
+        },
+        {
+          "length": 64,
+          "accuracy": 1.0,
+          "latency_ms_per_batch": 1.049790000070061,
+          "tokens_per_second": 1950866.363618743,
+          "peak_memory_mb": 24.19140625
+        },
+        {
+          "length": 128,
+          "accuracy": 0.875,
+          "latency_ms_per_batch": 1.013760000023467,
+          "tokens_per_second": 4040404.0403105114,
+          "peak_memory_mb": 29.84423828125
+        },
+        {
+          "length": 256,
+          "accuracy": 0.903125,
+          "latency_ms_per_batch": 2.167470000085814,
+          "tokens_per_second": 3779521.7464027945,
+          "peak_memory_mb": 41.14990234375
+        },
+        {
+          "length": 512,
+          "accuracy": 0.765625,
+          "latency_ms_per_batch": 6.696590000092328,
+          "tokens_per_second": 2446618.353486492,
+          "peak_memory_mb": 64.69873046875
+        },
+        {
+          "length": 1024,
+          "accuracy": 0.94375,
+          "latency_ms_per_batch": 23.339399999940724,
+          "tokens_per_second": 1403977.8229124665,
+          "peak_memory_mb": 108.98388671875
+        }
+      ]
+    }
+  ]
+}

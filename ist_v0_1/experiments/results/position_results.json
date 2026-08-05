@@ -1,0 +1,930 @@
+{
+  "config": {
+    "encodings": [
+      "absolute",
+      "sinusoidal",
+      "rope",
+      "scaled_rope"
+    ],
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "train_lengths": [
+      32,
+      64
+    ],
+    "test_lengths": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "train_steps": 200,
+    "batch_size": 64,
+    "eval_batch_size": 32,
+    "eval_batches": 5,
+    "vocab_size": 16,
+    "hidden_size": 64,
+    "layers": 2,
+    "learning_rate": 0.001,
+    "diversity_weight": 0.1,
+    "device": "auto",
+    "output": "position_results.json"
+  },
+  "best": {
+    "position_encoding": "absolute",
+    "mean_accuracy": 0.8165625,
+    "std_accuracy": 0.1774197937185279,
+    "minimum_accuracy": 0.534375,
+    "runs": [
+      {
+        "seed": 313,
+        "mean_accuracy": 0.9046875,
+        "measurements": [
+          {
+            "length": 128,
+            "accuracy": 1.0,
+            "latency_ms_per_batch": 7.614900000044145,
+            "tokens_per_second": 537892.8153982658,
+            "peak_memory_mb": 37.34130859375
+          },
+          {
+            "length": 256,
+            "accuracy": 0.925,
+            "latency_ms_per_batch": 12.676600000031613,
+            "tokens_per_second": 646230.0616868538,
+            "peak_memory_mb": 53.89697265625
+          },
+          {
+            "length": 512,
+            "accuracy": 0.80625,
+            "latency_ms_per_batch": 30.966819999866857,
+            "tokens_per_second": 529082.4178934242,
+            "peak_memory_mb": 87.32080078125
+          },
+          {
+            "length": 1024,
+            "accuracy": 0.8875,
+            "latency_ms_per_batch": 68.80629999986922,
+            "tokens_per_second": 476235.46099793597,
+            "peak_memory_mb": 151.48095703125
+          }
+        ]
+      },
+      {
+        "seed": 42,
+        "mean_accuracy": 0.7609375,
+        "measurements": [
+          {
+            "length": 128,
+            "accuracy": 0.89375,
+            "latency_ms_per_batch": 8.14803999992364,
+            "tokens_per_second": 502697.5812635169,
+            "peak_memory_mb": 37.34130859375
+          },
+          {
+            "length": 256,
+            "accuracy": 1.0,
+            "latency_ms_per_batch": 12.368580000020302,
+            "tokens_per_second": 662323.4033321977,
+            "peak_memory_mb": 53.89697265625
+          },
+          {
+            "length": 512,
+            "accuracy": 0.74375,
+            "latency_ms_per_batch": 20.87491999991471,
+            "tokens_per_second": 784865.2833192627,
+            "peak_memory_mb": 87.32080078125
+          },
+          {
+            "length": 1024,
+            "accuracy": 0.40625,
+            "latency_ms_per_batch": 72.5893000000724,
+            "tokens_per_second": 451416.3933247368,
+            "peak_memory_mb": 151.48095703125
+          }
+        ]
+      },
+      {
+        "seed": 2026,
+        "mean_accuracy": 0.8953125,
+        "measurements": [
+          {
+            "length": 128,
+            "accuracy": 0.875,
+            "latency_ms_per_batch": 9.509319999961008,
+            "tokens_per_second": 430735.32071870496,
+            "peak_memory_mb": 37.34130859375
+          },
+          {
+            "length": 256,
+            "accuracy": 0.9375,
+            "latency_ms_per_batch": 8.711939999921015,
+            "tokens_per_second": 940318.6890720404,
+            "peak_memory_mb": 53.89697265625
+          },
+          {
+            "length": 512,
+            "accuracy": 0.96875,
+            "latency_ms_per_batch": 22.58137999997416,
+            "tokens_per_second": 725553.5312730554,
+            "peak_memory_mb": 87.32080078125
+          },
+          {
+            "length": 1024,
+            "accuracy": 0.8,
+            "latency_ms_per_batch": 72.84589999999298,
+            "tokens_per_second": 449826.2771137862,
+            "peak_memory_mb": 151.48095703125
+          }
+        ]
+      },
+      {
+        "seed": 7,
+        "mean_accuracy": 0.9875,
+        "measurements": [
+          {
+            "length": 128,
+            "accuracy": 1.0,
+            "latency_ms_per_batch": 4.915780000192171,
+            "tokens_per_second": 833235.0104845774,
+            "peak_memory_mb": 37.34130859375
+          },
+          {
+            "length": 256,
+            "accuracy": 0.99375,
+            "latency_ms_per_batch": 8.863760000076581,
+            "tokens_per_second": 924212.7494346894,
+            "peak_memory_mb": 53.89697265625
+          },
+          {
+            "length": 512,
+            "accuracy": 0.96875,
+            "latency_ms_per_batch": 22.731839999869408,
+            "tokens_per_second": 720751.1578514597,
+            "peak_memory_mb": 87.32080078125
+          },
+          {
+            "length": 1024,
+            "accuracy": 0.9875,
+            "latency_ms_per_batch": 71.05769999998302,
+            "tokens_per_second": 461146.36415206,
+            "peak_memory_mb": 151.48095703125
+          }
+        ]
+      },
+      {
+        "seed": 1234,
+        "mean_accuracy": 0.534375,
+        "measurements": [
+          {
+            "length": 128,
+            "accuracy": 0.925,
+            "latency_ms_per_batch": 6.037659999947209,
+            "tokens_per_second": 678408.5225129958,
+            "peak_memory_mb": 37.34130859375
+          },
+          {
+            "length": 256,
+            "accuracy": 0.85,
+            "latency_ms_per_batch": 9.413600000061706,
+            "tokens_per_second": 870230.305084803,
+            "peak_memory_mb": 53.89697265625
+          },
+          {
+            "length": 512,
+            "accuracy": 0.075,
+            "latency_ms_per_batch": 23.105299999861018,
+            "tokens_per_second": 709101.3750134624,
+            "peak_memory_mb": 87.32080078125
+          },
+          {
+            "length": 1024,
+            "accuracy": 0.2875,
+            "latency_ms_per_batch": 73.31286000007822,
+            "tokens_per_second": 446961.1470615802,
+            "peak_memory_mb": 151.48095703125
+          }
+        ]
+      }
+    ]
+  },
+  "results": [
+    {
+      "position_encoding": "absolute",
+      "mean_accuracy": 0.8165625,
+      "std_accuracy": 0.1774197937185279,
+      "minimum_accuracy": 0.534375,
+      "runs": [
+        {
+          "seed": 313,
+          "mean_accuracy": 0.9046875,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 1.0,
+              "latency_ms_per_batch": 7.614900000044145,
+              "tokens_per_second": 537892.8153982658,
+              "peak_memory_mb": 37.34130859375
+            },
+            {
+              "length": 256,
+              "accuracy": 0.925,
+              "latency_ms_per_batch": 12.676600000031613,
+              "tokens_per_second": 646230.0616868538,
+              "peak_memory_mb": 53.89697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.80625,
+              "latency_ms_per_batch": 30.966819999866857,
+              "tokens_per_second": 529082.4178934242,
+              "peak_memory_mb": 87.32080078125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.8875,
+              "latency_ms_per_batch": 68.80629999986922,
+              "tokens_per_second": 476235.46099793597,
+              "peak_memory_mb": 151.48095703125
+            }
+          ]
+        },
+        {
+          "seed": 42,
+          "mean_accuracy": 0.7609375,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.89375,
+              "latency_ms_per_batch": 8.14803999992364,
+              "tokens_per_second": 502697.5812635169,
+              "peak_memory_mb": 37.34130859375
+            },
+            {
+              "length": 256,
+              "accuracy": 1.0,
+              "latency_ms_per_batch": 12.368580000020302,
+              "tokens_per_second": 662323.4033321977,
+              "peak_memory_mb": 53.89697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.74375,
+              "latency_ms_per_batch": 20.87491999991471,
+              "tokens_per_second": 784865.2833192627,
+              "peak_memory_mb": 87.32080078125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.40625,
+              "latency_ms_per_batch": 72.5893000000724,
+              "tokens_per_second": 451416.3933247368,
+              "peak_memory_mb": 151.48095703125
+            }
+          ]
+        },
+        {
+          "seed": 2026,
+          "mean_accuracy": 0.8953125,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.875,
+              "latency_ms_per_batch": 9.509319999961008,
+              "tokens_per_second": 430735.32071870496,
+              "peak_memory_mb": 37.34130859375
+            },
+            {
+              "length": 256,
+              "accuracy": 0.9375,
+              "latency_ms_per_batch": 8.711939999921015,
+              "tokens_per_second": 940318.6890720404,
+              "peak_memory_mb": 53.89697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.96875,
+              "latency_ms_per_batch": 22.58137999997416,
+              "tokens_per_second": 725553.5312730554,
+              "peak_memory_mb": 87.32080078125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.8,
+              "latency_ms_per_batch": 72.84589999999298,
+              "tokens_per_second": 449826.2771137862,
+              "peak_memory_mb": 151.48095703125
+            }
+          ]
+        },
+        {
+          "seed": 7,
+          "mean_accuracy": 0.9875,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 1.0,
+              "latency_ms_per_batch": 4.915780000192171,
+              "tokens_per_second": 833235.0104845774,
+              "peak_memory_mb": 37.34130859375
+            },
+            {
+              "length": 256,
+              "accuracy": 0.99375,
+              "latency_ms_per_batch": 8.863760000076581,
+              "tokens_per_second": 924212.7494346894,
+              "peak_memory_mb": 53.89697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.96875,
+              "latency_ms_per_batch": 22.731839999869408,
+              "tokens_per_second": 720751.1578514597,
+              "peak_memory_mb": 87.32080078125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.9875,
+              "latency_ms_per_batch": 71.05769999998302,
+              "tokens_per_second": 461146.36415206,
+              "peak_memory_mb": 151.48095703125
+            }
+          ]
+        },
+        {
+          "seed": 1234,
+          "mean_accuracy": 0.534375,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.925,
+              "latency_ms_per_batch": 6.037659999947209,
+              "tokens_per_second": 678408.5225129958,
+              "peak_memory_mb": 37.34130859375
+            },
+            {
+              "length": 256,
+              "accuracy": 0.85,
+              "latency_ms_per_batch": 9.413600000061706,
+              "tokens_per_second": 870230.305084803,
+              "peak_memory_mb": 53.89697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.075,
+              "latency_ms_per_batch": 23.105299999861018,
+              "tokens_per_second": 709101.3750134624,
+              "peak_memory_mb": 87.32080078125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.2875,
+              "latency_ms_per_batch": 73.31286000007822,
+              "tokens_per_second": 446961.1470615802,
+              "peak_memory_mb": 151.48095703125
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "position_encoding": "sinusoidal",
+      "mean_accuracy": 0.616875,
+      "std_accuracy": 0.124321400196728,
+      "minimum_accuracy": 0.4765625,
+      "runs": [
+        {
+          "seed": 313,
+          "mean_accuracy": 0.540625,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.9875,
+              "latency_ms_per_batch": 5.226720000064233,
+              "tokens_per_second": 783665.4727916672,
+              "peak_memory_mb": 36.84033203125
+            },
+            {
+              "length": 256,
+              "accuracy": 0.625,
+              "latency_ms_per_batch": 9.863820000009582,
+              "tokens_per_second": 830509.8835939871,
+              "peak_memory_mb": 53.39501953125
+            },
+            {
+              "length": 512,
+              "accuracy": 0.36875,
+              "latency_ms_per_batch": 22.889540000142006,
+              "tokens_per_second": 715785.4635741196,
+              "peak_memory_mb": 86.81689453125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.18125,
+              "latency_ms_per_batch": 71.59155999997893,
+              "tokens_per_second": 457707.5845254615,
+              "peak_memory_mb": 150.97314453125
+            }
+          ]
+        },
+        {
+          "seed": 42,
+          "mean_accuracy": 0.4765625,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.80625,
+              "latency_ms_per_batch": 6.127760000163107,
+              "tokens_per_second": 668433.4895444622,
+              "peak_memory_mb": 36.84033203125
+            },
+            {
+              "length": 256,
+              "accuracy": 0.51875,
+              "latency_ms_per_batch": 9.24777999998696,
+              "tokens_per_second": 885834.221836111,
+              "peak_memory_mb": 53.39501953125
+            },
+            {
+              "length": 512,
+              "accuracy": 0.31875,
+              "latency_ms_per_batch": 23.069020000093587,
+              "tokens_per_second": 710216.5588279663,
+              "peak_memory_mb": 86.81689453125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.2625,
+              "latency_ms_per_batch": 71.93125999992844,
+              "tokens_per_second": 455546.03103063395,
+              "peak_memory_mb": 150.97314453125
+            }
+          ]
+        },
+        {
+          "seed": 2026,
+          "mean_accuracy": 0.7875,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.95,
+              "latency_ms_per_batch": 7.42073999999775,
+              "tokens_per_second": 551966.5154689751,
+              "peak_memory_mb": 36.84033203125
+            },
+            {
+              "length": 256,
+              "accuracy": 0.975,
+              "latency_ms_per_batch": 11.51268000012351,
+              "tokens_per_second": 711563.2502520799,
+              "peak_memory_mb": 53.39501953125
+            },
+            {
+              "length": 512,
+              "accuracy": 0.7625,
+              "latency_ms_per_batch": 21.211920000041573,
+              "tokens_per_second": 772395.898153863,
+              "peak_memory_mb": 86.81689453125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.4625,
+              "latency_ms_per_batch": 69.93894000006549,
+              "tokens_per_second": 468522.97160879645,
+              "peak_memory_mb": 150.97314453125
+            }
+          ]
+        },
+        {
+          "seed": 7,
+          "mean_accuracy": 0.6953125,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.975,
+              "latency_ms_per_batch": 7.675860000017565,
+              "tokens_per_second": 533620.9883961702,
+              "peak_memory_mb": 36.84033203125
+            },
+            {
+              "length": 256,
+              "accuracy": 0.79375,
+              "latency_ms_per_batch": 12.891100000069855,
+              "tokens_per_second": 635477.1896855667,
+              "peak_memory_mb": 53.39501953125
+            },
+            {
+              "length": 512,
+              "accuracy": 0.55,
+              "latency_ms_per_batch": 29.988159999993513,
+              "tokens_per_second": 546348.9590559589,
+              "peak_memory_mb": 86.81689453125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.4625,
+              "latency_ms_per_batch": 74.22846000008576,
+              "tokens_per_second": 441447.92980970023,
+              "peak_memory_mb": 150.97314453125
+            }
+          ]
+        },
+        {
+          "seed": 1234,
+          "mean_accuracy": 0.584375,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.8625,
+              "latency_ms_per_batch": 7.250519999979588,
+              "tokens_per_second": 564924.9984844578,
+              "peak_memory_mb": 36.84033203125
+            },
+            {
+              "length": 256,
+              "accuracy": 0.825,
+              "latency_ms_per_batch": 9.164340000006632,
+              "tokens_per_second": 893899.6152471505,
+              "peak_memory_mb": 53.39501953125
+            },
+            {
+              "length": 512,
+              "accuracy": 0.34375,
+              "latency_ms_per_batch": 22.964739999861195,
+              "tokens_per_second": 713441.5630265803,
+              "peak_memory_mb": 86.81689453125
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.30625,
+              "latency_ms_per_batch": 76.61639999996623,
+              "tokens_per_second": 427689.11094771407,
+              "peak_memory_mb": 150.97314453125
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "position_encoding": "rope",
+      "mean_accuracy": 0.111875,
+      "std_accuracy": 0.01640996981639515,
+      "minimum_accuracy": 0.090625,
+      "runs": [
+        {
+          "seed": 313,
+          "mean_accuracy": 0.1265625,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.31875,
+              "latency_ms_per_batch": 7.773199999974167,
+              "tokens_per_second": 526938.712501108,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.075,
+              "latency_ms_per_batch": 10.281320000012784,
+              "tokens_per_second": 796784.848637122,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.04375,
+              "latency_ms_per_batch": 24.81951999998273,
+              "tokens_per_second": 660125.5785773214,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.06875,
+              "latency_ms_per_batch": 87.21209999994244,
+              "tokens_per_second": 375727.67998960725,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 42,
+          "mean_accuracy": 0.11406250000000001,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.29375,
+              "latency_ms_per_batch": 7.086679999883927,
+              "tokens_per_second": 577985.7422752387,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.06875,
+              "latency_ms_per_batch": 11.045800000010786,
+              "tokens_per_second": 741639.3561346395,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.0375,
+              "latency_ms_per_batch": 24.423380000007455,
+              "tokens_per_second": 670832.6202186183,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.05625,
+              "latency_ms_per_batch": 86.5586799999619,
+              "tokens_per_second": 378563.9984345235,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 2026,
+          "mean_accuracy": 0.1,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.2125,
+              "latency_ms_per_batch": 6.630739999945945,
+              "tokens_per_second": 617728.9412695101,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.05625,
+              "latency_ms_per_batch": 11.099660000127187,
+              "tokens_per_second": 738040.6246593257,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.08125,
+              "latency_ms_per_batch": 23.485079999954905,
+              "tokens_per_second": 697634.4129988682,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.05,
+              "latency_ms_per_batch": 86.70308000009754,
+              "tokens_per_second": 377933.51747092645,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 7,
+          "mean_accuracy": 0.090625,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.1875,
+              "latency_ms_per_batch": 7.643260000259033,
+              "tokens_per_second": 535896.9863462952,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.0625,
+              "latency_ms_per_batch": 10.422919999655278,
+              "tokens_per_second": 785960.1724153056,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.075,
+              "latency_ms_per_batch": 26.928440000119735,
+              "tokens_per_second": 608427.372693225,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.0375,
+              "latency_ms_per_batch": 94.9488599997494,
+              "tokens_per_second": 345112.09508030413,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 1234,
+          "mean_accuracy": 0.128125,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.3125,
+              "latency_ms_per_batch": 7.955359999868961,
+              "tokens_per_second": 514872.99129988695,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.06875,
+              "latency_ms_per_batch": 13.96972000002279,
+              "tokens_per_second": 586411.1807528451,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.0375,
+              "latency_ms_per_batch": 31.514059999972233,
+              "tokens_per_second": 519894.92943830264,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.09375,
+              "latency_ms_per_batch": 84.67363999989175,
+              "tokens_per_second": 386991.7485541178,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "position_encoding": "scaled_rope",
+      "mean_accuracy": 0.0690625,
+      "std_accuracy": 0.0059907154727127515,
+      "minimum_accuracy": 0.065625,
+      "runs": [
+        {
+          "seed": 313,
+          "mean_accuracy": 0.0671875,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.05,
+              "latency_ms_per_batch": 6.549420000192185,
+              "tokens_per_second": 625398.8902650628,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.09375,
+              "latency_ms_per_batch": 10.54891999992833,
+              "tokens_per_second": 776572.388458312,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.06875,
+              "latency_ms_per_batch": 28.363760000138427,
+              "tokens_per_second": 577638.5077267626,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.05625,
+              "latency_ms_per_batch": 94.85505999982706,
+              "tokens_per_second": 345453.3685399571,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 42,
+          "mean_accuracy": 0.0671875,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.06875,
+              "latency_ms_per_batch": 6.400740000026417,
+              "tokens_per_second": 639926.0085526197,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.05625,
+              "latency_ms_per_batch": 11.056380000081845,
+              "tokens_per_second": 740929.6713697755,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.06875,
+              "latency_ms_per_batch": 24.13858000018081,
+              "tokens_per_second": 678747.4656701959,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.075,
+              "latency_ms_per_batch": 93.34452000002784,
+              "tokens_per_second": 351043.6391979971,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 2026,
+          "mean_accuracy": 0.065625,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.09375,
+              "latency_ms_per_batch": 6.417959999816958,
+              "tokens_per_second": 638209.0259392111,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.05625,
+              "latency_ms_per_batch": 10.833300000012969,
+              "tokens_per_second": 756186.9421127628,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.0625,
+              "latency_ms_per_batch": 25.100380000003497,
+              "tokens_per_second": 652739.1218777451,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.05,
+              "latency_ms_per_batch": 93.59590000003664,
+              "tokens_per_second": 350100.80569754844,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 7,
+          "mean_accuracy": 0.065625,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.05,
+              "latency_ms_per_batch": 4.821019999872078,
+              "tokens_per_second": 849612.7375760076,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.0875,
+              "latency_ms_per_batch": 5.64756000021589,
+              "tokens_per_second": 1450537.931369803,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.05,
+              "latency_ms_per_batch": 13.00065999985236,
+              "tokens_per_second": 1260243.7107182299,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.075,
+              "latency_ms_per_batch": 39.83194000011281,
+              "tokens_per_second": 822656.3908237258,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        },
+        {
+          "seed": 1234,
+          "mean_accuracy": 0.0796875,
+          "measurements": [
+            {
+              "length": 128,
+              "accuracy": 0.08125,
+              "latency_ms_per_batch": 4.411759999857168,
+              "tokens_per_second": 928427.657019559,
+              "peak_memory_mb": 36.84228515625
+            },
+            {
+              "length": 256,
+              "accuracy": 0.075,
+              "latency_ms_per_batch": 5.584860000271874,
+              "tokens_per_second": 1466822.8030069168,
+              "peak_memory_mb": 53.39697265625
+            },
+            {
+              "length": 512,
+              "accuracy": 0.1,
+              "latency_ms_per_batch": 12.821420000000217,
+              "tokens_per_second": 1277861.5785146828,
+              "peak_memory_mb": 86.69384765625
+            },
+            {
+              "length": 1024,
+              "accuracy": 0.0625,
+              "latency_ms_per_batch": 40.128939999885915,
+              "tokens_per_second": 816567.7937192748,
+              "peak_memory_mb": 150.97509765625
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

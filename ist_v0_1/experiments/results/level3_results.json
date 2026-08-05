@@ -1,0 +1,72 @@
+{
+  "config": {
+    "steps_per_stage": 1500,
+    "batch_size": 32,
+    "validation_batches": 20,
+    "seed": 313,
+    "output": "level3_results.json"
+  },
+  "stages": [
+    {
+      "stage": {
+        "name": "0-64",
+        "length": 128,
+        "needle_range": 64,
+        "steps": 1500
+      },
+      "validation": {
+        "query_loss": 0.04876335308654234,
+        "local_loss": 0.04107134110527113,
+        "query_accuracy": 0.9859375,
+        "local_accuracy": 0.9921875
+      },
+      "passed": true
+    },
+    {
+      "stage": {
+        "name": "0-128",
+        "length": 256,
+        "needle_range": 128,
+        "steps": 500
+      },
+      "validation": {
+        "query_loss": 0.0005261588827124797,
+        "local_loss": 0.0007055427966406568,
+        "query_accuracy": 1.0,
+        "local_accuracy": 1.0
+      },
+      "passed": true
+    },
+    {
+      "stage": {
+        "name": "0-256",
+        "length": 512,
+        "needle_range": 256,
+        "steps": 500
+      },
+      "validation": {
+        "query_loss": 0.00016376348430640063,
+        "local_loss": 0.00023858147324062884,
+        "query_accuracy": 1.0,
+        "local_accuracy": 1.0
+      },
+      "passed": true
+    },
+    {
+      "stage": {
+        "name": "0-512",
+        "length": 512,
+        "needle_range": 509,
+        "steps": 500
+      },
+      "validation": {
+        "query_loss": 0.015147939954476896,
+        "local_loss": 0.0037425405891553963,
+        "query_accuracy": 0.9953125,
+        "local_accuracy": 0.9984375
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}
