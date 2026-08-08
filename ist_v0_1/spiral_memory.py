@@ -36,6 +36,7 @@ class SpiralMemory(nn.Module):
         )
         # Populated after forward for diagnostics and visualization only.
         self.last_diagnostics = None
+        self.capture_memory_attention_weights = False
 
     def initialize_memory(self, batch_size, device):
         return torch.zeros(
@@ -60,12 +61,22 @@ class SpiralMemory(nn.Module):
             memory = self.initialize_memory(batch, hidden.device)
 
         encoded = self.encoder(hidden)
-        attended_memory, _ = self.memory_attention(
-            encoded,
-            memory,
-            memory,
-            need_weights=False,
-        )
+        if self.capture_memory_attention_weights:
+            attended_memory, memory_attention_weights = self.memory_attention(
+                encoded,
+                memory,
+                memory,
+                need_weights=True,
+                average_attn_weights=False,
+            )
+        else:
+            attended_memory, _ = self.memory_attention(
+                encoded,
+                memory,
+                memory,
+                need_weights=False,
+            )
+            memory_attention_weights = None
         fused = encoded + attended_memory
 
         keys = self.memory_key(fused)
@@ -99,6 +110,10 @@ class SpiralMemory(nn.Module):
             "new_memory": new_memory.detach(),
             "attention_entropy": attention_entropy.detach(),
             "diversity_loss": diversity_loss.detach(),
+            "memory_attention_weights": (
+                memory_attention_weights.detach()
+                if memory_attention_weights is not None else None
+            ),
         }
         self.auxiliary_loss = diversity_loss
         return new_memory, fused

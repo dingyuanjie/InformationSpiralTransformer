@@ -54,8 +54,12 @@ Existing completed profile/seed folders are reused unless `--force` is passed.
 The repeated corrected `hard50` run reached only 67.5% query at step 3000,
 despite using the same nominal seed as the original 100% run. The common seed
 helper fixed RNG state but did not enable deterministic CUDA kernels. Level 6.5
-therefore enables deterministic PyTorch/CUDA behavior by default and disables
-TF32 for subsequent confirmation runs. Use `--allow-nondeterministic` only for
-an explicitly exploratory run.
+therefore fixes RNG state and requests deterministic PyTorch/CUDA behavior by
+default. A later smoke test showed that `warn_only=True` still allowed the
+non-deterministic memory-efficient attention backward kernel. The five-seed
+results remain valid as multi-initialization observations, but they are not
+bitwise-repeatability evidence. Current scripts force the mathematical SDP
+backend, use strict deterministic algorithms, and disable TF32. Use
+`--allow-nondeterministic` only for an explicitly exploratory run.
 
 Deterministic results are written under `experiments/level6_5/deterministic/`.

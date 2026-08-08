@@ -1,0 +1,2257 @@
+{
+  "protocol": {
+    "seeds": [
+      606,
+      808,
+      1001
+    ],
+    "level6_8_root": "D:\\code\\InformationSpiralTransformer\\ist_v0_1\\experiments\\level6_8\\formal",
+    "chunks": 16,
+    "chunk_size": 128,
+    "eval_batch_size": 8,
+    "eval_batches": 50,
+    "random_repeats": 3,
+    "eval_seed_base": 711000,
+    "mask_seed_base": 712000,
+    "intact_threshold": 0.9,
+    "destructive_threshold": 0.2,
+    "output": "D:\\code\\InformationSpiralTransformer\\ist_v0_1\\experiments\\level6_11\\formal",
+    "force": false
+  },
+  "summary": {
+    "runs": 3,
+    "layer2_localization_passes": 3,
+    "minimum_fixed_slots": {
+      "606": 2,
+      "808": 4,
+      "1001": 4
+    },
+    "minimum_random_slots_all_repeats": {
+      "606": 8,
+      "808": 8,
+      "1001": 2
+    }
+  },
+  "runs": [
+    {
+      "seed": 606,
+      "source": "D:\\code\\InformationSpiralTransformer\\ist_v0_1\\experiments\\level6_8\\formal\\seed606\\withdrawal_phase3.pt",
+      "layer_summary": {
+        "intact": 0.9625,
+        "zero": [
+          0.965,
+          0.9775,
+          0.0425
+        ],
+        "only": [
+          0.04,
+          0.0425,
+          0.9825
+        ],
+        "localized_to_layer2": true
+      },
+      "slot_summary": [
+        {
+          "keep": 1,
+          "fixed_query": 0.895,
+          "random_mean_query": 0.8991666666666667,
+          "random_min_query": 0.8875,
+          "random_max_query": 0.9175,
+          "random_values": [
+            0.8875,
+            0.8925,
+            0.9175
+          ]
+        },
+        {
+          "keep": 2,
+          "fixed_query": 0.935,
+          "random_mean_query": 0.8908333333333334,
+          "random_min_query": 0.8275,
+          "random_max_query": 0.935,
+          "random_values": [
+            0.935,
+            0.91,
+            0.8275
+          ]
+        },
+        {
+          "keep": 4,
+          "fixed_query": 0.95,
+          "random_mean_query": 0.8791666666666667,
+          "random_min_query": 0.7325,
+          "random_max_query": 0.955,
+          "random_values": [
+            0.7325,
+            0.955,
+            0.95
+          ]
+        },
+        {
+          "keep": 8,
+          "fixed_query": 0.91,
+          "random_mean_query": 0.9425,
+          "random_min_query": 0.92,
+          "random_max_query": 0.9825,
+          "random_values": [
+            0.92,
+            0.9825,
+            0.925
+          ]
+        },
+        {
+          "keep": 16,
+          "fixed_query": 0.935,
+          "random_mean_query": 0.9266666666666666,
+          "random_min_query": 0.92,
+          "random_max_query": 0.9325,
+          "random_values": [
+            0.92,
+            0.9275,
+            0.9325
+          ]
+        },
+        {
+          "keep": 32,
+          "fixed_query": 0.9625,
+          "random_mean_query": 0.9625,
+          "random_min_query": 0.9625,
+          "random_max_query": 0.9625,
+          "random_values": [
+            0.9625,
+            0.9625,
+            0.9625
+          ]
+        }
+      ],
+      "minimum_fixed_slots": 2,
+      "minimum_random_slots_all_repeats": 8,
+      "metrics": [
+        {
+          "name": "intact",
+          "kind": "intact",
+          "query": 0.9625,
+          "local": 0.98,
+          "probe_final": 0.945,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer0",
+          "kind": "zero_layer",
+          "layer": 0,
+          "query": 0.965,
+          "local": 0.98,
+          "probe_final": 0.945,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer1",
+          "kind": "zero_layer",
+          "layer": 1,
+          "query": 0.9775,
+          "local": 0.98,
+          "probe_final": 0.9575,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer2",
+          "kind": "zero_layer",
+          "layer": 2,
+          "query": 0.0425,
+          "local": 0.98,
+          "probe_final": 0.04,
+          "samples": 400
+        },
+        {
+          "name": "only_layer0",
+          "kind": "only_layer",
+          "layer": 0,
+          "query": 0.04,
+          "local": 0.98,
+          "probe_final": 0.04,
+          "samples": 400
+        },
+        {
+          "name": "only_layer1",
+          "kind": "only_layer",
+          "layer": 1,
+          "query": 0.0425,
+          "local": 0.98,
+          "probe_final": 0.04,
+          "samples": 400
+        },
+        {
+          "name": "only_layer2",
+          "kind": "only_layer",
+          "layer": 2,
+          "query": 0.9825,
+          "local": 0.98,
+          "probe_final": 0.9725,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0
+          ],
+          "selection": "fixed",
+          "keep": 1,
+          "query": 0.895,
+          "local": 0.98,
+          "probe_final": 0.115,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            28
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 0,
+          "query": 0.8875,
+          "local": 0.98,
+          "probe_final": 0.125,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            14
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 1,
+          "query": 0.8925,
+          "local": 0.98,
+          "probe_final": 0.1175,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            5
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 2,
+          "query": 0.9175,
+          "local": 0.98,
+          "probe_final": 0.1175,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1
+          ],
+          "selection": "fixed",
+          "keep": 2,
+          "query": 0.935,
+          "local": 0.98,
+          "probe_final": 0.175,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            22,
+            31
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 0,
+          "query": 0.935,
+          "local": 0.98,
+          "probe_final": 0.275,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            10,
+            17
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 1,
+          "query": 0.91,
+          "local": 0.98,
+          "probe_final": 0.24,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            25,
+            27
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 2,
+          "query": 0.8275,
+          "local": 0.98,
+          "probe_final": 0.2175,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep4",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "selection": "fixed",
+          "keep": 4,
+          "query": 0.95,
+          "local": 0.98,
+          "probe_final": 0.59,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            4,
+            6,
+            15,
+            20
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 0,
+          "query": 0.7325,
+          "local": 0.98,
+          "probe_final": 0.135,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            7,
+            14,
+            31
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 1,
+          "query": 0.955,
+          "local": 0.98,
+          "probe_final": 0.6325,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            5,
+            26,
+            27
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 2,
+          "query": 0.95,
+          "local": 0.98,
+          "probe_final": 0.63,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep8",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "selection": "fixed",
+          "keep": 8,
+          "query": 0.91,
+          "local": 0.98,
+          "probe_final": 0.88,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            7,
+            8,
+            18,
+            21,
+            25,
+            27,
+            31
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 0,
+          "query": 0.92,
+          "local": 0.98,
+          "probe_final": 0.9425,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            8,
+            10,
+            11,
+            15,
+            27,
+            28,
+            30
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 1,
+          "query": 0.9825,
+          "local": 0.98,
+          "probe_final": 0.925,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            4,
+            8,
+            9,
+            12,
+            14,
+            15,
+            17,
+            25
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 2,
+          "query": 0.925,
+          "local": 0.98,
+          "probe_final": 0.6825,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep16",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "selection": "fixed",
+          "keep": 16,
+          "query": 0.935,
+          "local": 0.98,
+          "probe_final": 0.9675,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            5,
+            9,
+            12,
+            15,
+            17,
+            20,
+            21,
+            23,
+            25,
+            26,
+            28,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 0,
+          "query": 0.92,
+          "local": 0.98,
+          "probe_final": 0.925,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            2,
+            6,
+            8,
+            9,
+            12,
+            14,
+            16,
+            17,
+            20,
+            21,
+            22,
+            25,
+            26,
+            29,
+            31
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 1,
+          "query": 0.9275,
+          "local": 0.98,
+          "probe_final": 0.9325,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            4,
+            8,
+            9,
+            10,
+            15,
+            17,
+            18,
+            19,
+            20,
+            22,
+            24,
+            25,
+            27,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 2,
+          "query": 0.9325,
+          "local": 0.98,
+          "probe_final": 0.95,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep32",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "fixed",
+          "keep": 32,
+          "query": 0.9625,
+          "local": 0.98,
+          "probe_final": 0.945,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 0,
+          "query": 0.9625,
+          "local": 0.98,
+          "probe_final": 0.945,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 1,
+          "query": 0.9625,
+          "local": 0.98,
+          "probe_final": 0.945,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 2,
+          "query": 0.9625,
+          "local": 0.98,
+          "probe_final": 0.945,
+          "samples": 400
+        }
+      ]
+    },
+    {
+      "seed": 808,
+      "source": "D:\\code\\InformationSpiralTransformer\\ist_v0_1\\experiments\\level6_8\\formal\\seed808\\withdrawal_phase3.pt",
+      "layer_summary": {
+        "intact": 0.965,
+        "zero": [
+          0.9725,
+          0.8175,
+          0.045
+        ],
+        "only": [
+          0.06,
+          0.065,
+          0.985
+        ],
+        "localized_to_layer2": true
+      },
+      "slot_summary": [
+        {
+          "keep": 1,
+          "fixed_query": 0.0475,
+          "random_mean_query": 0.5241666666666667,
+          "random_min_query": 0.05,
+          "random_max_query": 0.77,
+          "random_values": [
+            0.7525,
+            0.77,
+            0.05
+          ]
+        },
+        {
+          "keep": 2,
+          "fixed_query": 0.8475,
+          "random_mean_query": 0.8425,
+          "random_min_query": 0.805,
+          "random_max_query": 0.915,
+          "random_values": [
+            0.8075,
+            0.805,
+            0.915
+          ]
+        },
+        {
+          "keep": 4,
+          "fixed_query": 0.935,
+          "random_mean_query": 0.8833333333333333,
+          "random_min_query": 0.875,
+          "random_max_query": 0.8875,
+          "random_values": [
+            0.8875,
+            0.875,
+            0.8875
+          ]
+        },
+        {
+          "keep": 8,
+          "fixed_query": 0.94,
+          "random_mean_query": 0.9291666666666667,
+          "random_min_query": 0.9275,
+          "random_max_query": 0.93,
+          "random_values": [
+            0.9275,
+            0.93,
+            0.93
+          ]
+        },
+        {
+          "keep": 16,
+          "fixed_query": 0.945,
+          "random_mean_query": 0.9316666666666666,
+          "random_min_query": 0.925,
+          "random_max_query": 0.9375,
+          "random_values": [
+            0.925,
+            0.9325,
+            0.9375
+          ]
+        },
+        {
+          "keep": 32,
+          "fixed_query": 0.965,
+          "random_mean_query": 0.965,
+          "random_min_query": 0.965,
+          "random_max_query": 0.965,
+          "random_values": [
+            0.965,
+            0.965,
+            0.965
+          ]
+        }
+      ],
+      "minimum_fixed_slots": 4,
+      "minimum_random_slots_all_repeats": 8,
+      "metrics": [
+        {
+          "name": "intact",
+          "kind": "intact",
+          "query": 0.965,
+          "local": 0.995,
+          "probe_final": 0.1375,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer0",
+          "kind": "zero_layer",
+          "layer": 0,
+          "query": 0.9725,
+          "local": 0.995,
+          "probe_final": 0.985,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer1",
+          "kind": "zero_layer",
+          "layer": 1,
+          "query": 0.8175,
+          "local": 0.995,
+          "probe_final": 0.13,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer2",
+          "kind": "zero_layer",
+          "layer": 2,
+          "query": 0.045,
+          "local": 0.995,
+          "probe_final": 0.0625,
+          "samples": 400
+        },
+        {
+          "name": "only_layer0",
+          "kind": "only_layer",
+          "layer": 0,
+          "query": 0.06,
+          "local": 0.995,
+          "probe_final": 0.065,
+          "samples": 400
+        },
+        {
+          "name": "only_layer1",
+          "kind": "only_layer",
+          "layer": 1,
+          "query": 0.065,
+          "local": 0.995,
+          "probe_final": 0.06,
+          "samples": 400
+        },
+        {
+          "name": "only_layer2",
+          "kind": "only_layer",
+          "layer": 2,
+          "query": 0.985,
+          "local": 0.995,
+          "probe_final": 0.9875,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0
+          ],
+          "selection": "fixed",
+          "keep": 1,
+          "query": 0.0475,
+          "local": 0.995,
+          "probe_final": 0.06,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            29
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 0,
+          "query": 0.7525,
+          "local": 0.995,
+          "probe_final": 0.075,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            25
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 1,
+          "query": 0.77,
+          "local": 0.995,
+          "probe_final": 0.0775,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            14
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 2,
+          "query": 0.05,
+          "local": 0.995,
+          "probe_final": 0.06,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1
+          ],
+          "selection": "fixed",
+          "keep": 2,
+          "query": 0.8475,
+          "local": 0.995,
+          "probe_final": 0.075,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            11,
+            23
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 0,
+          "query": 0.8075,
+          "local": 0.995,
+          "probe_final": 0.0725,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            22,
+            23
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 1,
+          "query": 0.805,
+          "local": 0.995,
+          "probe_final": 0.075,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            9,
+            17
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 2,
+          "query": 0.915,
+          "local": 0.995,
+          "probe_final": 0.0775,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep4",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "selection": "fixed",
+          "keep": 4,
+          "query": 0.935,
+          "local": 0.995,
+          "probe_final": 0.085,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            2,
+            15,
+            18,
+            20
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 0,
+          "query": 0.8875,
+          "local": 0.995,
+          "probe_final": 0.08,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            3,
+            20,
+            21,
+            24
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 1,
+          "query": 0.875,
+          "local": 0.995,
+          "probe_final": 0.095,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            8,
+            12,
+            18
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 2,
+          "query": 0.8875,
+          "local": 0.995,
+          "probe_final": 0.0825,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep8",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "selection": "fixed",
+          "keep": 8,
+          "query": 0.94,
+          "local": 0.995,
+          "probe_final": 0.0875,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            10,
+            17,
+            23,
+            26,
+            27,
+            28,
+            29
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 0,
+          "query": 0.9275,
+          "local": 0.995,
+          "probe_final": 0.0925,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            3,
+            6,
+            10,
+            13,
+            18,
+            20,
+            25
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 1,
+          "query": 0.93,
+          "local": 0.995,
+          "probe_final": 0.095,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            13,
+            15,
+            17,
+            23,
+            24,
+            29
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 2,
+          "query": 0.93,
+          "local": 0.995,
+          "probe_final": 0.095,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep16",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "selection": "fixed",
+          "keep": 16,
+          "query": 0.945,
+          "local": 0.995,
+          "probe_final": 0.1,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            4,
+            5,
+            8,
+            10,
+            11,
+            12,
+            14,
+            16,
+            18,
+            19,
+            21,
+            22,
+            27,
+            29
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 0,
+          "query": 0.925,
+          "local": 0.995,
+          "probe_final": 0.1,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            10,
+            11,
+            12,
+            13,
+            17,
+            18,
+            20,
+            21,
+            22,
+            24,
+            25,
+            29,
+            30
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 1,
+          "query": 0.9325,
+          "local": 0.995,
+          "probe_final": 0.1025,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            5,
+            7,
+            8,
+            9,
+            11,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            21,
+            27,
+            28,
+            30
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 2,
+          "query": 0.9375,
+          "local": 0.995,
+          "probe_final": 0.1,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep32",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "fixed",
+          "keep": 32,
+          "query": 0.965,
+          "local": 0.995,
+          "probe_final": 0.1375,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 0,
+          "query": 0.965,
+          "local": 0.995,
+          "probe_final": 0.1375,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 1,
+          "query": 0.965,
+          "local": 0.995,
+          "probe_final": 0.1375,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 2,
+          "query": 0.965,
+          "local": 0.995,
+          "probe_final": 0.1375,
+          "samples": 400
+        }
+      ]
+    },
+    {
+      "seed": 1001,
+      "source": "D:\\code\\InformationSpiralTransformer\\ist_v0_1\\experiments\\level6_8\\formal\\seed1001\\withdrawal_phase3.pt",
+      "layer_summary": {
+        "intact": 0.9775,
+        "zero": [
+          0.975,
+          0.9175,
+          0.0775
+        ],
+        "only": [
+          0.075,
+          0.075,
+          0.9775
+        ],
+        "localized_to_layer2": true
+      },
+      "slot_summary": [
+        {
+          "keep": 1,
+          "fixed_query": 0.0775,
+          "random_mean_query": 0.6833333333333333,
+          "random_min_query": 0.0775,
+          "random_max_query": 0.99,
+          "random_values": [
+            0.99,
+            0.0775,
+            0.9825
+          ]
+        },
+        {
+          "keep": 2,
+          "fixed_query": 0.0775,
+          "random_mean_query": 0.9466666666666667,
+          "random_min_query": 0.92,
+          "random_max_query": 0.9675,
+          "random_values": [
+            0.92,
+            0.9675,
+            0.9525
+          ]
+        },
+        {
+          "keep": 4,
+          "fixed_query": 0.995,
+          "random_mean_query": 0.9866666666666667,
+          "random_min_query": 0.98,
+          "random_max_query": 0.9925,
+          "random_values": [
+            0.9925,
+            0.98,
+            0.9875
+          ]
+        },
+        {
+          "keep": 8,
+          "fixed_query": 0.995,
+          "random_mean_query": 0.9875,
+          "random_min_query": 0.98,
+          "random_max_query": 0.995,
+          "random_values": [
+            0.9875,
+            0.98,
+            0.995
+          ]
+        },
+        {
+          "keep": 16,
+          "fixed_query": 0.995,
+          "random_mean_query": 0.99,
+          "random_min_query": 0.9875,
+          "random_max_query": 0.9925,
+          "random_values": [
+            0.9875,
+            0.99,
+            0.9925
+          ]
+        },
+        {
+          "keep": 32,
+          "fixed_query": 0.9775,
+          "random_mean_query": 0.9775,
+          "random_min_query": 0.9775,
+          "random_max_query": 0.9775,
+          "random_values": [
+            0.9775,
+            0.9775,
+            0.9775
+          ]
+        }
+      ],
+      "minimum_fixed_slots": 4,
+      "minimum_random_slots_all_repeats": 2,
+      "metrics": [
+        {
+          "name": "intact",
+          "kind": "intact",
+          "query": 0.9775,
+          "local": 0.995,
+          "probe_final": 0.24,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer0",
+          "kind": "zero_layer",
+          "layer": 0,
+          "query": 0.975,
+          "local": 0.995,
+          "probe_final": 0.9825,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer1",
+          "kind": "zero_layer",
+          "layer": 1,
+          "query": 0.9175,
+          "local": 0.995,
+          "probe_final": 0.24,
+          "samples": 400
+        },
+        {
+          "name": "zero_layer2",
+          "kind": "zero_layer",
+          "layer": 2,
+          "query": 0.0775,
+          "local": 0.995,
+          "probe_final": 0.0775,
+          "samples": 400
+        },
+        {
+          "name": "only_layer0",
+          "kind": "only_layer",
+          "layer": 0,
+          "query": 0.075,
+          "local": 0.995,
+          "probe_final": 0.0725,
+          "samples": 400
+        },
+        {
+          "name": "only_layer1",
+          "kind": "only_layer",
+          "layer": 1,
+          "query": 0.075,
+          "local": 0.995,
+          "probe_final": 0.0775,
+          "samples": 400
+        },
+        {
+          "name": "only_layer2",
+          "kind": "only_layer",
+          "layer": 2,
+          "query": 0.9775,
+          "local": 0.995,
+          "probe_final": 0.9825,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0
+          ],
+          "selection": "fixed",
+          "keep": 1,
+          "query": 0.0775,
+          "local": 0.995,
+          "probe_final": 0.0775,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            2
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 0,
+          "query": 0.99,
+          "local": 0.995,
+          "probe_final": 0.11,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            18
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 1,
+          "query": 0.0775,
+          "local": 0.995,
+          "probe_final": 0.0775,
+          "samples": 400
+        },
+        {
+          "name": "random_keep1_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            19
+          ],
+          "selection": "random",
+          "keep": 1,
+          "repeat": 2,
+          "query": 0.9825,
+          "local": 0.995,
+          "probe_final": 0.1075,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1
+          ],
+          "selection": "fixed",
+          "keep": 2,
+          "query": 0.0775,
+          "local": 0.995,
+          "probe_final": 0.0775,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            15,
+            23
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 0,
+          "query": 0.92,
+          "local": 0.995,
+          "probe_final": 0.1075,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            18,
+            30
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 1,
+          "query": 0.9675,
+          "local": 0.995,
+          "probe_final": 0.105,
+          "samples": 400
+        },
+        {
+          "name": "random_keep2_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            2
+          ],
+          "selection": "random",
+          "keep": 2,
+          "repeat": 2,
+          "query": 0.9525,
+          "local": 0.995,
+          "probe_final": 0.1075,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep4",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "selection": "fixed",
+          "keep": 4,
+          "query": 0.995,
+          "local": 0.995,
+          "probe_final": 0.125,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            1,
+            8,
+            16,
+            21
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 0,
+          "query": 0.9925,
+          "local": 0.995,
+          "probe_final": 0.125,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            3,
+            8,
+            13,
+            31
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 1,
+          "query": 0.98,
+          "local": 0.995,
+          "probe_final": 0.1225,
+          "samples": 400
+        },
+        {
+          "name": "random_keep4_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            6,
+            7,
+            21,
+            28
+          ],
+          "selection": "random",
+          "keep": 4,
+          "repeat": 2,
+          "query": 0.9875,
+          "local": 0.995,
+          "probe_final": 0.1225,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep8",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "selection": "fixed",
+          "keep": 8,
+          "query": 0.995,
+          "local": 0.995,
+          "probe_final": 0.135,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            2,
+            8,
+            14,
+            16,
+            18,
+            19,
+            20,
+            25
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 0,
+          "query": 0.9875,
+          "local": 0.995,
+          "probe_final": 0.13,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            3,
+            4,
+            11,
+            15,
+            17,
+            21,
+            24,
+            25
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 1,
+          "query": 0.98,
+          "local": 0.995,
+          "probe_final": 0.1375,
+          "samples": 400
+        },
+        {
+          "name": "random_keep8_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            5,
+            6,
+            9,
+            13,
+            19,
+            20,
+            23,
+            24
+          ],
+          "selection": "random",
+          "keep": 8,
+          "repeat": 2,
+          "query": 0.995,
+          "local": 0.995,
+          "probe_final": 0.1325,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep16",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "selection": "fixed",
+          "keep": 16,
+          "query": 0.995,
+          "local": 0.995,
+          "probe_final": 0.165,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            12,
+            19,
+            20,
+            21,
+            24,
+            27,
+            28,
+            31
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 0,
+          "query": 0.9875,
+          "local": 0.995,
+          "probe_final": 0.17,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            4,
+            8,
+            9,
+            10,
+            14,
+            15,
+            16,
+            19,
+            21,
+            27,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 1,
+          "query": 0.99,
+          "local": 0.995,
+          "probe_final": 0.17,
+          "samples": 400
+        },
+        {
+          "name": "random_keep16_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            3,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            18,
+            19,
+            23,
+            24,
+            25,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 16,
+          "repeat": 2,
+          "query": 0.9925,
+          "local": 0.995,
+          "probe_final": 0.16,
+          "samples": 400
+        },
+        {
+          "name": "fixed_keep32",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "fixed",
+          "keep": 32,
+          "query": 0.9775,
+          "local": 0.995,
+          "probe_final": 0.24,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r0",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 0,
+          "query": 0.9775,
+          "local": 0.995,
+          "probe_final": 0.24,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r1",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 1,
+          "query": 0.9775,
+          "local": 0.995,
+          "probe_final": 0.24,
+          "samples": 400
+        },
+        {
+          "name": "random_keep32_r2",
+          "kind": "keep_slots",
+          "layer": 2,
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "selection": "random",
+          "keep": 32,
+          "repeat": 2,
+          "query": 0.9775,
+          "local": 0.995,
+          "probe_final": 0.24,
+          "samples": 400
+        }
+      ]
+    }
+  ]
+}

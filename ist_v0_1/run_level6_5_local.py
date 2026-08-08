@@ -113,7 +113,7 @@ def run(profile, seed, args, device, dtype, root):
         (2, args.stage1_steps, 1e-3, 8),
         (4, args.later_steps, 1e-3, 4),
         (8, args.later_steps, 2.5e-4, 4),
-        (16, args.later_steps, 1e-4, 2),
+        (16, args.later_steps, getattr(args, "stage4_lr", 1e-4), 2),
     ]
     for stage, (count, steps, lr, batch) in enumerate(specs, 1):
         for group in optimizer.param_groups:
@@ -219,6 +219,7 @@ def main():
     parser.add_argument("--stage1-steps", type=int, default=3000)
     parser.add_argument("--later-steps", type=int, default=1000)
     parser.add_argument("--maintenance-steps", type=int, default=500)
+    parser.add_argument("--stage4-lr", type=float, default=1e-4)
     parser.add_argument("--eval-every", type=int, default=100)
     parser.add_argument("--eval-batch-size", type=int, default=8)
     parser.add_argument("--eval-batches", type=int, default=10)
@@ -233,7 +234,10 @@ def main():
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA GPU required")
     if not args.allow_nondeterministic:
-        torch.use_deterministic_algorithms(True, warn_only=True)
+        torch.backends.cuda.enable_flash_sdp(False)
+        torch.backends.cuda.enable_mem_efficient_sdp(False)
+        torch.backends.cuda.enable_math_sdp(True)
+        torch.use_deterministic_algorithms(True, warn_only=False)
         torch.backends.cudnn.benchmark = False
         torch.backends.cudnn.deterministic = True
         torch.backends.cuda.matmul.allow_tf32 = False

@@ -1,0 +1,1107 @@
+{
+  "protocol": {
+    "seeds": [
+      606
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "chunks": 3,
+    "chunk_size": 128,
+    "times": [
+      1,
+      2
+    ],
+    "eval_batch_size": 8,
+    "samples_per_eval_seed": 8,
+    "eval_seed_count": 1,
+    "eval_seed_base": 7140000,
+    "bootstrap_iterations": 100,
+    "bootstrap_seed": 614000,
+    "output": "experiments\\level6_14\\smoke",
+    "force": true
+  },
+  "runs": [
+    {
+      "seed": 606,
+      "samples_per_condition": 8,
+      "intact_accuracy": 1.0,
+      "candidates": [
+        {
+          "slots": [
+            10,
+            17
+          ],
+          "key": "10-17",
+          "category": "max_keep_gain",
+          "discovery_best_single": 10
+        },
+        {
+          "slots": [
+            1,
+            30
+          ],
+          "key": "1-30",
+          "category": "max_deletion_interaction",
+          "discovery_best_single": 30
+        },
+        {
+          "slots": [
+            13,
+            28
+          ],
+          "key": "13-28",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 13
+        },
+        {
+          "slots": [
+            19,
+            26
+          ],
+          "key": "19-26",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 26
+        }
+      ],
+      "trajectories": [
+        {
+          "slots": [
+            10,
+            17
+          ],
+          "key": "10-17",
+          "category": "max_keep_gain",
+          "discovery_best_single": 10,
+          "mode": "zero_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            10,
+            17
+          ],
+          "key": "10-17",
+          "category": "max_keep_gain",
+          "discovery_best_single": 10,
+          "mode": "zero_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            10,
+            17
+          ],
+          "key": "10-17",
+          "category": "max_keep_gain",
+          "discovery_best_single": 10,
+          "mode": "swap_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.125,
+                  0.75
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 1,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.125,
+                  0.75
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 2,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            10,
+            17
+          ],
+          "key": "10-17",
+          "category": "max_keep_gain",
+          "discovery_best_single": 10,
+          "mode": "keep_pair_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.875,
+              "effect": {
+                "estimate": 0.125,
+                "ci95": [
+                  0.0,
+                  0.44062499999999893
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 1,
+                "right_only_correct": 0,
+                "discordant": 1,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            1,
+            30
+          ],
+          "key": "1-30",
+          "category": "max_deletion_interaction",
+          "discovery_best_single": 30,
+          "mode": "zero_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            1,
+            30
+          ],
+          "key": "1-30",
+          "category": "max_deletion_interaction",
+          "discovery_best_single": 30,
+          "mode": "zero_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.875,
+              "effect": {
+                "estimate": 0.125,
+                "ci95": [
+                  0.0,
+                  0.375
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 1,
+                "right_only_correct": 0,
+                "discordant": 1,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            1,
+            30
+          ],
+          "key": "1-30",
+          "category": "max_deletion_interaction",
+          "discovery_best_single": 30,
+          "mode": "swap_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.125,
+                  0.625
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 1,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.125,
+                  0.75
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 2,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            1,
+            30
+          ],
+          "key": "1-30",
+          "category": "max_deletion_interaction",
+          "discovery_best_single": 30,
+          "mode": "keep_pair_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.875,
+              "effect": {
+                "estimate": 0.125,
+                "ci95": [
+                  0.0,
+                  0.375
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 1,
+                "right_only_correct": 0,
+                "discordant": 1,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            13,
+            28
+          ],
+          "key": "13-28",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 13,
+          "mode": "zero_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            13,
+            28
+          ],
+          "key": "13-28",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 13,
+          "mode": "zero_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            13,
+            28
+          ],
+          "key": "13-28",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 13,
+          "mode": "swap_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.125,
+                  0.6906249999999989
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 1,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.125,
+                  0.6906249999999989
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 2,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            13,
+            28
+          ],
+          "key": "13-28",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 13,
+          "mode": "keep_pair_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.875,
+              "effect": {
+                "estimate": 0.125,
+                "ci95": [
+                  0.0,
+                  0.25
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 1,
+                "right_only_correct": 0,
+                "discordant": 1,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            19,
+            26
+          ],
+          "key": "19-26",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 26,
+          "mode": "zero_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            19,
+            26
+          ],
+          "key": "19-26",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 26,
+          "mode": "zero_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            19,
+            26
+          ],
+          "key": "19-26",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 26,
+          "mode": "swap_once",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.125,
+                  0.6906249999999989
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 1,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 0.625,
+              "effect": {
+                "estimate": 0.375,
+                "ci95": [
+                  0.0,
+                  0.75
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 3,
+                "right_only_correct": 0,
+                "discordant": 3,
+                "p": 0.25,
+                "after_chunk": 2,
+                "p_holm": 0.5,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        },
+        {
+          "slots": [
+            19,
+            26
+          ],
+          "key": "19-26",
+          "category": "cross_seed_robust",
+          "discovery_best_single": 26,
+          "mode": "keep_pair_persistent",
+          "points": [
+            {
+              "after_chunk": 1,
+              "accuracy": 0.875,
+              "effect": {
+                "estimate": 0.125,
+                "ci95": [
+                  0.0,
+                  0.31562499999999893
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 1,
+                "right_only_correct": 0,
+                "discordant": 1,
+                "p": 1.0,
+                "after_chunk": 1,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            },
+            {
+              "after_chunk": 2,
+              "accuracy": 1.0,
+              "effect": {
+                "estimate": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "iterations": 100
+              },
+              "mcnemar": {
+                "left_only_correct": 0,
+                "right_only_correct": 0,
+                "discordant": 0,
+                "p": 1.0,
+                "after_chunk": 2,
+                "p_holm": 1.0,
+                "significant_holm_0.05": false
+              }
+            }
+          ]
+        }
+      ],
+      "eval_seeds": [
+        7200600
+      ]
+    }
+  ],
+  "common_pair_aggregate": {
+    "1-30": {
+      "zero_once": {
+        "mean_accuracy": [
+          1.0,
+          1.0
+        ],
+        "minimum_accuracy": [
+          1.0,
+          1.0
+        ]
+      },
+      "zero_persistent": {
+        "mean_accuracy": [
+          0.875,
+          1.0
+        ],
+        "minimum_accuracy": [
+          0.875,
+          1.0
+        ]
+      },
+      "swap_once": {
+        "mean_accuracy": [
+          0.625,
+          0.625
+        ],
+        "minimum_accuracy": [
+          0.625,
+          0.625
+        ]
+      },
+      "keep_pair_persistent": {
+        "mean_accuracy": [
+          0.875,
+          1.0
+        ],
+        "minimum_accuracy": [
+          0.875,
+          1.0
+        ]
+      }
+    },
+    "10-17": {
+      "zero_once": {
+        "mean_accuracy": [
+          1.0,
+          1.0
+        ],
+        "minimum_accuracy": [
+          1.0,
+          1.0
+        ]
+      },
+      "zero_persistent": {
+        "mean_accuracy": [
+          1.0,
+          1.0
+        ],
+        "minimum_accuracy": [
+          1.0,
+          1.0
+        ]
+      },
+      "swap_once": {
+        "mean_accuracy": [
+          0.625,
+          0.625
+        ],
+        "minimum_accuracy": [
+          0.625,
+          0.625
+        ]
+      },
+      "keep_pair_persistent": {
+        "mean_accuracy": [
+          0.875,
+          1.0
+        ],
+        "minimum_accuracy": [
+          0.875,
+          1.0
+        ]
+      }
+    },
+    "13-28": {
+      "zero_once": {
+        "mean_accuracy": [
+          1.0,
+          1.0
+        ],
+        "minimum_accuracy": [
+          1.0,
+          1.0
+        ]
+      },
+      "zero_persistent": {
+        "mean_accuracy": [
+          1.0,
+          1.0
+        ],
+        "minimum_accuracy": [
+          1.0,
+          1.0
+        ]
+      },
+      "swap_once": {
+        "mean_accuracy": [
+          0.625,
+          0.625
+        ],
+        "minimum_accuracy": [
+          0.625,
+          0.625
+        ]
+      },
+      "keep_pair_persistent": {
+        "mean_accuracy": [
+          0.875,
+          1.0
+        ],
+        "minimum_accuracy": [
+          0.875,
+          1.0
+        ]
+      }
+    },
+    "19-26": {
+      "zero_once": {
+        "mean_accuracy": [
+          1.0,
+          1.0
+        ],
+        "minimum_accuracy": [
+          1.0,
+          1.0
+        ]
+      },
+      "zero_persistent": {
+        "mean_accuracy": [
+          1.0,
+          1.0
+        ],
+        "minimum_accuracy": [
+          1.0,
+          1.0
+        ]
+      },
+      "swap_once": {
+        "mean_accuracy": [
+          0.625,
+          0.625
+        ],
+        "minimum_accuracy": [
+          0.625,
+          0.625
+        ]
+      },
+      "keep_pair_persistent": {
+        "mean_accuracy": [
+          0.875,
+          1.0
+        ],
+        "minimum_accuracy": [
+          0.875,
+          1.0
+        ]
+      }
+    }
+  }
+}

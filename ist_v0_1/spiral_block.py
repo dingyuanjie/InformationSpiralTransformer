@@ -19,6 +19,8 @@ class SpiralBlock(nn.Module):
             nn.Sequential(nn.Linear(hidden_size * 2, hidden_size), nn.Sigmoid())
             if use_memory_fusion else None
         )
+        self.capture_memory_read_weights = False
+        self.last_memory_read_weights = None
         self.ffn = nn.Sequential(
             nn.Linear(hidden_size, hidden_size * 4),
             nn.GELU(),
@@ -33,9 +35,17 @@ class SpiralBlock(nn.Module):
 
         new_memory, memory_feature = self.memory(x, memory)
         if self.use_memory_fusion:
-            memory_context, _ = self.memory_read(
-                x, new_memory, new_memory, need_weights=False
-            )
+            if self.capture_memory_read_weights:
+                memory_context, read_weights = self.memory_read(
+                    x, new_memory, new_memory, need_weights=True,
+                    average_attn_weights=False,
+                )
+                self.last_memory_read_weights = read_weights.detach()
+            else:
+                memory_context, _ = self.memory_read(
+                    x, new_memory, new_memory, need_weights=False
+                )
+                self.last_memory_read_weights = None
             fusion_gate = self.memory_fusion_gate(
                 torch.cat([x, memory_context], dim=-1)
             )
