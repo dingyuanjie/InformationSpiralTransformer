@@ -1,0 +1,77 @@
+{
+  "level": "6.18.1",
+  "hypothesis": "Failed initializations require rollback plus intermediate-length rehearsal, not more optimization at the failed length.",
+  "roles": {
+    "707": "calibration; must pass before seed909 is opened",
+    "909": "locked transfer; not used to alter this protocol"
+  },
+  "rollback": "last passed Level 6.8 curriculum checkpoint",
+  "normalized_transitions": {
+    "707": "4 -> 6 -> 8 -> 12 -> 16",
+    "909": "8 -> 12 -> 16"
+  },
+  "mixtures": {
+    "bridge": "[base, midpoint, midpoint, midpoint]",
+    "target": "[base, midpoint, target, target, target, target]"
+  },
+  "gate": {
+    "screen_query": 0.9,
+    "confirm_query_mean": 0.95,
+    "confirm_worst_panel": 0.93,
+    "fixed_panels": 2,
+    "samples_per_panel": 200,
+    "successive_confirmed_checkpoints": 2,
+    "probe_is_diagnostic_only": true
+  },
+  "post_formation": {
+    "withdrawal": "0.2 -> 0.1 -> 0.0, matched to Level 6.8",
+    "behavior_gate": "query >= 0.95",
+    "causal_gate": {
+      "intact_query": ">= 0.9",
+      "max_reset_zero_roll_query": "<= 0.2",
+      "min_local": ">= 0.9"
+    }
+  },
+  "protocol": {
+    "seeds": [
+      707,
+      909
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "output": "experiments/level6_18_1/formal",
+    "chunk_size": 128,
+    "target_chunks": 16,
+    "bridge_steps": 1500,
+    "target_steps": 3000,
+    "bridge_lr": 2e-05,
+    "target_lr": 1e-05,
+    "probe_weight": 0.5,
+    "chunk_batch_budget": 32,
+    "eval_every": 100,
+    "eval_batch_size": 8,
+    "screen_eval_batches": 10,
+    "confirm_eval_batches": 25,
+    "screen_query_threshold": 0.9,
+    "confirm_query_threshold": 0.95,
+    "confirm_panel_floor": 0.93,
+    "confirm_probe_diagnostic_threshold": 0.9,
+    "stable_confirmations": 2,
+    "validation_seed_base": 6181000,
+    "training_seed_base": 6181100,
+    "withdrawal_lr": 5e-06,
+    "withdrawal_ramp_steps": 300,
+    "maintenance_steps": 750,
+    "final_eval_batches": 50,
+    "final_eval_seed_base": 6181200,
+    "final_query_threshold": 0.95,
+    "final_probe_diagnostic_threshold": 0.9,
+    "causal_eval_batches": 50,
+    "causal_eval_seed_base": 6181300,
+    "causal_intact_threshold": 0.9,
+    "causal_intervention_threshold": 0.2,
+    "causal_local_threshold": 0.9,
+    "dry_run": false,
+    "force": false,
+    "behavior_only_gate": true
+  }
+}

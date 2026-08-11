@@ -1,0 +1,50 @@
+{
+  "primary_endpoint": "step2 incremental gain vs frozen dynamic one-step",
+  "success": {
+    "overall_incremental_ci_lower": "> 0",
+    "seed1001_incremental_gain": ">= 0",
+    "every_model_union_clean_fpr": "<= 0.05"
+  },
+  "step2_only_for_step1_misses": true,
+  "seed1001_step2_clean_fpr_limit": 0.03,
+  "frozen_first_policy_fingerprints": {
+    "time_detectors_sha256": "fdff700ed58898a448ef2058837f81844eaaf2fe8f66f4ae07af39ebd34030ba",
+    "level6_16_1_summary_sha256": "1d155aad66c14be3a2f4fc35761bb3cb0f5b542ba7d66a5158ba8644e0d68436"
+  },
+  "protocol": {
+    "seeds": [
+      606,
+      808,
+      1001
+    ],
+    "actions": [
+      0.2,
+      0.25
+    ],
+    "swap_after": 4,
+    "swap_times": [
+      4
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "level6_16_1_root": "experiments/level6_16_1/formal",
+    "chunks": 16,
+    "chunk_size": 128,
+    "eval_batch_size": 8,
+    "samples_per_seed": 200,
+    "train_seeds": 2,
+    "validation_seeds": 1,
+    "test_seeds": 1,
+    "data_seed_base": 8750000,
+    "probe_steps": 1000,
+    "probe_lr": 0.03,
+    "probe_weight_decay": 0.001,
+    "max_step2_fpr": 0.05,
+    "seed1001_step2_fpr": 0.03,
+    "max_union_clean_fpr": 0.05,
+    "bootstrap_iterations": 5000,
+    "bootstrap_seed": 617100,
+    "output": "experiments/level6_17_1/formal",
+    "force": false
+  }
+}

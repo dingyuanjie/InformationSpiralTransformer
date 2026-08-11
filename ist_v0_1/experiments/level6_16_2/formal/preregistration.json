@@ -1,0 +1,44 @@
+{
+  "frozen_policy_fingerprints": {
+    "time_detectors_sha256": "fdff700ed58898a448ef2058837f81844eaaf2fe8f66f4ae07af39ebd34030ba",
+    "level6_16_1_summary_sha256": "1d155aad66c14be3a2f4fc35761bb3cb0f5b542ba7d66a5158ba8644e0d68436"
+  },
+  "success": {
+    "overall_ci95_lower": "> 0",
+    "seed808_gain": ">= -0.0025",
+    "every_condition_clean_fpr": "<= 0.05",
+    "pooled_corrected_gt_harmed_mcnemar_p": "< 0.05"
+  },
+  "no_training_or_threshold_selection": true,
+  "samples_per_model_time": 2400,
+  "protocol": {
+    "seeds": [
+      606,
+      808,
+      1001
+    ],
+    "swap_times": [
+      4,
+      8
+    ],
+    "actions": [
+      0.2,
+      0.25
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "level6_16_1_root": "experiments/level6_16_1/formal",
+    "chunks": 16,
+    "chunk_size": 128,
+    "eval_batch_size": 8,
+    "samples_per_eval_seed": 200,
+    "eval_seed_count": 4,
+    "eval_seed_base": 8350000,
+    "bootstrap_iterations": 5000,
+    "bootstrap_seed": 616200,
+    "seed808_floor": -0.0025,
+    "max_clean_fpr": 0.05,
+    "output": "experiments/level6_16_2/formal",
+    "force": false
+  }
+}

@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 from spiral_attention import SpiralAttention
 from spiral_memory import SpiralMemory
@@ -21,6 +22,10 @@ class SpiralBlock(nn.Module):
         )
         self.capture_memory_read_weights = False
         self.last_memory_read_weights = None
+        self.historical_read_scale = 1.0
+        self.historical_consistency_threshold = None
+        self.historical_consistency_temperature = 0.1
+        self.last_historical_read_multiplier = None
         self.ffn = nn.Sequential(
             nn.Linear(hidden_size, hidden_size * 4),
             nn.GELU(),
@@ -30,7 +35,20 @@ class SpiralBlock(nn.Module):
         self.norm2 = nn.LayerNorm(hidden_size)
 
     def forward(self, x, memory=None):
-        attn = self.attention(x, memory if memory is not None else x)
+        historical_memory = memory if memory is not None else x
+        historical_multiplier = torch.as_tensor(
+            self.historical_read_scale, device=x.device, dtype=x.dtype
+        )
+        if memory is not None and self.historical_consistency_threshold is not None:
+            consistency = F.cosine_similarity(x.mean(dim=1), memory.mean(dim=1), dim=-1)
+            adaptive = torch.sigmoid(
+                (consistency - self.historical_consistency_threshold)
+                / self.historical_consistency_temperature
+            )
+            historical_multiplier = historical_multiplier * adaptive[:, None, None]
+        historical_memory = historical_memory * historical_multiplier
+        self.last_historical_read_multiplier = historical_multiplier.float().mean().detach()
+        attn = self.attention(x, historical_memory)
         x = self.norm1(x + attn)
 
         new_memory, memory_feature = self.memory(x, memory)

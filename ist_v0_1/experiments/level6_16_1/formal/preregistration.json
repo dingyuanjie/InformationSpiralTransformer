@@ -1,0 +1,66 @@
+{
+  "joint_success": {
+    "seed808_test_gain": ">= 0",
+    "each_time_clean_fpr": "<= 0.05",
+    "overall_test_gain": "> 0"
+  },
+  "detector": "model-and-time calibrated",
+  "utility": "predict corrected vs harmed among changed samples",
+  "actions": [
+    0.2,
+    0.25
+  ],
+  "features": [
+    "encoded_norm",
+    "attended_norm",
+    "propagation_ratio",
+    "gate_mean",
+    "gate_std",
+    "rewrite_relative",
+    "rewrite_cosine",
+    "old_memory_norm",
+    "new_memory_norm",
+    "slot_norm_std",
+    "compression_entropy_mean",
+    "compression_entropy_std"
+  ],
+  "forbidden_features": [
+    "donor",
+    "answer",
+    "clean reference"
+  ],
+  "protocol": {
+    "seeds": [
+      606,
+      808,
+      1001
+    ],
+    "swap_times": [
+      4,
+      8
+    ],
+    "actions": [
+      0.2,
+      0.25
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "level6_16_root": "experiments/level6_16/formal",
+    "chunks": 16,
+    "chunk_size": 128,
+    "eval_batch_size": 8,
+    "utility_samples_per_seed": 200,
+    "utility_train_seeds": 2,
+    "utility_validation_seeds": 1,
+    "utility_test_seeds": 1,
+    "utility_seed_base": 8150000,
+    "probe_steps": 1000,
+    "probe_lr": 0.03,
+    "probe_weight_decay": 0.001,
+    "max_clean_fpr": 0.05,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 616100,
+    "output": "experiments/level6_16_1/formal",
+    "force": false
+  }
+}

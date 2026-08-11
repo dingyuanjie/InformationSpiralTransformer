@@ -1,0 +1,427 @@
+{
+  "protocol": {
+    "level": "6.18.4",
+    "status": "frozen residual 16-chunk mechanism diagnosis",
+    "models": {
+      "shared_backbone": "untouched seed707 Level 6.18.1 diagnostic-best checkpoint",
+      "heads": [
+        "original",
+        "Level 6.18.3 12-chunk rescue"
+      ],
+      "checkpoint_compatibility_audited": true
+    },
+    "chunks": 16,
+    "feature_probes": [
+      "memory_l3_mean",
+      "memory_l3_concat",
+      "memory_all_mean_concat",
+      "memory_all_concat",
+      "query_hidden",
+      "memory_l3_query",
+      "memory_all_query"
+    ],
+    "splits": {
+      "train": 2048,
+      "validation": 512,
+      "test": 1024
+    },
+    "decision_rule": {
+      "memory_below_0.90": "Memory propagation/encoding degradation",
+      "memory_and_query_at_least_0.95_but_transferred_head_below_0.95": "residual length-specific output alignment",
+      "memory_at_least_0.95_and_memory_minus_query_at_least_0.05": "Memory-to-query routing degradation",
+      "transferred_head_at_least_0.95": "no residual deficit",
+      "otherwise": "mixed/ambiguous"
+    },
+    "causal_conditions": [
+      "intact",
+      "reset",
+      "zero",
+      "batch_roll"
+    ],
+    "no_ist_or_head_updates": true,
+    "protocol": {
+      "seed": 707,
+      "chunks": 16,
+      "chunk_size": 128,
+      "original_checkpoint": "experiments/level6_18_1/formal/seed707/transition_8_to_16_bridge_best.pt",
+      "rescued_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+      "train_samples": 2048,
+      "val_samples": 512,
+      "test_samples": 1024,
+      "causal_samples": 1024,
+      "extract_batch_size": 16,
+      "probe_batch_size": 128,
+      "probe_epochs": 40,
+      "patience": 6,
+      "probe_lr": 0.001,
+      "probe_weight_decay": 0.0001,
+      "dataset_seed_base": 6184000,
+      "high_information_threshold": 0.95,
+      "low_information_threshold": 0.9,
+      "material_gap": 0.05,
+      "causal_intact_threshold": 0.8,
+      "causal_intervention_threshold": 0.2,
+      "causal_local_threshold": 0.9,
+      "bootstrap_iterations": 5000,
+      "bootstrap_seed": 6184100,
+      "output": "experiments/level6_18_4/formal",
+      "dry_run": false,
+      "force": false
+    }
+  },
+  "source": {
+    "checkpoint_audit": {
+      "changed_tensors": [
+        {
+          "name": "output.weight",
+          "max_abs_change": 0.40769994258880615
+        },
+        {
+          "name": "output.bias",
+          "max_abs_change": 0.5850192904472351
+        }
+      ],
+      "max_non_output_change": 0.0,
+      "unused_output_rows_max_change": 0.0,
+      "probe_max_change": 0.0,
+      "passed": true
+    },
+    "original": {
+      "phase": "bridge",
+      "step": 1500,
+      "passed_level6_18_1_gate": false
+    },
+    "rescued": {
+      "selected_alpha": 1.0,
+      "validation_selection": {
+        "passed": true,
+        "selected": {
+          "alpha": 1.0,
+          "validation_8": 0.9765625,
+          "validation_12": 0.966796875,
+          "eligible": true
+        },
+        "candidates": [
+          {
+            "alpha": 0.0,
+            "validation_8": 0.951171875,
+            "validation_12": 0.91015625,
+            "eligible": false
+          },
+          {
+            "alpha": 0.1,
+            "validation_8": 0.95703125,
+            "validation_12": 0.91796875,
+            "eligible": false
+          },
+          {
+            "alpha": 0.2,
+            "validation_8": 0.958984375,
+            "validation_12": 0.92578125,
+            "eligible": false
+          },
+          {
+            "alpha": 0.3,
+            "validation_8": 0.96484375,
+            "validation_12": 0.931640625,
+            "eligible": false
+          },
+          {
+            "alpha": 0.4,
+            "validation_8": 0.96875,
+            "validation_12": 0.939453125,
+            "eligible": false
+          },
+          {
+            "alpha": 0.5,
+            "validation_8": 0.97265625,
+            "validation_12": 0.943359375,
+            "eligible": false
+          },
+          {
+            "alpha": 0.6,
+            "validation_8": 0.978515625,
+            "validation_12": 0.943359375,
+            "eligible": false
+          },
+          {
+            "alpha": 0.7,
+            "validation_8": 0.982421875,
+            "validation_12": 0.9453125,
+            "eligible": false
+          },
+          {
+            "alpha": 0.8,
+            "validation_8": 0.984375,
+            "validation_12": 0.955078125,
+            "eligible": true
+          },
+          {
+            "alpha": 0.9,
+            "validation_8": 0.978515625,
+            "validation_12": 0.955078125,
+            "eligible": true
+          },
+          {
+            "alpha": 1.0,
+            "validation_8": 0.9765625,
+            "validation_12": 0.966796875,
+            "eligible": true
+          }
+        ]
+      },
+      "success": {
+        "selection_gate": true,
+        "only_output_changed": true,
+        "retained_8_chunks": true,
+        "rescued_12_chunks": true,
+        "positive_12_chunk_ci": true,
+        "causal_gate": true,
+        "passed": true
+      }
+    }
+  },
+  "state_shape": [
+    3,
+    32,
+    64
+  ],
+  "train_behavior": {
+    "original_head": 0.85009765625,
+    "transferred_head": 0.93017578125,
+    "original_probe": 0.857421875,
+    "original_local": 0.98828125,
+    "transferred_local": 0.974609375,
+    "samples": 2048
+  },
+  "validation_behavior": {
+    "original_head": 0.875,
+    "transferred_head": 0.93359375,
+    "original_probe": 0.859375,
+    "original_local": 0.98828125,
+    "transferred_local": 0.97265625,
+    "samples": 512
+  },
+  "test_behavior": {
+    "original_head": 0.8447265625,
+    "transferred_head": 0.9208984375,
+    "original_probe": 0.8515625,
+    "original_local": 0.98828125,
+    "transferred_local": 0.9736328125,
+    "samples": 1024
+  },
+  "probes": {
+    "memory_l3_mean": {
+      "features": 64,
+      "best_epoch": 27,
+      "best_val_accuracy": 0.955078125,
+      "test_accuracy": 0.935546875
+    },
+    "memory_l3_concat": {
+      "features": 2048,
+      "best_epoch": 5,
+      "best_val_accuracy": 0.982421875,
+      "test_accuracy": 0.9736328125
+    },
+    "memory_all_mean_concat": {
+      "features": 192,
+      "best_epoch": 14,
+      "best_val_accuracy": 0.96484375,
+      "test_accuracy": 0.966796875
+    },
+    "memory_all_concat": {
+      "features": 6144,
+      "best_epoch": 3,
+      "best_val_accuracy": 0.98828125,
+      "test_accuracy": 0.9755859375
+    },
+    "query_hidden": {
+      "features": 64,
+      "best_epoch": 26,
+      "best_val_accuracy": 0.94921875,
+      "test_accuracy": 0.9296875
+    },
+    "memory_l3_query": {
+      "features": 2112,
+      "best_epoch": 4,
+      "best_val_accuracy": 0.982421875,
+      "test_accuracy": 0.9736328125
+    },
+    "memory_all_query": {
+      "features": 6208,
+      "best_epoch": 2,
+      "best_val_accuracy": 0.984375,
+      "test_accuracy": 0.9736328125
+    }
+  },
+  "comparisons": {
+    "original_to_transferred": {
+      "left_accuracy": 0.8447265625,
+      "right_accuracy": 0.9208984375,
+      "both_correct": 863,
+      "right_only_correct": 80,
+      "left_only_correct": 2,
+      "both_wrong": 79,
+      "right_accuracy_on_left_errors": 0.5031446814537048,
+      "oracle_union_accuracy": 0.9228515625,
+      "samples": 1024
+    },
+    "transferred_to_query_probe": {
+      "left_accuracy": 0.9208984375,
+      "right_accuracy": 0.9296875,
+      "both_correct": 933,
+      "right_only_correct": 19,
+      "left_only_correct": 10,
+      "both_wrong": 62,
+      "right_accuracy_on_left_errors": 0.23456789553165436,
+      "oracle_union_accuracy": 0.939453125,
+      "samples": 1024
+    },
+    "transferred_to_memory_probe": {
+      "left_accuracy": 0.9208984375,
+      "right_accuracy": 0.9755859375,
+      "both_correct": 937,
+      "right_only_correct": 62,
+      "left_only_correct": 6,
+      "both_wrong": 19,
+      "right_accuracy_on_left_errors": 0.7654321193695068,
+      "oracle_union_accuracy": 0.9814453125,
+      "samples": 1024
+    },
+    "query_probe_to_memory_probe": {
+      "left_accuracy": 0.9296875,
+      "right_accuracy": 0.9755859375,
+      "both_correct": 945,
+      "right_only_correct": 54,
+      "left_only_correct": 7,
+      "both_wrong": 18,
+      "right_accuracy_on_left_errors": 0.75,
+      "oracle_union_accuracy": 0.982421875,
+      "samples": 1024
+    }
+  },
+  "paired_changes": {
+    "original_to_transferred": {
+      "estimate": 0.076171875,
+      "bootstrap": {
+        "estimate": 0.076171875,
+        "ci95": [
+          0.0595703125,
+          0.09279785156249964
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_right_vs_left": {
+        "left_only_correct": 80,
+        "right_only_correct": 2,
+        "discordant": 82,
+        "p": 1.4078614025652531e-21
+      },
+      "corrected": 80,
+      "harmed": 2
+    },
+    "transferred_to_query_probe": {
+      "estimate": 0.0087890625,
+      "bootstrap": {
+        "estimate": 0.0087890625,
+        "ci95": [
+          -0.0009765625,
+          0.0185546875
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_right_vs_left": {
+        "left_only_correct": 19,
+        "right_only_correct": 10,
+        "discordant": 29,
+        "p": 0.13604594767093658
+      },
+      "corrected": 19,
+      "harmed": 10
+    },
+    "transferred_to_memory_probe": {
+      "estimate": 0.0546875,
+      "bootstrap": {
+        "estimate": 0.0546875,
+        "ci95": [
+          0.0400390625,
+          0.0703125
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_right_vs_left": {
+        "left_only_correct": 62,
+        "right_only_correct": 6,
+        "discordant": 68,
+        "p": 8.181953378705309e-13
+      },
+      "corrected": 62,
+      "harmed": 6
+    }
+  },
+  "causal": {
+    "conditions": {
+      "intact": {
+        "condition": "intact",
+        "original_head": 0.861328125,
+        "transferred_head": 0.9296875,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      },
+      "reset": {
+        "condition": "reset",
+        "original_head": 0.0576171875,
+        "transferred_head": 0.056640625,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      },
+      "zero": {
+        "condition": "zero",
+        "original_head": 0.056640625,
+        "transferred_head": 0.0576171875,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      },
+      "batch_roll": {
+        "condition": "batch_roll",
+        "original_head": 0.046875,
+        "transferred_head": 0.0458984375,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      }
+    },
+    "original_head": {
+      "intact_query": 0.861328125,
+      "strongest_disrupted_query": 0.0576171875,
+      "query_drop": 0.8037109375,
+      "minimum_local": 0.98828125,
+      "passed": true
+    },
+    "transferred_head": {
+      "intact_query": 0.9296875,
+      "strongest_disrupted_query": 0.0576171875,
+      "query_drop": 0.8720703125,
+      "minimum_local": 0.9755859375,
+      "passed": true
+    }
+  },
+  "diagnosis": {
+    "classification": "mixed_or_ambiguous_residual",
+    "best_memory_accuracy": 0.9755859375,
+    "gaps": {
+      "memory_minus_original_head": 0.130859375,
+      "memory_minus_transferred_head": 0.0546875,
+      "query_hidden_minus_transferred_head": 0.0087890625,
+      "memory_minus_query_hidden": 0.0458984375
+    },
+    "thresholds": {
+      "high_information": 0.95,
+      "low_information": 0.9,
+      "material_gap": 0.05
+    }
+  }
+}

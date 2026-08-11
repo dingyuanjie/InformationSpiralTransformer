@@ -1,0 +1,106 @@
+{
+  "level": "6.18.6",
+  "status": "frozen post-failure mechanism tomography; not a rescue test",
+  "seed": 707,
+  "models": {
+    "source": "formally passed Level 6.18.3 head-rescued checkpoint",
+    "updated": "failed Level 6.18.5 update-500 routing_latest checkpoint"
+  },
+  "checkpoint_boundary": {
+    "only_allowed_changed_prefixes": [
+      "blocks.2.memory_read.",
+      "blocks.2.memory_fusion_gate."
+    ],
+    "expected_changed_tensors": 6,
+    "expected_changed_parameters": 24896
+  },
+  "chunks": [
+    8,
+    12,
+    16
+  ],
+  "interfaces": [
+    "memory_l3_concat",
+    "pre_fusion_feature",
+    "memory_context",
+    "fusion_gate",
+    "fused_feature",
+    "ffn_output",
+    "query_hidden",
+    "deployed_logits"
+  ],
+  "side_inputs": [
+    "pre_fusion_feature",
+    "fusion_gate"
+  ],
+  "approximate_information_path": [
+    "memory_l3_concat",
+    "memory_context",
+    "fused_feature",
+    "ffn_output",
+    "query_hidden",
+    "deployed_behavior"
+  ],
+  "splits": {
+    "train": 2048,
+    "validation": 512,
+    "test": 1024,
+    "identical_examples_across_models": true,
+    "disjoint_seeded_splits": true
+  },
+  "comparison": {
+    "independently_refitted_standardized_linear_probes": true,
+    "matched_probe_seed_across_models_per_interface": true,
+    "paired_bootstrap_and_mcnemar": true,
+    "representation_shift_on_same_test_examples": true,
+    "upstream_stages_required_exactly_invariant": [
+      "memory_l3_concat",
+      "pre_fusion_feature"
+    ]
+  },
+  "classification_rule_16_chunks": {
+    "context_and_query_improvement_below_1pp": "no_generalizable_route_change",
+    "context_improvement_at_least_2pp_but_query_below_1pp": "post_context_erasure",
+    "query_improvement_at_least_2pp_but_behavior_below_1pp": "output_mismatch",
+    "behavior_improvement_at_least_2pp": "route_generalized",
+    "otherwise": "mixed_or_small_effect"
+  },
+  "causal_conditions_16_chunks": [
+    "intact",
+    "reset",
+    "zero",
+    "batch_roll"
+  ],
+  "causal_status": "diagnostic only; not a success gate",
+  "no_model_or_probe_parameter_updates": true,
+  "protocol": {
+    "seed": 707,
+    "chunks": [
+      8,
+      12,
+      16
+    ],
+    "chunk_size": 128,
+    "source_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "updated_checkpoint": "experiments/level6_18_5/formal/routing_latest.pt",
+    "train_samples": 2048,
+    "val_samples": 512,
+    "test_samples": 1024,
+    "extract_batch_size": 16,
+    "probe_batch_size": 128,
+    "probe_epochs": 40,
+    "patience": 6,
+    "probe_lr": 0.001,
+    "probe_weight_decay": 0.0001,
+    "dataset_seed_base": 6186000,
+    "causal_samples": 512,
+    "causal_seed": 6186900,
+    "bootstrap_iterations": 5000,
+    "no_effect_threshold": 0.01,
+    "material_improvement": 0.02,
+    "output": "experiments/level6_18_6/formal",
+    "skip_causal": false,
+    "dry_run": false,
+    "force": false
+  }
+}

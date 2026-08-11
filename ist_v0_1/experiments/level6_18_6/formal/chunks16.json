@@ -1,0 +1,475 @@
+{
+  "chunks": 16,
+  "samples": {
+    "train": 2048,
+    "validation": 512,
+    "test": 1024
+  },
+  "behavior": {
+    "source": {
+      "query": 0.91796875,
+      "original_memory_probe": 0.84765625,
+      "local": 0.9775390625,
+      "samples": 1024
+    },
+    "updated": {
+      "query": 0.921875,
+      "original_memory_probe": 0.84765625,
+      "local": 0.9775390625,
+      "samples": 1024
+    }
+  },
+  "probes": {
+    "source": {
+      "memory_l3_concat": {
+        "features": 2048,
+        "best_epoch": 16,
+        "best_val_accuracy": 0.978515625,
+        "test_accuracy": 0.9765625
+      },
+      "pre_fusion_feature": {
+        "features": 64,
+        "best_epoch": 19,
+        "best_val_accuracy": 0.900390625,
+        "test_accuracy": 0.8994140625
+      },
+      "memory_context": {
+        "features": 64,
+        "best_epoch": 13,
+        "best_val_accuracy": 0.931640625,
+        "test_accuracy": 0.904296875
+      },
+      "fusion_gate": {
+        "features": 64,
+        "best_epoch": 31,
+        "best_val_accuracy": 0.935546875,
+        "test_accuracy": 0.916015625
+      },
+      "fused_feature": {
+        "features": 64,
+        "best_epoch": 28,
+        "best_val_accuracy": 0.927734375,
+        "test_accuracy": 0.9169921875
+      },
+      "ffn_output": {
+        "features": 64,
+        "best_epoch": 7,
+        "best_val_accuracy": 0.634765625,
+        "test_accuracy": 0.5947265625
+      },
+      "query_hidden": {
+        "features": 64,
+        "best_epoch": 13,
+        "best_val_accuracy": 0.931640625,
+        "test_accuracy": 0.9169921875
+      },
+      "deployed_logits": {
+        "features": 16,
+        "best_epoch": 27,
+        "best_val_accuracy": 0.919921875,
+        "test_accuracy": 0.890625
+      }
+    },
+    "updated": {
+      "memory_l3_concat": {
+        "features": 2048,
+        "best_epoch": 16,
+        "best_val_accuracy": 0.978515625,
+        "test_accuracy": 0.9765625
+      },
+      "pre_fusion_feature": {
+        "features": 64,
+        "best_epoch": 19,
+        "best_val_accuracy": 0.900390625,
+        "test_accuracy": 0.8994140625
+      },
+      "memory_context": {
+        "features": 64,
+        "best_epoch": 23,
+        "best_val_accuracy": 0.9296875,
+        "test_accuracy": 0.91796875
+      },
+      "fusion_gate": {
+        "features": 64,
+        "best_epoch": 30,
+        "best_val_accuracy": 0.9375,
+        "test_accuracy": 0.91796875
+      },
+      "fused_feature": {
+        "features": 64,
+        "best_epoch": 23,
+        "best_val_accuracy": 0.92578125,
+        "test_accuracy": 0.9111328125
+      },
+      "ffn_output": {
+        "features": 64,
+        "best_epoch": 6,
+        "best_val_accuracy": 0.634765625,
+        "test_accuracy": 0.6025390625
+      },
+      "query_hidden": {
+        "features": 64,
+        "best_epoch": 14,
+        "best_val_accuracy": 0.931640625,
+        "test_accuracy": 0.919921875
+      },
+      "deployed_logits": {
+        "features": 16,
+        "best_epoch": 27,
+        "best_val_accuracy": 0.91796875,
+        "test_accuracy": 0.8916015625
+      }
+    }
+  },
+  "source_to_updated": {
+    "memory_l3_concat": {
+      "source_accuracy": 0.9765625,
+      "updated_accuracy": 0.9765625,
+      "accuracy_change": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 0,
+        "right_only_correct": 0,
+        "discordant": 0,
+        "p": 1.0
+      }
+    },
+    "pre_fusion_feature": {
+      "source_accuracy": 0.8994140625,
+      "updated_accuracy": 0.8994140625,
+      "accuracy_change": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 0,
+        "right_only_correct": 0,
+        "discordant": 0,
+        "p": 1.0
+      }
+    },
+    "memory_context": {
+      "source_accuracy": 0.904296875,
+      "updated_accuracy": 0.91796875,
+      "accuracy_change": {
+        "estimate": 0.013671875,
+        "ci95": [
+          0.001953125,
+          0.025390625
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 12,
+        "right_only_correct": 26,
+        "discordant": 38,
+        "p": 0.03355243967962451
+      }
+    },
+    "fusion_gate": {
+      "source_accuracy": 0.916015625,
+      "updated_accuracy": 0.91796875,
+      "accuracy_change": {
+        "estimate": 0.001953125,
+        "ci95": [
+          -0.0029296875,
+          0.0068359375
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 2,
+        "right_only_correct": 4,
+        "discordant": 6,
+        "p": 0.6875
+      }
+    },
+    "fused_feature": {
+      "source_accuracy": 0.9169921875,
+      "updated_accuracy": 0.9111328125,
+      "accuracy_change": {
+        "estimate": -0.005859375,
+        "ci95": [
+          -0.01171875,
+          -0.0009765625
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 7,
+        "right_only_correct": 1,
+        "discordant": 8,
+        "p": 0.0703125
+      }
+    },
+    "ffn_output": {
+      "source_accuracy": 0.5947265625,
+      "updated_accuracy": 0.6025390625,
+      "accuracy_change": {
+        "estimate": 0.0078125,
+        "ci95": [
+          0.0009765625,
+          0.0146484375
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 2,
+        "right_only_correct": 10,
+        "discordant": 12,
+        "p": 0.03857421875
+      }
+    },
+    "query_hidden": {
+      "source_accuracy": 0.9169921875,
+      "updated_accuracy": 0.919921875,
+      "accuracy_change": {
+        "estimate": 0.0029296875,
+        "ci95": [
+          -0.0009765625,
+          0.0078125
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 1,
+        "right_only_correct": 4,
+        "discordant": 5,
+        "p": 0.375
+      }
+    },
+    "deployed_logits": {
+      "source_accuracy": 0.890625,
+      "updated_accuracy": 0.8916015625,
+      "accuracy_change": {
+        "estimate": 0.0009765625,
+        "ci95": [
+          -0.001953125,
+          0.003930664062499645
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 1,
+        "right_only_correct": 2,
+        "discordant": 3,
+        "p": 1.0
+      }
+    },
+    "deployed_behavior": {
+      "source_accuracy": 0.91796875,
+      "updated_accuracy": 0.921875,
+      "accuracy_change": {
+        "estimate": 0.00390625,
+        "ci95": [
+          0.0009765625,
+          0.0078125
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 0,
+        "right_only_correct": 4,
+        "discordant": 4,
+        "p": 0.125
+      }
+    }
+  },
+  "representation_shift": {
+    "memory_l3_concat": {
+      "exactly_equal": true,
+      "max_abs_change": 0.0,
+      "mean_l2_change": 0.0,
+      "mean_relative_l2_change": 0.0,
+      "mean_cosine_similarity": 1.0
+    },
+    "pre_fusion_feature": {
+      "exactly_equal": true,
+      "max_abs_change": 0.0,
+      "mean_l2_change": 0.0,
+      "mean_relative_l2_change": 0.0,
+      "mean_cosine_similarity": 1.0
+    },
+    "memory_context": {
+      "exactly_equal": false,
+      "max_abs_change": 4.125,
+      "mean_l2_change": 1.9831029176712036,
+      "mean_relative_l2_change": 0.19069154560565948,
+      "mean_cosine_similarity": 0.9810707569122314
+    },
+    "fusion_gate": {
+      "exactly_equal": false,
+      "max_abs_change": 0.7119140625,
+      "mean_l2_change": 0.42564666271209717,
+      "mean_relative_l2_change": 0.14171381294727325,
+      "mean_cosine_similarity": 0.9892604351043701
+    },
+    "fused_feature": {
+      "exactly_equal": false,
+      "max_abs_change": 12.6875,
+      "mean_l2_change": 1.4005422592163086,
+      "mean_relative_l2_change": 0.0827498584985733,
+      "mean_cosine_similarity": 0.9962800145149231
+    },
+    "ffn_output": {
+      "exactly_equal": false,
+      "max_abs_change": 3.5,
+      "mean_l2_change": 0.8026248216629028,
+      "mean_relative_l2_change": 0.07178841531276703,
+      "mean_cosine_similarity": 0.998431921005249
+    },
+    "query_hidden": {
+      "exactly_equal": false,
+      "max_abs_change": 0.8203125,
+      "mean_l2_change": 0.3142179846763611,
+      "mean_relative_l2_change": 0.0312652587890625,
+      "mean_cosine_similarity": 0.9992233514785767
+    },
+    "deployed_logits": {
+      "exactly_equal": false,
+      "max_abs_change": 2.1328125,
+      "mean_l2_change": 0.32168567180633545,
+      "mean_relative_l2_change": 0.029418762773275375,
+      "mean_cosine_similarity": 0.99930340051651
+    }
+  },
+  "first_numerically_changed_stage": "memory_context",
+  "upstream_invariance": {
+    "memory_l3_concat": {
+      "splits": {
+        "train": true,
+        "validation": true,
+        "test": true
+      },
+      "passed": true
+    },
+    "pre_fusion_feature": {
+      "splits": {
+        "train": true,
+        "validation": true,
+        "test": true
+      },
+      "passed": true
+    }
+  },
+  "path_decodability": {
+    "source": {
+      "values": {
+        "memory_l3_concat": 0.9765625,
+        "memory_context": 0.904296875,
+        "fused_feature": 0.9169921875,
+        "ffn_output": 0.5947265625,
+        "query_hidden": 0.9169921875,
+        "deployed_behavior": 0.91796875
+      },
+      "edges": [
+        {
+          "from": "memory_l3_concat",
+          "to": "memory_context",
+          "from_accuracy": 0.9765625,
+          "to_accuracy": 0.904296875,
+          "drop": 0.072265625
+        },
+        {
+          "from": "memory_context",
+          "to": "fused_feature",
+          "from_accuracy": 0.904296875,
+          "to_accuracy": 0.9169921875,
+          "drop": -0.0126953125
+        },
+        {
+          "from": "fused_feature",
+          "to": "ffn_output",
+          "from_accuracy": 0.9169921875,
+          "to_accuracy": 0.5947265625,
+          "drop": 0.322265625
+        },
+        {
+          "from": "ffn_output",
+          "to": "query_hidden",
+          "from_accuracy": 0.5947265625,
+          "to_accuracy": 0.9169921875,
+          "drop": -0.322265625
+        },
+        {
+          "from": "query_hidden",
+          "to": "deployed_behavior",
+          "from_accuracy": 0.9169921875,
+          "to_accuracy": 0.91796875,
+          "drop": -0.0009765625
+        }
+      ],
+      "largest_drop": {
+        "from": "fused_feature",
+        "to": "ffn_output",
+        "from_accuracy": 0.9169921875,
+        "to_accuracy": 0.5947265625,
+        "drop": 0.322265625
+      }
+    },
+    "updated": {
+      "values": {
+        "memory_l3_concat": 0.9765625,
+        "memory_context": 0.91796875,
+        "fused_feature": 0.9111328125,
+        "ffn_output": 0.6025390625,
+        "query_hidden": 0.919921875,
+        "deployed_behavior": 0.921875
+      },
+      "edges": [
+        {
+          "from": "memory_l3_concat",
+          "to": "memory_context",
+          "from_accuracy": 0.9765625,
+          "to_accuracy": 0.91796875,
+          "drop": 0.05859375
+        },
+        {
+          "from": "memory_context",
+          "to": "fused_feature",
+          "from_accuracy": 0.91796875,
+          "to_accuracy": 0.9111328125,
+          "drop": 0.0068359375
+        },
+        {
+          "from": "fused_feature",
+          "to": "ffn_output",
+          "from_accuracy": 0.9111328125,
+          "to_accuracy": 0.6025390625,
+          "drop": 0.30859375
+        },
+        {
+          "from": "ffn_output",
+          "to": "query_hidden",
+          "from_accuracy": 0.6025390625,
+          "to_accuracy": 0.919921875,
+          "drop": -0.3173828125
+        },
+        {
+          "from": "query_hidden",
+          "to": "deployed_behavior",
+          "from_accuracy": 0.919921875,
+          "to_accuracy": 0.921875,
+          "drop": -0.001953125
+        }
+      ],
+      "largest_drop": {
+        "from": "fused_feature",
+        "to": "ffn_output",
+        "from_accuracy": 0.9111328125,
+        "to_accuracy": 0.6025390625,
+        "drop": 0.30859375
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "test_behavior": {
+    "original_head": 0.8447265625,
+    "transferred_head": 0.9208984375,
+    "original_probe": 0.8515625,
+    "original_local": 0.98828125,
+    "transferred_local": 0.9736328125,
+    "samples": 1024
+  },
+  "probe_test_accuracies": {
+    "memory_l3_mean": 0.935546875,
+    "memory_l3_concat": 0.9736328125,
+    "memory_all_mean_concat": 0.966796875,
+    "memory_all_concat": 0.9755859375,
+    "query_hidden": 0.9296875,
+    "memory_l3_query": 0.9736328125,
+    "memory_all_query": 0.9736328125
+  },
+  "paired_changes": {
+    "original_to_transferred": {
+      "estimate": 0.076171875,
+      "bootstrap": {
+        "estimate": 0.076171875,
+        "ci95": [
+          0.0595703125,
+          0.09279785156249964
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_right_vs_left": {
+        "left_only_correct": 80,
+        "right_only_correct": 2,
+        "discordant": 82,
+        "p": 1.4078614025652531e-21
+      },
+      "corrected": 80,
+      "harmed": 2
+    },
+    "transferred_to_query_probe": {
+      "estimate": 0.0087890625,
+      "bootstrap": {
+        "estimate": 0.0087890625,
+        "ci95": [
+          -0.0009765625,
+          0.0185546875
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_right_vs_left": {
+        "left_only_correct": 19,
+        "right_only_correct": 10,
+        "discordant": 29,
+        "p": 0.13604594767093658
+      },
+      "corrected": 19,
+      "harmed": 10
+    },
+    "transferred_to_memory_probe": {
+      "estimate": 0.0546875,
+      "bootstrap": {
+        "estimate": 0.0546875,
+        "ci95": [
+          0.0400390625,
+          0.0703125
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_right_vs_left": {
+        "left_only_correct": 62,
+        "right_only_correct": 6,
+        "discordant": 68,
+        "p": 8.181953378705309e-13
+      },
+      "corrected": 62,
+      "harmed": 6
+    }
+  },
+  "causal": {
+    "conditions": {
+      "intact": {
+        "condition": "intact",
+        "original_head": 0.861328125,
+        "transferred_head": 0.9296875,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      },
+      "reset": {
+        "condition": "reset",
+        "original_head": 0.0576171875,
+        "transferred_head": 0.056640625,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      },
+      "zero": {
+        "condition": "zero",
+        "original_head": 0.056640625,
+        "transferred_head": 0.0576171875,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      },
+      "batch_roll": {
+        "condition": "batch_roll",
+        "original_head": 0.046875,
+        "transferred_head": 0.0458984375,
+        "original_local": 0.98828125,
+        "transferred_local": 0.9755859375,
+        "samples": 1024
+      }
+    },
+    "original_head": {
+      "intact_query": 0.861328125,
+      "strongest_disrupted_query": 0.0576171875,
+      "query_drop": 0.8037109375,
+      "minimum_local": 0.98828125,
+      "passed": true
+    },
+    "transferred_head": {
+      "intact_query": 0.9296875,
+      "strongest_disrupted_query": 0.0576171875,
+      "query_drop": 0.8720703125,
+      "minimum_local": 0.9755859375,
+      "passed": true
+    }
+  },
+  "diagnosis": {
+    "classification": "mixed_or_ambiguous_residual",
+    "best_memory_accuracy": 0.9755859375,
+    "gaps": {
+      "memory_minus_original_head": 0.130859375,
+      "memory_minus_transferred_head": 0.0546875,
+      "query_hidden_minus_transferred_head": 0.0087890625,
+      "memory_minus_query_hidden": 0.0458984375
+    },
+    "thresholds": {
+      "high_information": 0.95,
+      "low_information": 0.9,
+      "material_gap": 0.05
+    }
+  }
+}

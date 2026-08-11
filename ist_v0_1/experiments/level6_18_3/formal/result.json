@@ -1,0 +1,454 @@
+{
+  "protocol": {
+    "level": "6.18.3",
+    "hypothesis": "A head-only intervention can expose the linearly decodable 12-chunk query representation while preserving the 8-chunk circuit.",
+    "source": "seed707 Level 6.18.1 failed 8->12 diagnostic-best checkpoint",
+    "trainable_parameters": "first 16 rows of model.output only",
+    "training_length": 12,
+    "validation_selection": {
+      "alpha_grid": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "eligible": "8-chunk >= 0.95 and 12-chunk >= 0.95",
+      "ranking": "max 12-chunk, then 8-chunk, then smaller alpha",
+      "16_chunk_is_never_used": true
+    },
+    "protected_tests": [
+      8,
+      12,
+      16
+    ],
+    "primary_success": {
+      "selection_gate": true,
+      "8_chunk_rescued_query": ">= 0.95",
+      "12_chunk_rescued_query": ">= 0.95",
+      "12_chunk_improvement_ci95_lower": "> 0",
+      "only_output_changed": true,
+      "rescued_causal_gate": true
+    },
+    "causal_gate": {
+      "intact_12": ">= 0.95",
+      "max_reset_zero_batch_roll": "<= 0.20",
+      "min_local": ">= 0.90"
+    },
+    "sixteen_chunk_result": "protected exploratory transfer; not a success gate",
+    "protocol": {
+      "seed": 707,
+      "test_chunks": [
+        8,
+        12,
+        16
+      ],
+      "chunk_size": 128,
+      "checkpoint": "experiments/level6_18_1/formal/seed707/transition_8_to_16_bridge_best.pt",
+      "train_samples": 2048,
+      "validation_samples": 512,
+      "test_samples": 2048,
+      "causal_samples": 1024,
+      "extract_batch_size": 16,
+      "head_batch_size": 128,
+      "head_epochs": 40,
+      "patience": 6,
+      "head_lr": 0.001,
+      "head_weight_decay": 0.0001,
+      "head_seed": 6183100,
+      "dataset_seed_base": 6183000,
+      "alphas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "validation_retention_threshold": 0.95,
+      "validation_rescue_threshold": 0.95,
+      "test_retention_threshold": 0.95,
+      "test_rescue_threshold": 0.95,
+      "causal_intervention_threshold": 0.2,
+      "causal_local_threshold": 0.9,
+      "bootstrap_iterations": 5000,
+      "bootstrap_seed": 6183200,
+      "output": "experiments/level6_18_3/formal",
+      "dry_run": false,
+      "force": false
+    }
+  },
+  "source_checkpoint": {
+    "path": "experiments/level6_18_1/formal/seed707/transition_8_to_16_bridge_best.pt",
+    "phase": "bridge",
+    "step": 1500,
+    "passed_level6_18_1_gate": false
+  },
+  "head_fit": {
+    "best_epoch": 27,
+    "best_validation_12": 0.966796875,
+    "epochs_run": 33,
+    "history": [
+      {
+        "epoch": 0,
+        "validation_12": 0.91015625
+      },
+      {
+        "epoch": 1,
+        "validation_12": 0.919921875
+      },
+      {
+        "epoch": 2,
+        "validation_12": 0.927734375
+      },
+      {
+        "epoch": 3,
+        "validation_12": 0.931640625
+      },
+      {
+        "epoch": 4,
+        "validation_12": 0.939453125
+      },
+      {
+        "epoch": 5,
+        "validation_12": 0.943359375
+      },
+      {
+        "epoch": 6,
+        "validation_12": 0.947265625
+      },
+      {
+        "epoch": 7,
+        "validation_12": 0.94921875
+      },
+      {
+        "epoch": 8,
+        "validation_12": 0.947265625
+      },
+      {
+        "epoch": 9,
+        "validation_12": 0.94921875
+      },
+      {
+        "epoch": 10,
+        "validation_12": 0.951171875
+      },
+      {
+        "epoch": 11,
+        "validation_12": 0.951171875
+      },
+      {
+        "epoch": 12,
+        "validation_12": 0.951171875
+      },
+      {
+        "epoch": 13,
+        "validation_12": 0.951171875
+      },
+      {
+        "epoch": 14,
+        "validation_12": 0.955078125
+      },
+      {
+        "epoch": 15,
+        "validation_12": 0.955078125
+      },
+      {
+        "epoch": 16,
+        "validation_12": 0.955078125
+      },
+      {
+        "epoch": 17,
+        "validation_12": 0.955078125
+      },
+      {
+        "epoch": 18,
+        "validation_12": 0.955078125
+      },
+      {
+        "epoch": 19,
+        "validation_12": 0.955078125
+      },
+      {
+        "epoch": 20,
+        "validation_12": 0.95703125
+      },
+      {
+        "epoch": 21,
+        "validation_12": 0.95703125
+      },
+      {
+        "epoch": 22,
+        "validation_12": 0.95703125
+      },
+      {
+        "epoch": 23,
+        "validation_12": 0.95703125
+      },
+      {
+        "epoch": 24,
+        "validation_12": 0.95703125
+      },
+      {
+        "epoch": 25,
+        "validation_12": 0.958984375
+      },
+      {
+        "epoch": 26,
+        "validation_12": 0.96484375
+      },
+      {
+        "epoch": 27,
+        "validation_12": 0.966796875
+      },
+      {
+        "epoch": 28,
+        "validation_12": 0.966796875
+      },
+      {
+        "epoch": 29,
+        "validation_12": 0.966796875
+      },
+      {
+        "epoch": 30,
+        "validation_12": 0.966796875
+      },
+      {
+        "epoch": 31,
+        "validation_12": 0.966796875
+      },
+      {
+        "epoch": 32,
+        "validation_12": 0.966796875
+      },
+      {
+        "epoch": 33,
+        "validation_12": 0.966796875
+      }
+    ]
+  },
+  "validation_selection": {
+    "passed": true,
+    "selected": {
+      "alpha": 1.0,
+      "validation_8": 0.9765625,
+      "validation_12": 0.966796875,
+      "eligible": true
+    },
+    "candidates": [
+      {
+        "alpha": 0.0,
+        "validation_8": 0.951171875,
+        "validation_12": 0.91015625,
+        "eligible": false
+      },
+      {
+        "alpha": 0.1,
+        "validation_8": 0.95703125,
+        "validation_12": 0.91796875,
+        "eligible": false
+      },
+      {
+        "alpha": 0.2,
+        "validation_8": 0.958984375,
+        "validation_12": 0.92578125,
+        "eligible": false
+      },
+      {
+        "alpha": 0.3,
+        "validation_8": 0.96484375,
+        "validation_12": 0.931640625,
+        "eligible": false
+      },
+      {
+        "alpha": 0.4,
+        "validation_8": 0.96875,
+        "validation_12": 0.939453125,
+        "eligible": false
+      },
+      {
+        "alpha": 0.5,
+        "validation_8": 0.97265625,
+        "validation_12": 0.943359375,
+        "eligible": false
+      },
+      {
+        "alpha": 0.6,
+        "validation_8": 0.978515625,
+        "validation_12": 0.943359375,
+        "eligible": false
+      },
+      {
+        "alpha": 0.7,
+        "validation_8": 0.982421875,
+        "validation_12": 0.9453125,
+        "eligible": false
+      },
+      {
+        "alpha": 0.8,
+        "validation_8": 0.984375,
+        "validation_12": 0.955078125,
+        "eligible": true
+      },
+      {
+        "alpha": 0.9,
+        "validation_8": 0.978515625,
+        "validation_12": 0.955078125,
+        "eligible": true
+      },
+      {
+        "alpha": 1.0,
+        "validation_8": 0.9765625,
+        "validation_12": 0.966796875,
+        "eligible": true
+      }
+    ]
+  },
+  "mutation_audit": {
+    "changed_tensors": [
+      {
+        "name": "output.weight",
+        "max_abs_change": 0.40769994258880615
+      },
+      {
+        "name": "output.bias",
+        "max_abs_change": 0.5850192904472351
+      }
+    ],
+    "max_non_output_change": 0.0,
+    "unused_output_rows_max_change": 0.0,
+    "passed": true
+  },
+  "paired_tests": {
+    "8": {
+      "chunks": 8,
+      "samples": 2048,
+      "baseline_accuracy": 0.9697265625,
+      "rescued_accuracy": 0.98486328125,
+      "accuracy_change": {
+        "estimate": 0.01513671875,
+        "ci95": [
+          0.0087890625,
+          0.02197265625
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_rescued_vs_baseline": {
+        "left_only_correct": 39,
+        "right_only_correct": 8,
+        "discordant": 47,
+        "p": 5.539621596994948e-06
+      },
+      "corrected": 39,
+      "harmed": 8,
+      "unchanged": 2001,
+      "baseline_local": 0.98974609375,
+      "rescued_local": 0.9794921875
+    },
+    "12": {
+      "chunks": 12,
+      "samples": 2048,
+      "baseline_accuracy": 0.89990234375,
+      "rescued_accuracy": 0.9619140625,
+      "accuracy_change": {
+        "estimate": 0.06201171875,
+        "ci95": [
+          0.05078125,
+          0.0732421875
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_rescued_vs_baseline": {
+        "left_only_correct": 136,
+        "right_only_correct": 9,
+        "discordant": 145,
+        "p": 2.907347193787138e-30
+      },
+      "corrected": 136,
+      "harmed": 9,
+      "unchanged": 1903,
+      "baseline_local": 0.9873046875,
+      "rescued_local": 0.9775390625
+    },
+    "16": {
+      "chunks": 16,
+      "samples": 2048,
+      "baseline_accuracy": 0.83251953125,
+      "rescued_accuracy": 0.9130859375,
+      "accuracy_change": {
+        "estimate": 0.08056640625,
+        "ci95": [
+          0.06787109375,
+          0.09375
+        ],
+        "iterations": 5000
+      },
+      "mcnemar_rescued_vs_baseline": {
+        "left_only_correct": 176,
+        "right_only_correct": 11,
+        "discordant": 187,
+        "p": 1.9724849948829125e-39
+      },
+      "corrected": 176,
+      "harmed": 11,
+      "unchanged": 1861,
+      "baseline_local": 0.98486328125,
+      "rescued_local": 0.97412109375
+    }
+  },
+  "causal": {
+    "conditions": {
+      "intact": {
+        "condition": "intact",
+        "chunks": 12,
+        "query": 0.962890625,
+        "local": 0.9658203125,
+        "samples": 1024
+      },
+      "reset": {
+        "condition": "reset",
+        "chunks": 12,
+        "query": 0.0517578125,
+        "local": 0.9658203125,
+        "samples": 1024
+      },
+      "zero": {
+        "condition": "zero",
+        "chunks": 12,
+        "query": 0.0556640625,
+        "local": 0.9658203125,
+        "samples": 1024
+      },
+      "batch_roll": {
+        "condition": "batch_roll",
+        "chunks": 12,
+        "query": 0.0732421875,
+        "local": 0.9658203125,
+        "samples": 1024
+      }
+    },
+    "strongest_disrupted_query": 0.0732421875,
+    "query_drop": 0.8896484375,
+    "passed": true
+  },
+  "success": {
+    "selection_gate": true,
+    "only_output_changed": true,
+    "retained_8_chunks": true,
+    "rescued_12_chunks": true,
+    "positive_12_chunk_ci": true,
+    "causal_gate": true,
+    "passed": true
+  }
+}

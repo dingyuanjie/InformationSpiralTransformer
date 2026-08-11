@@ -1,0 +1,60 @@
+{
+  "level": "6.18.2",
+  "status": "post-hoc mechanism diagnosis; not a recovery success test",
+  "model": "frozen seed707 Level 6.18.1 8->12 diagnostic-best checkpoint",
+  "chunks": 12,
+  "feature_probes": [
+    "memory_l3_mean",
+    "memory_l3_concat",
+    "memory_all_mean_concat",
+    "memory_all_concat",
+    "query_hidden",
+    "memory_l3_query",
+    "memory_all_query"
+  ],
+  "splits": {
+    "train": 2048,
+    "validation": 512,
+    "test": 1024,
+    "disjoint_seeded_splits": true
+  },
+  "causal_conditions": [
+    "intact",
+    "reset",
+    "zero",
+    "batch_roll"
+  ],
+  "decision_rule": {
+    "memory_test_accuracy_below_0.90": "memory propagation/encoding bottleneck",
+    "memory_and_query_hidden_at_least_0.95_but_task_head_low": "output-head alignment bottleneck",
+    "memory_at_least_0.95_and_memory_minus_query_hidden_at_least_0.05": "memory-to-query-token routing bottleneck",
+    "otherwise": "mixed/ambiguous"
+  },
+  "no_ist_parameter_updates": true,
+  "protocol": {
+    "seed": 707,
+    "chunks": 12,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_1/formal/seed707/transition_8_to_16_bridge_best.pt",
+    "train_samples": 2048,
+    "val_samples": 512,
+    "test_samples": 1024,
+    "extract_batch_size": 16,
+    "probe_batch_size": 128,
+    "probe_epochs": 40,
+    "patience": 6,
+    "probe_lr": 0.001,
+    "probe_weight_decay": 0.0001,
+    "dataset_seed_base": 6182000,
+    "control_eval_batches": 50,
+    "high_information_threshold": 0.95,
+    "low_information_threshold": 0.9,
+    "material_gap": 0.05,
+    "causal_intact_threshold": 0.8,
+    "causal_intervention_threshold": 0.2,
+    "causal_local_threshold": 0.9,
+    "output": "experiments/level6_18_2/formal",
+    "dry_run": false,
+    "force": false
+  }
+}

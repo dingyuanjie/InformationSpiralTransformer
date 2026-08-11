@@ -1,0 +1,70 @@
+{
+  "level": "6.18.5",
+  "hypothesis": "The residual 16-chunk deficit is caused by the final block's Memory-to-token read path and can be rescued without changing Memory states.",
+  "source": "formally passed Level 6.18.3 head-rescued seed707 checkpoint",
+  "trainable_boundary": {
+    "prefixes": [
+      "blocks.2.memory_read.",
+      "blocks.2.memory_fusion_gate."
+    ],
+    "parameter_tensors": 6,
+    "parameters": 24896
+  },
+  "training": {
+    "length": 16,
+    "loss": "query cross-entropy only",
+    "optimizer_updates": 500,
+    "gradient_accumulation": 4
+  },
+  "stable_gate": {
+    "protected_lengths": [
+      8,
+      12,
+      16
+    ],
+    "confirmation_query": 0.95,
+    "successive_confirmations": 2
+  },
+  "primary_success": {
+    "stable_training_gate": true,
+    "8_12_16_test_query": ">= 0.95",
+    "16_improvement_ci95_lower": "> 0",
+    "only_route_parameters_changed": true,
+    "returned_memory_exactly_invariant": true,
+    "16_chunk_causal_gate": true
+  },
+  "protocol": {
+    "seed": 707,
+    "chunk_size": 128,
+    "source_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "routing_updates": 500,
+    "routing_lr": 5e-05,
+    "train_batch_size": 2,
+    "gradient_accumulation": 4,
+    "gradient_clip": 1.0,
+    "eval_every_updates": 25,
+    "eval_batch_size": 8,
+    "screen_samples": 80,
+    "confirm_samples": 256,
+    "screen_retention_threshold": 0.94,
+    "screen_rescue_threshold": 0.92,
+    "confirm_threshold": 0.95,
+    "stable_confirmations": 2,
+    "training_seed": 6185000,
+    "validation_seed_base": 6185100,
+    "test_samples": 2048,
+    "test_seed_base": 6185200,
+    "test_threshold": 0.95,
+    "causal_samples": 1024,
+    "causal_seed": 6185300,
+    "causal_intervention_threshold": 0.2,
+    "causal_local_threshold": 0.9,
+    "invariance_samples": 8,
+    "invariance_seed_base": 6185400,
+    "bootstrap_iterations": 5000,
+    "bootstrap_seed": 6185500,
+    "output": "experiments/level6_18_5/formal",
+    "dry_run": false,
+    "force": false
+  }
+}

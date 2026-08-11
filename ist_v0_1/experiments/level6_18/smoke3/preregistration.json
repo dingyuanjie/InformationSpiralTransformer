@@ -1,0 +1,94 @@
+{
+  "roles": {
+    "707": "calibration",
+    "909": "fully_held_out"
+  },
+  "fixed_slot_pairs": [
+    {
+      "key": "13-28",
+      "slots": [
+        13,
+        28
+      ],
+      "category": "cross_model_robust"
+    },
+    {
+      "key": "2-7",
+      "slots": [
+        2,
+        7
+      ],
+      "category": "fixed_external"
+    },
+    {
+      "key": "10-17",
+      "slots": [
+        10,
+        17
+      ],
+      "category": "fixed_external"
+    }
+  ],
+  "checkpoint_recovery": {
+    "extra_steps_per_failed_stage": 20,
+    "gate": "two consecutive query >= 0.95",
+    "withdrawal": "identical to Level 6.8"
+  },
+  "held_out_modes": [
+    "zero_shot",
+    "clean_recalibrated"
+  ],
+  "held_out_success": {
+    "clean_recalibrated_gain_ci_lower": "> 0",
+    "max_clean_fpr": "<= 0.05"
+  },
+  "protocol": {
+    "seeds": [
+      707,
+      909
+    ],
+    "calibration_seed": 707,
+    "held_out_seed": 909,
+    "swap_times": [
+      4,
+      8
+    ],
+    "actions": [
+      0.2,
+      0.25
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "chunk_size": 128,
+    "extension_steps": 20,
+    "probe_weight": 0.5,
+    "stage3_lr": 5e-05,
+    "stage4_lr": 1e-05,
+    "withdrawal_lr": 5e-06,
+    "withdrawal_ramp_steps": 1,
+    "maintenance_steps": 1,
+    "eval_every": 1,
+    "eval_batch_size": 8,
+    "eval_batches": 1,
+    "final_eval_batches": 1,
+    "chunks": 16,
+    "detector_samples_per_seed": 8,
+    "detector_train_seeds": 1,
+    "detector_validation_seeds": 1,
+    "detector_test_seeds": 1,
+    "detector_seed_base": 8950000,
+    "utility_samples_per_seed": 8,
+    "utility_train_seeds": 1,
+    "utility_validation_seeds": 1,
+    "utility_test_seeds": 1,
+    "utility_seed_base": 9150000,
+    "probe_steps": 20,
+    "probe_lr": 0.03,
+    "probe_weight_decay": 0.001,
+    "max_clean_fpr": 0.05,
+    "bootstrap_iterations": 100,
+    "bootstrap_seed": 618000,
+    "output": "experiments\\level6_18\\smoke3",
+    "force": true,
+    "behavior_only_gate": true
+  }
+}

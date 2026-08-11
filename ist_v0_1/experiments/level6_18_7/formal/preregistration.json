@@ -1,0 +1,90 @@
+{
+  "level": "6.18.7",
+  "status": "frozen bidirectional causal activation transplant",
+  "seed": 707,
+  "models": {
+    "source": "formally passed Level 6.18.3 checkpoint",
+    "updated": "Level 6.18.5 update-500 routing_latest checkpoint"
+  },
+  "checkpoint_boundary_inherited_from_level6_18_6": {
+    "changed_tensors": 6,
+    "changed_parameters": 24896,
+    "only_memory_read_and_fusion_gate": true
+  },
+  "chunks": [
+    8,
+    12,
+    16
+  ],
+  "samples_per_length": 2048,
+  "patch_scope": {
+    "chunk": "final chunk only",
+    "token": "final query position only",
+    "directions": [
+      "updated_to_source",
+      "source_to_updated"
+    ],
+    "patches": {
+      "context": [
+        "memory_context"
+      ],
+      "gate_activation": [
+        "fusion_gate"
+      ],
+      "context_gate": [
+        "memory_context",
+        "fusion_gate"
+      ],
+      "fused_feature": [
+        "fused_feature"
+      ],
+      "ffn_output": [
+        "ffn_output"
+      ],
+      "query_hidden": [
+        "query_hidden"
+      ]
+    },
+    "gate_activation_only_is_synthetic": true
+  },
+  "primary_16_chunk_contrasts": {
+    "context_effect": "source -> updated context through source gate",
+    "gate_after_context": "updated context through source gate -> full updated",
+    "total_route_update": "source -> full updated",
+    "multiplicity": "Holm correction across these three exact McNemar tests"
+  },
+  "reverse_direction": "corroborative restoration panel",
+  "integrity_requirements": {
+    "returned_memory_exactly_invariant": true,
+    "context_plus_gate_reproduces_donor_logits_exactly": true,
+    "fused_feature_reproduces_donor_logits_exactly": true,
+    "ffn_output_reproduces_donor_logits_exactly": true,
+    "query_hidden_reproduces_donor_logits_exactly": true
+  },
+  "decision_rule": {
+    "positive_context_and_negative_gate_after_holm": "fusion_gate_causally_cancels_context_gain",
+    "context_not_positive_after_holm": "context_decodability_gain_not_behaviorally_causal",
+    "positive_context_but_total_not_positive": "post_context_attenuation_not_localized_to_gate",
+    "positive_total_after_holm": "route_update_behaviorally_causal"
+  },
+  "no_parameter_or_probe_updates": true,
+  "protocol": {
+    "seed": 707,
+    "chunks": [
+      8,
+      12,
+      16
+    ],
+    "chunk_size": 128,
+    "source_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "updated_checkpoint": "experiments/level6_18_5/formal/routing_latest.pt",
+    "samples": 2048,
+    "eval_batch_size": 16,
+    "dataset_seed_base": 6187000,
+    "bootstrap_iterations": 5000,
+    "bootstrap_seed_base": 6187800,
+    "output": "experiments/level6_18_7/formal",
+    "dry_run": false,
+    "force": false
+  }
+}

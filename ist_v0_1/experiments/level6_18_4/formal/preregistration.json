@@ -1,0 +1,70 @@
+{
+  "level": "6.18.4",
+  "status": "frozen residual 16-chunk mechanism diagnosis",
+  "models": {
+    "shared_backbone": "untouched seed707 Level 6.18.1 diagnostic-best checkpoint",
+    "heads": [
+      "original",
+      "Level 6.18.3 12-chunk rescue"
+    ],
+    "checkpoint_compatibility_audited": true
+  },
+  "chunks": 16,
+  "feature_probes": [
+    "memory_l3_mean",
+    "memory_l3_concat",
+    "memory_all_mean_concat",
+    "memory_all_concat",
+    "query_hidden",
+    "memory_l3_query",
+    "memory_all_query"
+  ],
+  "splits": {
+    "train": 2048,
+    "validation": 512,
+    "test": 1024
+  },
+  "decision_rule": {
+    "memory_below_0.90": "Memory propagation/encoding degradation",
+    "memory_and_query_at_least_0.95_but_transferred_head_below_0.95": "residual length-specific output alignment",
+    "memory_at_least_0.95_and_memory_minus_query_at_least_0.05": "Memory-to-query routing degradation",
+    "transferred_head_at_least_0.95": "no residual deficit",
+    "otherwise": "mixed/ambiguous"
+  },
+  "causal_conditions": [
+    "intact",
+    "reset",
+    "zero",
+    "batch_roll"
+  ],
+  "no_ist_or_head_updates": true,
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "original_checkpoint": "experiments/level6_18_1/formal/seed707/transition_8_to_16_bridge_best.pt",
+    "rescued_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "train_samples": 2048,
+    "val_samples": 512,
+    "test_samples": 1024,
+    "causal_samples": 1024,
+    "extract_batch_size": 16,
+    "probe_batch_size": 128,
+    "probe_epochs": 40,
+    "patience": 6,
+    "probe_lr": 0.001,
+    "probe_weight_decay": 0.0001,
+    "dataset_seed_base": 6184000,
+    "high_information_threshold": 0.95,
+    "low_information_threshold": 0.9,
+    "material_gap": 0.05,
+    "causal_intact_threshold": 0.8,
+    "causal_intervention_threshold": 0.2,
+    "causal_local_threshold": 0.9,
+    "bootstrap_iterations": 5000,
+    "bootstrap_seed": 6184100,
+    "output": "experiments/level6_18_4/formal",
+    "dry_run": false,
+    "force": false
+  }
+}

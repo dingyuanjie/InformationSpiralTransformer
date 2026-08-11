@@ -1,0 +1,57 @@
+{
+  "primary": "dynamic_two accuracy gain vs dynamic_one > 0",
+  "joint_success": {
+    "dynamic_two_vs_baseline_ci_lower": "> 0",
+    "dynamic_two_vs_one_gain": "> 0",
+    "dynamic_two_max_clean_fpr": "<= 0.05",
+    "seed808_dynamic_two_gain": ">= -0.0025"
+  },
+  "frozen_policy_fingerprints": {
+    "time_detectors_sha256": "fdff700ed58898a448ef2058837f81844eaaf2fe8f66f4ae07af39ebd34030ba",
+    "level6_16_1_summary_sha256": "1d155aad66c14be3a2f4fc35761bb3cb0f5b542ba7d66a5158ba8644e0d68436"
+  },
+  "counterfactuals": [
+    "baseline",
+    "fixed_0p20_one",
+    "fixed_0p25_one",
+    "fixed_0p20_two",
+    "fixed_0p25_two",
+    "dynamic_one",
+    "dynamic_two"
+  ],
+  "available_checkpoint_seeds": [
+    606,
+    808,
+    1001
+  ],
+  "missing_fourth_checkpoint": true,
+  "protocol": {
+    "seeds": [
+      606,
+      808,
+      1001
+    ],
+    "actions": [
+      0.2,
+      0.25
+    ],
+    "swap_after": 4,
+    "swap_times": [
+      4
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "level6_16_1_root": "experiments/level6_16_1/formal",
+    "chunks": 16,
+    "chunk_size": 128,
+    "eval_batch_size": 8,
+    "samples_per_eval_seed": 200,
+    "eval_seed_count": 4,
+    "eval_seed_base": 8550000,
+    "bootstrap_iterations": 5000,
+    "bootstrap_seed": 617000,
+    "max_clean_fpr": 0.05,
+    "output": "experiments/level6_17/formal",
+    "force": false
+  }
+}

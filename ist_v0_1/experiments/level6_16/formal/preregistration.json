@@ -1,0 +1,61 @@
+{
+  "primary_endpoint": "conditional accuracy gain with clean FPR <= 5%",
+  "hard_model": 808,
+  "features": [
+    "encoded_norm",
+    "attended_norm",
+    "propagation_ratio",
+    "gate_mean",
+    "gate_std",
+    "rewrite_relative",
+    "rewrite_cosine",
+    "old_memory_norm",
+    "new_memory_norm",
+    "slot_norm_std",
+    "compression_entropy_mean",
+    "compression_entropy_std"
+  ],
+  "forbidden_features": [
+    "donor target",
+    "ground-truth target",
+    "clean reference"
+  ],
+  "intervention": {
+    "pathway": "MemoryAttention",
+    "scale": 0.2,
+    "time": "first successor only"
+  },
+  "protocol": {
+    "seeds": [
+      606,
+      808,
+      1001
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "chunks": 16,
+    "chunk_size": 128,
+    "swap_times": [
+      4,
+      8
+    ],
+    "eval_batch_size": 8,
+    "detector_samples_per_seed": 200,
+    "detector_train_seeds": 2,
+    "detector_validation_seeds": 1,
+    "detector_test_seeds": 1,
+    "detector_seed_base": 7750000,
+    "probe_steps": 1000,
+    "probe_lr": 0.03,
+    "probe_weight_decay": 0.001,
+    "max_clean_fpr": 0.05,
+    "intervention_scale": 0.2,
+    "intervention_samples_per_seed": 400,
+    "intervention_eval_seeds": 3,
+    "intervention_seed_base": 7950000,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 616000,
+    "output": "experiments/level6_16/formal",
+    "force": false
+  }
+}

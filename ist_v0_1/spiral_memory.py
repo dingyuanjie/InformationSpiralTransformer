@@ -37,6 +37,11 @@ class SpiralMemory(nn.Module):
         # Populated after forward for diagnostics and visualization only.
         self.last_diagnostics = None
         self.capture_memory_attention_weights = False
+        # Inference-time controls used by causal robustness experiments.
+        self.propagation_scale = 1.0
+        self.propagation_relative_cap = None
+        self.propagation_consistency_threshold = None
+        self.propagation_consistency_temperature = 0.1
 
     def initialize_memory(self, batch_size, device):
         return torch.zeros(
@@ -77,7 +82,22 @@ class SpiralMemory(nn.Module):
                 need_weights=False,
             )
             memory_attention_weights = None
-        fused = encoded + attended_memory
+        propagation_multiplier = torch.as_tensor(
+            self.propagation_scale, device=encoded.device, dtype=encoded.dtype
+        )
+        if self.propagation_consistency_threshold is not None:
+            consistency = F.cosine_similarity(encoded, attended_memory, dim=-1)
+            adaptive_multiplier = torch.sigmoid(
+                (consistency - self.propagation_consistency_threshold)
+                / self.propagation_consistency_temperature
+            )
+            propagation_multiplier = propagation_multiplier * adaptive_multiplier.unsqueeze(-1)
+        if self.propagation_relative_cap is not None:
+            encoded_norm = encoded.norm(dim=-1, keepdim=True).clamp_min(1e-8)
+            attended_norm = attended_memory.norm(dim=-1, keepdim=True).clamp_min(1e-8)
+            relative_multiplier = self.propagation_relative_cap * encoded_norm / attended_norm
+            propagation_multiplier = propagation_multiplier * relative_multiplier.clamp(max=1.0)
+        fused = encoded + propagation_multiplier * attended_memory
 
         keys = self.memory_key(fused)
         score = torch.einsum(
@@ -114,6 +134,13 @@ class SpiralMemory(nn.Module):
                 memory_attention_weights.detach()
                 if memory_attention_weights is not None else None
             ),
+            "propagation_multiplier_mean": propagation_multiplier.float().mean().detach(),
+            "encoded_norm": encoded.float().norm(dim=-1).mean(dim=-1).detach(),
+            "attended_memory_norm": attended_memory.float().norm(dim=-1).mean(dim=-1).detach(),
+            "propagation_ratio": (
+                (propagation_multiplier.float() * attended_memory.float()).norm(dim=-1)
+                / encoded.float().norm(dim=-1).clamp_min(1e-8)
+            ).mean(dim=-1).detach(),
         }
         self.auxiliary_loss = diversity_loss
         return new_memory, fused

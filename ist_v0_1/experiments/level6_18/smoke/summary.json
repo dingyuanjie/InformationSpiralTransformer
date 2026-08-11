@@ -1,0 +1,266 @@
+{
+  "preregistration": {
+    "roles": {
+      "707": "calibration",
+      "909": "fully_held_out"
+    },
+    "fixed_slot_pairs": [
+      {
+        "key": "13-28",
+        "slots": [
+          13,
+          28
+        ],
+        "category": "cross_model_robust"
+      },
+      {
+        "key": "2-7",
+        "slots": [
+          2,
+          7
+        ],
+        "category": "fixed_external"
+      },
+      {
+        "key": "10-17",
+        "slots": [
+          10,
+          17
+        ],
+        "category": "fixed_external"
+      }
+    ],
+    "checkpoint_recovery": {
+      "extra_steps_per_failed_stage": 1,
+      "gate": "two consecutive query >= 0.95",
+      "withdrawal": "identical to Level 6.8"
+    },
+    "held_out_modes": [
+      "zero_shot",
+      "clean_recalibrated"
+    ],
+    "held_out_success": {
+      "clean_recalibrated_gain_ci_lower": "> 0",
+      "max_clean_fpr": "<= 0.05"
+    },
+    "protocol": {
+      "seeds": [
+        707,
+        909
+      ],
+      "calibration_seed": 707,
+      "held_out_seed": 909,
+      "swap_times": [
+        4,
+        8
+      ],
+      "actions": [
+        0.2,
+        0.25
+      ],
+      "level6_8_root": "experiments/level6_8/formal",
+      "chunk_size": 128,
+      "extension_steps": 1,
+      "probe_weight": 0.5,
+      "stage3_lr": 5e-05,
+      "stage4_lr": 1e-05,
+      "withdrawal_lr": 5e-06,
+      "maintenance_steps": 750,
+      "eval_every": 1,
+      "eval_batch_size": 8,
+      "eval_batches": 1,
+      "final_eval_batches": 1,
+      "chunks": 16,
+      "detector_samples_per_seed": 200,
+      "detector_train_seeds": 2,
+      "detector_validation_seeds": 1,
+      "detector_test_seeds": 1,
+      "detector_seed_base": 8950000,
+      "utility_samples_per_seed": 200,
+      "utility_train_seeds": 2,
+      "utility_validation_seeds": 1,
+      "utility_test_seeds": 1,
+      "utility_seed_base": 9150000,
+      "probe_steps": 1000,
+      "probe_lr": 0.03,
+      "probe_weight_decay": 0.001,
+      "max_clean_fpr": 0.05,
+      "bootstrap_iterations": 5000,
+      "bootstrap_seed": 618000,
+      "output": "experiments\\level6_18\\smoke",
+      "force": true,
+      "behavior_only_gate": true
+    }
+  },
+  "recovery": [
+    {
+      "seed": 707,
+      "passed": false,
+      "failed_phase": "extended_8",
+      "original_failure": "curriculum",
+      "extensions": [
+        {
+          "seed": 707,
+          "chunks": 8,
+          "step": 1,
+          "consecutive": 1,
+          "passed": false,
+          "history": [
+            {
+              "step": 1,
+              "metric": {
+                "chunks": 8,
+                "total_tokens": 1024,
+                "query": 1.0,
+                "local": 1.0,
+                "probe_first": 1.0,
+                "probe_final": 1.0,
+                "probe_min": 0.875,
+                "probe_by_chunk": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  0.875,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "memory_first_final_cosine": 0.44607076048851013,
+                "gate_means": [
+                  0.408288836479187,
+                  0.2508448660373688,
+                  0.3844373822212219
+                ],
+                "samples": 8
+              },
+              "ok": true
+            }
+          ],
+          "final": {
+            "chunks": 8,
+            "total_tokens": 1024,
+            "query": 1.0,
+            "local": 1.0,
+            "probe_first": 1.0,
+            "probe_final": 1.0,
+            "probe_min": 0.875,
+            "probe_by_chunk": [
+              1.0,
+              1.0,
+              1.0,
+              0.875,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "memory_first_final_cosine": 0.44607076048851013,
+            "gate_means": [
+              0.408288836479187,
+              0.2508448660373688,
+              0.3844373822212219
+            ],
+            "samples": 8
+          }
+        }
+      ],
+      "seconds": 0.8944032999988849
+    },
+    {
+      "seed": 909,
+      "passed": false,
+      "failed_phase": "extended_16",
+      "original_failure": "curriculum",
+      "extensions": [
+        {
+          "seed": 909,
+          "chunks": 16,
+          "step": 1,
+          "consecutive": 1,
+          "passed": false,
+          "history": [
+            {
+              "step": 1,
+              "metric": {
+                "chunks": 16,
+                "total_tokens": 2048,
+                "query": 1.0,
+                "local": 1.0,
+                "probe_first": 1.0,
+                "probe_final": 1.0,
+                "probe_min": 1.0,
+                "probe_by_chunk": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "memory_first_final_cosine": 0.6283124089241028,
+                "gate_means": [
+                  0.45973578095436096,
+                  0.3047454059123993,
+                  0.17228730022907257
+                ],
+                "samples": 8
+              },
+              "ok": true
+            }
+          ],
+          "final": {
+            "chunks": 16,
+            "total_tokens": 2048,
+            "query": 1.0,
+            "local": 1.0,
+            "probe_first": 1.0,
+            "probe_final": 1.0,
+            "probe_min": 1.0,
+            "probe_by_chunk": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "memory_first_final_cosine": 0.6283124089241028,
+            "gate_means": [
+              0.45973578095436096,
+              0.3047454059123993,
+              0.17228730022907257
+            ],
+            "samples": 8
+          }
+        }
+      ],
+      "seconds": 0.8489466999999422
+    }
+  ],
+  "external_validation": null,
+  "success": {
+    "passed": false,
+    "reason": "checkpoint_recovery_failed"
+  }
+}

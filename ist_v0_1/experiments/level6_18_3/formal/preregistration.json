@@ -1,0 +1,90 @@
+{
+  "level": "6.18.3",
+  "hypothesis": "A head-only intervention can expose the linearly decodable 12-chunk query representation while preserving the 8-chunk circuit.",
+  "source": "seed707 Level 6.18.1 failed 8->12 diagnostic-best checkpoint",
+  "trainable_parameters": "first 16 rows of model.output only",
+  "training_length": 12,
+  "validation_selection": {
+    "alpha_grid": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "eligible": "8-chunk >= 0.95 and 12-chunk >= 0.95",
+    "ranking": "max 12-chunk, then 8-chunk, then smaller alpha",
+    "16_chunk_is_never_used": true
+  },
+  "protected_tests": [
+    8,
+    12,
+    16
+  ],
+  "primary_success": {
+    "selection_gate": true,
+    "8_chunk_rescued_query": ">= 0.95",
+    "12_chunk_rescued_query": ">= 0.95",
+    "12_chunk_improvement_ci95_lower": "> 0",
+    "only_output_changed": true,
+    "rescued_causal_gate": true
+  },
+  "causal_gate": {
+    "intact_12": ">= 0.95",
+    "max_reset_zero_batch_roll": "<= 0.20",
+    "min_local": ">= 0.90"
+  },
+  "sixteen_chunk_result": "protected exploratory transfer; not a success gate",
+  "protocol": {
+    "seed": 707,
+    "test_chunks": [
+      8,
+      12,
+      16
+    ],
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_1/formal/seed707/transition_8_to_16_bridge_best.pt",
+    "train_samples": 2048,
+    "validation_samples": 512,
+    "test_samples": 2048,
+    "causal_samples": 1024,
+    "extract_batch_size": 16,
+    "head_batch_size": 128,
+    "head_epochs": 40,
+    "patience": 6,
+    "head_lr": 0.001,
+    "head_weight_decay": 0.0001,
+    "head_seed": 6183100,
+    "dataset_seed_base": 6183000,
+    "alphas": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "validation_retention_threshold": 0.95,
+    "validation_rescue_threshold": 0.95,
+    "test_retention_threshold": 0.95,
+    "test_rescue_threshold": 0.95,
+    "causal_intervention_threshold": 0.2,
+    "causal_local_threshold": 0.9,
+    "bootstrap_iterations": 5000,
+    "bootstrap_seed": 6183200,
+    "output": "experiments/level6_18_3/formal",
+    "dry_run": false,
+    "force": false
+  }
+}

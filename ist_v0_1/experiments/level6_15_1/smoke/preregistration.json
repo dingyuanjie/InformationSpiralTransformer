@@ -1,0 +1,39 @@
+{
+  "primary_confirmatory_condition": {
+    "offset": 1,
+    "duration": 1,
+    "scale": 0.25,
+    "pathway": "both",
+    "expected_direction": "accuracy_gain > 0 across all three model seeds"
+  },
+  "independent_eval_seed_base": 7350000,
+  "families": [
+    "dose",
+    "window",
+    "duration",
+    "pathway"
+  ],
+  "protocol": {
+    "seeds": [
+      606
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "chunks": 4,
+    "chunk_size": 128,
+    "swap_times": [
+      1
+    ],
+    "doses": [
+      0.25
+    ],
+    "eval_batch_size": 8,
+    "samples_per_eval_seed": 8,
+    "eval_seed_count": 1,
+    "eval_seed_base": 7350000,
+    "bootstrap_iterations": 100,
+    "bootstrap_seed": 615100,
+    "output": "experiments\\level6_15_1\\smoke",
+    "force": false
+  }
+}

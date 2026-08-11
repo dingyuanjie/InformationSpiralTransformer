@@ -1,0 +1,67 @@
+{
+  "test_behavior": {
+    "query": 0.9033203125,
+    "original_probe": 0.935546875,
+    "local": 0.994140625,
+    "samples": 1024
+  },
+  "probe_test_accuracies": {
+    "memory_l3_mean": 0.96484375,
+    "memory_l3_concat": 0.98046875,
+    "memory_all_mean_concat": 0.9814453125,
+    "memory_all_concat": 0.986328125,
+    "query_hidden": 0.9697265625,
+    "memory_l3_query": 0.9833984375,
+    "memory_all_query": 0.986328125
+  },
+  "causal": {
+    "conditions": {
+      "intact": {
+        "condition": "intact",
+        "query": 0.9033203125,
+        "original_probe": 0.935546875,
+        "local": 0.994140625,
+        "samples": 1024
+      },
+      "reset": {
+        "condition": "reset",
+        "query": 0.0654296875,
+        "local": 0.994140625,
+        "original_probe": 0.05859375,
+        "samples": 1024
+      },
+      "zero": {
+        "condition": "zero",
+        "query": 0.064453125,
+        "local": 0.994140625,
+        "original_probe": 0.0625,
+        "samples": 1024
+      },
+      "batch_roll": {
+        "condition": "batch_roll",
+        "query": 0.056640625,
+        "local": 0.994140625,
+        "original_probe": 0.0556640625,
+        "samples": 1024
+      }
+    },
+    "strongest_disrupted_query": 0.0654296875,
+    "query_drop": 0.837890625,
+    "passed": true
+  },
+  "diagnosis": {
+    "classification": "output_head_alignment_bottleneck",
+    "best_memory_accuracy": 0.986328125,
+    "gaps": {
+      "memory_minus_behavior": 0.0830078125,
+      "query_hidden_minus_behavior": 0.06640625,
+      "memory_minus_query_hidden": 0.0166015625,
+      "all_memory_minus_l3": 0.005859375
+    },
+    "thresholds": {
+      "high_information": 0.95,
+      "low_information": 0.9,
+      "material_gap": 0.05
+    }
+  }
+}

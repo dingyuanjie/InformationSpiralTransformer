@@ -1,0 +1,46 @@
+{
+  "primary_confirmatory_condition": {
+    "offset": 1,
+    "duration": 1,
+    "scale": 0.25,
+    "pathway": "both",
+    "expected_direction": "accuracy_gain > 0 across all three model seeds"
+  },
+  "independent_eval_seed_base": 7350000,
+  "families": [
+    "dose",
+    "window",
+    "duration",
+    "pathway"
+  ],
+  "protocol": {
+    "seeds": [
+      606,
+      808,
+      1001
+    ],
+    "level6_8_root": "experiments/level6_8/formal",
+    "level6_13_1_root": "experiments/level6_13_1/formal",
+    "chunks": 16,
+    "chunk_size": 128,
+    "swap_times": [
+      4,
+      8
+    ],
+    "doses": [
+      0.1,
+      0.2,
+      0.25,
+      0.3,
+      0.4
+    ],
+    "eval_batch_size": 8,
+    "samples_per_eval_seed": 400,
+    "eval_seed_count": 3,
+    "eval_seed_base": 7350000,
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 615100,
+    "output": "experiments/level6_15_1/formal",
+    "force": false
+  }
+}

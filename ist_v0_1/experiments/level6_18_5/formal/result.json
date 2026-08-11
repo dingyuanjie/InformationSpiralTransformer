@@ -1,0 +1,915 @@
+{
+  "protocol": {
+    "level": "6.18.5",
+    "hypothesis": "The residual 16-chunk deficit is caused by the final block's Memory-to-token read path and can be rescued without changing Memory states.",
+    "source": "formally passed Level 6.18.3 head-rescued seed707 checkpoint",
+    "trainable_boundary": {
+      "prefixes": [
+        "blocks.2.memory_read.",
+        "blocks.2.memory_fusion_gate."
+      ],
+      "parameter_tensors": 6,
+      "parameters": 24896
+    },
+    "training": {
+      "length": 16,
+      "loss": "query cross-entropy only",
+      "optimizer_updates": 500,
+      "gradient_accumulation": 4
+    },
+    "stable_gate": {
+      "protected_lengths": [
+        8,
+        12,
+        16
+      ],
+      "confirmation_query": 0.95,
+      "successive_confirmations": 2
+    },
+    "primary_success": {
+      "stable_training_gate": true,
+      "8_12_16_test_query": ">= 0.95",
+      "16_improvement_ci95_lower": "> 0",
+      "only_route_parameters_changed": true,
+      "returned_memory_exactly_invariant": true,
+      "16_chunk_causal_gate": true
+    },
+    "protocol": {
+      "seed": 707,
+      "chunk_size": 128,
+      "source_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+      "routing_updates": 500,
+      "routing_lr": 5e-05,
+      "train_batch_size": 2,
+      "gradient_accumulation": 4,
+      "gradient_clip": 1.0,
+      "eval_every_updates": 25,
+      "eval_batch_size": 8,
+      "screen_samples": 80,
+      "confirm_samples": 256,
+      "screen_retention_threshold": 0.94,
+      "screen_rescue_threshold": 0.92,
+      "confirm_threshold": 0.95,
+      "stable_confirmations": 2,
+      "training_seed": 6185000,
+      "validation_seed_base": 6185100,
+      "test_samples": 2048,
+      "test_seed_base": 6185200,
+      "test_threshold": 0.95,
+      "causal_samples": 1024,
+      "causal_seed": 6185300,
+      "causal_intervention_threshold": 0.2,
+      "causal_local_threshold": 0.9,
+      "invariance_samples": 8,
+      "invariance_seed_base": 6185400,
+      "bootstrap_iterations": 5000,
+      "bootstrap_seed": 6185500,
+      "output": "experiments/level6_18_5/formal",
+      "dry_run": false,
+      "force": false
+    }
+  },
+  "routing_training": {
+    "update": 500,
+    "stable_streak": 0,
+    "passed": false,
+    "best_score": null,
+    "last_train": {
+      "loss": 0.051310181617736816,
+      "query": 1.0
+    },
+    "screen": {
+      "8": {
+        "condition": "intact",
+        "chunks": 8,
+        "query": 1.0,
+        "local": 0.987500011920929,
+        "samples": 80
+      },
+      "12": {
+        "condition": "intact",
+        "chunks": 12,
+        "query": 0.987500011920929,
+        "local": 1.0,
+        "samples": 80
+      },
+      "16": {
+        "condition": "intact",
+        "chunks": 16,
+        "query": 0.925000011920929,
+        "local": 0.9750000238418579,
+        "samples": 80
+      }
+    },
+    "confirmation": {
+      "8": {
+        "condition": "intact",
+        "chunks": 8,
+        "query": 0.9609375,
+        "local": 0.9609375,
+        "samples": 256
+      },
+      "12": {
+        "condition": "intact",
+        "chunks": 12,
+        "query": 0.9453125,
+        "local": 0.96875,
+        "samples": 256
+      },
+      "16": {
+        "condition": "intact",
+        "chunks": 16,
+        "query": 0.91796875,
+        "local": 0.95703125,
+        "samples": 256
+      }
+    },
+    "history": [
+      {
+        "update": 1,
+        "train": {
+          "loss": 0.28788256645202637,
+          "query": 0.875
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 25,
+        "train": {
+          "loss": 0.02800905704498291,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 50,
+        "train": {
+          "loss": 1.0911989212036133,
+          "query": 0.875
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 75,
+        "train": {
+          "loss": 0.873776912689209,
+          "query": 0.625
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 100,
+        "train": {
+          "loss": 0.5818279981613159,
+          "query": 0.75
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 1.0,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 125,
+        "train": {
+          "loss": 0.27408456802368164,
+          "query": 0.875
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 150,
+        "train": {
+          "loss": 0.007515430450439453,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 175,
+        "train": {
+          "loss": 1.2311599850654602,
+          "query": 0.75
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 200,
+        "train": {
+          "loss": 0.06904792785644531,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 1.0,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 225,
+        "train": {
+          "loss": 0.48984020948410034,
+          "query": 0.875
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 1.0,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 250,
+        "train": {
+          "loss": 0.09170722961425781,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 275,
+        "train": {
+          "loss": 0.0019690990447998047,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 300,
+        "train": {
+          "loss": 0.03821766376495361,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 325,
+        "train": {
+          "loss": 0.04598236083984375,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 350,
+        "train": {
+          "loss": 0.1462845802307129,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 375,
+        "train": {
+          "loss": 0.18901753425598145,
+          "query": 0.875
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 400,
+        "train": {
+          "loss": 0.4942493438720703,
+          "query": 0.875
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.9125000238418579,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": null,
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 425,
+        "train": {
+          "loss": 0.022461891174316406,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.925000011920929,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 0.9609375,
+            "local": 0.9609375,
+            "samples": 256
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.9453125,
+            "local": 0.96875,
+            "samples": 256
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.91796875,
+            "local": 0.95703125,
+            "samples": 256
+          }
+        },
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 450,
+        "train": {
+          "loss": 0.02570664882659912,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.925000011920929,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 0.9609375,
+            "local": 0.9609375,
+            "samples": 256
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.9453125,
+            "local": 0.96875,
+            "samples": 256
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.91796875,
+            "local": 0.95703125,
+            "samples": 256
+          }
+        },
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 475,
+        "train": {
+          "loss": 0.041607022285461426,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.925000011920929,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 0.9609375,
+            "local": 0.9609375,
+            "samples": 256
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.9453125,
+            "local": 0.96875,
+            "samples": 256
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.91796875,
+            "local": 0.95703125,
+            "samples": 256
+          }
+        },
+        "confirmed": false,
+        "stable_streak": 0
+      },
+      {
+        "update": 500,
+        "train": {
+          "loss": 0.051310181617736816,
+          "query": 1.0
+        },
+        "screen": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 1.0,
+            "local": 0.987500011920929,
+            "samples": 80
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.987500011920929,
+            "local": 1.0,
+            "samples": 80
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.925000011920929,
+            "local": 0.9750000238418579,
+            "samples": 80
+          }
+        },
+        "confirmation": {
+          "8": {
+            "condition": "intact",
+            "chunks": 8,
+            "query": 0.9609375,
+            "local": 0.9609375,
+            "samples": 256
+          },
+          "12": {
+            "condition": "intact",
+            "chunks": 12,
+            "query": 0.9453125,
+            "local": 0.96875,
+            "samples": 256
+          },
+          "16": {
+            "condition": "intact",
+            "chunks": 16,
+            "query": 0.91796875,
+            "local": 0.95703125,
+            "samples": 256
+          }
+        },
+        "confirmed": false,
+        "stable_streak": 0
+      }
+    ]
+  },
+  "success": {
+    "passed": false,
+    "reason": "stable_routing_gate_failed"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "level": "6.18.8",
+  "status": "frozen 16-chunk task-aligned read-subspace diagnosis",
+  "seed": 707,
+  "source": "Level 6.18.3 formally passed checkpoint",
+  "updated": "Level 6.18.5 update-500 checkpoint",
+  "chunks": 16,
+  "samples": 2048,
+  "target_activation": "final block memory_context at final query token",
+  "dose_curve": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "primary_margin": "correct-class logit minus the source model's strongest incorrect logit",
+  "primary_family": {
+    "true_margin_change": "source context -> updated context through source gate",
+    "true_minus_batch_roll": "true delta effect minus mean of norm-matched batch rolls",
+    "true_minus_random": "true delta effect minus mean of norm-matched random directions",
+    "test": "two-sided paired sign-flip",
+    "multiplicity": "Holm correction across three tests",
+    "confirmation": "positive estimate and Holm p < 0.05 for all three"
+  },
+  "null_controls": {
+    "batch_roll_repeats": 8,
+    "random_repeats": 8,
+    "norm_matched_per_example": true
+  },
+  "gradient_diagnostics": {
+    "fixed_source_rival": true,
+    "directional_derivative": "margin gradient dot true context delta",
+    "components": [
+      "gradient_parallel",
+      "gradient_orthogonal"
+    ],
+    "uses_test_labels": true,
+    "status": "mechanism-only; not deployable and not a primary confirmation"
+  },
+  "secondary_metrics": [
+    "decision margin",
+    "cross entropy",
+    "argmax accuracy"
+  ],
+  "integrity": {
+    "returned_memory_exactly_invariant": true,
+    "alpha1_context_reconstruction_exact": true,
+    "differentiable_source_context_reproduces_source_logits_exactly": true,
+    "finite_nonzero_per-example_gradients": true
+  },
+  "no_parameter_or_probe_updates": true,
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "alphas": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "source_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "updated_checkpoint": "experiments/level6_18_5/formal/routing_latest.pt",
+    "samples": 2048,
+    "eval_batch_size": 16,
+    "control_repeats": 8,
+    "dataset_seed": 6188000,
+    "control_seed": 6188100,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "bootstrap_seed": 6188200,
+    "primary_seed": 6188300,
+    "log_every_batches": 8,
+    "output": "experiments/level6_18_8/formal",
+    "dry_run": false,
+    "force": false
+  }
+}
