@@ -1,0 +1,156 @@
+{
+  "integrity": {
+    "numerical_revision": "delta_closed_loop_fp64_solver_v4",
+    "source_downstream_max_abs": 0.0,
+    "native_replay_vs_native_context_max_abs": 0.0625,
+    "fp32_vs_native_context_max_abs": 0.06754589080810547,
+    "manual_vs_fp32_context_max_abs": 5.7220458984375e-06,
+    "source_downstream_reconstruction_exact": true,
+    "manual_attention_context_close": true,
+    "fp32_vs_native_is_diagnostic_only": true,
+    "attention_delta_closed_loop_max_abs": 4.231929779052734e-06,
+    "attention_delta_closed_loop_passed": true,
+    "analytic_attention_gradient_max_abs": 4.98257577419281e-08,
+    "analytic_attention_gradient_passed": true,
+    "gradient_kl_budget_max_abs_error": 1.7823801101712888e-07,
+    "kl_budgets_matched": true,
+    "gradient_l2_budget_max_abs_error": 9.5367431640625e-07,
+    "l2_budget_matched": true,
+    "all_states_unchanged": true,
+    "all_parameters_frozen": true,
+    "failed_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true,
+    "passed": true
+  },
+  "matching": {
+    "mean_absolute_confidence_distance": 0.05029296875,
+    "max_absolute_confidence_distance": 0.2265625,
+    "errors": 16,
+    "matched_correct": 16,
+    "memory_decodable_errors": 13,
+    "error_confidence_mean": 1.5517578125,
+    "matched_confidence_mean": 1.58447265625
+  },
+  "primary": {
+    "population": "Memory-decodable source errors",
+    "gradient_kl_specificity": {
+      "oracle_vs_source": {
+        "estimate": 0.09134615384615384,
+        "ci95": [
+          0.055288461538461536,
+          0.1330829326923076
+        ],
+        "sign_flip_p_two_sided": 0.009900990099009901,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 13,
+        "left_mean": -2.313701923076923,
+        "right_mean": -2.222355769230769,
+        "multiplicity": {
+          "raw_p": 0.009900990099009901,
+          "holm_p": 0.039603960396039604,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_probe_top4": {
+        "estimate": 0.0985576923076923,
+        "ci95": [
+          0.057376802884615385,
+          0.1331280048076923
+        ],
+        "sign_flip_p_two_sided": 0.009900990099009901,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 13,
+        "left_mean": -2.3209134615384617,
+        "right_mean": -2.222355769230769,
+        "multiplicity": {
+          "raw_p": 0.009900990099009901,
+          "holm_p": 0.039603960396039604,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_negative": {
+        "estimate": 0.19651442307692307,
+        "ci95": [
+          0.13550180288461539,
+          0.26551983173076915
+        ],
+        "sign_flip_p_two_sided": 0.009900990099009901,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 13,
+        "left_mean": -2.4188701923076925,
+        "right_mean": -2.222355769230769,
+        "multiplicity": {
+          "raw_p": 0.009900990099009901,
+          "holm_p": 0.039603960396039604,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_rolled": {
+        "estimate": 0.09134615384615384,
+        "ci95": [
+          0.06240985576923077,
+          0.13988882211538456
+        ],
+        "sign_flip_p_two_sided": 0.019801980198019802,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 13,
+        "left_mean": -2.313701923076923,
+        "right_mean": -2.222355769230769,
+        "multiplicity": {
+          "raw_p": 0.019801980198019802,
+          "holm_p": 0.039603960396039604,
+          "significant_0.05": true
+        }
+      }
+    },
+    "recovery_fractions": {
+      "gradient_kl_over_unrestricted": 0.7102803667931278,
+      "gradient_l2_over_unrestricted": 0.34579438223610975,
+      "tangent_over_unrestricted": 0.9579439382280719,
+      "gradient_kl_gain": 0.09134615212678909,
+      "gradient_l2_gain": 0.04447115212678909,
+      "tangent_gain": 0.12319711595773697,
+      "unrestricted_gain": 0.12860576808452606
+    }
+  },
+  "reachable_subspace_audit": {
+    "probe_reference_kl_mean": 0.11339741200208664,
+    "common_kl_budget_mean": 0.11339741200208664,
+    "common_over_probe_kl_fraction_mean": 1.0,
+    "gradient_kl_budget_max_abs_error": 1.7823801101712888e-07,
+    "negative_kl_budget_max_abs_error": 1.7823801101712888e-07,
+    "rolled_kl_budget_max_abs_error": 1.7823801101712888e-07,
+    "gradient_l2_budget_mean_abs_error": 5.2727184396417215e-08,
+    "gradient_l2_budget_max_abs_error": 9.5367431640625e-07,
+    "attention_gradient_norm_mean": 0.022178323939442635,
+    "context_gradient_norm_mean": 0.14045538008213043,
+    "tangent_rank_mean": 55.61538314819336,
+    "tangent_rank_min": 52,
+    "tangent_gradient_energy_mean": 0.8943561911582947,
+    "tangent_gradient_energy_min": 0.8002933263778687,
+    "analytic_autograd_gradient_max_abs": 4.98257577419281e-08,
+    "attention_delta_closed_loop_max_abs": 4.231929779052734e-06
+  },
+  "diagnosis": {
+    "classification": "finite_attention_simplex_or_budget_limitation",
+    "source_accuracy": 0.9375,
+    "source_errors": 16,
+    "memory_probe_correct_on_source_errors": 0.8125,
+    "memory_decodable_errors": 13,
+    "gradient_kl_specificity_passed": true,
+    "tangent_reachable": true,
+    "unrestricted_positive_control_operational": true,
+    "attention_recovery_sufficient": false,
+    "registered_next_boundary": "The value/output tangent span contains the useful direction, but finite attention redistribution at the registered budgets does not recover it; audit head-wise budgets and signed value mixtures.",
+    "integrity_passed": true
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "level": "6.19.5",
+  "status": "frozen router observability-supervision diagnosis",
+  "parent": "Level 6.19.4 canonical formal_recovery result",
+  "question": "separate dose/gating, signed-direction, joint-coupling, and basis-specificity limits of label-free Oracle compilation",
+  "splits": {
+    "probe_train": {
+      "samples": 4096,
+      "seed": 6195100
+    },
+    "probe_validation": {
+      "samples": 1024,
+      "seed": 6195200,
+      "role": "reporting only; no checkpoint or architecture selection"
+    },
+    "formal_diagnostic": {
+      "samples": 4096,
+      "seed": 6195300,
+      "opened_once_after_fixed final-epoch probes are frozen": true
+    }
+  },
+  "frozen_hybrids": {
+    "learned_dose_learned_direction": "frozen Level 6.19.4 signed router",
+    "oracle_dose_learned_direction": "label-aware diagnostic",
+    "learned_dose_oracle_direction": "label-aware diagnostic",
+    "oracle_dose_oracle_direction": "registered full signed Oracle"
+  },
+  "probes": {
+    "inputs": "exactly the Level 6.19.4 router observables",
+    "architecture": {
+      "hidden": 32,
+      "epochs": 20,
+      "fixed_final_epoch": true,
+      "no_model_or_checkpoint_selection": true
+    },
+    "primary_classifier": "weighted BCE; AUROC, AUPRC, prevalence lift",
+    "oracle_dose": "standardized log1p MSE; R2, Spearman, calibration",
+    "signed_direction": "cosine distillation in projected value basis",
+    "residual_direction": "equal-parameter cosine distillation in fixed residual basis"
+  },
+  "interpretation": {
+    "threshold": 0.25,
+    "oracle_dose_only_passes": "dose/gating dominant bottleneck",
+    "oracle_direction_only_passes": "signed direction dominant bottleneck",
+    "both_hybrids_pass": "joint calibration/coupling bottleneck",
+    "neither_hybrid_passes": "both frozen components limiting",
+    "residual_matches_or_exceeds_signed": "value-basis-specific deployment claim unsupported"
+  },
+  "locks": {
+    "seed707_trunk_and_all_existing_probes_frozen": true,
+    "all_Level_6_19_4_routers_frozen": true,
+    "failed_Level_6_18_9_candidate_not_used": true,
+    "seed909_locked": true,
+    "protected_tests_not_used": true,
+    "optimizer_and_model_search_closed": true,
+    "diagnostic_only": true
+  },
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "probes": "experiments/level6_19/formal/linear_probes.pt",
+    "parent_result": "experiments/level6_19_4/formal_recovery/result.json",
+    "parent_routers": "experiments/level6_19_4/formal_recovery/router_checkpoint.pt",
+    "train_samples": 4096,
+    "validation_samples": 1024,
+    "diagnostic_samples": 4096,
+    "train_seed": 6195100,
+    "validation_seed": 6195200,
+    "diagnostic_seed": 6195300,
+    "analysis_seed": 6195400,
+    "probe_seed": 6195500,
+    "residual_basis_seed": 6195600,
+    "eval_batch_size": 16,
+    "probe_batch_size": 64,
+    "probe_hidden": 32,
+    "probe_epochs": 20,
+    "probe_lr": 0.001,
+    "probe_weight_decay": 0.0001,
+    "dose_prediction_cap": 8.0,
+    "recovery_threshold": 0.25,
+    "bootstrap_iterations": 5000,
+    "minimum_errors": 200,
+    "minimum_primary": 150,
+    "log_every_samples": 256,
+    "output": "experiments/level6_19_5/formal"
+  }
+}

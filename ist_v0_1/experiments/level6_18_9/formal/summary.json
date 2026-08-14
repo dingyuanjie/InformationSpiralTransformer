@@ -1,0 +1,111 @@
+{
+  "last_validation": {
+    "8": {
+      "baseline": {
+        "condition": "intact",
+        "chunks": 8,
+        "samples": 128,
+        "query": 0.953125,
+        "margin": 6.489082336425781,
+        "cross_entropy": 0.2141639143228531,
+        "local": 0.9453125
+      },
+      "rescued": {
+        "condition": "intact",
+        "chunks": 8,
+        "samples": 128,
+        "query": 0.953125,
+        "margin": 6.588218688964844,
+        "cross_entropy": 0.21778720617294312,
+        "local": 0.9453125
+      },
+      "margin_change": 0.0991363525390625
+    },
+    "12": {
+      "baseline": {
+        "condition": "intact",
+        "chunks": 12,
+        "samples": 128,
+        "query": 0.9375,
+        "margin": 5.97698974609375,
+        "cross_entropy": 0.17246703803539276,
+        "local": 0.9609375
+      },
+      "rescued": {
+        "condition": "intact",
+        "chunks": 12,
+        "samples": 128,
+        "query": 0.9375,
+        "margin": 6.062957763671875,
+        "cross_entropy": 0.1734308898448944,
+        "local": 0.9609375
+      },
+      "margin_change": 0.085968017578125
+    },
+    "16": {
+      "baseline": {
+        "condition": "intact",
+        "chunks": 16,
+        "samples": 128,
+        "query": 0.9609375,
+        "margin": 5.7485198974609375,
+        "cross_entropy": 0.14108848571777344,
+        "local": 0.9921875
+      },
+      "rescued": {
+        "condition": "intact",
+        "chunks": 16,
+        "samples": 128,
+        "query": 0.9765625,
+        "margin": 5.848114013671875,
+        "cross_entropy": 0.1342560201883316,
+        "local": 0.9921875
+      },
+      "margin_change": 0.0995941162109375
+    }
+  },
+  "best_score": null,
+  "parameter_audit": {
+    "passed": true,
+    "changed_tensors": [
+      {
+        "name": "blocks.2.memory_read.in_proj_weight",
+        "parameters": 12288,
+        "max_abs_change": 0.008531330153346062,
+        "allowed": true
+      },
+      {
+        "name": "blocks.2.memory_read.in_proj_bias",
+        "parameters": 192,
+        "max_abs_change": 0.005563102662563324,
+        "allowed": true
+      },
+      {
+        "name": "blocks.2.memory_read.out_proj.weight",
+        "parameters": 4096,
+        "max_abs_change": 0.008133318275213242,
+        "allowed": true
+      },
+      {
+        "name": "blocks.2.memory_read.out_proj.bias",
+        "parameters": 64,
+        "max_abs_change": 0.0057768747210502625,
+        "allowed": true
+      }
+    ],
+    "changed_tensor_count": 4,
+    "changed_parameter_count": 16640,
+    "illegal_changes": [],
+    "probe_unchanged": true,
+    "allowed_prefix": "blocks.2.memory_read."
+  },
+  "memory_invariance": {
+    "passed": true,
+    "overall_max_abs_difference": 0.0
+  },
+  "success": {
+    "passed": false,
+    "reason": "stable_task_aligned_read_gate_failed",
+    "protected_tests_opened": false
+  }
+}

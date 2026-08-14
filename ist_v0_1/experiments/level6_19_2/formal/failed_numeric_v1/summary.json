@@ -1,0 +1,150 @@
+{
+  "integrity": {
+    "source_downstream_max_abs": 0.0,
+    "need_weights_vs_native_context_max_abs": 0.16199016571044922,
+    "manual_vs_need_weights_context_max_abs": 7.62939453125e-06,
+    "source_downstream_reconstruction_exact": true,
+    "manual_attention_context_close": false,
+    "analytic_attention_gradient_max_abs": 1.1874362826347351e-07,
+    "analytic_attention_gradient_passed": true,
+    "gradient_kl_budget_max_abs_error": 5.066394805908203e-06,
+    "kl_budgets_matched": false,
+    "gradient_l2_budget_max_abs_error": 1.430511474609375e-06,
+    "l2_budget_matched": true,
+    "all_states_unchanged": true,
+    "all_parameters_frozen": true,
+    "failed_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true,
+    "passed": false
+  },
+  "matching": {
+    "mean_absolute_confidence_distance": 0.11171274038461539,
+    "max_absolute_confidence_distance": 0.3125,
+    "errors": 325,
+    "matched_correct": 325,
+    "memory_decodable_errors": 255,
+    "error_confidence_mean": 1.4730769395828247,
+    "matched_confidence_mean": 1.5843689441680908
+  },
+  "primary": {
+    "population": "Memory-decodable source errors",
+    "gradient_kl_specificity": {
+      "oracle_vs_source": {
+        "estimate": 0.165298521752451,
+        "ci95": [
+          0.12412585688572304,
+          0.22122206744025733
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 255,
+        "left_mean": -2.0021838618259804,
+        "right_mean": -1.8368853400735294,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_probe_top4": {
+        "estimate": 0.17767310049019608,
+        "ci95": [
+          0.13133003982843136,
+          0.24256103515624997
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 255,
+        "left_mean": -2.0145584405637256,
+        "right_mean": -1.8368853400735294,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_negative": {
+        "estimate": 0.3142080269607843,
+        "ci95": [
+          0.24674366670496325,
+          0.40647750555300244
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 255,
+        "left_mean": -2.1510933670343135,
+        "right_mean": -1.8368853400735294,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_rolled": {
+        "estimate": 0.17056525735294117,
+        "ci95": [
+          0.1225906192555147,
+          0.23243527879901957
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.9686274509803922,
+        "negative_fraction": 0.00392156862745098,
+        "zero_fraction": 0.027450980392156862,
+        "samples": 255,
+        "left_mean": -2.0074505974264705,
+        "right_mean": -1.8368853400735294,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      }
+    },
+    "recovery_fractions": {
+      "gradient_kl_over_unrestricted": 0.9163044428184686,
+      "gradient_l2_over_unrestricted": 0.4128096317979646,
+      "tangent_over_unrestricted": 0.9482806957142906,
+      "gradient_kl_gain": 0.16529852151870728,
+      "gradient_l2_gain": 0.07446959614753723,
+      "tangent_gain": 0.17106693983078003,
+      "unrestricted_gain": 0.1803969442844391
+    }
+  },
+  "reachable_subspace_audit": {
+    "probe_reference_kl_mean": 0.12374842166900635,
+    "common_kl_budget_mean": 0.12374842166900635,
+    "common_over_probe_kl_fraction_mean": -53.87747573852539,
+    "gradient_kl_budget_max_abs_error": 5.066394805908203e-06,
+    "negative_kl_budget_max_abs_error": 3.546476364135742e-06,
+    "rolled_kl_budget_max_abs_error": 1.1578202247619629e-05,
+    "gradient_l2_budget_mean_abs_error": 7.374613630872773e-08,
+    "gradient_l2_budget_max_abs_error": 1.430511474609375e-06,
+    "attention_gradient_norm_mean": 0.028979729861021042,
+    "context_gradient_norm_mean": 0.20044247806072235,
+    "tangent_rank_mean": 55.56470489501953,
+    "tangent_rank_min": 50,
+    "tangent_gradient_energy_mean": 0.894085705280304,
+    "tangent_gradient_energy_min": 0.7111916542053223,
+    "analytic_autograd_gradient_max_abs": 1.1874362826347351e-07
+  },
+  "diagnosis": {
+    "classification": "integrity_failure",
+    "source_accuracy": 0.920654296875,
+    "source_errors": 325,
+    "memory_probe_correct_on_source_errors": 0.7846153974533081,
+    "memory_decodable_errors": 255,
+    "gradient_kl_specificity_passed": true,
+    "tangent_reachable": true,
+    "unrestricted_positive_control_operational": true,
+    "attention_recovery_sufficient": false,
+    "registered_next_boundary": "Stop; repair the reachable-subspace implementation.",
+    "integrity_passed": false
+  }
+}

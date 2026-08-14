@@ -1,0 +1,79 @@
+{
+  "integrity": {
+    "frozen_module_fingerprints_unchanged": true,
+    "frozen_parameters_remain_frozen": true,
+    "parent_router_fingerprints_unchanged": true,
+    "direction_probe_parameter_counts_equal": true,
+    "direction_probe_trainable_initialization_matched": true,
+    "train_source_replay_max_abs": 0.0625,
+    "validation_source_replay_max_abs": 0.0625,
+    "diagnostic_source_replay_max_abs": 0.0625,
+    "oracle_l2_max_abs_error": 6.67572021484375e-06,
+    "oracle_l2_passed": true,
+    "split_seeds_unique": true,
+    "diagnostic_opened_after_fixed_probe_freeze": true,
+    "validation_not_used_for_selection": true,
+    "failed_candidate_not_used": true,
+    "seed909_locked": true,
+    "protected_tests_not_used": true,
+    "optimizer_search_closed": true,
+    "passed": true
+  },
+  "population": {
+    "samples": 4096,
+    "source_accuracy": 0.9267578125,
+    "source_errors": 300,
+    "memory_decodable_source_errors": 263
+  },
+  "observability": {
+    "primary_classifier": {
+      "samples": 4096,
+      "positives": 263,
+      "prevalence": 0.064208984375,
+      "auroc": 0.9592948568514967,
+      "average_precision": 0.7205546841199021,
+      "fixed_prevalence_top_k": 263,
+      "fixed_prevalence_precision": 0.6463878326996197,
+      "fixed_prevalence_lift": 10.066937500903583
+    },
+    "oracle_dose_regression": {
+      "samples": 4096,
+      "target_mean": 0.9456620298892631,
+      "prediction_mean": 0.9200991367706592,
+      "mae": 0.23918075722986032,
+      "rmse": 0.36803892132679744,
+      "r2": 0.6275724004249077,
+      "spearman": 0.7560973478216273,
+      "calibration_intercept_target_on_prediction": 0.04345414879650661,
+      "calibration_slope_target_on_prediction": 0.9805550782922183
+    },
+    "signed_direction_distiller": {
+      "all_cosine_mean": 0.4902978837490082,
+      "primary_cosine_mean": 0.2861075699329376,
+      "primary_first_order_alignment_mean": 0.05121561884880066,
+      "primary_oracle_alignment_mean": 0.1770985871553421,
+      "primary_first_order_alignment_ratio_mean": 0.2864571809768677,
+      "primary_positive_alignment_fraction": 0.8326995968818665
+    },
+    "residual_direction_control": {
+      "all_cosine_mean": 0.47393253445625305,
+      "primary_cosine_mean": 0.22528687119483948,
+      "primary_first_order_alignment_mean": 0.04005955159664154,
+      "primary_oracle_alignment_mean": 0.1770985871553421,
+      "primary_first_order_alignment_ratio_mean": 0.22627659142017365,
+      "primary_positive_alignment_fraction": 0.855513334274292
+    }
+  },
+  "diagnosis": {
+    "classification": "joint_calibration_coupling_bottleneck",
+    "frozen_router_recovery": 0.21346686282503502,
+    "oracle_dose_learned_direction_recovery": 0.2972217593987628,
+    "learned_dose_oracle_direction_recovery": 0.7905305138522076,
+    "probed_dose_oracle_direction_recovery": 0.94375170604605,
+    "signed_distilled_direction_recovery": 0.3071485545137104,
+    "residual_distilled_direction_recovery": 0.2290366378928337,
+    "basis_specificity": "signed_distiller_exceeds_residual_control",
+    "registered_next_boundary": "Keep the trunk and seed909 locked; use this diagnosis to choose at most one pre-registered router-supervision repair.",
+    "integrity_passed": true
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "level": "6.19.4",
+  "status": "minimal-head and label-free gated signed-read test",
+  "source": "formally passed Level 6.18.3 seed707 checkpoint",
+  "parent_result": "Level 6.19.3 signed_affine_simplex_obstruction",
+  "frozen_parent_boundary": "Head-budget reallocation is insufficient but signed affine value mixing closes the tangent gap; isolate the minimal heads and test a gated residual/signed-value read.",
+  "splits": {
+    "subset_calibration": {
+      "samples": 4096,
+      "seed": 6193300,
+      "role": "replay of Level 6.19.3 data; all 255 subsets"
+    },
+    "router_train": {
+      "samples": 2048,
+      "seed": 6194100
+    },
+    "router_validation": {
+      "samples": 512,
+      "seed": 6194200
+    },
+    "formal_diagnostic": {
+      "samples": 4096,
+      "seed": 6194300,
+      "opened_once_after_router_selection": true
+    }
+  },
+  "subset_rule": {
+    "population": "Memory-decodable source errors",
+    "quantity": "equal-L2 actual deployed-margin gain after frozen nonlinear downstream replay of masked per-head components; first-order gain is secondary",
+    "enumeration": "all 255 non-empty subsets of eight read heads",
+    "thresholds": [
+      0.8,
+      0.9
+    ],
+    "selection": "smallest subset meeting threshold; then maximum recovery; then lexicographic head order",
+    "router_mask": "the selected 90% subset"
+  },
+  "simplex_audit": {
+    "target": "the full equal-L2 signed-affine context delta",
+    "solver": "two-start projected gradient for the convex least-squares projection onto the product of eight 32-slot simplices",
+    "iterations": 2048,
+    "feasible_relative_residual": 0.01,
+    "convergence_gates": {
+      "maximum_relative_two_start_delta_gap": 0.01,
+      "maximum_projected_gradient_mapping": 1e-05
+    },
+    "interpretation": "tests exact target representability, not every possible equal-dose simplex direction"
+  },
+  "routers": {
+    "common": "same input-conditioned slot scorer, head mask, parameter count, training split, optimizer, and global dose cap",
+    "signed": "zero-mean per-head signed projected-value coefficients",
+    "nonnegative": "valid softmax attention followed by source interpolation",
+    "residual": "matched-parameter fixed-basis unrestricted residual",
+    "inference_uses_true_label": false,
+    "training_uses_task_labels": true,
+    "training_objective": "task cross-entropy plus fixed-weight distillation toward the selected-subset signed Oracle context delta",
+    "distillation_weight": 0.25,
+    "dose_cap": 0.8642004728317261
+  },
+  "registered_signed_family": [
+    "signed versus source",
+    "signed versus nonnegative",
+    "signed versus matched residual",
+    "signed versus shuffled memory",
+    "signed versus rolled delta",
+    "signed versus head-permuted coefficients"
+  ],
+  "decision_rule": {
+    "router_recovery_threshold": 0.25,
+    "specificity": "all six positive after Holm correction at 0.05",
+    "full_accuracy_noninferiority": 0.0025,
+    "success": "signed router reaches recovery threshold, passes specificity, and the lower full-accuracy CI exceeds the noninferiority bound"
+  },
+  "locks": {
+    "seed707_trunk_and_existing_probes_frozen": true,
+    "failed_Level_6_18_9_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true,
+    "optimizer_search_closed": true,
+    "one_fixed_router_initialization": true
+  },
+  "numerical_revision": "query_delta_training_exact_full_diagnostic_v1",
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "probes": "experiments/level6_19/formal/linear_probes.pt",
+    "parent_result": "experiments/level6_19_3/formal/result.json",
+    "subset_samples": 4096,
+    "train_samples": 2048,
+    "validation_samples": 512,
+    "diagnostic_samples": 4096,
+    "subset_seed": 6193300,
+    "train_seed": 6194100,
+    "validation_seed": 6194200,
+    "diagnostic_seed": 6194300,
+    "analysis_seed": 6194400,
+    "router_seed": 6194500,
+    "residual_basis_seed": 6194600,
+    "eval_batch_size": 16,
+    "router_batch_size": 64,
+    "router_hidden": 32,
+    "router_epochs": 30,
+    "patience": 5,
+    "router_lr": 0.001,
+    "router_weight_decay": 0.0001,
+    "distillation_weight": 0.25,
+    "gate_penalty": 0.0001,
+    "minimum_loss_improvement": 1e-05,
+    "subset_recovery_80": 0.8,
+    "subset_recovery_90": 0.9,
+    "router_recovery_threshold": 0.25,
+    "full_accuracy_noninferiority": 0.0025,
+    "simplex_iterations": 2048,
+    "simplex_batch_size": 64,
+    "simplex_feasibility_tolerance": 0.01,
+    "simplex_restart_tolerance": 0.01,
+    "simplex_mapping_tolerance": 1e-05,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "minimum_errors": 200,
+    "minimum_memory_decodable_errors": 150,
+    "minimum_subset_primary": 150,
+    "log_every_samples": 256,
+    "output": "experiments/level6_19_4/formal"
+  }
+}

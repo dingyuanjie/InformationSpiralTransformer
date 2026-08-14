@@ -1,0 +1,359 @@
+{
+  "integrity": {
+    "source_downstream_max_abs": 0.0,
+    "source_downstream_reconstruction_exact": true,
+    "manual_fp32_max_abs_error": 9.5367431640625e-06,
+    "manual_fp32_passed": true,
+    "delta_closed_loop_max_abs_error": 4.76837158203125e-06,
+    "delta_closed_loop_passed": true,
+    "analytic_gradient_max_abs_error": 1.1094380170106888e-07,
+    "analytic_gradient_passed": true,
+    "uniform_family_delta_max_abs_error": 9.5367431640625e-07,
+    "uniform_family_reproduced": true,
+    "finite_shared_l2_max_abs_error": 1.6689300537109375e-06,
+    "finite_head_budget_l2_max_abs_error": 2.384185791015625e-07,
+    "attention_l2_passed": true,
+    "signed_l2_max_abs_error": 4.291534423828125e-06,
+    "signed_l2_passed": true,
+    "all_states_unchanged": true,
+    "all_parameters_frozen": true,
+    "failed_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true,
+    "optimizer_search_closed": true,
+    "passed": true
+  },
+  "matching": {
+    "mean_absolute_confidence_distance": 0.13369234225239618,
+    "max_absolute_confidence_distance": 0.34375,
+    "errors": 313,
+    "matched_correct": 313,
+    "memory_decodable_errors": 257,
+    "error_confidence_mean": 1.3054800033569336,
+    "matched_confidence_mean": 1.4390101432800293
+  },
+  "primary": {
+    "population": "Memory-decodable source errors",
+    "signed_specificity": {
+      "signed_vs_source": {
+        "estimate": 0.16072147829523345,
+        "ci95": [
+          0.14525592967230058,
+          0.17840628419868673
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 257,
+        "left_mean": -1.9153743996230546,
+        "right_mean": -1.754652921327821,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0004999500049995,
+          "significant_0.05": true
+        }
+      },
+      "signed_vs_finite_shared": {
+        "estimate": 0.09354124551617218,
+        "ci95": [
+          0.08518992620683366,
+          0.10274794166653997
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.9844357976653697,
+        "negative_fraction": 0.011673151750972763,
+        "zero_fraction": 0.0038910505836575876,
+        "samples": 257,
+        "left_mean": -1.8481941668439932,
+        "right_mean": -1.754652921327821,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0004999500049995,
+          "significant_0.05": true
+        }
+      },
+      "signed_vs_negative": {
+        "estimate": 0.31911649592655644,
+        "ci95": [
+          0.2897800786949781,
+          0.35278598176830006
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 257,
+        "left_mean": -2.0737694172543772,
+        "right_mean": -1.754652921327821,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0004999500049995,
+          "significant_0.05": true
+        }
+      },
+      "signed_vs_rolled": {
+        "estimate": 0.16365876550340466,
+        "ci95": [
+          0.1470271841561284,
+          0.1834163443123784
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.9961089494163424,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0038910505836575876,
+        "samples": 257,
+        "left_mean": -1.9183116868312258,
+        "right_mean": -1.754652921327821,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0004999500049995,
+          "significant_0.05": true
+        }
+      },
+      "signed_vs_head_permuted": {
+        "estimate": 0.16158547011794747,
+        "ci95": [
+          0.14469450123115274,
+          0.1809235925340467
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.9961089494163424,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0038910505836575876,
+        "samples": 257,
+        "left_mean": -1.9162383914457686,
+        "right_mean": -1.754652921327821,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0004999500049995,
+          "significant_0.05": true
+        }
+      }
+    },
+    "head_budget_vs_shared": {
+      "estimate": 0.020204536645792803,
+      "ci95": [
+        0.017482689289731276,
+        0.0230497248905642
+      ],
+      "sign_flip_p_two_sided": 9.999000099990002e-05,
+      "positive_fraction": 0.6653696498054474,
+      "negative_fraction": 0.058365758754863814,
+      "zero_fraction": 0.27626459143968873,
+      "samples": 257,
+      "left_mean": -1.8481941668439932,
+      "right_mean": -1.8279896301982004
+    },
+    "margin_gains": {
+      "finite_shared_l2": 0.06718023121356964,
+      "finite_head_budget_l2": 0.08738476783037186,
+      "signed_affine_l2": 0.16072148084640503,
+      "negative_signed_l2": -0.15839502215385437,
+      "rolled_signed_l2": -0.0029372870922088623,
+      "head_permuted_signed_l2": -0.0008639917941763997,
+      "unrestricted_context_l2": 0.16979363560676575
+    },
+    "recovery_fractions": {
+      "finite_shared_l2": 0.3956581233065529,
+      "finite_head_budget_l2": 0.5146527872973459,
+      "signed_affine_l2": 0.9465695240699633,
+      "negative_signed_l2": -0.932867840351154,
+      "rolled_signed_l2": -0.017299158956767285,
+      "head_permuted_signed_l2": -0.005088481621168445,
+      "unrestricted_context_l2": 1.0
+    }
+  },
+  "geometry": {
+    "target_l2_mean": 0.8642004728317261,
+    "finite_shared_l2_max_abs_error": 1.6689300537109375e-06,
+    "finite_head_budget_l2_max_abs_error": 2.384185791015625e-07,
+    "signed_l2_max_abs_error": 4.291534423828125e-06,
+    "delta_closed_loop_max_abs_error": 4.76837158203125e-06,
+    "manual_fp32_max_abs_error": 9.5367431640625e-06,
+    "analytic_gradient_max_abs_error": 1.1094380170106888e-07,
+    "full_tangent_rank_mean": 55.992218017578125,
+    "full_tangent_rank_min": 50,
+    "full_tangent_energy_mean": 0.8977848291397095,
+    "head_allocation_energy_mean": 0.2712532877922058,
+    "uniform_family_delta_max_abs_error": 9.5367431640625e-07,
+    "head_budget_selected_start_counts": {
+      "0": 3,
+      "1": 139,
+      "2": 77,
+      "3": 38
+    },
+    "head_budget_best_over_uniform_gain_mean": 0.000954543414991349,
+    "head_budget_top_two_gain_gap_mean": 0.00037432293174788356,
+    "signed_negative_mass_mean": 5.892773151397705,
+    "signed_negative_fraction_mean": 0.45134666562080383,
+    "signed_infeasible_head_fraction": 1.0
+  },
+  "head_tomography": [
+    {
+      "head": 0,
+      "source_entropy_mean": 2.6091115474700928,
+      "rank_mean": 7.9961090087890625,
+      "gradient_energy_mean": 0.15144476294517517,
+      "allocation_mean": 1.2986717224121094,
+      "finite_shared_norm_mean": 0.16781248152256012,
+      "finite_shared_first_order_gain_mean": 0.007780683226883411,
+      "finite_head_budget_norm_mean": 0.29393693804740906,
+      "finite_head_budget_first_order_gain_mean": 0.012320419773459435,
+      "signed_norm_mean": 0.735817015171051,
+      "signed_first_order_gain_mean": 0.017361903563141823,
+      "positive_feasible_scale_mean": 0.0021176657173782587,
+      "negative_mass_mean": 6.380384922027588,
+      "negative_fraction_mean": 0.4400534927845001,
+      "only_margin_gain": 0.06467163562774658,
+      "leave_one_out_margin_gain": 0.15404891967773438,
+      "unique_margin_loss": 0.006672561168670654
+    },
+    {
+      "head": 1,
+      "source_entropy_mean": 2.306748390197754,
+      "rank_mean": 7.9961090087890625,
+      "gradient_energy_mean": 0.11127541959285736,
+      "allocation_mean": 1.772826910018921,
+      "finite_shared_norm_mean": 0.07231812924146652,
+      "finite_shared_first_order_gain_mean": 0.002546699484810233,
+      "finite_head_budget_norm_mean": 0.17534126341342926,
+      "finite_head_budget_first_order_gain_mean": 0.0054847849532961845,
+      "signed_norm_mean": 0.5968734622001648,
+      "signed_first_order_gain_mean": 0.010590489953756332,
+      "positive_feasible_scale_mean": 0.0031292818021029234,
+      "negative_mass_mean": 5.198917865753174,
+      "negative_fraction_mean": 0.47689688205718994,
+      "only_margin_gain": 0.056894779205322266,
+      "leave_one_out_margin_gain": 0.15692734718322754,
+      "unique_margin_loss": 0.0037941336631774902
+    },
+    {
+      "head": 2,
+      "source_entropy_mean": 3.0162007808685303,
+      "rank_mean": 7.992218017578125,
+      "gradient_energy_mean": 0.15948334336280823,
+      "allocation_mean": 0.7674596905708313,
+      "finite_shared_norm_mean": 0.18450897932052612,
+      "finite_shared_first_order_gain_mean": 0.009728508070111275,
+      "finite_head_budget_norm_mean": 0.22947876155376434,
+      "finite_head_budget_first_order_gain_mean": 0.012062081135809422,
+      "signed_norm_mean": 0.7100705504417419,
+      "signed_first_order_gain_mean": 0.021799111738801003,
+      "positive_feasible_scale_mean": 0.0078033991158008575,
+      "negative_mass_mean": 5.397871494293213,
+      "negative_fraction_mean": 0.4221789836883545,
+      "only_margin_gain": 0.06957578659057617,
+      "leave_one_out_margin_gain": 0.15322625637054443,
+      "unique_margin_loss": 0.007495224475860596
+    },
+    {
+      "head": 3,
+      "source_entropy_mean": 2.7046244144439697,
+      "rank_mean": 8.0,
+      "gradient_energy_mean": 0.14281708002090454,
+      "allocation_mean": 1.1781984567642212,
+      "finite_shared_norm_mean": 0.10697874426841736,
+      "finite_shared_first_order_gain_mean": 0.0050855977460742,
+      "finite_head_budget_norm_mean": 0.21334969997406006,
+      "finite_head_budget_first_order_gain_mean": 0.008863945491611958,
+      "signed_norm_mean": 0.6208299994468689,
+      "signed_first_order_gain_mean": 0.015156835317611694,
+      "positive_feasible_scale_mean": 0.010219831019639969,
+      "negative_mass_mean": 5.35708475112915,
+      "negative_fraction_mean": 0.45099708437919617,
+      "only_margin_gain": 0.06412255764007568,
+      "leave_one_out_margin_gain": 0.15593552589416504,
+      "unique_margin_loss": 0.00478595495223999
+    },
+    {
+      "head": 4,
+      "source_entropy_mean": 2.80414080619812,
+      "rank_mean": 7.992218017578125,
+      "gradient_energy_mean": 0.1680125892162323,
+      "allocation_mean": 1.1270835399627686,
+      "finite_shared_norm_mean": 0.15722116827964783,
+      "finite_shared_first_order_gain_mean": 0.006644796580076218,
+      "finite_head_budget_norm_mean": 0.2628890573978424,
+      "finite_head_budget_first_order_gain_mean": 0.011083532124757767,
+      "signed_norm_mean": 0.6238958835601807,
+      "signed_first_order_gain_mean": 0.02295180782675743,
+      "positive_feasible_scale_mean": 0.006969362497329712,
+      "negative_mass_mean": 6.155670166015625,
+      "negative_fraction_mean": 0.44892996549606323,
+      "only_margin_gain": 0.06784188747406006,
+      "leave_one_out_margin_gain": 0.15618252754211426,
+      "unique_margin_loss": 0.0045389533042907715
+    },
+    {
+      "head": 5,
+      "source_entropy_mean": 2.8217825889587402,
+      "rank_mean": 7.992218017578125,
+      "gradient_energy_mean": 0.1576046645641327,
+      "allocation_mean": 0.6800590753555298,
+      "finite_shared_norm_mean": 0.20025719702243805,
+      "finite_shared_first_order_gain_mean": 0.006798043847084045,
+      "finite_head_budget_norm_mean": 0.20964595675468445,
+      "finite_head_budget_first_order_gain_mean": 0.007325122132897377,
+      "signed_norm_mean": 0.7733233571052551,
+      "signed_first_order_gain_mean": 0.024234501644968987,
+      "positive_feasible_scale_mean": 0.00837576575577259,
+      "negative_mass_mean": 6.017448902130127,
+      "negative_fraction_mean": 0.48309823870658875,
+      "only_margin_gain": 0.06844437122344971,
+      "leave_one_out_margin_gain": 0.1545637845993042,
+      "unique_margin_loss": 0.00615769624710083
+    },
+    {
+      "head": 6,
+      "source_entropy_mean": 2.971848726272583,
+      "rank_mean": 7.933852195739746,
+      "gradient_energy_mean": 0.1825696974992752,
+      "allocation_mean": 0.2800440788269043,
+      "finite_shared_norm_mean": 0.46137535572052,
+      "finite_shared_first_order_gain_mean": 0.019558662548661232,
+      "finite_head_budget_norm_mean": 0.3271418511867523,
+      "finite_head_budget_first_order_gain_mean": 0.01462976261973381,
+      "signed_norm_mean": 0.7338889241218567,
+      "signed_first_order_gain_mean": 0.022441662847995758,
+      "positive_feasible_scale_mean": 0.01380107644945383,
+      "negative_mass_mean": 6.32523775100708,
+      "negative_fraction_mean": 0.4529426097869873,
+      "only_margin_gain": 0.07125580310821533,
+      "leave_one_out_margin_gain": 0.15221643447875977,
+      "unique_margin_loss": 0.008505046367645264
+    },
+    {
+      "head": 7,
+      "source_entropy_mean": 2.831711530685425,
+      "rank_mean": 8.0,
+      "gradient_energy_mean": 0.1974553018808365,
+      "allocation_mean": 0.895656943321228,
+      "finite_shared_norm_mean": 0.18330171704292297,
+      "finite_shared_first_order_gain_mean": 0.009446200914680958,
+      "finite_head_budget_norm_mean": 0.30604982376098633,
+      "finite_head_budget_first_order_gain_mean": 0.015131358988583088,
+      "signed_norm_mean": 0.6809028387069702,
+      "signed_first_order_gain_mean": 0.025464622303843498,
+      "positive_feasible_scale_mean": 0.003614158369600773,
+      "negative_mass_mean": 6.309572696685791,
+      "negative_fraction_mean": 0.43567606806755066,
+      "only_margin_gain": 0.0737295150756836,
+      "leave_one_out_margin_gain": 0.15482699871063232,
+      "unique_margin_loss": 0.005894482135772705
+    }
+  ],
+  "diagnosis": {
+    "classification": "signed_affine_simplex_obstruction",
+    "source_accuracy": 0.923583984375,
+    "source_errors": 313,
+    "memory_probe_correct_on_source_errors": 0.8210862874984741,
+    "memory_decodable_errors": 257,
+    "signed_specificity_passed": true,
+    "unrestricted_positive_control_operational": true,
+    "head_budget_closes_gap": false,
+    "signed_affine_closes_gap": true,
+    "registered_next_boundary": "Head-budget reallocation is insufficient but signed affine value mixing closes the tangent gap; isolate the minimal heads and test a gated residual/signed-value read.",
+    "integrity_passed": true
+  }
+}

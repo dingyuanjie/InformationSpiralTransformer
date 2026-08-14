@@ -1,0 +1,74 @@
+{
+  "level": "6.19.2",
+  "status": "frozen read-attention reachable-subspace audit",
+  "source": "formally passed Level 6.18.3 seed707 checkpoint",
+  "probes": "frozen Level 6.19 Memory and context probes",
+  "seed": 707,
+  "chunks": 16,
+  "primary_population": "source errors whose frozen Memory probe is correct",
+  "registered_budget": {
+    "reference": "per-example, per-head KL induced by Probe top4 4x odds, capped to a common direction-reachable ceiling",
+    "ceiling_fraction": 0.95,
+    "l2_reference": "per-example context L2 induced by Probe top4 4x odds"
+  },
+  "conditions": {
+    "source": "unmodified frozen source",
+    "probe_top4_odds4": "FP32 analytic delta for the Level 6.19.1 intervention",
+    "gradient_top4_odds4": "per-head top-four attention-logit gradients at 4x odds",
+    "gradient_kl_oracle": "exponential tilt maximizing first-order deployed margin at matched per-head KL",
+    "negative_gradient_kl": "equal-KL reverse-direction control",
+    "rolled_gradient_kl": "equal-KL cross-example gradient control",
+    "gradient_l2_oracle": "gradient exponential tilt matched to Probe top4 context L2",
+    "tangent_context_control": "projection of context gradient into frozen attention value/output tangent span at matched L2",
+    "unrestricted_context_control": "full context gradient at matched L2"
+  },
+  "primary_gradient_kl_family": [
+    "gradient KL oracle versus source",
+    "gradient KL oracle versus Probe top4",
+    "gradient KL oracle versus negative-gradient KL",
+    "gradient KL oracle versus rolled-gradient KL"
+  ],
+  "multiplicity": "Holm across the four primary deployed-margin contrasts",
+  "decision_rule": {
+    "specificity": "all four estimates positive with Holm p < 0.05",
+    "tangent_energy_threshold": 0.8,
+    "tangent_recovery_threshold": 0.8,
+    "attention_recovery_threshold": 0.5,
+    "positive_control": "unrestricted matched-L2 context margin gain positive at p < 0.05"
+  },
+  "interpretation": "all oracle conditions use labels and are mechanistic, not deployable",
+  "locks": {
+    "all_model_and_probe_parameters_frozen": true,
+    "failed_Level_6_18_9_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true
+  },
+  "numerical_audit": {
+    "deployed_path": "native bf16 need_weights=False",
+    "interpretable_decomposition": "explicit FP32 QK softmax and value/output composition",
+    "manual_internal_tolerance": 1e-05,
+    "fp32_vs_deployed_context_max_tolerance": 0.1,
+    "all interventions": "analytic FP32 context delta added to the exact deployed source context"
+  },
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "probes": "experiments/level6_19/formal/linear_probes.pt",
+    "samples": 4096,
+    "eval_batch_size": 16,
+    "dataset_seed": 6193100,
+    "analysis_seed": 6193200,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "minimum_errors": 200,
+    "minimum_memory_decodable_errors": 150,
+    "tangent_energy_threshold": 0.8,
+    "tangent_recovery_threshold": 0.8,
+    "attention_recovery_threshold": 0.5,
+    "kl_ceiling_fraction": 0.95,
+    "log_every_samples": 256,
+    "output": "experiments/level6_19_2/formal"
+  }
+}

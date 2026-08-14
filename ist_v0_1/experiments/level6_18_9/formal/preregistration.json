@@ -1,0 +1,99 @@
+{
+  "level": "6.18.9",
+  "status": "single-protocol task-aligned read-supervision rescue",
+  "seed": 707,
+  "source": "formally passed Level 6.18.3 checkpoint",
+  "trainable_boundary": {
+    "prefix": "blocks.2.memory_read.",
+    "tensors": 4,
+    "parameters": 16640,
+    "fusion_gate_frozen": true,
+    "all_other_parameters_frozen": true
+  },
+  "balanced_training_lengths": [
+    8,
+    12,
+    16
+  ],
+  "objective": {
+    "deployed_margin": "softplus(target_margin - intact_margin)",
+    "memory_contrast": "intact margin must beat batch-rolled-Memory margin",
+    "orthogonal_drift": "penalize context delta orthogonal to frozen deployed margin gradient",
+    "total_drift": "small trust-region penalty from source context",
+    "weights": {
+      "contrast": 0.5,
+      "orthogonal": 0.1,
+      "drift": 0.01
+    }
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 3e-05,
+    "weight_decay": 0.0001,
+    "maximum_updates": 500,
+    "no_search": true
+  },
+  "stable_gate": {
+    "lengths": [
+      8,
+      12,
+      16
+    ],
+    "query_threshold": 0.95,
+    "16_margin_improvement": 0.03,
+    "successive_confirmations": 2
+  },
+  "fail_closed": "protected tests and causal panel open only after stable validation",
+  "formal_success": {
+    "protected_accuracy_all_lengths": 0.95,
+    "positive_16_accuracy_ci": true,
+    "positive_16_margin_ci_and_sign_flip": true,
+    "only_memory_read_changed": true,
+    "persistent_memory_exactly_invariant": true,
+    "causal_gate": true
+  },
+  "seed909_locked": true,
+  "protocol": {
+    "seed": 707,
+    "chunk_size": 128,
+    "source_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "read_updates": 500,
+    "read_lr": 3e-05,
+    "read_weight_decay": 0.0001,
+    "train_batch_size": 4,
+    "gradient_clip": 1.0,
+    "margin_target": 1.0,
+    "contrast_gap": 1.0,
+    "contrast_weight": 0.5,
+    "orthogonal_weight": 0.1,
+    "drift_weight": 0.01,
+    "training_seed": 6189000,
+    "eval_every_updates": 25,
+    "eval_batch_size": 16,
+    "screen_samples": 128,
+    "confirm_samples": 512,
+    "validation_seed_base": 6189100,
+    "screen_retention_threshold": 0.94,
+    "screen_rescue_threshold": 0.93,
+    "screen_margin_improvement": 0.02,
+    "confirm_threshold": 0.95,
+    "confirm_margin_improvement": 0.03,
+    "margin_retention_tolerance": 0.02,
+    "stable_confirmations": 2,
+    "test_samples": 2048,
+    "test_seed_base": 6189200,
+    "test_threshold": 0.95,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "bootstrap_seed_base": 6189300,
+    "causal_samples": 1024,
+    "causal_seed": 6189400,
+    "causal_intervention_threshold": 0.2,
+    "causal_local_threshold": 0.9,
+    "invariance_samples": 8,
+    "invariance_seed_base": 6189500,
+    "output": "experiments/level6_18_9/formal",
+    "dry_run": false,
+    "force": false
+  }
+}

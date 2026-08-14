@@ -1,0 +1,80 @@
+{
+  "level": "6.19.1",
+  "status": "frozen selective slot-read causal intervention",
+  "source": "formally passed Level 6.18.3 seed707 checkpoint",
+  "slot_code": "frozen Level 6.19 independent all-slot Memory probe",
+  "seed": 707,
+  "chunks": 16,
+  "intervention": {
+    "location": "final block MemoryAttention, final query only",
+    "mechanism": "add log(odds) to selected slot attention logits",
+    "top_k": 4,
+    "dose_odds": [
+      2.0,
+      4.0,
+      8.0
+    ],
+    "registered_main_dose": 4.0,
+    "selection": "per-example correct-label versus frozen deployed-rival contribution under the frozen Level 6.19 Memory probe",
+    "interpretation": "label-aware mechanism intervention, not deployment"
+  },
+  "equal_dose_controls": {
+    "low_contribution": "bottom four slots at odds 4",
+    "cross_example_roll": "another batch example's top four slots at odds 4",
+    "random": "4 independent random four-slot controls at odds 4",
+    "no_op": "unmodified frozen source"
+  },
+  "positive_control": {
+    "location": "final-query read context",
+    "direction": "deployed correct-versus-rival context gradient",
+    "dose": "per-example L2 norm matched to top4 odds-4 context change"
+  },
+  "primary_population": "source errors whose frozen Memory probe is correct",
+  "primary_context_family": [
+    "top4 odds4 versus source",
+    "top4 odds4 versus random-control mean",
+    "top4 odds4 versus low4 odds4",
+    "top4 odds4 versus rolled-top4 odds4"
+  ],
+  "primary_behavior_family": [
+    "the same four contrasts using deployed correctness"
+  ],
+  "multiplicity": "Holm within each four-test family",
+  "decision_rule": {
+    "context_specificity": "all four context-margin estimates positive with Holm p < 0.05",
+    "behavior_specificity": "all four deployed-correctness estimates positive with Holm p < 0.05",
+    "full_accuracy_noninferiority": 0.01,
+    "matched_correct_noninferiority": 0.02,
+    "positive_control": "positive fixed-margin estimate with p < 0.05"
+  },
+  "integrity": {
+    "all_model_and_probe_parameters_frozen": true,
+    "returned_persistent_memory_must_be_exactly_invariant": true,
+    "gradient-leaf forward_must_reconstruct_source_logits_exactly": true,
+    "repeat_source_forward_must_be_exact": true,
+    "failed_Level_6_18_9_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true
+  },
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "probes": "experiments/level6_19/formal/linear_probes.pt",
+    "samples": 4096,
+    "eval_batch_size": 16,
+    "random_repeats": 4,
+    "dataset_seed": 6192100,
+    "random_slot_seed": 6191200,
+    "analysis_seed": 6191300,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "minimum_errors": 200,
+    "minimum_memory_decodable_errors": 150,
+    "full_noninferiority": 0.01,
+    "matched_noninferiority": 0.02,
+    "log_every_samples": 256,
+    "output": "experiments/level6_19_1/formal"
+  }
+}

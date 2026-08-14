@@ -1,0 +1,77 @@
+{
+  "level": "6.18.9.1",
+  "status": "frozen validation-calibration audit",
+  "seed": 707,
+  "source": "Level 6.18.3 formally passed checkpoint",
+  "candidate": "Level 6.18.9 update-500 latest checkpoint",
+  "panels": {
+    "names": [
+      "panel_a",
+      "panel_b"
+    ],
+    "samples_per_length_per_panel": 2048,
+    "new_disjoint_seeds": [
+      61899100,
+      61999100
+    ],
+    "lengths": [
+      8,
+      12,
+      16
+    ],
+    "both_panels_must_pass": true
+  },
+  "eight_twelve_rule": {
+    "paired_accuracy_lower_ci": ">= -0.01",
+    "paired_margin_lower_ci": ">= -0.02",
+    "paired_cross_entropy_upper_ci": "<= 0.01"
+  },
+  "sixteen_rule": {
+    "candidate_accuracy": ">= 0.95",
+    "paired_accuracy_lower_ci": ">= -0.01",
+    "paired_margin_lower_ci": "> 0",
+    "paired_margin_sign_flip_p": "< 0.05",
+    "paired_cross_entropy_upper_ci": "<= 0.01"
+  },
+  "statistics": {
+    "paired_bootstrap_iterations": 5000,
+    "paired_sign_flip_iterations": 10000,
+    "exact_mcnemar_reported": true
+  },
+  "checkpoint_integrity": {
+    "changed_tensors": 4,
+    "changed_parameters": 16640,
+    "only_final_memory_read": true,
+    "persistent_memory_exactly_invariant": true
+  },
+  "no_parameter_updates": true,
+  "protected_tests_locked": true,
+  "seed909_locked": true,
+  "protocol": {
+    "seed": 707,
+    "chunks": [
+      8,
+      12,
+      16
+    ],
+    "chunk_size": 128,
+    "source_checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "latest_checkpoint": "experiments/level6_18_9/formal/read_supervision_latest.pt",
+    "samples_per_panel": 2048,
+    "eval_batch_size": 16,
+    "panel_seed_base": 61899100,
+    "accuracy_noninferiority_margin": 0.01,
+    "margin_noninferiority_margin": 0.02,
+    "cross_entropy_noninferiority_margin": 0.01,
+    "chunks16_accuracy_threshold": 0.95,
+    "alpha": 0.05,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "bootstrap_seed_base": 61899300,
+    "invariance_samples": 8,
+    "invariance_seed_base": 61899500,
+    "output": "experiments/level6_18_9_1/formal",
+    "dry_run": false,
+    "force": false
+  }
+}

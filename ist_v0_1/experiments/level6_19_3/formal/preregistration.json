@@ -1,0 +1,71 @@
+{
+  "level": "6.19.3",
+  "status": "frozen head-budget and signed-value tomography",
+  "source": "formally passed Level 6.18.3 seed707 checkpoint",
+  "parent_result": "Level 6.19.2 finite_attention_simplex_or_budget_limitation",
+  "seed": 707,
+  "chunks": 16,
+  "primary_population": "source errors whose frozen Level 6.19 Memory Probe is correct",
+  "common_dose": "per-example context L2 induced by Probe top-four 4x odds",
+  "conditions": {
+    "finite_shared_l2": "Level 6.19.2 gradient attention tilt with one shared dose",
+    "finite_head_budget_l2": "eight-dimensional nonnegative finite-softmax Oracle, initialized from uniform, linearized NNLS, square-root NNLS, and a peaked best-head allocation, optimized on exact finite context and rematched to total L2",
+    "signed_affine_l2": "minimum-coefficient zero-sum signed per-head value mixture projecting the deployed context gradient into the full frozen value/output tangent span",
+    "controls": [
+      "negative signed direction",
+      "cross-example rolled signed direction",
+      "head-permuted signed coefficients",
+      "unrestricted context gradient"
+    ],
+    "head_tomography": "eight equal-L2 one-head projections and eight equal-L2 leave-one-head-out projections"
+  },
+  "primary_signed_family": [
+    "signed versus source",
+    "signed versus finite shared-dose attention",
+    "signed versus negative signed",
+    "signed versus rolled signed",
+    "signed versus head-permuted signed"
+  ],
+  "multiplicity": "Holm across five signed-direction contrasts",
+  "decision_rule": {
+    "recovery_threshold": 0.8,
+    "head_budget_closure": "finite head-budget recovery >= threshold and positive head-budget versus shared-dose margin contrast at p < 0.05",
+    "signed_closure": "signed recovery >= threshold and every signed-direction contrast positive with Holm p < 0.05",
+    "positive_control": "unrestricted equal-L2 context margin gain positive at p < 0.05"
+  },
+  "interpretation": "all optimized directions use labels and are mechanistic, not deployable",
+  "locks": {
+    "all_model_and_probe_parameters_frozen": true,
+    "failed_Level_6_18_9_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true,
+    "optimizer_search_closed": true
+  },
+  "numerical_audit": {
+    "revision": "delta_closed_loop_fp64_solver_v4",
+    "intervention": "explicit updated-minus-source FP32 attention delta added to exact native source context",
+    "manual_internal_tolerance": 1e-05,
+    "closed_loop_tolerance": 1e-05,
+    "attention_l2_tolerance": 0.001,
+    "signed_l2_tolerance": 1e-05,
+    "analytic_gradient_tolerance": 1e-06
+  },
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "probes": "experiments/level6_19/formal/linear_probes.pt",
+    "samples": 4096,
+    "eval_batch_size": 16,
+    "dataset_seed": 6193300,
+    "analysis_seed": 6193400,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "minimum_errors": 200,
+    "minimum_memory_decodable_errors": 150,
+    "recovery_threshold": 0.8,
+    "log_every_samples": 256,
+    "output": "experiments/level6_19_3/formal"
+  }
+}

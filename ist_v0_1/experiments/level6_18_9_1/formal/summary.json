@@ -1,0 +1,123 @@
+{
+  "checkpoint_audit": {
+    "passed": true,
+    "changed_tensors": [
+      {
+        "name": "blocks.2.memory_read.in_proj_weight",
+        "parameters": 12288,
+        "max_abs_change": 0.008531330153346062,
+        "allowed": true
+      },
+      {
+        "name": "blocks.2.memory_read.in_proj_bias",
+        "parameters": 192,
+        "max_abs_change": 0.005563102662563324,
+        "allowed": true
+      },
+      {
+        "name": "blocks.2.memory_read.out_proj.weight",
+        "parameters": 4096,
+        "max_abs_change": 0.008133318275213242,
+        "allowed": true
+      },
+      {
+        "name": "blocks.2.memory_read.out_proj.bias",
+        "parameters": 64,
+        "max_abs_change": 0.0057768747210502625,
+        "allowed": true
+      }
+    ],
+    "changed_tensor_count": 4,
+    "changed_parameter_count": 16640,
+    "illegal_changes": [],
+    "probe_unchanged": true,
+    "allowed_prefix": "blocks.2.memory_read."
+  },
+  "memory_invariance": {
+    "passed": true,
+    "overall_max_abs_difference": 0.0
+  },
+  "panel_decisions": {
+    "panel_a": {
+      "by_chunks": {
+        "8": {
+          "checks": {
+            "accuracy_noninferior": true,
+            "margin_noninferior": true,
+            "cross_entropy_noninferior": true
+          },
+          "passed": true
+        },
+        "12": {
+          "checks": {
+            "accuracy_noninferior": true,
+            "margin_noninferior": true,
+            "cross_entropy_noninferior": true
+          },
+          "passed": true
+        },
+        "16": {
+          "checks": {
+            "absolute_accuracy": false,
+            "accuracy_noninferior": true,
+            "margin_superior": true,
+            "margin_significant": true,
+            "cross_entropy_noninferior": true
+          },
+          "passed": false
+        }
+      },
+      "passed": false
+    },
+    "panel_b": {
+      "by_chunks": {
+        "8": {
+          "checks": {
+            "accuracy_noninferior": true,
+            "margin_noninferior": true,
+            "cross_entropy_noninferior": true
+          },
+          "passed": true
+        },
+        "12": {
+          "checks": {
+            "accuracy_noninferior": true,
+            "margin_noninferior": true,
+            "cross_entropy_noninferior": true
+          },
+          "passed": true
+        },
+        "16": {
+          "checks": {
+            "absolute_accuracy": false,
+            "accuracy_noninferior": true,
+            "margin_superior": true,
+            "margin_significant": true,
+            "cross_entropy_noninferior": true
+          },
+          "passed": false
+        }
+      },
+      "passed": false
+    }
+  },
+  "decision": {
+    "classification": "frozen_validation_calibration_failed",
+    "both_panels_passed": false,
+    "agreement_by_chunks": {
+      "8": true,
+      "12": true,
+      "16": false
+    },
+    "protected_tests_opened": false,
+    "seed909_opened": false,
+    "registered_next_boundary": "Reject the Level 6.18.9 checkpoint as a stable rescue and stop read optimization.",
+    "thresholds": {
+      "accuracy_noninferiority_margin": 0.01,
+      "margin_noninferiority_margin": 0.02,
+      "cross_entropy_noninferiority_margin": 0.01,
+      "chunks16_absolute_accuracy": 0.95,
+      "alpha": 0.05
+    }
+  }
+}

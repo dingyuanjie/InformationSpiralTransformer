@@ -1,0 +1,620 @@
+{
+  "protocol": {
+    "level": "6.19.5",
+    "status": "frozen router observability-supervision diagnosis",
+    "parent": "Level 6.19.4 canonical formal_recovery result",
+    "question": "separate dose/gating, signed-direction, joint-coupling, and basis-specificity limits of label-free Oracle compilation",
+    "splits": {
+      "probe_train": {
+        "samples": 128,
+        "seed": 56195100
+      },
+      "probe_validation": {
+        "samples": 64,
+        "seed": 56195200,
+        "role": "reporting only; no checkpoint or architecture selection"
+      },
+      "formal_diagnostic": {
+        "samples": 128,
+        "seed": 56195300,
+        "opened_once_after_fixed final-epoch probes are frozen": true
+      }
+    },
+    "frozen_hybrids": {
+      "learned_dose_learned_direction": "frozen Level 6.19.4 signed router",
+      "oracle_dose_learned_direction": "label-aware diagnostic",
+      "learned_dose_oracle_direction": "label-aware diagnostic",
+      "oracle_dose_oracle_direction": "registered full signed Oracle"
+    },
+    "probes": {
+      "inputs": "exactly the Level 6.19.4 router observables",
+      "architecture": {
+        "hidden": 32,
+        "epochs": 2,
+        "fixed_final_epoch": true,
+        "no_model_or_checkpoint_selection": true
+      },
+      "primary_classifier": "weighted BCE; AUROC, AUPRC, prevalence lift",
+      "oracle_dose": "standardized log1p MSE; R2, Spearman, calibration",
+      "signed_direction": "cosine distillation in projected value basis",
+      "residual_direction": "equal-parameter cosine distillation in fixed residual basis"
+    },
+    "interpretation": {
+      "threshold": 0.25,
+      "oracle_dose_only_passes": "dose/gating dominant bottleneck",
+      "oracle_direction_only_passes": "signed direction dominant bottleneck",
+      "both_hybrids_pass": "joint calibration/coupling bottleneck",
+      "neither_hybrid_passes": "both frozen components limiting",
+      "residual_matches_or_exceeds_signed": "value-basis-specific deployment claim unsupported"
+    },
+    "locks": {
+      "seed707_trunk_and_all_existing_probes_frozen": true,
+      "all_Level_6_19_4_routers_frozen": true,
+      "failed_Level_6_18_9_candidate_not_used": true,
+      "seed909_locked": true,
+      "protected_tests_not_used": true,
+      "optimizer_and_model_search_closed": true,
+      "diagnostic_only": true
+    },
+    "protocol": {
+      "seed": 707,
+      "chunks": 16,
+      "chunk_size": 128,
+      "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+      "probes": "experiments/level6_19/formal/linear_probes.pt",
+      "parent_result": "experiments/level6_19_4/formal_recovery/result.json",
+      "parent_routers": "experiments/level6_19_4/formal_recovery/router_checkpoint.pt",
+      "train_samples": 128,
+      "validation_samples": 64,
+      "diagnostic_samples": 128,
+      "train_seed": 56195100,
+      "validation_seed": 56195200,
+      "diagnostic_seed": 56195300,
+      "analysis_seed": 56195400,
+      "probe_seed": 56195500,
+      "residual_basis_seed": 6195600,
+      "eval_batch_size": 16,
+      "probe_batch_size": 64,
+      "probe_hidden": 32,
+      "probe_epochs": 2,
+      "probe_lr": 0.001,
+      "probe_weight_decay": 0.0001,
+      "dose_prediction_cap": 8.0,
+      "recovery_threshold": 0.25,
+      "bootstrap_iterations": 100,
+      "minimum_errors": 1,
+      "minimum_primary": 1,
+      "log_every_samples": 256,
+      "output": "experiments/level6_19_5/smoke"
+    }
+  },
+  "checkpoint_meta": {
+    "selected_alpha": 1.0,
+    "validation_selection": {
+      "passed": true,
+      "selected": {
+        "alpha": 1.0,
+        "validation_8": 0.9765625,
+        "validation_12": 0.966796875,
+        "eligible": true
+      },
+      "candidates": [
+        {
+          "alpha": 0.0,
+          "validation_8": 0.951171875,
+          "validation_12": 0.91015625,
+          "eligible": false
+        },
+        {
+          "alpha": 0.1,
+          "validation_8": 0.95703125,
+          "validation_12": 0.91796875,
+          "eligible": false
+        },
+        {
+          "alpha": 0.2,
+          "validation_8": 0.958984375,
+          "validation_12": 0.92578125,
+          "eligible": false
+        },
+        {
+          "alpha": 0.3,
+          "validation_8": 0.96484375,
+          "validation_12": 0.931640625,
+          "eligible": false
+        },
+        {
+          "alpha": 0.4,
+          "validation_8": 0.96875,
+          "validation_12": 0.939453125,
+          "eligible": false
+        },
+        {
+          "alpha": 0.5,
+          "validation_8": 0.97265625,
+          "validation_12": 0.943359375,
+          "eligible": false
+        },
+        {
+          "alpha": 0.6,
+          "validation_8": 0.978515625,
+          "validation_12": 0.943359375,
+          "eligible": false
+        },
+        {
+          "alpha": 0.7,
+          "validation_8": 0.982421875,
+          "validation_12": 0.9453125,
+          "eligible": false
+        },
+        {
+          "alpha": 0.8,
+          "validation_8": 0.984375,
+          "validation_12": 0.955078125,
+          "eligible": true
+        },
+        {
+          "alpha": 0.9,
+          "validation_8": 0.978515625,
+          "validation_12": 0.955078125,
+          "eligible": true
+        },
+        {
+          "alpha": 1.0,
+          "validation_8": 0.9765625,
+          "validation_12": 0.966796875,
+          "eligible": true
+        }
+      ]
+    },
+    "success": {
+      "selection_gate": true,
+      "only_output_changed": true,
+      "retained_8_chunks": true,
+      "rescued_12_chunks": true,
+      "positive_12_chunk_ci": true,
+      "causal_gate": true,
+      "passed": true
+    }
+  },
+  "parent_level6_19_4_diagnosis": {
+    "classification": "oracle_not_compiled_into_label_free_router",
+    "source_accuracy": 0.9296875,
+    "source_errors": 288,
+    "memory_decodable_errors": 241,
+    "minimal_80_heads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "minimal_90_heads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "signed_router_passed": false,
+    "simplex_audit_converged": true,
+    "registered_next_boundary": "Keep the trunk frozen; diagnose router observability and supervision rather than reopening optimizer or model search.",
+    "integrity_passed": true
+  },
+  "parent_router_meta": {
+    "selected_heads": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "dose_cap": 0.8642004728317261
+  },
+  "integrity": {
+    "frozen_module_fingerprints_unchanged": true,
+    "frozen_parameters_remain_frozen": true,
+    "parent_router_fingerprints_unchanged": true,
+    "direction_probe_parameter_counts_equal": true,
+    "direction_probe_trainable_initialization_matched": true,
+    "train_source_replay_max_abs": 0.0625,
+    "validation_source_replay_max_abs": 0.0625,
+    "diagnostic_source_replay_max_abs": 0.0625,
+    "oracle_l2_max_abs_error": 2.384185791015625e-06,
+    "oracle_l2_passed": true,
+    "split_seeds_unique": true,
+    "diagnostic_opened_after_fixed_probe_freeze": true,
+    "validation_not_used_for_selection": true,
+    "failed_candidate_not_used": true,
+    "seed909_locked": true,
+    "protected_tests_not_used": true,
+    "optimizer_search_closed": true,
+    "passed": true
+  },
+  "training": {
+    "classifier": {
+      "kind": "classifier",
+      "parameters": 11745,
+      "epochs": 2,
+      "fixed_final_epoch_used": true,
+      "positive_weight": 11.8,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.2836114168167114,
+          "validation_loss": 1.160218358039856
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.1894320845603943,
+          "validation_loss": 1.1016206741333008
+        }
+      ]
+    },
+    "dose": {
+      "kind": "dose",
+      "parameters": 11745,
+      "epochs": 2,
+      "fixed_final_epoch_used": true,
+      "positive_weight": null,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.9697388708591461,
+          "validation_loss": 1.0973610877990723
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.8507715463638306,
+          "validation_loss": 1.0140321254730225
+        }
+      ]
+    },
+    "signed_direction": {
+      "kind": "signed_direction",
+      "parameters": 8897,
+      "epochs": 2,
+      "fixed_final_epoch_used": true,
+      "initial_trainable_fingerprint": "4326b174f0c2ceb5a6291997a4764145591d8ed17dece2bd8c1b5cfbd8e99199",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.9626136720180511,
+          "validation_loss": 0.9424706399440765
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.9057031273841858,
+          "validation_loss": 0.9219108670949936
+        }
+      ]
+    },
+    "residual_direction": {
+      "kind": "residual_direction",
+      "parameters": 8897,
+      "epochs": 2,
+      "fixed_final_epoch_used": true,
+      "initial_trainable_fingerprint": "4326b174f0c2ceb5a6291997a4764145591d8ed17dece2bd8c1b5cfbd8e99199",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.9951573312282562,
+          "validation_loss": 0.9831448998302221
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.9451443254947662,
+          "validation_loss": 0.9558022283017635
+        }
+      ]
+    },
+    "dose_stats": {
+      "mean": 0.6008478403091431,
+      "std": 0.2483038306236267
+    },
+    "audit": {
+      "direction_probe_parameter_counts_equal": true,
+      "direction_probe_trainable_initialization_matched": true,
+      "fixed_final_epoch_used": true,
+      "validation_used_for_selection": false,
+      "diagnostic_seen_before_freeze": false
+    }
+  },
+  "analysis": {
+    "population": {
+      "samples": 128,
+      "source_accuracy": 0.9375,
+      "source_errors": 8,
+      "memory_decodable_source_errors": 6
+    },
+    "metrics": {
+      "source": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.704559326171875,
+        "primary_fixed_margin_mean": -1.51953125,
+        "full_context_l2_mean": 0.0,
+        "primary_context_l2_mean": 0.0
+      },
+      "frozen_learned_dose_learned_direction": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.7520751953125,
+        "primary_fixed_margin_mean": -1.5143228769302368,
+        "full_context_l2_mean": 0.5852201581001282,
+        "primary_context_l2_mean": 0.7191728949546814
+      },
+      "oracle_dose_learned_direction": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.777130126953125,
+        "primary_fixed_margin_mean": -1.5130208730697632,
+        "full_context_l2_mean": 0.972745954990387,
+        "primary_context_l2_mean": 0.7340509295463562
+      },
+      "learned_dose_oracle_direction": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.8094940185546875,
+        "primary_fixed_margin_mean": -1.3984375,
+        "full_context_l2_mean": 0.5852201581001282,
+        "primary_context_l2_mean": 0.7191728949546814
+      },
+      "oracle_dose_oracle_direction": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.8629150390625,
+        "primary_fixed_margin_mean": -1.37890625,
+        "full_context_l2_mean": 0.972745954990387,
+        "primary_context_l2_mean": 0.7340509295463562
+      },
+      "probed_dose_oracle_direction": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.8416595458984375,
+        "primary_fixed_margin_mean": -1.3645833730697632,
+        "full_context_l2_mean": 0.8093156218528748,
+        "primary_context_l2_mean": 0.814930260181427
+      },
+      "oracle_dose_signed_distilled_direction": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.7249755859375,
+        "primary_fixed_margin_mean": -1.5260416269302368,
+        "full_context_l2_mean": 0.972745954990387,
+        "primary_context_l2_mean": 0.7340509295463562
+      },
+      "oracle_dose_residual_distilled_direction": {
+        "full_accuracy": 0.9375,
+        "primary_accuracy": 0.0,
+        "full_fixed_margin_mean": 5.718994140625,
+        "primary_fixed_margin_mean": -1.5260416269302368,
+        "full_context_l2_mean": 0.972745954990387,
+        "primary_context_l2_mean": 0.7340509295463562
+      }
+    },
+    "effects": {
+      "frozen_learned_dose_learned_direction": {
+        "primary_margin_gain": 0.005208373069763184,
+        "full_oracle_recovery": 0.03703731960720486,
+        "reaches_25_percent": false,
+        "full_accuracy": {
+          "source_accuracy": 0.9375,
+          "updated_accuracy": 0.9375,
+          "accuracy_change": {
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "iterations": 100
+          },
+          "mcnemar": {
+            "left_only_correct": 0,
+            "right_only_correct": 0,
+            "discordant": 0,
+            "p": 1.0
+          }
+        }
+      },
+      "oracle_dose_learned_direction": {
+        "primary_margin_gain": 0.006510376930236816,
+        "full_oracle_recovery": 0.046296013726128474,
+        "reaches_25_percent": false,
+        "full_accuracy": {
+          "source_accuracy": 0.9375,
+          "updated_accuracy": 0.9375,
+          "accuracy_change": {
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "iterations": 100
+          },
+          "mcnemar": {
+            "left_only_correct": 0,
+            "right_only_correct": 0,
+            "discordant": 0,
+            "p": 1.0
+          }
+        }
+      },
+      "learned_dose_oracle_direction": {
+        "primary_margin_gain": 0.12109375,
+        "full_oracle_recovery": 0.8611111111111112,
+        "reaches_25_percent": true,
+        "full_accuracy": {
+          "source_accuracy": 0.9375,
+          "updated_accuracy": 0.9375,
+          "accuracy_change": {
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "iterations": 100
+          },
+          "mcnemar": {
+            "left_only_correct": 0,
+            "right_only_correct": 0,
+            "discordant": 0,
+            "p": 1.0
+          }
+        }
+      },
+      "oracle_dose_oracle_direction": {
+        "primary_margin_gain": 0.140625,
+        "full_oracle_recovery": 1.0,
+        "reaches_25_percent": true,
+        "full_accuracy": {
+          "source_accuracy": 0.9375,
+          "updated_accuracy": 0.9375,
+          "accuracy_change": {
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "iterations": 100
+          },
+          "mcnemar": {
+            "left_only_correct": 0,
+            "right_only_correct": 0,
+            "discordant": 0,
+            "p": 1.0
+          }
+        }
+      },
+      "probed_dose_oracle_direction": {
+        "primary_margin_gain": 0.15494787693023682,
+        "full_oracle_recovery": 1.101851569281684,
+        "reaches_25_percent": true,
+        "full_accuracy": {
+          "source_accuracy": 0.9375,
+          "updated_accuracy": 0.9375,
+          "accuracy_change": {
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "iterations": 100
+          },
+          "mcnemar": {
+            "left_only_correct": 0,
+            "right_only_correct": 0,
+            "discordant": 0,
+            "p": 1.0
+          }
+        }
+      },
+      "oracle_dose_signed_distilled_direction": {
+        "primary_margin_gain": -0.006510376930236816,
+        "full_oracle_recovery": -0.046296013726128474,
+        "reaches_25_percent": false,
+        "full_accuracy": {
+          "source_accuracy": 0.9375,
+          "updated_accuracy": 0.9375,
+          "accuracy_change": {
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "iterations": 100
+          },
+          "mcnemar": {
+            "left_only_correct": 0,
+            "right_only_correct": 0,
+            "discordant": 0,
+            "p": 1.0
+          }
+        }
+      },
+      "oracle_dose_residual_distilled_direction": {
+        "primary_margin_gain": -0.006510376930236816,
+        "full_oracle_recovery": -0.046296013726128474,
+        "reaches_25_percent": false,
+        "full_accuracy": {
+          "source_accuracy": 0.9375,
+          "updated_accuracy": 0.9375,
+          "accuracy_change": {
+            "estimate": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "iterations": 100
+          },
+          "mcnemar": {
+            "left_only_correct": 0,
+            "right_only_correct": 0,
+            "discordant": 0,
+            "p": 1.0
+          }
+        }
+      }
+    },
+    "observability": {
+      "primary_classifier": {
+        "samples": 128,
+        "positives": 6,
+        "prevalence": 0.046875,
+        "auroc": 0.6857923497267759,
+        "average_precision": 0.10178795678795678,
+        "fixed_prevalence_top_k": 6,
+        "fixed_prevalence_precision": 0.16666666666666666,
+        "fixed_prevalence_lift": 3.5555555555555554
+      },
+      "oracle_dose_regression": {
+        "samples": 128,
+        "target_mean": 0.9727459275309229,
+        "prediction_mean": 0.8093155734241009,
+        "mae": 0.41396001957764383,
+        "rmse": 0.6065633817446618,
+        "r2": 0.08723751796353041,
+        "spearman": 0.6351686962094855,
+        "calibration_intercept_target_on_prediction": -2.3911149517217396,
+        "calibration_slope_target_on_prediction": 4.156426726129387
+      },
+      "signed_direction_distiller": {
+        "all_cosine_mean": 0.0744938775897026,
+        "primary_cosine_mean": -0.03524904325604439,
+        "primary_first_order_alignment_mean": -0.004294963087886572,
+        "primary_oracle_alignment_mean": 0.19525162875652313,
+        "primary_first_order_alignment_ratio_mean": -0.03541911765933037,
+        "primary_positive_alignment_fraction": 0.3333333432674408
+      },
+      "residual_direction_control": {
+        "all_cosine_mean": 0.061030637472867966,
+        "primary_cosine_mean": 0.0054581970907747746,
+        "primary_first_order_alignment_mean": 0.0036988593637943268,
+        "primary_oracle_alignment_mean": 0.19525162875652313,
+        "primary_first_order_alignment_ratio_mean": 0.03410204499959946,
+        "primary_positive_alignment_fraction": 0.6666666865348816
+      }
+    },
+    "diagnosis": {
+      "classification": "signed_direction_dominant_bottleneck",
+      "frozen_router_recovery": 0.03703731960720486,
+      "oracle_dose_learned_direction_recovery": 0.046296013726128474,
+      "learned_dose_oracle_direction_recovery": 0.8611111111111112,
+      "probed_dose_oracle_direction_recovery": 1.101851569281684,
+      "signed_distilled_direction_recovery": -0.046296013726128474,
+      "residual_distilled_direction_recovery": -0.046296013726128474,
+      "basis_specificity": "unsupported_residual_matches_or_exceeds_signed",
+      "registered_next_boundary": "Keep the trunk and seed909 locked; use this diagnosis to choose at most one pre-registered router-supervision repair.",
+      "integrity_passed": true
+    }
+  }
+}

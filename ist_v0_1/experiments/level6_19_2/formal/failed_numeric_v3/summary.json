@@ -1,0 +1,156 @@
+{
+  "integrity": {
+    "numerical_revision": "delta_closed_loop_v3",
+    "source_downstream_max_abs": 0.0,
+    "native_replay_vs_native_context_max_abs": 0.1875,
+    "fp32_vs_native_context_max_abs": 0.15999317169189453,
+    "manual_vs_fp32_context_max_abs": 7.62939453125e-06,
+    "source_downstream_reconstruction_exact": true,
+    "manual_attention_context_close": true,
+    "fp32_vs_native_is_diagnostic_only": true,
+    "attention_delta_closed_loop_max_abs": 5.841255187988281e-06,
+    "attention_delta_closed_loop_passed": true,
+    "analytic_attention_gradient_max_abs": 1.1455267667770386e-07,
+    "analytic_attention_gradient_passed": true,
+    "gradient_kl_budget_max_abs_error": 2.905726432800293e-06,
+    "kl_budgets_matched": false,
+    "gradient_l2_budget_max_abs_error": 1.6689300537109375e-06,
+    "l2_budget_matched": true,
+    "all_states_unchanged": true,
+    "all_parameters_frozen": true,
+    "failed_candidate_not_used": true,
+    "protected_tests_not_used": true,
+    "seed909_locked": true,
+    "passed": false
+  },
+  "matching": {
+    "mean_absolute_confidence_distance": 0.11171274038461539,
+    "max_absolute_confidence_distance": 0.3125,
+    "errors": 325,
+    "matched_correct": 325,
+    "memory_decodable_errors": 255,
+    "error_confidence_mean": 1.4730769395828247,
+    "matched_confidence_mean": 1.5843689441680908
+  },
+  "primary": {
+    "population": "Memory-decodable source errors",
+    "gradient_kl_specificity": {
+      "oracle_vs_source": {
+        "estimate": 0.1650744868259804,
+        "ci95": [
+          0.12378166647518382,
+          0.2209521484375
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 255,
+        "left_mean": -2.0021838618259804,
+        "right_mean": -1.837109375,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_probe_top4": {
+        "estimate": 0.17743566176470588,
+        "ci95": [
+          0.13118039598651962,
+          0.2418389533547793
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 255,
+        "left_mean": -2.014545036764706,
+        "right_mean": -1.837109375,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_negative": {
+        "estimate": 0.3136242436427696,
+        "ci95": [
+          0.24582328048406862,
+          0.4059241201363358
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 1.0,
+        "negative_fraction": 0.0,
+        "zero_fraction": 0.0,
+        "samples": 255,
+        "left_mean": -2.1507336186427697,
+        "right_mean": -1.837109375,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      },
+      "oracle_vs_rolled": {
+        "estimate": 0.16982230392156863,
+        "ci95": [
+          0.12175039253982843,
+          0.23179610906862733
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.9764705882352941,
+        "negative_fraction": 0.00392156862745098,
+        "zero_fraction": 0.0196078431372549,
+        "samples": 255,
+        "left_mean": -2.0069316789215685,
+        "right_mean": -1.837109375,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.00039996000399960006,
+          "significant_0.05": true
+        }
+      }
+    },
+    "recovery_fractions": {
+      "gradient_kl_over_unrestricted": 0.9179759346599036,
+      "gradient_l2_over_unrestricted": 0.41612580640135927,
+      "tangent_over_unrestricted": 0.9510283222841058,
+      "gradient_kl_gain": 0.16507448256015778,
+      "gradient_l2_gain": 0.0748295783996582,
+      "tangent_gain": 0.1710181087255478,
+      "unrestricted_gain": 0.17982441186904907
+    }
+  },
+  "reachable_subspace_audit": {
+    "probe_reference_kl_mean": 0.12373767793178558,
+    "common_kl_budget_mean": 0.12373767793178558,
+    "common_over_probe_kl_fraction_mean": 0.9990196228027344,
+    "gradient_kl_budget_max_abs_error": 2.905726432800293e-06,
+    "negative_kl_budget_max_abs_error": 3.978610038757324e-06,
+    "rolled_kl_budget_max_abs_error": 1.0401010513305664e-05,
+    "gradient_l2_budget_mean_abs_error": 6.872065227980784e-08,
+    "gradient_l2_budget_max_abs_error": 1.6689300537109375e-06,
+    "attention_gradient_norm_mean": 0.028972262516617775,
+    "context_gradient_norm_mean": 0.20044247806072235,
+    "tangent_rank_mean": 55.59215545654297,
+    "tangent_rank_min": 50,
+    "tangent_gradient_energy_mean": 0.8942629098892212,
+    "tangent_gradient_energy_min": 0.6873743534088135,
+    "analytic_autograd_gradient_max_abs": 1.1455267667770386e-07,
+    "attention_delta_closed_loop_max_abs": 5.841255187988281e-06
+  },
+  "diagnosis": {
+    "classification": "integrity_failure",
+    "source_accuracy": 0.920654296875,
+    "source_errors": 325,
+    "memory_probe_correct_on_source_errors": 0.7846153974533081,
+    "memory_decodable_errors": 255,
+    "gradient_kl_specificity_passed": true,
+    "tangent_reachable": true,
+    "unrestricted_positive_control_operational": true,
+    "attention_recovery_sufficient": false,
+    "registered_next_boundary": "Stop; repair the reachable-subspace implementation.",
+    "integrity_passed": false
+  }
+}

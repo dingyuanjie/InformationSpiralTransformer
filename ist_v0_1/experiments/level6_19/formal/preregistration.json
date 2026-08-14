@@ -1,0 +1,93 @@
+{
+  "level": "6.19",
+  "status": "frozen hard-example and residual-path diagnosis",
+  "model": "formally passed Level 6.18.3 source checkpoint",
+  "seed": 707,
+  "chunks": 16,
+  "splits": {
+    "probe_train": 2048,
+    "probe_validation": 512,
+    "hard_example_diagnostic": 4096,
+    "all_seeds_disjoint": true
+  },
+  "groups": {
+    "hard": "deployed source errors on diagnostic split",
+    "control": "source-correct examples matched 1:1 without replacement on top1-top2 confidence",
+    "minimum_errors": 200
+  },
+  "independent_linear_decoders": [
+    "memory_l3_concat",
+    "pre_fusion_feature",
+    "memory_context",
+    "fusion_delta",
+    "fused_feature",
+    "ffn_output",
+    "pre_norm_residual",
+    "query_hidden",
+    "deployed_logits"
+  ],
+  "registered_causal_path": [
+    "memory_l3_concat",
+    "memory_context",
+    "fused_feature",
+    "pre_norm_residual",
+    "query_hidden",
+    "deployed_behavior"
+  ],
+  "side_diagnostics": [
+    "pre_fusion_feature",
+    "fusion_delta",
+    "ffn_output",
+    "slot contributions",
+    "read attention",
+    "slot gradient norms"
+  ],
+  "gradient_accessibility": {
+    "margin": "correct logit minus strongest incorrect logit",
+    "targets": [
+      "persistent read Memory",
+      "read context",
+      "fused feature",
+      "pre-norm residual"
+    ],
+    "memory_code_direction": "independent all-slot Memory probe correct-vs-deployed-rival gradient"
+  },
+  "decision_rule": {
+    "hard_information_threshold": 0.75,
+    "material_stage_drop": 0.15,
+    "first_registered_path_drop_has_priority": true
+  },
+  "no_parameter_updates": true,
+  "level6_18_9_candidate_not_used": true,
+  "protected_tests_not_used": true,
+  "seed909_locked": true,
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "probe_train_samples": 2048,
+    "probe_val_samples": 512,
+    "diagnostic_samples": 4096,
+    "extract_batch_size": 16,
+    "probe_batch_size": 128,
+    "probe_epochs": 40,
+    "patience": 6,
+    "probe_lr": 0.001,
+    "probe_weight_decay": 0.0001,
+    "probe_train_seed": 6190000,
+    "probe_val_seed": 6190100,
+    "diagnostic_seed": 6190200,
+    "probe_fit_seed": 6190300,
+    "analysis_seed": 6190400,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "minimum_errors": 200,
+    "hard_information_threshold": 0.75,
+    "material_stage_drop": 0.15,
+    "log_every_samples": 512,
+    "output": "experiments/level6_19/formal",
+    "dry_run": false,
+    "force": false
+  }
+}
