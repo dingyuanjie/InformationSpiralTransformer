@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "phase": "level7_0",
+  "registry_frozen": "2026-08-16",
+  "scope": "Eight core claims from the frozen persistent-Memory mechanism chain",
+  "claims": [
+    {
+      "id": "selective_pollution_defense",
+      "status": "supported",
+      "statement": "A frozen single-step risk-utility policy yields a small positive aggregate recovery under Memory pollution while retaining the registered clean-trigger bound.",
+      "evidence": "experiments/level6_16_2/formal/summary.json",
+      "analysis": "experiments/level6_16_2/formal/ANALYSIS.md",
+      "protocol": "experiments/level6_16_2/formal/preregistration.json",
+      "figure": "experiments/level6_16_2/formal/frozen_confirmation.png",
+      "checks": [
+        {"pointer": "/success/passed", "op": "eq", "expected": true},
+        {"pointer": "/aggregate/overall/accuracy_gain/estimate", "op": "gt", "expected": 0.0},
+        {"pointer": "/aggregate/overall/accuracy_gain/ci95/0", "op": "gt", "expected": 0.0},
+        {"pointer": "/success/max_clean_fpr", "op": "le", "expected": 0.05}
+      ]
+    },
+    {
+      "id": "output_head_rescue",
+      "status": "supported",
+      "statement": "Changing only the output head causally rescues the seed707 12-chunk failure while persistent Memory remains necessary.",
+      "evidence": "experiments/level6_18_3/formal/summary.json",
+      "analysis": "experiments/level6_18_3/formal/ANALYSIS.md",
+      "protocol": "experiments/level6_18_3/formal/preregistration.json",
+      "figure": "experiments/level6_18_3/formal/head_only_rescue.png",
+      "checks": [
+        {"pointer": "/success/passed", "op": "eq", "expected": true},
+        {"pointer": "/success/only_output_changed", "op": "eq", "expected": true},
+        {"pointer": "/success/rescued_12_chunks", "op": "eq", "expected": true},
+        {"pointer": "/causal/passed", "op": "eq", "expected": true},
+        {"pointer": "/paired_tests/12/rescued_accuracy", "op": "ge", "expected": 0.95}
+      ]
+    },
+    {
+      "id": "task_aligned_context_subspace",
+      "status": "supported",
+      "statement": "A task-aligned causal context subspace is present and beats rolled and random controls under the registered family.",
+      "evidence": "experiments/level6_18_8/formal/summary.json",
+      "analysis": "experiments/level6_18_8/formal/ANALYSIS.md",
+      "protocol": "experiments/level6_18_8/formal/preregistration.json",
+      "figure": "experiments/level6_18_8/formal/task_aligned_subspace.png",
+      "checks": [
+        {"pointer": "/integrity/passed", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/classification", "op": "eq", "expected": "task_aligned_context_subspace_confirmed"},
+        {"pointer": "/diagnosis/primary_pass/true_margin_change", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/primary_pass/true_minus_batch_roll", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/primary_pass/true_minus_random", "op": "eq", "expected": true}
+      ]
+    },
+    {
+      "id": "hard_example_read_access_failure",
+      "status": "supported_boundary",
+      "statement": "On fresh source-error cases, target information is often decodable from final-layer Memory but is sharply lost along the deployed read path.",
+      "evidence": "experiments/level6_19/formal/summary.json",
+      "analysis": "experiments/level6_19/formal/ANALYSIS.md",
+      "protocol": "experiments/level6_19/formal/preregistration.json",
+      "figure": "experiments/level6_19/formal/hard_example_diagnosis.png",
+      "checks": [
+        {"pointer": "/integrity/passed", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/classification", "op": "eq", "expected": "hard_example_memory_to_read_access_failure"},
+        {"pointer": "/diagnosis/memory_probe_correct_on_source_errors", "op": "ge", "expected": 0.75},
+        {"pointer": "/diagnosis/error_group_stage_accuracies/deployed_behavior", "op": "eq", "expected": 0.0}
+      ]
+    },
+    {
+      "id": "signed_affine_simplex_obstruction",
+      "status": "supported_boundary",
+      "statement": "Attention-head budget reallocation does not close the hard-example gap, whereas a signed affine value intervention closes the registered tangent gap.",
+      "evidence": "experiments/level6_19_3/formal/summary.json",
+      "analysis": "experiments/level6_19_3/formal/ANALYSIS.md",
+      "protocol": "experiments/level6_19_3/formal/preregistration.json",
+      "figure": "experiments/level6_19_3/formal/head_signed_tomography.png",
+      "checks": [
+        {"pointer": "/integrity/passed", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/classification", "op": "eq", "expected": "signed_affine_simplex_obstruction"},
+        {"pointer": "/diagnosis/head_budget_closes_gap", "op": "eq", "expected": false},
+        {"pointer": "/diagnosis/signed_affine_closes_gap", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/signed_specificity_passed", "op": "eq", "expected": true}
+      ]
+    },
+    {
+      "id": "oracle_not_compiled",
+      "status": "registered_negative",
+      "statement": "The signed Oracle mechanism is not compiled into the frozen label-free router.",
+      "evidence": "experiments/level6_19_4/formal_recovery/summary.json",
+      "analysis": "experiments/level6_19_4/formal_recovery/ANALYSIS.md",
+      "protocol": "experiments/level6_19_4/formal_recovery/preregistration.json",
+      "figure": "experiments/level6_19_4/formal_recovery/minimal_heads_gated_read.png",
+      "checks": [
+        {"pointer": "/integrity/passed", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/classification", "op": "eq", "expected": "oracle_not_compiled_into_label_free_router"},
+        {"pointer": "/diagnosis/signed_router_passed", "op": "eq", "expected": false},
+        {"pointer": "/diagnosis/simplex_audit_converged", "op": "eq", "expected": true}
+      ]
+    },
+    {
+      "id": "joint_calibration_coupling_bottleneck",
+      "status": "supported_boundary",
+      "statement": "Dose and signed direction are individually observable, but their joint label-free calibration remains the router bottleneck.",
+      "evidence": "experiments/level6_19_5/formal/summary.json",
+      "analysis": "experiments/level6_19_5/formal/ANALYSIS.md",
+      "protocol": "experiments/level6_19_5/formal/preregistration.json",
+      "figure": "experiments/level6_19_5/formal/router_observability_diagnosis.png",
+      "checks": [
+        {"pointer": "/integrity/passed", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/classification", "op": "eq", "expected": "joint_calibration_coupling_bottleneck"},
+        {"pointer": "/diagnosis/probed_dose_oracle_direction_recovery", "op": "gt", "expected": 0.90},
+        {"pointer": "/diagnosis/signed_distilled_direction_recovery", "op": "ge", "expected": 0.25},
+        {"pointer": "/diagnosis/basis_specificity", "op": "eq", "expected": "signed_distiller_exceeds_residual_control"}
+      ]
+    },
+    {
+      "id": "factorized_repair_branch_closed",
+      "status": "registered_negative",
+      "statement": "The sole registered frozen factorized repair misses the recovery and specificity conjunction, closing the router-repair branch without opening seed909.",
+      "evidence": "experiments/level6_19_6/formal/summary.json",
+      "analysis": "experiments/level6_19_6/formal/ANALYSIS.md",
+      "protocol": "experiments/level6_19_6/formal/preregistration.json",
+      "figure": "experiments/level6_19_6/formal/factorized_signed_read.png",
+      "checks": [
+        {"pointer": "/integrity/passed", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/classification", "op": "eq", "expected": "factorized_repair_failed_stop_branch"},
+        {"pointer": "/diagnosis/factorized_signed_recovery", "op": "lt", "expected": 0.25},
+        {"pointer": "/diagnosis/specificity_passed", "op": "eq", "expected": false},
+        {"pointer": "/diagnosis/full_accuracy_noninferiority_passed", "op": "eq", "expected": true},
+        {"pointer": "/diagnosis/factorized_signed_read_passed", "op": "eq", "expected": false}
+      ]
+    }
+  ],
+  "code_files": [
+    "requirements.txt",
+    "model.py",
+    "spiral_memory.py",
+    "spiral_attention.py",
+    "spiral_block.py",
+    "position_encoding.py",
+    "rotary_attention.py",
+    "run_level6_16_2_local.py",
+    "run_level6_18_3_local.py",
+    "run_level6_18_8_local.py",
+    "run_level6_19_local.py",
+    "run_level6_19_3_local.py",
+    "run_level6_19_4_local.py",
+    "run_level6_19_5_local.py",
+    "run_level6_19_6_local.py",
+    "run_level7_0_local.py",
+    "experiments/level7_0/README.md",
+    "experiments/level7_0/EVIDENCE_LEDGER.md",
+    "experiments/level7_0/preregistration.json",
+    "experiments/level7_0/claim_registry.json"
+  ]
+}

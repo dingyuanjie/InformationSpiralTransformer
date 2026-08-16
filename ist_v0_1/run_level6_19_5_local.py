@@ -239,7 +239,8 @@ def load_parent_routers(args, device):
 
 
 def collect_cache(model, probes, args, samples, seed, device, dtype, root,
-                  split):
+                  split, display_level=None):
+    display_level = LEVEL if display_level is None else display_level
     fields = [
         "query", "pre_fusion", "source_context", "source_attention", "atoms",
         "source_logits", "labels", "competitor", "memory_predictions",
@@ -343,7 +344,7 @@ def collect_cache(model, probes, args, samples, seed, device, dtype, root,
             total += size
             if total == size or total % args.log_every_samples == 0:
                 print(
-                    f"Level {LEVEL} cache {split}={total}/{samples} "
+                    f"Level {display_level} cache {split}={total}/{samples} "
                     f"primary={primary_count}",
                     flush=True,
                 )

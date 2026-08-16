@@ -1,0 +1,67 @@
+{
+  "level": "7.3.1",
+  "title": "high-precision replication of the seed1879 layer-2 Memory route",
+  "status": "frozen-checkpoint confidence-interval confirmation on a new panel",
+  "parent": "Level 7.3 cross_initialization_layer_heterogeneity_confirmed",
+  "motivation": "Level 7.3 localized seed1879's necessary route to layer 2, but the keep-L2 95% Wilson interval crossed the 90% sufficiency threshold.",
+  "hypothesis": "The frozen seed1879 checkpoint has a high-precision L2-dominant persistent-Memory route: L2 is necessary, sample-aligned, and sufficient by a 95% Wilson lower-bound criterion, whereas L3 is neither necessary nor sufficient.",
+  "frozen_source": {
+    "seed": 1879,
+    "checkpoint": "experiments/level7_2/formal/seed1879/zero_probe_step0750.pt",
+    "expected_checkpoint_sha256": "cbba0c6db219e16be274bd0e77612972b7ad7d24ffa2bddb7b7cb858bf7a74f6",
+    "expected_model_fingerprint": "ad113264a0227bb69770dc56b7f395b0bf999e7b4eb8c487408d07100043f77c",
+    "selection": "none; the single source was fixed by the Level 7.3 result"
+  },
+  "fresh_panel": {
+    "chunks": 16,
+    "chunk_size": 128,
+    "samples": 8192,
+    "eval_batch_size": 16,
+    "dataset_seed": 7310000,
+    "same_examples_for_every_condition": true,
+    "no_Level_7_2_or_Level_7_3_panel_reuse": true,
+    "fixed_sample_size_no_sequential_extension": true
+  },
+  "conditions": [
+    "intact",
+    "reset_all",
+    "zero_all",
+    "batch_roll_all",
+    "zero_l2",
+    "batch_roll_l2",
+    "keep_l2",
+    "zero_l3",
+    "batch_roll_l3",
+    "keep_l3",
+    "keep_l2_l3"
+  ],
+  "confidence_rule": "All primary gates use two-sided 95% Wilson intervals evaluated at the fixed N=8192 endpoint.",
+  "registered_gates": {
+    "intact_behavior": "intact query Wilson lower bound >= 0.90",
+    "local_behavior": "minimum local Wilson lower bound across conditions >= 0.90",
+    "whole_memory_causality": "reset-all, zero-all, and batch-roll-all query Wilson upper bounds <= 0.20",
+    "L2_necessity": "zero-L2 query Wilson upper bound <= 0.20",
+    "L2_sample_alignment": "batch-roll-L2 query Wilson upper bound <= 0.20",
+    "L2_single_layer_sufficiency": "keep-L2 query Wilson lower bound >= 0.90",
+    "L3_nonnecessity_contrast": "zero-L3 and batch-roll-L3 query Wilson lower bounds >= 0.80",
+    "L3_insufficiency_contrast": "keep-L3 query Wilson upper bound <= 0.20",
+    "L2_L3_positive_pair_control": "keep-L2-L3 query Wilson lower bound >= 0.90"
+  },
+  "registered_classification": {
+    "high_precision_l2_route_confirmed": "every registered gate passes",
+    "l2_route_supported_but_single_layer_sufficiency_inconclusive": "all gates except the keep-L2 Wilson-lower gate pass, and keep-L2 point accuracy remains >= 0.90",
+    "high_precision_l2_route_not_confirmed": "any other outcome"
+  },
+  "precision_rationale": "Near 91% accuracy, N=8192 approximately halves the Wilson half-width observed at N=2048 and can distinguish a stable approximately 91% effect from the 90% lower-bound claim without optional stopping.",
+  "locks": {
+    "model_and_checkpoint_frozen": true,
+    "no_training_or_probe_fitting": true,
+    "no_checkpoint_or_condition_selection": true,
+    "no_threshold_change": true,
+    "no_sample_extension": true,
+    "no_old_panel_reuse": true,
+    "seed909_locked": true,
+    "no_output_head_or_router_repair": true
+  },
+  "stop_rule": "Report the fixed high-precision classification; do not add samples, conditions, alternative checkpoints, or a training repair after observing results."
+}

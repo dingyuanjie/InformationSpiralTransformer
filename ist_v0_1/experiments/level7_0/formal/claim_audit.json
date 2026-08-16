@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "registry_sha256": "2ae2b55144f3eb8f3f6d5789c50c736f27a7ad570e224631595bfa5a78ddb28b",
+  "claims": [
+    {
+      "id": "selective_pollution_defense",
+      "status": "supported",
+      "statement": "A frozen single-step risk-utility policy yields a small positive aggregate recovery under Memory pollution while retaining the registered clean-trigger bound.",
+      "evidence": "experiments/level6_16_2/formal/summary.json",
+      "checks": [
+        {
+          "pointer": "/success/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/aggregate/overall/accuracy_gain/estimate",
+          "op": "gt",
+          "expected": 0.0,
+          "actual": 0.005208333333333333,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/aggregate/overall/accuracy_gain/ci95/0",
+          "op": "gt",
+          "expected": 0.0,
+          "actual": 0.0022916666666666667,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/success/max_clean_fpr",
+          "op": "le",
+          "expected": 0.05,
+          "actual": 0.045,
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "output_head_rescue",
+      "status": "supported",
+      "statement": "Changing only the output head causally rescues the seed707 12-chunk failure while persistent Memory remains necessary.",
+      "evidence": "experiments/level6_18_3/formal/summary.json",
+      "checks": [
+        {
+          "pointer": "/success/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/success/only_output_changed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/success/rescued_12_chunks",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/causal/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/paired_tests/12/rescued_accuracy",
+          "op": "ge",
+          "expected": 0.95,
+          "actual": 0.9619140625,
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "task_aligned_context_subspace",
+      "status": "supported",
+      "statement": "A task-aligned causal context subspace is present and beats rolled and random controls under the registered family.",
+      "evidence": "experiments/level6_18_8/formal/summary.json",
+      "checks": [
+        {
+          "pointer": "/integrity/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/classification",
+          "op": "eq",
+          "expected": "task_aligned_context_subspace_confirmed",
+          "actual": "task_aligned_context_subspace_confirmed",
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/primary_pass/true_margin_change",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/primary_pass/true_minus_batch_roll",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/primary_pass/true_minus_random",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "hard_example_read_access_failure",
+      "status": "supported_boundary",
+      "statement": "On fresh source-error cases, target information is often decodable from final-layer Memory but is sharply lost along the deployed read path.",
+      "evidence": "experiments/level6_19/formal/summary.json",
+      "checks": [
+        {
+          "pointer": "/integrity/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/classification",
+          "op": "eq",
+          "expected": "hard_example_memory_to_read_access_failure",
+          "actual": "hard_example_memory_to_read_access_failure",
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/memory_probe_correct_on_source_errors",
+          "op": "ge",
+          "expected": 0.75,
+          "actual": 0.8194946050643921,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/error_group_stage_accuracies/deployed_behavior",
+          "op": "eq",
+          "expected": 0.0,
+          "actual": 0.0,
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "signed_affine_simplex_obstruction",
+      "status": "supported_boundary",
+      "statement": "Attention-head budget reallocation does not close the hard-example gap, whereas a signed affine value intervention closes the registered tangent gap.",
+      "evidence": "experiments/level6_19_3/formal/summary.json",
+      "checks": [
+        {
+          "pointer": "/integrity/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/classification",
+          "op": "eq",
+          "expected": "signed_affine_simplex_obstruction",
+          "actual": "signed_affine_simplex_obstruction",
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/head_budget_closes_gap",
+          "op": "eq",
+          "expected": false,
+          "actual": false,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/signed_affine_closes_gap",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/signed_specificity_passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "oracle_not_compiled",
+      "status": "registered_negative",
+      "statement": "The signed Oracle mechanism is not compiled into the frozen label-free router.",
+      "evidence": "experiments/level6_19_4/formal_recovery/summary.json",
+      "checks": [
+        {
+          "pointer": "/integrity/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/classification",
+          "op": "eq",
+          "expected": "oracle_not_compiled_into_label_free_router",
+          "actual": "oracle_not_compiled_into_label_free_router",
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/signed_router_passed",
+          "op": "eq",
+          "expected": false,
+          "actual": false,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/simplex_audit_converged",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "joint_calibration_coupling_bottleneck",
+      "status": "supported_boundary",
+      "statement": "Dose and signed direction are individually observable, but their joint label-free calibration remains the router bottleneck.",
+      "evidence": "experiments/level6_19_5/formal/summary.json",
+      "checks": [
+        {
+          "pointer": "/integrity/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/classification",
+          "op": "eq",
+          "expected": "joint_calibration_coupling_bottleneck",
+          "actual": "joint_calibration_coupling_bottleneck",
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/probed_dose_oracle_direction_recovery",
+          "op": "gt",
+          "expected": 0.9,
+          "actual": 0.94375170604605,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/signed_distilled_direction_recovery",
+          "op": "ge",
+          "expected": 0.25,
+          "actual": 0.3071485545137104,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/basis_specificity",
+          "op": "eq",
+          "expected": "signed_distiller_exceeds_residual_control",
+          "actual": "signed_distiller_exceeds_residual_control",
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "factorized_repair_branch_closed",
+      "status": "registered_negative",
+      "statement": "The sole registered frozen factorized repair misses the recovery and specificity conjunction, closing the router-repair branch without opening seed909.",
+      "evidence": "experiments/level6_19_6/formal/summary.json",
+      "checks": [
+        {
+          "pointer": "/integrity/passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/classification",
+          "op": "eq",
+          "expected": "factorized_repair_failed_stop_branch",
+          "actual": "factorized_repair_failed_stop_branch",
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/factorized_signed_recovery",
+          "op": "lt",
+          "expected": 0.25,
+          "actual": 0.2440564583565577,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/specificity_passed",
+          "op": "eq",
+          "expected": false,
+          "actual": false,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/full_accuracy_noninferiority_passed",
+          "op": "eq",
+          "expected": true,
+          "actual": true,
+          "passed": true,
+          "error": null
+        },
+        {
+          "pointer": "/diagnosis/factorized_signed_read_passed",
+          "op": "eq",
+          "expected": false,
+          "actual": false,
+          "passed": true,
+          "error": null
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

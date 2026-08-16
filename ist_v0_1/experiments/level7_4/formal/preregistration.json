@@ -1,0 +1,152 @@
+{
+  "level": "7.4",
+  "title": "seed1879 L2-core/L3-support route formation trajectory",
+  "status": "frozen longitudinal causal tomography on a new shared panel",
+  "parents": [
+    "Level 7.3 cross_initialization_layer_heterogeneity_confirmed",
+    "Level 7.3.1 l2_route_supported_but_single_layer_sufficiency_inconclusive"
+  ],
+  "hypothesis": "The L2-core/L3-support route is established by the end of 16-chunk curriculum training and remains stable through Probe withdrawal and zero-Probe maintenance.",
+  "frozen_timeline": [
+    {
+      "id": "curriculum_2",
+      "checkpoint": "experiments/level7_2/formal/seed1879/curriculum_stage1.pt",
+      "stage": "curriculum",
+      "trained_chunks": 2,
+      "expected_sha256": "9939755860050c602798b6cec0320ac68fd5197876f389f802d461669034fd6c"
+    },
+    {
+      "id": "curriculum_4",
+      "checkpoint": "experiments/level7_2/formal/seed1879/curriculum_stage2.pt",
+      "stage": "curriculum",
+      "trained_chunks": 4,
+      "expected_sha256": "2703f5ae720e0f5a973244bbca8275b6654c7c25b3c17c95e7dd618dcec4ebbf"
+    },
+    {
+      "id": "curriculum_8",
+      "checkpoint": "experiments/level7_2/formal/seed1879/curriculum_stage3.pt",
+      "stage": "curriculum",
+      "trained_chunks": 8,
+      "expected_sha256": "572338a38c001b65da5e9202de1a867ae67aa8c225d4d682b2253e29850d1df7"
+    },
+    {
+      "id": "curriculum_16",
+      "checkpoint": "experiments/level7_2/formal/seed1879/curriculum_stage4.pt",
+      "stage": "curriculum",
+      "trained_chunks": 16,
+      "expected_sha256": "7c9699be19b23d98d5b0c352a544c9bdbd7879d6aee202438614c4224e3e12f6"
+    },
+    {
+      "id": "withdrawal_p20",
+      "checkpoint": "experiments/level7_2/formal/seed1879/withdrawal_phase1.pt",
+      "stage": "withdrawal",
+      "probe_weight": 0.2,
+      "phase_steps": 300,
+      "expected_sha256": "03238536ce675f3c878ccce9bd4774e32ba0b6595f37c4180615d7a51f1e82a7"
+    },
+    {
+      "id": "withdrawal_p10",
+      "checkpoint": "experiments/level7_2/formal/seed1879/withdrawal_phase2.pt",
+      "stage": "withdrawal",
+      "probe_weight": 0.1,
+      "phase_steps": 300,
+      "expected_sha256": "bf316e33722a7574e3c641fe2c24f814c0b81418a7e50a754cff54d5ad72fb11"
+    },
+    {
+      "id": "zero_0300",
+      "checkpoint": "experiments/level7_2/formal/seed1879/zero_probe_step0300.pt",
+      "stage": "zero_probe",
+      "probe_weight": 0.0,
+      "zero_probe_step": 300,
+      "expected_sha256": "04d1b7a46c01df3090b2f42f21ccb76b41a19e9554f6c08817a8d61e55e5b897"
+    },
+    {
+      "id": "zero_0450",
+      "checkpoint": "experiments/level7_2/formal/seed1879/zero_probe_step0450.pt",
+      "stage": "zero_probe",
+      "probe_weight": 0.0,
+      "zero_probe_step": 450,
+      "expected_sha256": "631eb20256ff1c06ee3c3f16c870c682e4a3d4debf5dd1c144dc09776a3599c7"
+    },
+    {
+      "id": "zero_0600",
+      "checkpoint": "experiments/level7_2/formal/seed1879/zero_probe_step0600.pt",
+      "stage": "zero_probe",
+      "probe_weight": 0.0,
+      "zero_probe_step": 600,
+      "expected_sha256": "e3d42c5cedb17cf46463cdc2aaab7dbd5662d86d06a32fa1cf0fe7f6d1b4e68d"
+    },
+    {
+      "id": "zero_0750",
+      "checkpoint": "experiments/level7_2/formal/seed1879/zero_probe_step0750.pt",
+      "stage": "zero_probe",
+      "probe_weight": 0.0,
+      "zero_probe_step": 750,
+      "expected_sha256": "cbba0c6db219e16be274bd0e77612972b7ad7d24ffa2bddb7b7cb858bf7a74f6"
+    }
+  ],
+  "fresh_shared_panel": {
+    "evaluation_chunks": 16,
+    "chunk_size": 128,
+    "samples_per_checkpoint_condition": 1024,
+    "eval_batch_size": 16,
+    "dataset_seed": 7400000,
+    "same_examples_for_all_checkpoints_and_conditions": true,
+    "fixed_sample_size_no_extension": true,
+    "no_parent_panel_reuse": true
+  },
+  "conditions": [
+    "intact",
+    "reset_all",
+    "zero_all",
+    "batch_roll_all",
+    "zero_l2",
+    "batch_roll_l2",
+    "keep_l2",
+    "zero_l3",
+    "batch_roll_l3",
+    "keep_l3",
+    "keep_l2_l3"
+  ],
+  "checkpoint_signature_rules": {
+    "formed_behavior": "intact query >=0.90 and minimum local >=0.90",
+    "whole_memory_causal": "formed behavior and reset-all, zero-all, and batch-roll-all query <=0.20",
+    "L2_core": "whole-Memory causal; zero-L2 and roll-L2 <=0.20; keep-L2 >=0.80; zero-L3 >=0.80; keep-L3 <=0.20; keep-L2-L3 >=0.90",
+    "L3_support": "keep-L2-L3 minus keep-L2 >=0.03 and intact minus roll-L3 >=0.05",
+    "L3_core": "whole-Memory causal; zero-L3 and roll-L3 <=0.20; keep-L3 >=0.80; zero-L2 >=0.80; keep-L2 <=0.20",
+    "route_classes": [
+      "unformed_behavior",
+      "formed_noncausal_memory",
+      "l2_core_l3_supported",
+      "l2_core_minimal_l3_support",
+      "l3_core",
+      "distributed_or_other"
+    ]
+  },
+  "registered_trajectory_classification": {
+    "l2_core_l3_support_established_by_16chunk_and_stable": "curriculum_16 and all six later checkpoints are l2_core_l3_supported",
+    "l2_core_l3_support_emerges_during_withdrawal": "curriculum_16 is not l2_core_l3_supported and zero_0450/0600/0750 all are",
+    "post_curriculum_route_destabilization": "curriculum_16 is l2_core_l3_supported but one or more of zero_0450/0600/0750 are not",
+    "post_curriculum_route_migration_observed": "at least two different formed whole-Memory-causal route classes occur from curriculum_16 onward and no earlier rule applies",
+    "trajectory_unresolved": "any other completed trajectory"
+  },
+  "secondary_outputs": [
+    "earliest formed 16-chunk behavior checkpoint",
+    "earliest L2-core/L3-support checkpoint",
+    "earliest stable L2-core/L3-support suffix",
+    "adjacent route-class transitions",
+    "L2 necessity, L3 contribution, and pair-recovery effect curves"
+  ],
+  "locks": {
+    "all_ten_checkpoints_preexisting_and_frozen": true,
+    "no_training_or_probe_fitting": true,
+    "no_checkpoint_selection_or_omission": true,
+    "no_threshold_or_condition_change": true,
+    "no_sample_extension": true,
+    "no_parent_panel_reuse": true,
+    "seed909_locked": true,
+    "no_output_head_or_router_repair": true
+  },
+  "scope": "This is a within-seed retrospective causal trajectory. It can locate route emergence along seed1879's saved path but cannot estimate route prevalence or prospective formation reliability across initialization.",
+  "stop_rule": "Report the fixed trajectory and classification; do not select a preferred checkpoint, add intermediate checkpoints, or retrain after observing results."
+}

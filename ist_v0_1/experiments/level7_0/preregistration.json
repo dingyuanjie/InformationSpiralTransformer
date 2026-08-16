@@ -1,0 +1,50 @@
+{
+  "level": "7.0",
+  "title": "evidence freeze and reproducibility bundle",
+  "status": "read-only consolidation protocol",
+  "parent_boundary": "Level 6.19.6 factorized_repair_failed_stop_branch",
+  "purpose": [
+    "freeze the supported and failed claims without opening another repair candidate",
+    "verify authoritative result fields against a machine-readable claim registry",
+    "produce a lightweight GitHub bundle with protocols, code, summaries, analyses, figures, and hashes"
+  ],
+  "locks": {
+    "no_training": true,
+    "no_model_evaluation": true,
+    "no_new_candidate": true,
+    "no_threshold_or_formula_search": true,
+    "no_formal_split_reuse_for_selection": true,
+    "seed909_locked": true,
+    "protected_tests_locked": true,
+    "router_repair_branch_closed": true
+  },
+  "authoritative_claim_registry": "experiments/level7_0/claim_registry.json",
+  "bundle_policy": {
+    "include": [
+      "registered source code",
+      "formal preregistrations",
+      "formal summaries and result JSON",
+      "formal analyses and figures",
+      "generated SHA-256 manifest and claim audit"
+    ],
+    "exclude": [
+      "model checkpoints",
+      "probe or router weights",
+      "per-example predictions",
+      "partial or smoke-test outputs",
+      "failed numerical-audit outputs",
+      "Python caches"
+    ]
+  },
+  "success_gate": {
+    "all_registered_claim_checks_pass": true,
+    "all_required_files_present": true,
+    "all_bundle_files_hashed": true,
+    "forbidden_artifacts_absent": true,
+    "zip_integrity_passes": true
+  },
+  "decision_rule": {
+    "pass": "freeze the evidence ledger and use the bundle for external review; this is not an independent efficacy confirmation",
+    "fail": "repair the packaging or provenance defect only; do not change scientific thresholds or claims"
+  }
+}

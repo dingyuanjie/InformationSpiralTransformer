@@ -1,5 +1,39 @@
 # InformationSpiralTransformer
 
+## Frozen evidence and reproducibility bundle
+
+The persistent-Memory mechanism campaign is consolidated in
+`ist_v0_1/experiments/level7_0/EVIDENCE_LEDGER.md`. Build a lightweight audit
+bundle for GitHub or external review with:
+
+```bash
+cd ist_v0_1
+python run_level7_0_local.py
+```
+
+This bundle preserves both positive and registered negative results. It does
+not claim universal superiority over standard Transformers and does not reopen
+the closed router-repair search.
+
+Run the next registered stage, which trains two untouched initializations and
+independently retests persistent-Memory formation and causality, with:
+
+```bash
+cd ist_v0_1
+python run_level7_1_local.py
+```
+
+The frozen Level 7.1 seeds are 1217 and 1429; seed909 remains closed.
+
+Level 7.1 completed as a negative formation replication. The next separately
+registered hypothesis keeps training unchanged and tests validation-only
+selection of zero-Probe retention checkpoints on new seeds 1601 and 1879:
+
+```bash
+cd ist_v0_1
+python run_level7_2_local.py
+```
+
 ## v0.1 training experiment
 
 `ist_v0_1/train_compare.py` trains Information Spiral Transformer v0.1 and a

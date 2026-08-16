@@ -1,0 +1,106 @@
+{
+  "level": "7.5",
+  "title": "prospective cross-initialization C2-to-C4 formation dynamics",
+  "status": "three untouched initializations; milestones, panels, thresholds, and outcomes frozen before training",
+  "parent": "Level 7.4.1 exact_replay_and_single_stable_formation_transition",
+  "hypothesis": "The seed1879 two-stage pattern is not unique: during fresh C4 training, an L2-core causal precursor will appear before the fully qualified L2-core/L3-support 16-chunk route in at least two of three untouched initializations.",
+  "formal_model_seeds": [
+    2203,
+    2551,
+    2909
+  ],
+  "seed_provenance": "No checkpoint or prior model state is reused; every formal seed starts from a new model initialization.",
+  "training_protocol": {
+    "chunk_size": 128,
+    "fixed_two-segment_steps": 2500,
+    "fixed_batch_size": 16,
+    "C2_maximum_steps": 2500,
+    "C2_training_batch_size": 8,
+    "C4_maximum_steps": 1500,
+    "C4_training_batch_size": 4,
+    "learning_rate": 0.001,
+    "Probe_weight": 0.5,
+    "validation_at": "step 1 and every 100 steps",
+    "validation_batches": 10,
+    "validation_batch_size": 8,
+    "behavior_only_gate": "two consecutive same-stage query evaluations >=0.95",
+    "C4_saved_milestones": "C2 endpoint as step0, then C4 step1 and every 100 validation step through the registered stop",
+    "training_stop": "stop C4 at the original two-consecutive behavior gate or at step1500; never continue to C8, C16, or Probe withdrawal"
+  },
+  "fresh_shared_causal_panel": {
+    "evaluation_chunks": 16,
+    "chunk_size": 128,
+    "samples_per_seed_milestone_condition": 1024,
+    "evaluation_batch_size": 16,
+    "dataset_seed": 7500000,
+    "same_examples_for_every_seed_milestone_and_condition": true,
+    "fixed_sample_size_no_extension": true,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ]
+  },
+  "registered_thresholds": {
+    "formed_behavior": "intact query >=0.90 and minimum local accuracy across conditions >=0.90",
+    "whole_memory_causal": "formed behavior and reset-all, zero-all, and batch-roll-all query <=0.20",
+    "layer_necessary_or_roll_sensitive": "the corresponding zero or batch-roll query <=0.20",
+    "single_or_pair_sufficient": "the corresponding keep query >=0.90",
+    "L2_core": "whole-Memory causal; zero-L2 and roll-L2 <=0.20; keep-L2 >=0.80; zero-L3 >=0.80; keep-L3 <=0.20; keep-L2-L3 >=0.90",
+    "L3_support": "keep-L2-L3 minus keep-L2 >=0.03 and intact minus roll-L3 >=0.05",
+    "L2_causal_precursor": "not yet the full L2-core/L3-support target; intact >=0.75; minimum local >=0.90; all whole-Memory controls <=0.20; zero-L2 and roll-L2 <=0.20; keep-L2 >=0.70; zero-L3 >=0.70; keep-L3 <=0.20; keep-L2-L3 >=0.75; pair gain >=0.03; roll-L3 drop >=0.05"
+  },
+  "per_seed_registered_outcomes": {
+    "l2_two_stage_replication_within_C4": "an L2 causal precursor first appears after C2 step0, a later milestone reaches the target route, and target membership never regresses through the C4 endpoint",
+    "l2_precursor_present_at_C2_then_target_by_C4": "the precursor already exists at the C2 endpoint and the C4 endpoint reaches target",
+    "l2_target_without_registered_precursor": "the C4 endpoint is target but no earlier registered precursor milestone exists",
+    "l2_target_present_at_C2_endpoint": "the full target route is already present before C4 training",
+    "l2_target_recovered_after_regression": "the target route occurs, regresses at a later saved milestone, and returns by the C4 endpoint",
+    "l2_target_regressed_before_C4_endpoint": "a target milestone occurs but the C4 endpoint is not target",
+    "l2_precursor_without_target": "one or more precursor milestones occur but no target milestone occurs",
+    "alternative_formed_causal_route": "formed whole-Memory-causal behavior occurs without the registered L2 target route",
+    "no_registered_16chunk_formation": "neither a causal precursor nor formed whole-Memory-causal 16-chunk behavior occurs",
+    "training_prerequisite_failed": "the fixed or C2 prerequisite fails within its locked budget"
+  },
+  "cohort_registered_classification": {
+    "strong_prospective_two_stage_replication": "at least two of three seeds satisfy l2_two_stage_replication_within_C4",
+    "conditional_prospective_two_stage_replication": "exactly one of three seeds satisfies l2_two_stage_replication_within_C4",
+    "L2_formation_without_two_stage_replication": "no seed satisfies within-C4 two-stage replication, but at least one seed reaches the L2 target by its C4 endpoint",
+    "alternative_route_formation_observed": "no seed reaches the L2 target endpoint, but at least one seed forms whole-Memory-causal 16-chunk behavior through another layer signature",
+    "prospective_formation_dynamics_not_replicated": "no seed forms registered whole-Memory-causal 16-chunk behavior by its C4 endpoint"
+  },
+  "secondary_outputs": [
+    "first precursor and first target step per seed",
+    "full L1/L2/L3 necessity, roll-sensitivity, single-layer sufficiency, and pair-sufficiency signatures",
+    "cross-initialization endpoint route heterogeneity",
+    "C4 in-range validation versus fresh 16-chunk behavior",
+    "model parameter displacement from each seed's C2 endpoint"
+  ],
+  "locks": {
+    "no_seed_replacement_or_addition": true,
+    "no_old_checkpoint_or_model_reuse": true,
+    "no_training_budget_or_learning_rate_change": true,
+    "no_C8_C16_or_withdrawal_extension": true,
+    "no_milestone_addition_or_removal": true,
+    "no_threshold_change": true,
+    "no_sample_extension": true,
+    "no_checkpoint_selection": true,
+    "no_output_head_router_or_memory_repair": true,
+    "seed909_locked": true
+  },
+  "scope": "This is a prospective three-seed replication of early C2-to-C4 formation dynamics on the synthetic marked-retrieval task. It tests whether the seed1879 sequence generalizes; it does not estimate population-level success precisely or establish language-model performance.",
+  "stop_rule": "Report the fixed three-seed cohort classification. Do not rescue, replace, extend, or selectively continue a seed after viewing its trajectory."
+}

@@ -1,0 +1,65 @@
+{
+  "level": "7.3",
+  "title": "cross-initialization layerwise persistent-Memory causal atlas",
+  "status": "frozen-model mechanistic replication on fresh diagnostic data",
+  "parent": "Level 7.2 causal_gate_failed with whole-Memory causality preserved",
+  "hypothesis": "Whole persistent Memory is causally necessary across formed initializations, while the layer carrying necessary and sufficient state varies by initialization.",
+  "frozen_models": [
+    {"seed": 606, "checkpoint": "experiments/level6_8/formal/seed606/withdrawal_phase3.pt"},
+    {"seed": 808, "checkpoint": "experiments/level6_8/formal/seed808/withdrawal_phase3.pt"},
+    {"seed": 1001, "checkpoint": "experiments/level6_8/formal/seed1001/withdrawal_phase3.pt"},
+    {"seed": 1879, "checkpoint": "experiments/level7_2/formal/seed1879/zero_probe_step0750.pt"}
+  ],
+  "fresh_panel": {
+    "chunks": 16,
+    "chunk_size": 128,
+    "samples": 2048,
+    "dataset_seed": 7300000,
+    "same_examples_for_every_model_and_condition": true
+  },
+  "conditions": [
+    "intact",
+    "reset_all",
+    "zero_all",
+    "batch_roll_all",
+    "zero_l1",
+    "zero_l2",
+    "zero_l3",
+    "batch_roll_l1",
+    "batch_roll_l2",
+    "batch_roll_l3",
+    "keep_l1",
+    "keep_l2",
+    "keep_l3",
+    "keep_l1_l2",
+    "keep_l1_l3",
+    "keep_l2_l3"
+  ],
+  "thresholds": {
+    "intact_query": 0.9,
+    "whole_or_layer_disruption_query": 0.2,
+    "single_or_pair_sufficiency_query": 0.9,
+    "minimum_local": 0.9
+  },
+  "profile_signature": {
+    "necessary_layer": "zero-Li query <=0.20",
+    "misassignment_sensitive_layer": "batch-roll-Li query <=0.20",
+    "sufficient_layer": "keep-Li query >=0.90",
+    "sufficient_pair": "keep-Li-Lj query >=0.90"
+  },
+  "registered_classification": {
+    "cross_initialization_layer_heterogeneity_confirmed": "all four models pass whole-Memory causality and at least two distinct layer signatures occur",
+    "layer_localization_homogeneous": "all four pass whole-Memory causality but share one signature",
+    "global_memory_causality_not_universal": "one or more formed models fail the whole-Memory causal gate"
+  },
+  "locks": {
+    "all_models_and_checkpoints_frozen": true,
+    "no_training_or_probe_fitting": true,
+    "no_model_or_checkpoint_selection": true,
+    "no_Level_7_2_protected_data_reuse": true,
+    "no_threshold_change": true,
+    "seed909_locked": true,
+    "no_output_head_or_router_repair": true
+  },
+  "stop_rule": "report the fixed atlas and classification; do not select a preferred layer intervention or modify a source model"
+}

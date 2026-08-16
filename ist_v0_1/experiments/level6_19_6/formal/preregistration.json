@@ -1,0 +1,85 @@
+{
+  "level": "6.19.6",
+  "status": "one frozen factorized signed-read composition test",
+  "parent": "Level 6.19.5 joint_calibration_coupling_bottleneck",
+  "formal_split": {
+    "samples": 4096,
+    "seed": 6196100,
+    "new_relative_to_Level_6_19_5": true,
+    "opened_once": true
+  },
+  "single_candidate": {
+    "formula": "frozen predicted Oracle dose times frozen signed distilled unit direction",
+    "dose_cap": 8.0,
+    "uses_target_label": false,
+    "uses_rival_class": false,
+    "uses_oracle_dose_or_direction": false,
+    "uses_correctness_flag": false,
+    "error_classifier_used_as_gate": false
+  },
+  "controls": [
+    "source",
+    "frozen_signed_router",
+    "factorized_signed_candidate",
+    "factorized_residual_control",
+    "factorized_signed_shuffled_memory",
+    "factorized_signed_rolled_delta",
+    "factorized_signed_head_permuted",
+    "full_signed_oracle"
+  ],
+  "specificity_family": [
+    "candidate versus source",
+    "candidate versus frozen_signed_router",
+    "candidate versus factorized_residual_control",
+    "candidate versus factorized_signed_shuffled_memory",
+    "candidate versus factorized_signed_rolled_delta",
+    "candidate versus factorized_signed_head_permuted"
+  ],
+  "success_gate": {
+    "full_oracle_recovery": 0.25,
+    "specificity": "all six candidate margin contrasts positive after Holm correction at 0.05",
+    "full_accuracy_noninferiority": 0.0025,
+    "integrity_required": true
+  },
+  "locks": {
+    "seed707_trunk_and_existing_probes_frozen": true,
+    "Level_6_19_4_parent_routers_frozen": true,
+    "Level_6_19_5_final_epoch_probes_frozen": true,
+    "no_training": true,
+    "no_calibration_or_threshold_search": true,
+    "no_second_repair_candidate": true,
+    "failed_Level_6_18_9_candidate_not_used": true,
+    "seed909_locked": true,
+    "protected_tests_not_used": true,
+    "optimizer_and_model_search_closed": true
+  },
+  "decision_rule": {
+    "pass": "repeat across independent probe initializations before opening seed909",
+    "fail": "stop router repair; no second composition formula and no seed909"
+  },
+  "protocol": {
+    "seed": 707,
+    "chunks": 16,
+    "chunk_size": 128,
+    "checkpoint": "experiments/level6_18_3/formal/rescued_head_checkpoint.pt",
+    "probes": "experiments/level6_19/formal/linear_probes.pt",
+    "level6_19_4_result": "experiments/level6_19_4/formal_recovery/result.json",
+    "level6_19_4_routers": "experiments/level6_19_4/formal_recovery/router_checkpoint.pt",
+    "parent_result": "experiments/level6_19_5/formal/result.json",
+    "parent_probes": "experiments/level6_19_5/formal/diagnostic_probes.pt",
+    "diagnostic_samples": 4096,
+    "diagnostic_seed": 6196100,
+    "analysis_seed": 6196200,
+    "eval_batch_size": 16,
+    "probe_batch_size": 64,
+    "dose_prediction_cap": 8.0,
+    "recovery_threshold": 0.25,
+    "full_accuracy_noninferiority": 0.0025,
+    "bootstrap_iterations": 5000,
+    "sign_flip_iterations": 10000,
+    "minimum_errors": 200,
+    "minimum_primary": 150,
+    "log_every_samples": 256,
+    "output": "experiments/level6_19_6/formal"
+  }
+}

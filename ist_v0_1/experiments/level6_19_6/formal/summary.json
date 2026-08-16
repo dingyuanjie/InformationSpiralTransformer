@@ -1,0 +1,190 @@
+{
+  "integrity": {
+    "frozen_module_fingerprints_unchanged": true,
+    "parent_router_fingerprints_unchanged": true,
+    "frozen_parameters_remain_frozen": true,
+    "oracle_l2_max_abs_error": 3.5762786865234375e-06,
+    "oracle_l2_passed": true,
+    "factorized_l2_audit": {
+      "signed_unit_max_abs_error": 1.1920928955078125e-07,
+      "residual_unit_max_abs_error": 1.1920928955078125e-07,
+      "candidate_dose_max_abs_error": 2.384185791015625e-07,
+      "residual_dose_max_abs_error": 2.384185791015625e-07,
+      "shuffled_dose_max_abs_error": 2.384185791015625e-07,
+      "rolled_dose_max_abs_error": 2.384185791015625e-07,
+      "head_permuted_dose_max_abs_error": 2.384185791015625e-07
+    },
+    "factorized_l2_passed": true,
+    "source_replay_max_abs": 0.0625,
+    "fresh_diagnostic_seed": true,
+    "no_training_or_calibration": true,
+    "single_candidate_only": true,
+    "candidate_inference_uses_target_label": false,
+    "candidate_inference_uses_rival_class": false,
+    "candidate_inference_uses_oracle": false,
+    "classifier_used_as_gate": false,
+    "failed_candidate_not_used": true,
+    "seed909_locked": true,
+    "protected_tests_not_used": true,
+    "optimizer_search_closed": true,
+    "passed": true
+  },
+  "population": {
+    "samples": 4096,
+    "source_accuracy": 0.928466796875,
+    "source_errors": 293,
+    "memory_decodable_source_errors": 232
+  },
+  "candidate": {
+    "primary_margin_gain": 0.04022427275776863,
+    "full_oracle_margin_gain": 0.16481544077396393,
+    "full_oracle_recovery": 0.2440564583565577,
+    "recovery_threshold_passed": false,
+    "specificity": {
+      "candidate_vs_source": {
+        "estimate": 0.040224272629310345,
+        "ci95": [
+          0.03257577830347522,
+          0.04818893958782327
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.7413793103448276,
+        "negative_fraction": 0.15517241379310345,
+        "zero_fraction": 0.10344827586206896,
+        "samples": 232,
+        "candidate_mean": -1.9203880573141163,
+        "control_mean": -1.9606123299434268,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0005999400059994001,
+          "significant_0.05": true
+        }
+      },
+      "candidate_vs_frozen_signed_router": {
+        "estimate": 0.003542143723060345,
+        "ci95": [
+          -0.0031465727707435344,
+          0.009304809570312498
+        ],
+        "sign_flip_p_two_sided": 0.29017098290170984,
+        "positive_fraction": 0.3922413793103448,
+        "negative_fraction": 0.29310344827586204,
+        "zero_fraction": 0.3146551724137931,
+        "samples": 232,
+        "candidate_mean": -1.9203880573141163,
+        "control_mean": -1.9239302010371768,
+        "multiplicity": {
+          "raw_p": 0.29017098290170984,
+          "holm_p": 0.29017098290170984,
+          "significant_0.05": false
+        }
+      },
+      "candidate_vs_factorized_residual_control": {
+        "estimate": 0.004916487068965517,
+        "ci95": [
+          -0.0010523302801724139,
+          0.010955073915678874
+        ],
+        "sign_flip_p_two_sided": 0.12438756124387561,
+        "positive_fraction": 0.4482758620689655,
+        "negative_fraction": 0.34051724137931033,
+        "zero_fraction": 0.21120689655172414,
+        "samples": 232,
+        "candidate_mean": -1.9203880573141163,
+        "control_mean": -1.9253045443830819,
+        "multiplicity": {
+          "raw_p": 0.12438756124387561,
+          "holm_p": 0.24877512248775122,
+          "significant_0.05": false
+        }
+      },
+      "candidate_vs_factorized_signed_shuffled_memory": {
+        "estimate": 0.028240335398706896,
+        "ci95": [
+          0.0210418701171875,
+          0.03550772831357758
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.625,
+        "negative_fraction": 0.21551724137931033,
+        "zero_fraction": 0.15948275862068967,
+        "samples": 232,
+        "candidate_mean": -1.9203880573141163,
+        "control_mean": -1.9486283927128232,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0005999400059994001,
+          "significant_0.05": true
+        }
+      },
+      "candidate_vs_factorized_signed_rolled_delta": {
+        "estimate": 0.04267935917295258,
+        "ci95": [
+          0.03313240840517241,
+          0.05276812849373653
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.6767241379310345,
+        "negative_fraction": 0.1939655172413793,
+        "zero_fraction": 0.12931034482758622,
+        "samples": 232,
+        "candidate_mean": -1.9203880573141163,
+        "control_mean": -1.963067416487069,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0005999400059994001,
+          "significant_0.05": true
+        }
+      },
+      "candidate_vs_factorized_signed_head_permuted": {
+        "estimate": 0.030302902747844827,
+        "ci95": [
+          0.023693584573679958,
+          0.037223394985856674
+        ],
+        "sign_flip_p_two_sided": 9.999000099990002e-05,
+        "positive_fraction": 0.7025862068965517,
+        "negative_fraction": 0.15517241379310345,
+        "zero_fraction": 0.14224137931034483,
+        "samples": 232,
+        "candidate_mean": -1.9203880573141163,
+        "control_mean": -1.9506909600619613,
+        "multiplicity": {
+          "raw_p": 9.999000099990002e-05,
+          "holm_p": 0.0005999400059994001,
+          "significant_0.05": true
+        }
+      }
+    },
+    "specificity_passed": false,
+    "full_accuracy": {
+      "source_accuracy": 0.928466796875,
+      "updated_accuracy": 0.9296875,
+      "accuracy_change": {
+        "estimate": 0.001220703125,
+        "ci95": [
+          0.0,
+          0.002685546875
+        ],
+        "iterations": 5000
+      },
+      "mcnemar": {
+        "left_only_correct": 1,
+        "right_only_correct": 6,
+        "discordant": 7,
+        "p": 0.125
+      }
+    },
+    "full_accuracy_noninferiority_passed": true,
+    "registered_gate_without_integrity": false
+  },
+  "diagnosis": {
+    "classification": "factorized_repair_failed_stop_branch",
+    "factorized_signed_recovery": 0.2440564583565577,
+    "specificity_passed": false,
+    "full_accuracy_noninferiority_passed": true,
+    "registered_next_boundary": "Stop this router-repair branch; do not introduce a second composition formula or open seed909.",
+    "integrity_passed": true,
+    "factorized_signed_read_passed": false
+  }
+}

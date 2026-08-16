@@ -1,0 +1,72 @@
+{
+  "level": "7.2",
+  "title": "validation-selected zero-Probe retention checkpoint",
+  "status": "one new formation-reliability hypothesis frozen before new training",
+  "parent": "Level 7.1 formation_replication_failed",
+  "formal_model_seeds": [1601, 1879],
+  "hypothesis": "The fixed final 750-step checkpoint is an unstable retention endpoint; a preregistered large-panel selection among fixed zero-Probe maintenance checkpoints will generalize to a protected test without changing training.",
+  "single_change_from_Level_7_1": "checkpoint selection during the unchanged 750-step zero-Probe maintenance trajectory",
+  "training_protocol_unchanged": {
+    "chunk_size": 128,
+    "fixed_steps": 2500,
+    "random_stage1_steps": 2500,
+    "later_stage_steps": 1500,
+    "stage_8_lr": 0.00005,
+    "stage_16_lr": 0.00001,
+    "withdrawal_lr": 0.000005,
+    "withdrawal_weights_and_steps": [[0.2, 300], [0.1, 300], [0.0, 750]],
+    "behavior_only_curriculum_gate": "two consecutive query evaluations >=0.95",
+    "no_budget_extension": true
+  },
+  "checkpoint_selection": {
+    "zero_probe_candidate_steps": [300, 450, 600, 750],
+    "validation_samples": 1024,
+    "same_validation_examples_for_every_candidate": true,
+    "eligibility": "validation query >=0.95 and local >=0.90",
+    "ranking": "highest validation query, then later zero-Probe step",
+    "no_eligible_candidate": "do not open protected test; record retention-selection failure"
+  },
+  "protected_test": {
+    "samples": 4096,
+    "opened_once_for_the_selected_eligible_checkpoint": true,
+    "behavior_gate": "query >=0.95 and local >=0.90",
+    "never_used_for_selection_or_retraining": true
+  },
+  "conditional_causal_audit": {
+    "opened_only_after_protected_behavior_gate": true,
+    "samples_per_condition": 1024,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l3",
+      "batch_roll_l3",
+      "keep_l3"
+    ],
+    "gate": {
+      "intact_query": ">=0.95",
+      "minimum_local_across_conditions": ">=0.90",
+      "maximum_disrupted_query": "<=0.20",
+      "keep_l3_query": ">=0.90"
+    }
+  },
+  "registered_classification": {
+    "strong_stable_causal_formation": "both seeds pass selection, protected behavior, and causal gates",
+    "conditional_stable_causal_formation": "exactly one seed passes all gates and the other fails before causal opening",
+    "causal_gate_failed": "a seed passes protected behavior but fails the causal audit",
+    "retention_checkpoint_selection_failed": "no seed passes the protected behavior gate after registered selection",
+    "formation_curriculum_failed": "neither seed reaches the candidate trajectory"
+  },
+  "locks": {
+    "new_seeds_only": true,
+    "no_seed1217_or_seed1429_rescue": true,
+    "seed909_locked": true,
+    "no_candidate_step_addition": true,
+    "no_training_or_lr_change": true,
+    "no_output_head_or_router_repair": true,
+    "no_protected_test_reuse": true,
+    "no_third_seed": true
+  },
+  "stop_rule": "record the registered outcome; do not add a candidate, rerun the protected test, extend training, or replace a seed"
+}

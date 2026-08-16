@@ -1,0 +1,100 @@
+{
+  "level": "7.1",
+  "title": "independent-initialization persistent-Memory replication",
+  "status": "two untouched initializations; protocol frozen before training",
+  "parent": "Level 7.0 evidence freeze",
+  "formal_model_seeds": [
+    1217,
+    1429
+  ],
+  "seed909_locked": true,
+  "scope": {
+    "primary": [
+      "formation of >=95% 16-chunk query behavior under the frozen Level 6.8 curriculum",
+      "causal necessity of persistent Memory and final-layer Memory",
+      "causal sufficiency of final-layer Memory"
+    ],
+    "secondary": [
+      "fresh linear decodability of final-layer Memory on deployed source errors",
+      "generalization of the Memory-to-query-hidden read gap across initializations"
+    ]
+  },
+  "training_protocol": {
+    "chunk_size": 128,
+    "fixed_steps": 2500,
+    "random_stage1_steps": 2500,
+    "later_stage_steps": 1500,
+    "stage_8_lr": 5e-05,
+    "stage_16_lr": 1e-05,
+    "withdrawal_lr": 5e-06,
+    "withdrawal_steps": [
+      300,
+      300,
+      750
+    ],
+    "probe_weights": [
+      0.2,
+      0.1,
+      0.0
+    ],
+    "curriculum_gate": "two consecutive query evaluations >=0.95",
+    "no_extension_after_failure": true
+  },
+  "formal_evaluation": {
+    "chunks": 16,
+    "formation_samples": 800,
+    "causal_samples": 1024,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l3",
+      "batch_roll_l3",
+      "keep_l3"
+    ],
+    "per_seed_primary_gate": {
+      "training_completed": true,
+      "fresh_intact_query": ">=0.95",
+      "minimum_local_across_all_causal_conditions": ">=0.90",
+      "max_reset_zero_roll_or_l3_disruption_query": "<=0.20",
+      "keep_l3_query": ">=0.90",
+      "model_fingerprint_unchanged_during_diagnostics": true
+    }
+  },
+  "fresh_probe_diagnostic": {
+    "model_frozen": true,
+    "features": [
+      "final_layer_memory_concat",
+      "query_hidden"
+    ],
+    "probe": "one linear 16-way classifier per feature with frozen standardization",
+    "train_samples": 2048,
+    "validation_samples": 512,
+    "test_samples": 4096,
+    "minimum_source_errors": 100,
+    "read_gap_replication": {
+      "memory_accuracy_on_source_errors": ">=0.75",
+      "memory_minus_query_hidden_accuracy": ">=0.15"
+    },
+    "role": "secondary diagnostic only; probes cannot gate or modify the model"
+  },
+  "registered_classification": {
+    "strong_independent_replication": "both initializations pass the per-seed primary gate",
+    "conditional_independent_replication": "exactly one initialization forms and passes the primary gate, while the other fails formation",
+    "causal_replication_failed": "a formed model fails the causal primary gate",
+    "formation_replication_failed": "neither initialization forms",
+    "secondary_read_gap": "reported separately and never changes the primary classification"
+  },
+  "locks": {
+    "no_seed_replacement": true,
+    "no_training_budget_extension": true,
+    "no_learning_rate_or_threshold_search": true,
+    "no_router_or_factorized_repair": true,
+    "no_output_head_rescue": true,
+    "no_checkpoint_selection": true,
+    "no_reuse_of_Level_6_19_formal_splits": true,
+    "seed909_and_protected_tests_remain_closed": true
+  },
+  "stop_rule": "record the registered classification; do not rescue a failed seed or add a third seed"
+}

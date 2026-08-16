@@ -1,0 +1,99 @@
+{
+  "level": "7.4.1",
+  "title": "deterministic dense replay of the seed1879 C2-to-C4 formation interval",
+  "status": "exact training replay gated frozen causal localization",
+  "parent": "Level 7.4 l2_core_l3_support_established_by_16chunk_and_stable",
+  "hypothesis": "Exact replay will reproduce the original C4 endpoint and reveal one stable transition from unformed behavior to the L2-core/L3-support route within the saved C2-to-C4 interval.",
+  "frozen_sources": {
+    "start_checkpoint": "experiments/level7_2/formal/seed1879/curriculum_stage1.pt",
+    "start_checkpoint_sha256": "9939755860050c602798b6cec0320ac68fd5197876f389f802d461669034fd6c",
+    "reference_endpoint": "experiments/level7_2/formal/seed1879/curriculum_stage2.pt",
+    "reference_endpoint_sha256": "2703f5ae720e0f5a973244bbca8275b6654c7c25b3c17c95e7dd618dcec4ebbf",
+    "seed": 1879,
+    "parent_result": "experiments/level7_4/formal/result.json"
+  },
+  "exact_replay": {
+    "resume_components": ["model", "Probe", "AdamW optimizer", "CPU RNG", "all CUDA RNG states"],
+    "training_chunks": 4,
+    "chunk_size": 128,
+    "training_batch_size": 4,
+    "learning_rate": 0.001,
+    "Probe_weight": 0.5,
+    "maximum_steps": 1500,
+    "validation_at": "step 1 and every 100 steps",
+    "validation_batches": 10,
+    "validation_batch_size": 8,
+    "behavior_only_gate": "two consecutive query evaluations >=0.95",
+    "expected_stop_step": 1000,
+    "original_milestone_steps": [1, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000],
+    "saved_causal_steps": [0, 1, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000],
+    "intermediate_checkpoint_saving_must_not_change_training_computation_or_RNG": true
+  },
+  "endpoint_qualification_gate": {
+    "model_state": "exact canonical tensor fingerprint match to original C4",
+    "Probe_state": "exact canonical tensor fingerprint match to original C4",
+    "optimizer_state": "exact canonical recursive fingerprint match to original C4",
+    "CPU_RNG": "byte-exact match to original C4",
+    "CUDA_RNG": "byte-exact match for every saved CUDA RNG state",
+    "validation_history": "exact match for every original stage-2 validation record",
+    "stop_step": "exactly 1000 with the original consecutive-pass termination",
+    "failure_action": "classify replay_endpoint_mismatch_causal_panel_closed and do not open the causal panel"
+  },
+  "fresh_shared_causal_panel": {
+    "evaluation_chunks": 16,
+    "chunk_size": 128,
+    "samples_per_milestone_condition": 1024,
+    "eval_batch_size": 16,
+    "dataset_seed": 7410000,
+    "same_examples_for_all_milestones_and_conditions": true,
+    "opened_only_after_endpoint_qualification": true,
+    "fixed_sample_size_no_extension": true,
+    "no_parent_panel_reuse": true
+  },
+  "conditions": [
+    "intact",
+    "reset_all",
+    "zero_all",
+    "batch_roll_all",
+    "zero_l2",
+    "batch_roll_l2",
+    "keep_l2",
+    "zero_l3",
+    "batch_roll_l3",
+    "keep_l3",
+    "keep_l2_l3"
+  ],
+  "route_rules_inherited_from_Level_7_4": {
+    "formed_behavior": "intact query >=0.90 and minimum local >=0.90",
+    "whole_memory_causal": "formed behavior and reset-all, zero-all, and batch-roll-all query <=0.20",
+    "L2_core": "whole-Memory causal; zero-L2 and roll-L2 <=0.20; keep-L2 >=0.80; zero-L3 >=0.80; keep-L3 <=0.20; keep-L2-L3 >=0.90",
+    "L3_support": "keep-L2-L3 minus keep-L2 >=0.03 and intact minus roll-L3 >=0.05"
+  },
+  "registered_classification": {
+    "exact_replay_and_single_stable_formation_transition": "endpoint gate passes; step0 is not L2-core/L3-support; target-route membership changes from false to true exactly once and remains true through step1000",
+    "exact_replay_with_route_regression_or_multiple_transitions": "endpoint gate passes but target-route membership becomes non-monotonic",
+    "exact_replay_without_registered_route_formation": "endpoint gate passes but the registered target route is absent at step1000",
+    "replay_endpoint_mismatch_causal_panel_closed": "one or more endpoint qualification components fail"
+  },
+  "secondary_outputs": [
+    "first formed 16-chunk milestone",
+    "first L2-core/L3-support milestone",
+    "last non-target to first stable-target step interval",
+    "behavior-route synchrony",
+    "model parameter displacement from C2",
+    "L2 necessity, L3 support, and pair-recovery curves"
+  ],
+  "locks": {
+    "original_C2_and_C4_sources_frozen": true,
+    "no_training_hyperparameter_or_early_stop_change": true,
+    "no_milestone_addition_after_results": true,
+    "causal_panel_conditional_on_exact_replay": true,
+    "no_causal_threshold_or_condition_change": true,
+    "no_sample_extension": true,
+    "no_parent_panel_reuse": true,
+    "seed909_locked": true,
+    "no_output_head_or_router_repair": true
+  },
+  "scope": "This replays one saved seed1879 trajectory on the current deterministic CUDA software/hardware stack. An endpoint mismatch blocks mechanistic interpretation and may indicate environment drift or replay nondeterminism.",
+  "stop_rule": "Report the fixed qualification and trajectory classification; do not relax exactness, insert post-hoc milestones, or interpret intermediate checkpoints after a replay mismatch."
+}
