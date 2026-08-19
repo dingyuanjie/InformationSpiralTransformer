@@ -1,0 +1,268 @@
+{
+  "level": "7.5.3.2",
+  "title": "Optimizer-state x data-stream causal bifurcation",
+  "status": "preregistered_before_formal_run",
+  "parent": "Level 7.5.3.1",
+  "hypothesis": "The route formation/collapse volatility in Level 7.5.3.1 is controlled by inherited AdamW state, inherited stochastic data order, or their interaction rather than by endpoint weights alone.",
+  "parent_result": {
+    "path": "experiments/level7_5_3_1/formal/result.json",
+    "sha256": "2f8c5d677c68a978c27e59a97bb343587a8a950f84bce62bd3a6f55e103d7e42",
+    "required_classification": "continued_C4_destabilizes_preformed_routes"
+  },
+  "selection_design": {
+    "type": "outcome-stratified mechanism diagnostic",
+    "not_a_prevalence_estimate": true,
+    "roles": [
+      "persistent_L2_loss",
+      "unformed_L3_recovery",
+      "late_L3_collapse",
+      "transient_L3_collapse_recovery"
+    ]
+  },
+  "frozen_sources": [
+    {
+      "id": "seed1879_intact_replay",
+      "seed": 1879,
+      "branch": "intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "expected_route": "l2_core_l3_supported",
+      "baseline_route": "l2_core_l3_supported",
+      "parent_final_route": "unformed_behavior",
+      "parent_final_query": 0.7919921875,
+      "checkpoint": "experiments/level7_5_3/formal/seed1879/intact_replay/C4_endpoint.pt",
+      "checkpoint_sha256": "4330acaf0cb3100bb2595cd1852fab24c9dc0c071b1f3007123bd1e0862196ed",
+      "checkpoint_size_bytes": 4325455,
+      "exact_reference_milestones": [
+        {
+          "recovery_step": 300,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed1879/intact_replay/recovery/model_step0300.pt",
+          "checkpoint_sha256": "685d889eaa55887fd8c3dda2a90cbafe4122ba45cbed153d29fbf0999d0c1529"
+        },
+        {
+          "recovery_step": 600,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed1879/intact_replay/recovery/model_step0600.pt",
+          "checkpoint_sha256": "cea26b58797c7504501f9760c6c88a43978acc501985d41c8da22380d14ecf0a"
+        },
+        {
+          "recovery_step": 1000,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed1879/intact_replay/recovery/model_step1000.pt",
+          "checkpoint_sha256": "c62ea19e74530f297851987dc4f179a1f364f3a014030fc1a77961b3ff35e73d"
+        }
+      ]
+    },
+    {
+      "id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "branch": "selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "expected_route": "l3_core",
+      "baseline_route": "unformed_behavior",
+      "parent_final_route": "l3_core",
+      "parent_final_query": 0.96630859375,
+      "checkpoint": "experiments/level7_5_3/formal/seed2203/selected_layer_suppression/C4_endpoint.pt",
+      "checkpoint_sha256": "0da36751fac997921584685d5a0c0b4ea08697308de7bdc427c00fd9fb0e812d",
+      "checkpoint_size_bytes": 4321743,
+      "exact_reference_milestones": [
+        {
+          "recovery_step": 300,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2203/selected_layer_suppression/recovery/model_step0300.pt",
+          "checkpoint_sha256": "2a5aaec9900175914a82b00ee3933dd3ede1345992c56d2c66a6edac724b4a2a"
+        },
+        {
+          "recovery_step": 600,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2203/selected_layer_suppression/recovery/model_step0600.pt",
+          "checkpoint_sha256": "7534737a98973d9cc1042a9eb10dd619fd568df105a85b9474ef239a675d9a21"
+        },
+        {
+          "recovery_step": 1000,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2203/selected_layer_suppression/recovery/model_step1000.pt",
+          "checkpoint_sha256": "7240f64766198a81e95ec1b61ce24c0efe72b6169faf1d4aa141bd86e4cf6741"
+        }
+      ]
+    },
+    {
+      "id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "branch": "selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "expected_route": "l3_core",
+      "baseline_route": "l3_core",
+      "parent_final_route": "unformed_behavior",
+      "parent_final_query": 0.24365234375,
+      "checkpoint": "experiments/level7_5_3/formal/seed2551/selected_layer_suppression/C4_endpoint.pt",
+      "checkpoint_sha256": "14c776f78821f968b0caf909312b863352b8fd9d887d970426245f3cf41560a2",
+      "checkpoint_size_bytes": 4320911,
+      "exact_reference_milestones": [
+        {
+          "recovery_step": 300,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2551/selected_layer_suppression/recovery/model_step0300.pt",
+          "checkpoint_sha256": "93541943f299134dcd8f9e27af978458066b33f9bd5739f9a790644973ecc04c"
+        },
+        {
+          "recovery_step": 600,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2551/selected_layer_suppression/recovery/model_step0600.pt",
+          "checkpoint_sha256": "b39d6b34aa79f61ae3a40a683d972a8677570638c52f6a94c8c1f4f6346f2e4b"
+        },
+        {
+          "recovery_step": 1000,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2551/selected_layer_suppression/recovery/model_step1000.pt",
+          "checkpoint_sha256": "2fd04c46007b8939ef1e3b87dc91d8c4184644e78bcaea599d1981a3fb2ead18"
+        }
+      ]
+    },
+    {
+      "id": "seed2909_intact_replay",
+      "seed": 2909,
+      "branch": "intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "expected_route": "l3_core",
+      "baseline_route": "l3_core",
+      "parent_final_route": "l3_core",
+      "parent_final_query": 0.94091796875,
+      "checkpoint": "experiments/level7_5_3/formal/seed2909/intact_replay/C4_endpoint.pt",
+      "checkpoint_sha256": "9862476ac927196b36da89ce25500b4a70de4347b80bf7bedc23b3b0f2358fe8",
+      "checkpoint_size_bytes": 4321167,
+      "exact_reference_milestones": [
+        {
+          "recovery_step": 300,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2909/intact_replay/recovery/model_step0300.pt",
+          "checkpoint_sha256": "97a08c2044a93ddfbbd323117c4d212ef7d630135bb3aefa67cedbd03bcfe8a0"
+        },
+        {
+          "recovery_step": 600,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2909/intact_replay/recovery/model_step0600.pt",
+          "checkpoint_sha256": "e92edfc4eec7fc424d39abdcd873bb2d93355fe610361e9ca263de96c6895886"
+        },
+        {
+          "recovery_step": 1000,
+          "checkpoint": "experiments/level7_5_3_1/formal/seed2909/intact_replay/recovery/model_step1000.pt",
+          "checkpoint_sha256": "cc6d570ee364eea938993f2db3108cec4daa9135dfc93bfa3cdb79a803a9334f"
+        }
+      ]
+    }
+  ],
+  "arms": [
+    {
+      "name": "preserve_optimizer_preserve_rng",
+      "preserve_optimizer": true,
+      "preserve_rng": true
+    },
+    {
+      "name": "reset_optimizer_preserve_rng",
+      "preserve_optimizer": false,
+      "preserve_rng": true
+    },
+    {
+      "name": "preserve_optimizer_reset_rng",
+      "preserve_optimizer": true,
+      "preserve_rng": false
+    },
+    {
+      "name": "reset_optimizer_reset_rng",
+      "preserve_optimizer": false,
+      "preserve_rng": false
+    }
+  ],
+  "exact_reference": {
+    "training": "No new training. Reuse the hash-locked Level 7.5.3.1 step300/600/1000 model checkpoints.",
+    "reevaluation": "All exact checkpoints receive the new Level 7.5.3.2 panels."
+  },
+  "causal_training": {
+    "new_arms": 12,
+    "additional_C4_steps": 1000,
+    "chunks": 4,
+    "chunk_size": 128,
+    "batch_size": 4,
+    "learning_rate": 0.001,
+    "Probe_weight": 0.5,
+    "validation_at": "step1 and every100 steps",
+    "validation_batches": 10,
+    "validation_batch_size": 8,
+    "all_masks_removed": true,
+    "no_early_stopping": true,
+    "same_compute_for_all_new_arms": true
+  },
+  "data_stream_reset": {
+    "seed": 7532002,
+    "scope": "Python, CPU torch, and all CUDA RNG states are reset after source weights and optional optimizer state are loaded.",
+    "shared_across_all_reset_RNG_arms_and_sources": true
+  },
+  "optimizer_reset": {
+    "method": "Fresh AdamW state over the exact source model and Probe parameters",
+    "learning_rate": 0.001,
+    "state_entry_count_before_training": 0,
+    "hyperparameters_other_than_state_unchanged": true
+  },
+  "trajectory_screen_panel": {
+    "milestones": [
+      0,
+      300,
+      600,
+      1000
+    ],
+    "step0_shared_once_per_source": true,
+    "conditions": [
+      "intact",
+      "zero_l2",
+      "zero_l3",
+      "keep_l2",
+      "keep_l3"
+    ],
+    "chunks": 16,
+    "samples_per_condition": 1024,
+    "dataset_seed": 7532000,
+    "formed_threshold": 0.9,
+    "local_threshold": 0.9
+  },
+  "final_confirmation_panel": {
+    "milestone": 1000,
+    "arms": 16,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ],
+    "chunks": 16,
+    "samples_per_condition": 2048,
+    "dataset_seed": 7532001
+  },
+  "material_effect_definition": {
+    "formed_vector_changed": "Any change in the registered formed/unformed state at steps300/600/1000 relative to the exact arm.",
+    "final_fate_changed": "A change in whether the final full panel forms the source-specific expected L2/L3 route.",
+    "continuous_change": "At least 0.15 absolute intact-query difference at one registered post-source milestone.",
+    "material_effect": "Any one of formed_vector_changed, final_fate_changed, or continuous_change."
+  },
+  "registered_outcomes": {
+    "optimizer_state_primary_driver": "Optimizer-only reset materially changes at least 3/4 sources while RNG-only reset changes at most 1/4.",
+    "data_stream_primary_driver": "RNG-only reset materially changes at least 3/4 sources while optimizer-only reset changes at most 1/4.",
+    "optimizer_rng_interaction_primary": "Each single reset changes at most 1/4 sources while the joint reset changes at least 3/4.",
+    "optimizer_and_data_stream_both_causal": "Both single-reset arms materially change at least 2/4 sources.",
+    "endpoint_weight_basin_dominant": "No reset arm materially changes any of the four source trajectories.",
+    "heterogeneous_causal_control": "All other valid source-specific patterns.",
+    "formal_integrity_failed_causal_interpretation_closed": "A source, initialization, compute, panel, or hash lock fails."
+  },
+  "locks": {
+    "source_selection_frozen": true,
+    "arms_frozen": true,
+    "reset_seed_frozen": true,
+    "training_budget_frozen": true,
+    "panels_frozen": true,
+    "seed909_excluded": true,
+    "no_post_hoc_threshold_changes": true
+  },
+  "scope": "This is a causal mechanism diagnostic on four outcome-stratified endpoints, not an estimate of how often each driver occurs among all seeds or branches.",
+  "stop_rule": "Report the fixed 2x2 bifurcation. Do not add seeds, endpoints, training steps, reset seeds, learning rates, or post-hoc intervention arms."
+}

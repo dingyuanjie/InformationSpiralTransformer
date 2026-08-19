@@ -108,11 +108,38 @@ def parse_args() -> argparse.Namespace:
 
 def atomic_save(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+    serialized = json.dumps(payload, ensure_ascii=False, indent=2)
+    # A fixed ``progress.json.tmp`` is easy for antivirus/indexing processes to
+    # catch between the write and rename on Windows.  Once that happens,
+    # os.replace can fail with WinError 5 even though neither file is read-only.
+    # Use a unique sibling and retry the atomic rename for transient readers.
+    temporary = path.with_name(
+        f".{path.name}.{os.getpid()}.{time.time_ns()}.tmp"
     )
-    temporary.replace(path)
+    temporary.write_text(serialized, encoding="utf-8")
+    replace_error: PermissionError | None = None
+    for attempt in range(30):
+        try:
+            temporary.replace(path)
+            return
+        except PermissionError as error:
+            replace_error = error
+            time.sleep(min(0.05 * (attempt + 1), 0.5))
+
+    # Some Windows readers allow writes but do not share delete access, which
+    # makes every rename fail.  Progress/result files are still recoverable from
+    # the completed per-branch artifacts, so prefer a direct overwrite after the
+    # bounded atomic retries instead of aborting a multi-hour experiment.
+    for attempt in range(10):
+        try:
+            path.write_text(serialized, encoding="utf-8")
+            temporary.unlink(missing_ok=True)
+            return
+        except PermissionError:
+            time.sleep(min(0.1 * (attempt + 1), 0.5))
+    if replace_error is not None:
+        raise replace_error
+    raise RuntimeError(f"failed to save JSON: {path}")
 
 
 def read_json(path: Path) -> Any:

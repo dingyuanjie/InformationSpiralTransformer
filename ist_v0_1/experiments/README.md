@@ -145,6 +145,159 @@ replicate; instead, all three new seeds formed whole-Memory-causal 16-chunk
 behavior through the same L3-dominant signature. See
 `level7_5/formal/ANALYSIS.md`.
 
+## Level 7.5.1 fixed-to-C2 route-bifurcation replay
+
+Restore and exactly replay the fixed-stage-to-C2 interval for the three new
+L3-dominant seeds and the exceptional seed1879 L2 trajectory:
+
+```bash
+python run_level7_5_1_local.py
+```
+
+Each seed's 16-chunk causal trajectory opens only after an exact C2 endpoint
+match covering model, Probe, optimizer, CPU/CUDA RNG, validation history, and
+stop step. Qualified replays evaluate the fixed endpoint, step1, and every
+100-step C2 milestone on a new shared N=1,024 full-layer panel. The primary
+question is whether weak L3 selection forms prospectively in all three default
+L3 trajectories but remains absent from seed1879. See
+`level7_5_1/README.md` for the 4-7 hour runtime and fixed stop boundary.
+
+The formal run completed all 57 milestones with integrity PASS and
+classification `default_L3_precursor_divergence_confirmed`. Weak L3 selection
+first appeared at step700 in seeds2551/2909 and step1000 in seed2203, then
+persisted through C2; seed1879 never entered that registered route through
+step2300. A post-hoc mirrored diagnostic additionally found a transient weak
+L2 scaffold only in seed1879 at steps1400 and1600. That secondary observation
+is explicitly exploratory and motivates an independent frozen-panel
+confirmation in Level 7.5.2. See `level7_5_1/formal/ANALYSIS.md`.
+
+## Level 7.5.2 independent weak-L2 precursor confirmation
+
+Evaluate the frozen C2 route window on a completely new causal dataset:
+
+```bash
+python run_level7_5_2_local.py
+```
+
+The formal protocol fixes seed1879 steps1200-1800, with steps1400 and1600 as
+the two registered weak-L2 positives. Nine checkpoints bracketing the three
+default seeds' L3 transitions are frozen as L2-negative controls. Every one of
+the 16 checkpoints receives all sixteen 16-chunk interventions at N=4,096 on
+dataset seed7520000. No training or checkpoint selection occurs. The primary
+confirmation requires 2/2 seed1879 positives and 0/9 default-route L2 false
+positives. See `level7_5_2/README.md` for the fixed protocol, runtime, and
+resume behavior.
+
+The formal run completed with integrity PASS and classification
+`weak_L2_precursor_partially_replicated`: step1400 replicated but step1600
+failed one frozen preservation clause. The new panel independently selected
+steps1300-1400 as the weak-L2 window, yielded zero L2 false positives across
+the nine default-route controls, and redetected all five L3 calibration
+positives. From step1500 onward L2 remained dominant while L3 removal caused a
+greater-than-five-point loss, suggesting recruitment of L3 support rather than
+loss of the L2 scaffold. See `level7_5_2/formal/ANALYSIS.md`.
+
+## Level 7.5.3 route-commitment causal intervention
+
+Run fixed-compute training-time counterfactual branches around each seed's
+registered C2 commitment window:
+
+```bash
+python run_level7_5_3_local.py
+```
+
+Each of four seeds receives an exact intact replay, 200 steps of selected-layer
+Memory suppression, and a matched other-layer suppression branch. All masks
+are released before the remaining C2 and C4 schedule. The twelve fixed C4
+endpoints are classified on one new shared N=2,048, 16-chunk, sixteen-condition
+panel. The primary test requires an L2-specific effect in seed1879 and the
+converse L3-specific effect in at least two of three default seeds. See
+`level7_5_3/README.md` for exact gates, runtime, and resume behavior.
+
+The formal run completed with integrity PASS and classification
+`transient_suppression_disrupts_routes_nonspecifically`. Selected-layer masks
+changed the registered endpoint class in 2/4 seeds, but matched other-layer
+masks changed it in 4/4. No branch switched between L2 and L3 topology; all
+formal class changes were sub-90% long-context formation, while every branch
+still reached 96.25%-100% on four-chunk validation. The result rejects a simple
+layer-specific commitment switch and instead implicates distributed training
+scaffolding and long-context formation efficiency. See
+`level7_5_3/formal/ANALYSIS.md`.
+
+## Level 7.5.3.1 unsuppressed recovery dynamics
+
+Resume all twelve frozen Level 7.5.3 endpoints with no masks and a common
+additional 1,000-step C4 budget:
+
+```bash
+python run_level7_5_3_1_local.py
+```
+
+Five-condition N=1,024 screens at recovery steps0/100/300/600/1000 measure
+recovery timing and dominant layer retention. A separate N=2,048 full panel at
+step1000 provides the registered final route classification. The primary
+question is whether all six previously unformed branches recover their original
+L2/L3 route while all six already formed branches remain stable. See
+`level7_5_3_1/README.md` for the frozen groups, outcomes, and resume behavior.
+
+The formal run completed with integrity PASS and classification
+`continued_C4_destabilizes_preformed_routes`. Three of six initially unformed
+branches recovered their original route, but only one of six initially formed
+branches retained it at the endpoint, and none remained stable across every
+registered milestone. No endpoint migrated to the opposite L2/L3 topology.
+The result identifies route formation as a path-dependent, metastable training
+state rather than monotonic recovery.
+
+## Level 7.5.3.2 optimizer-state × data-stream causal bifurcation
+
+Fork four frozen, outcome-stratified Level 7.5.3 sources under orthogonal
+optimizer-state and RNG/data-stream interventions:
+
+```bash
+python run_level7_5_3_2_local.py
+```
+
+The exact Level 7.5.3.1 continuation is hash-locked and reevaluated rather than
+retrained. Twelve new branches reset AdamW state, reset the stochastic stream,
+or reset both while holding source weights, C4 loss, learning rate, and compute
+fixed. Shared screens at steps0/300/600/1000 and full step1000 panels determine
+whether volatility is controlled primarily by optimizer momentum, data order,
+their interaction, or the endpoint weight basin. See
+`level7_5_3_2/README.md` for the frozen endpoints, runtime, and stop boundary.
+
+The formal run completed with integrity PASS and classification
+`optimizer_and_data_stream_both_causal`. Resetting AdamW state materially
+changed 3/4 diagnostic trajectories and their final fate in 3/4. Resetting the
+data stream materially changed all 4 trajectories, while changing the final
+route in 1/4. Resetting both changed all 4. No intervention produced a stable
+recovery across the registered milestones, and no opposite L2/L3 route formed.
+See `level7_5_3_2/formal/ANALYSIS.md` for the endpoint table and interpretation
+boundary.
+
+## Level 7.5.3.3 Memory parameter-group causal intervention
+
+Hold the exact Level 7.5.3.2 optimizer state and data stream fixed while
+freezing layer-specific Memory pathways or update gates:
+
+```bash
+python run_level7_5_3_3_local.py
+```
+
+The four outcome-stratified endpoints receive exact reference, L2 pathway,
+L3 pathway, L2 update-gate, and L3 update-gate branches. The registered panels
+at steps0/300/600/1000 test whether route volatility is localized to a layer,
+to the update gate, or to distributed Memory parameters. See
+`level7_5_3_3/README.md` for the fixed parameter groups and stop boundary.
+
+The formal run completed with integrity PASS and classification
+`distributed_l2_l3_memory_pathway`. Freezing the L3 Memory pathway affected all
+4 diagnostic endpoints and freezing the L3 update gate produced the same
+material-effect status in all 4. Freezing the L2 pathway affected 3/4 and the
+L2 gate 3/4, including a persistent-L2 recovery and a catastrophic cross-layer
+collapse. The result localizes route volatility to a distributed L2/L3 Memory
+pathway, with L3 as the strongest direct control point but no single universal
+owner. See `level7_5_3_3/formal/ANALYSIS.md`.
+
 ## Results archive
 
 `results/` contains the raw JSON and visualization produced during v0.1-v0.3.
@@ -169,3 +322,13 @@ python level4_long_context.py --encoding rope --seed 313 \
 ```
 
 The extended stages use batch sizes 8 and 4 respectively to bound GPU memory.
+
+## Level 7.5.3.4
+
+冻结 Memory pathway 的 slot 查询、写入核心、读取/融合三类参数，比较 L2/L3 的细粒度因果贡献。正式结果位于 `experiments/level7_5_3_4/formal/`。
+
+```powershell
+python run_level7_5_3_4_local.py --dry-run
+python run_level7_5_3_4_local.py --smoke-test --force
+python run_level7_5_3_4_local.py
+```

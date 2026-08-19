@@ -1,0 +1,146 @@
+{
+  "level": "7.5.1",
+  "title": "endpoint-qualified dense fixed-to-C2 route-bifurcation replay",
+  "status": "four frozen source trajectories; exact replay gate and diagnostic thresholds frozen before replay",
+  "parent": "Level 7.5 alternative_route_formation_observed",
+  "hypothesis": "The reproducible L3 route is selected during C2: seeds2203, 2551, and 2909 will develop a registered weak L3-selective precursor between the fixed endpoint and C2, while the exceptional seed1879 trajectory will not develop that precursor.",
+  "frozen_sources": [
+    {
+      "seed": 2203,
+      "route_group": "Level7.5_L3_default",
+      "start_checkpoint": "experiments/level7_5/formal/seed2203/level6_1.pt",
+      "start_checkpoint_sha256": "56f16453bb76276d219c1c41eafe856f5c9cabeb1ecbe096ec6b3ec4a90b37b9",
+      "reference_endpoint": "experiments/level7_5/formal/seed2203/curriculum_stage1.pt",
+      "reference_endpoint_sha256": "9632d6ed078ed328a2541d680325590fa3c1c92459efcc5837735fbb7b67c141",
+      "reference_stop_step": 1000
+    },
+    {
+      "seed": 2551,
+      "route_group": "Level7.5_L3_default",
+      "start_checkpoint": "experiments/level7_5/formal/seed2551/level6_1.pt",
+      "start_checkpoint_sha256": "0f9fff5aaa37ef952a295212eb14c966ddcc65115e0310dea64f9e941fee0125",
+      "reference_endpoint": "experiments/level7_5/formal/seed2551/curriculum_stage1.pt",
+      "reference_endpoint_sha256": "6e0b478978e7cbb39e3111a90edf64358b41d44986e044d96fd35317e3617100",
+      "reference_stop_step": 800
+    },
+    {
+      "seed": 2909,
+      "route_group": "Level7.5_L3_default",
+      "start_checkpoint": "experiments/level7_5/formal/seed2909/level6_1.pt",
+      "start_checkpoint_sha256": "e52dc48b363fd4b3a90211db2cfbfe39f21269b2b25bd6e276bfe30b64071579",
+      "reference_endpoint": "experiments/level7_5/formal/seed2909/curriculum_stage1.pt",
+      "reference_endpoint_sha256": "9bedb9025827207586d15e064e30a0e8b9c6ef6510f0369697572784db28ad2f",
+      "reference_stop_step": 800
+    },
+    {
+      "seed": 1879,
+      "route_group": "exceptional_L2_core_L3_support",
+      "start_checkpoint": "experiments/level7_2/formal/seed1879/level6_1.pt",
+      "start_checkpoint_sha256": "ffd969e6873f373f8a96132ff22387faa0b95dc05a52c6f08bda441acda9141a",
+      "reference_endpoint": "experiments/level7_2/formal/seed1879/curriculum_stage1.pt",
+      "reference_endpoint_sha256": "9939755860050c602798b6cec0320ac68fd5197876f389f802d461669034fd6c",
+      "reference_stop_step": 2300
+    }
+  ],
+  "exact_replay": {
+    "resume_components": [
+      "model",
+      "Probe",
+      "AdamW optimizer",
+      "CPU RNG",
+      "all CUDA RNG states"
+    ],
+    "post-fixed_seed_reset": "set_seed(model_seed + 20000) exactly as in the original training path",
+    "training_chunks": 2,
+    "chunk_size": 128,
+    "training_batch_size": 8,
+    "learning_rate": 0.001,
+    "Probe_weight": 0.5,
+    "maximum_steps": 2500,
+    "validation_at": "step1 and every100 steps",
+    "validation_batches": 10,
+    "validation_batch_size": 8,
+    "behavior_only_gate": "two consecutive query evaluations >=0.95",
+    "saved_milestones": "original fixed endpoint as step0, then replay step1 and every100 steps through each source's exact stop",
+    "intermediate_checkpoint_saving_must_not_change_training_computation_or_RNG": true
+  },
+  "per_seed_endpoint_qualification_gate": {
+    "model_state": "exact canonical tensor fingerprint match",
+    "Probe_state": "exact canonical tensor fingerprint match",
+    "optimizer_state": "exact canonical recursive fingerprint match",
+    "CPU_RNG": "byte-exact match",
+    "CUDA_RNG": "byte-exact match for every saved device state",
+    "validation_history": "exact match for every C2 validation record",
+    "stop_step": "exact source-specific registered stop",
+    "consecutive_pass_state": "exactly two",
+    "failure_action": "close only that seed's causal panel and exclude its intermediate milestones from mechanistic interpretation"
+  },
+  "fresh_shared_causal_panel": {
+    "evaluation_chunks": 16,
+    "chunk_size": 128,
+    "samples_per_seed_milestone_condition": 1024,
+    "evaluation_batch_size": 16,
+    "dataset_seed": 7510000,
+    "same_examples_for_every_seed_milestone_and_condition": true,
+    "fixed_sample_size_no_extension": true,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ]
+  },
+  "registered_profiles": {
+    "formed_behavior": "intact query >=0.90 and minimum local across conditions >=0.90",
+    "whole_memory_causal": "formed behavior and reset-all, zero-all, and batch-roll-all query <=0.20",
+    "strict_L3_core": "whole-Memory causal; zero-L3 and roll-L3 <=0.20; keep-L3 >=0.90; zero-L1 and zero-L2 >=0.80; keep-L1 and keep-L2 <=0.20",
+    "weak_L3_selective_precursor": "not strict L3 core; intact >=0.20; minimum local >=0.90; all whole-Memory controls <=0.20; zero-L3 and roll-L3 <=0.20; keep-L3 >=0.20; keep-L1 and keep-L2 <=0.20; zero-L1 and zero-L2 each >= max(0.20, intact-0.05); keep-L3 minus max(keep-L1,keep-L2) >=0.10"
+  },
+  "per_seed_registered_outcomes": {
+    "L3_precursor_formed_during_C2": "step0 is not precursor, a later replay milestone is precursor, and the C2 endpoint remains precursor or strict L3 core",
+    "L3_precursor_preexisting_at_fixed": "step0 already passes the weak precursor rule",
+    "L3_precursor_regressed_before_C2": "a precursor occurs but neither precursor nor strict L3 core is present at the C2 endpoint",
+    "L3_precursor_absent_through_C2": "no saved milestone passes the weak precursor or strict L3-core rule",
+    "replay_endpoint_mismatch_causal_panel_closed": "the seed fails one or more endpoint exactness gates"
+  },
+  "cohort_registered_classification": {
+    "default_L3_precursor_divergence_confirmed": "all exact gates pass; all three Level7.5 L3 seeds form a weak L3 precursor during C2; seed1879 remains precursor-negative through C2",
+    "L3_precursor_not_route_specific": "all exact gates pass and seed1879 also forms the registered L3 precursor",
+    "L3_precursor_not_universal": "all exact gates pass but one or more Level7.5 L3 seeds never form the registered precursor",
+    "exact_replay_incomplete_causal_interpretation_partial": "one or more exact replay gates fail",
+    "route_bifurcation_unresolved": "all gates pass but the fixed classifications do not satisfy another registered cohort outcome"
+  },
+  "secondary_outputs": [
+    "first weak L3 precursor and first strict L3-core step per seed",
+    "full L1/L2/L3 necessity, roll-sensitivity, single and pair sufficiency trajectory",
+    "route-membership regression",
+    "in-range C2 validation versus fresh 16-chunk behavior",
+    "parameter displacement from the fixed-stage endpoint"
+  ],
+  "locks": {
+    "all_sources_and_hashes_frozen": true,
+    "no_training_hyperparameter_or_early_stop_change": true,
+    "no_source_or_seed_replacement": true,
+    "no_milestone_addition_or_removal": true,
+    "no_threshold_change": true,
+    "no_sample_extension": true,
+    "no_checkpoint_selection": true,
+    "no_C4_C8_C16_or_withdrawal_training": true,
+    "no_output_head_router_or_memory_repair": true,
+    "seed909_locked": true
+  },
+  "scope": "This compares four deterministic training trajectories on the current software/hardware stack. Exact replay is required before interpreting a seed. The result localizes route selection on one synthetic task and does not estimate population frequencies.",
+  "stop_rule": "Report the fixed exactness and cohort classifications; do not insert post-hoc milestones, relax a precursor threshold, extend a failed replay, or replace a source."
+}

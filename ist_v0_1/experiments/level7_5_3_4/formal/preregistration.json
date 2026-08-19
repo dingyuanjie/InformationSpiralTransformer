@@ -1,0 +1,103 @@
+{
+  "level": "7.5.3.4",
+  "title": "Frozen fine-grained Memory pathway causal intervention",
+  "parent_result": "experiments/level7_5_3_2/formal/result.json",
+  "parent_result_sha256": "bc1490388243c38a011d72b7dec272345d13ae034f1847e3cd21dc778e3cb6cd",
+  "frozen_source_ids": [
+    "seed1879_intact_replay",
+    "seed2203_selected_layer_suppression",
+    "seed2551_selected_layer_suppression",
+    "seed2909_intact_replay"
+  ],
+  "arms": [
+    {
+      "name": "preserve_optimizer_preserve_rng",
+      "kind": "none",
+      "layer": null
+    },
+    {
+      "name": "freeze_l2_slot_queries",
+      "kind": "slot_queries",
+      "layer": 2
+    },
+    {
+      "name": "freeze_l3_slot_queries",
+      "kind": "slot_queries",
+      "layer": 3
+    },
+    {
+      "name": "freeze_l2_write_core",
+      "kind": "write_core",
+      "layer": 2
+    },
+    {
+      "name": "freeze_l3_write_core",
+      "kind": "write_core",
+      "layer": 3
+    },
+    {
+      "name": "freeze_l2_read_fusion",
+      "kind": "read_fusion",
+      "layer": 2
+    },
+    {
+      "name": "freeze_l3_read_fusion",
+      "kind": "read_fusion",
+      "layer": 3
+    }
+  ],
+  "training": {
+    "steps": 1000,
+    "batch_size": 4,
+    "learning_rate": 0.001,
+    "chunk_size": 128,
+    "causal_chunks": 16,
+    "dataset": "unmasked C4"
+  },
+  "trajectory_screen_panel": {
+    "milestones": [
+      0,
+      300,
+      600,
+      1000
+    ],
+    "samples": 1024,
+    "dataset_seed": 7534000,
+    "conditions": [
+      "intact",
+      "zero_l2",
+      "zero_l3",
+      "keep_l2",
+      "keep_l3"
+    ]
+  },
+  "final_confirmation_panel": {
+    "samples": 2048,
+    "dataset_seed": 7534001,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ]
+  },
+  "registered_counts": {
+    "new_training_arms": 24,
+    "trajectory_panels": 84,
+    "confirmation_panels": 28
+  },
+  "freeze_rule": "requires_grad=False for the selected group only; AdamW state, RNG, data stream and update gate remain exact and active",
+  "stop_rule": "No additional groups, layers, seeds, steps or post-hoc gates"
+}

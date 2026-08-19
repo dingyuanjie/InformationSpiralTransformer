@@ -1,0 +1,1073 @@
+{
+  "diagnosis": {
+    "classification": "optimizer_and_data_stream_both_causal",
+    "outcome_stratified_sources": 4,
+    "arm_summaries": {
+      "reset_optimizer_preserve_rng": {
+        "material_effect_sources": 3,
+        "final_fate_changed_sources": 3,
+        "stabilized_sources": 0,
+        "destabilized_sources": 1
+      },
+      "preserve_optimizer_reset_rng": {
+        "material_effect_sources": 4,
+        "final_fate_changed_sources": 1,
+        "stabilized_sources": 0,
+        "destabilized_sources": 1
+      },
+      "reset_optimizer_reset_rng": {
+        "material_effect_sources": 4,
+        "final_fate_changed_sources": 1,
+        "stabilized_sources": 0,
+        "destabilized_sources": 1
+      }
+    },
+    "interpretation_scope": "Mechanism diagnosis for four frozen outcome-stratified endpoints; not a prevalence estimate over all Level 7.5.3.1 branches.",
+    "registered_stop_boundary": "Report the fixed 2x2 bifurcation; do not add seeds, endpoints, training steps, reset seeds, or post-hoc arms."
+  },
+  "integrity": {
+    "script_sha256": "0532cb012a6b24c16cf3d1d6157231274832003f60b3e3a7b501830dc9650caf",
+    "preregistration_sha256": "cd426ec4f1e61b853ee6e8049ded59223b277e87f5deddf43cba5a3f58ef8df6",
+    "parent_result_sha256": "2f8c5d677c68a978c27e59a97bb343587a8a950f84bce62bd3a6f55e103d7e42",
+    "all_sources_and_exact_references_validated": true,
+    "expected_new_training_arms": 12,
+    "completed_new_training_arms": 12,
+    "all_training_steps_exact": true,
+    "all_initialization_gates_passed": true,
+    "all_optimizer_resets_empty": true,
+    "all_optimizer_preservations_exact": true,
+    "all_RNG_preservations_exact": true,
+    "all_RNG_resets_share_one_locked_state": true,
+    "no_memory_masks": true,
+    "no_training_beyond_budget": true,
+    "expected_shared_source_screens": 4,
+    "completed_shared_source_screens": 4,
+    "expected_trajectory_screens": 48,
+    "completed_trajectory_screens": 48,
+    "all_screen_integrity_passed": true,
+    "screen_dataset_seed": 7532000,
+    "expected_confirmation_panels": 16,
+    "completed_confirmation_panels": 16,
+    "all_confirmation_integrity_passed": true,
+    "confirmation_dataset_seed": 7532001,
+    "seed909_used": false,
+    "passed": true
+  },
+  "arm_summaries": {
+    "reset_optimizer_preserve_rng": {
+      "material_effect_sources": 3,
+      "final_fate_changed_sources": 3,
+      "stabilized_sources": 0,
+      "destabilized_sources": 1
+    },
+    "preserve_optimizer_reset_rng": {
+      "material_effect_sources": 4,
+      "final_fate_changed_sources": 1,
+      "stabilized_sources": 0,
+      "destabilized_sources": 1
+    },
+    "reset_optimizer_reset_rng": {
+      "material_effect_sources": 4,
+      "final_fate_changed_sources": 1,
+      "stabilized_sources": 0,
+      "destabilized_sources": 1
+    }
+  },
+  "endpoint_outcomes": [
+    {
+      "id": "seed1879_intact_replay__preserve_optimizer_preserve_rng",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "source_branch": "intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "preserve_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.951171875,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.734375,
+          "minimum_local": 0.9619140625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.818359375,
+          "minimum_local": 0.994140625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.80078125,
+          "minimum_local": 0.962890625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.7845052083333334,
+      "trajectory_query_min": 0.734375,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.78857421875,
+      "route_stability_score": 0
+    },
+    {
+      "id": "seed1879_intact_replay__reset_optimizer_preserve_rng",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "source_branch": "intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "reset_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.951171875,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.7314453125,
+          "minimum_local": 0.94140625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.7265625,
+          "minimum_local": 0.9599609375,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.7626953125,
+          "minimum_local": 0.9794921875,
+          "dominant_retention_layer": 2,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.740234375,
+      "trajectory_query_min": 0.7265625,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.765625,
+      "route_stability_score": 0
+    },
+    {
+      "id": "seed1879_intact_replay__preserve_optimizer_reset_rng",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "source_branch": "intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "preserve_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.951171875,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.8935546875,
+          "minimum_local": 0.9873046875,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.8837890625,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.861328125,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.8795572916666666,
+      "trajectory_query_min": 0.861328125,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.865234375,
+      "route_stability_score": 0
+    },
+    {
+      "id": "seed1879_intact_replay__reset_optimizer_reset_rng",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "source_branch": "intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "reset_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.951171875,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.5498046875,
+          "minimum_local": 0.9228515625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.80078125,
+          "minimum_local": 0.9892578125,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.7802734375,
+          "minimum_local": 0.984375,
+          "dominant_retention_layer": 2,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.7102864583333334,
+      "trajectory_query_min": 0.5498046875,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.77294921875,
+      "route_stability_score": 0
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__preserve_optimizer_preserve_rng",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "preserve_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.5859375,
+          "minimum_local": 0.9921875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9638671875,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.9599609375,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        true,
+        true
+      ],
+      "trajectory_query_mean": 0.8365885416666666,
+      "trajectory_query_min": 0.5859375,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.96533203125,
+      "route_stability_score": 3
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__reset_optimizer_preserve_rng",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "reset_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.7958984375,
+          "minimum_local": 0.9912109375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9814453125,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.7841796875,
+          "minimum_local": 0.9814453125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        true,
+        false
+      ],
+      "trajectory_query_mean": 0.8538411458333334,
+      "trajectory_query_min": 0.7841796875,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.77001953125,
+      "route_stability_score": 1
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__preserve_optimizer_reset_rng",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "preserve_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.5810546875,
+          "minimum_local": 0.9970703125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.8720703125,
+          "minimum_local": 0.9599609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.767578125,
+          "minimum_local": 0.9970703125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.740234375,
+      "trajectory_query_min": 0.5810546875,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.7998046875,
+      "route_stability_score": 0
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__reset_optimizer_reset_rng",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "reset_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.8134765625,
+          "minimum_local": 0.9716796875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.17578125,
+          "minimum_local": 0.7568359375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.8447265625,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.611328125,
+      "trajectory_query_min": 0.17578125,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.81982421875,
+      "route_stability_score": 0
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__preserve_optimizer_preserve_rng",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "preserve_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.935546875,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.962890625,
+          "minimum_local": 0.9912109375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9169921875,
+          "minimum_local": 0.994140625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.2490234375,
+          "minimum_local": 0.6748046875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        true,
+        false
+      ],
+      "trajectory_query_mean": 0.7096354166666666,
+      "trajectory_query_min": 0.2490234375,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.255859375,
+      "route_stability_score": 2
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__reset_optimizer_preserve_rng",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "reset_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.935546875,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.853515625,
+          "minimum_local": 1.0,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.5380859375,
+          "minimum_local": 0.8740234375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.943359375,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        true
+      ],
+      "trajectory_query_mean": 0.7783203125,
+      "trajectory_query_min": 0.5380859375,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.9482421875,
+      "route_stability_score": 2
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__preserve_optimizer_reset_rng",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "preserve_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.935546875,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.935546875,
+          "minimum_local": 0.9912109375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.7958984375,
+          "minimum_local": 0.9921875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.75,
+          "minimum_local": 0.9150390625,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.8271484375,
+      "trajectory_query_min": 0.75,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.73193359375,
+      "route_stability_score": 1
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__reset_optimizer_reset_rng",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "source_branch": "selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "reset_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.935546875,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.951171875,
+          "minimum_local": 0.9873046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.822265625,
+          "minimum_local": 0.9921875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.060546875,
+          "minimum_local": 0.068359375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.611328125,
+      "trajectory_query_min": 0.060546875,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.064453125,
+      "route_stability_score": 1
+    },
+    {
+      "id": "seed2909_intact_replay__preserve_optimizer_preserve_rng",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "source_branch": "intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "preserve_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9189453125,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.8349609375,
+          "minimum_local": 0.9755859375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.189453125,
+          "minimum_local": 0.5234375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.9423828125,
+          "minimum_local": 0.998046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        true
+      ],
+      "trajectory_query_mean": 0.6555989583333334,
+      "trajectory_query_min": 0.189453125,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.9384765625,
+      "route_stability_score": 2
+    },
+    {
+      "id": "seed2909_intact_replay__reset_optimizer_preserve_rng",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "source_branch": "intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "reset_optimizer_preserve_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": true
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9189453125,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.423828125,
+          "minimum_local": 0.849609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9794921875,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.802734375,
+          "minimum_local": 0.8642578125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        true,
+        false
+      ],
+      "trajectory_query_mean": 0.7353515625,
+      "trajectory_query_min": 0.423828125,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.82421875,
+      "route_stability_score": 1
+    },
+    {
+      "id": "seed2909_intact_replay__preserve_optimizer_reset_rng",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "source_branch": "intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "preserve_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": true,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9189453125,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.935546875,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.8564453125,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.955078125,
+          "minimum_local": 1.0,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        false,
+        true
+      ],
+      "trajectory_query_mean": 0.9156901041666666,
+      "trajectory_query_min": 0.8564453125,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.9541015625,
+      "route_stability_score": 3
+    },
+    {
+      "id": "seed2909_intact_replay__reset_optimizer_reset_rng",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "source_branch": "intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "reset_optimizer_reset_rng",
+      "factors": {
+        "preserve_optimizer": false,
+        "preserve_rng": false
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9189453125,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.5966796875,
+          "minimum_local": 0.873046875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.93359375,
+          "minimum_local": 0.9814453125,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.921875,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        true,
+        true
+      ],
+      "trajectory_query_mean": 0.8173828125,
+      "trajectory_query_min": 0.5966796875,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.923828125,
+      "route_stability_score": 3
+    }
+  ],
+  "causal_comparisons": [
+    {
+      "source_id": "seed1879_intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "reset_optimizer_preserve_rng",
+      "formed_vector_changed": false,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.091796875,
+      "route_stability_score_delta": 0,
+      "material_effect": false,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed1879_intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "preserve_optimizer_reset_rng",
+      "formed_vector_changed": false,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.1591796875,
+      "route_stability_score_delta": 0,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed1879_intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "reset_optimizer_reset_rng",
+      "formed_vector_changed": false,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.1845703125,
+      "route_stability_score_delta": 0,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed2203_selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "reset_optimizer_preserve_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.2099609375,
+      "route_stability_score_delta": -2,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": true
+    },
+    {
+      "source_id": "seed2203_selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "preserve_optimizer_reset_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.1923828125,
+      "route_stability_score_delta": -3,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": true
+    },
+    {
+      "source_id": "seed2203_selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "reset_optimizer_reset_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.7880859375,
+      "route_stability_score_delta": -3,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": true
+    },
+    {
+      "source_id": "seed2551_selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "reset_optimizer_preserve_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.6943359375,
+      "route_stability_score_delta": 0,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed2551_selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "preserve_optimizer_reset_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.5009765625,
+      "route_stability_score_delta": -1,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed2551_selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "reset_optimizer_reset_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.1884765625,
+      "route_stability_score_delta": -1,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed2909_intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "reset_optimizer_preserve_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.7900390625,
+      "route_stability_score_delta": -1,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed2909_intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "preserve_optimizer_reset_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.6669921875,
+      "route_stability_score_delta": 1,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    },
+    {
+      "source_id": "seed2909_intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "reset_optimizer_reset_rng",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.744140625,
+      "route_stability_score_delta": 1,
+      "material_effect": true,
+      "stabilized": false,
+      "destabilized": false
+    }
+  ],
+  "elapsed_seconds_this_invocation": 12708.839364900006
+}

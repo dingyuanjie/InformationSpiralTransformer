@@ -1,0 +1,207 @@
+{
+  "level": "7.5.3",
+  "title": "training-time layer-specific counterfactual test of C2 route commitment",
+  "status": "sources, branches, intervention layers/windows, fixed compute budgets, endpoint panel, and outcomes frozen before counterfactual training",
+  "parent": "Level 7.5.2 weak_L2_precursor_partially_replicated",
+  "hypothesis": "The C2 L2/L3 precursor is a causally directing route-commitment state. Transiently suppressing the selected layer's inter-chunk Memory during its registered 200-step commitment window will change or prevent the original C4 endpoint route, whereas suppressing the matched other layer will preserve it. This direction should hold for seed1879's L2 route and in at least two of the three default L3 routes.",
+  "parent_result": {
+    "path": "experiments/level7_5_2/formal/result.json",
+    "sha256": "66aa4e6ca8f707fa0683005bb1c9eecb7159845bf269c11717e5b238384e2889",
+    "required_integrity": true,
+    "required_classification": "weak_L2_precursor_partially_replicated"
+  },
+  "frozen_sources": [
+    {
+      "seed": 1879,
+      "route_group": "exceptional_L2_core_L3_support",
+      "expected_route": "l2_core_l3_supported",
+      "selected_layer": 2,
+      "other_layer": 3,
+      "intervention_start_step": 1201,
+      "intervention_end_step": 1400,
+      "C2_stop_step": 2300,
+      "C4_stop_step": 1000,
+      "start_checkpoint": "experiments/level7_2/formal/seed1879/level6_1.pt",
+      "start_checkpoint_sha256": "ffd969e6873f373f8a96132ff22387faa0b95dc05a52c6f08bda441acda9141a",
+      "C2_reference": "experiments/level7_2/formal/seed1879/curriculum_stage1.pt",
+      "C2_reference_sha256": "9939755860050c602798b6cec0320ac68fd5197876f389f802d461669034fd6c",
+      "C4_reference": "experiments/level7_2/formal/seed1879/curriculum_stage2.pt",
+      "C4_reference_sha256": "2703f5ae720e0f5a973244bbca8275b6654c7c25b3c17c95e7dd618dcec4ebbf",
+      "C4_reference_history": "combined_curriculum_stage2"
+    },
+    {
+      "seed": 2203,
+      "route_group": "default_L3",
+      "expected_route": "l3_core",
+      "selected_layer": 3,
+      "other_layer": 2,
+      "intervention_start_step": 801,
+      "intervention_end_step": 1000,
+      "C2_stop_step": 1000,
+      "C4_stop_step": 500,
+      "start_checkpoint": "experiments/level7_5/formal/seed2203/level6_1.pt",
+      "start_checkpoint_sha256": "56f16453bb76276d219c1c41eafe856f5c9cabeb1ecbe096ec6b3ec4a90b37b9",
+      "C2_reference": "experiments/level7_5/formal/seed2203/curriculum_stage1.pt",
+      "C2_reference_sha256": "9632d6ed078ed328a2541d680325590fa3c1c92459efcc5837735fbb7b67c141",
+      "C4_reference": "experiments/level7_5/formal/seed2203/stage2/resume.pt",
+      "C4_reference_sha256": "7d191e860b1eeda3e073cc602cd30a865198e6f18777aaaa479929ac8e9293a6",
+      "C4_reference_history": "stage2_only"
+    },
+    {
+      "seed": 2551,
+      "route_group": "default_L3",
+      "expected_route": "l3_core",
+      "selected_layer": 3,
+      "other_layer": 2,
+      "intervention_start_step": 501,
+      "intervention_end_step": 700,
+      "C2_stop_step": 800,
+      "C4_stop_step": 300,
+      "start_checkpoint": "experiments/level7_5/formal/seed2551/level6_1.pt",
+      "start_checkpoint_sha256": "0f9fff5aaa37ef952a295212eb14c966ddcc65115e0310dea64f9e941fee0125",
+      "C2_reference": "experiments/level7_5/formal/seed2551/curriculum_stage1.pt",
+      "C2_reference_sha256": "6e0b478978e7cbb39e3111a90edf64358b41d44986e044d96fd35317e3617100",
+      "C4_reference": "experiments/level7_5/formal/seed2551/stage2/resume.pt",
+      "C4_reference_sha256": "30f33a062d6e302c8e473598316f37df32b416755f60e8d01230864fedc78dad",
+      "C4_reference_history": "stage2_only"
+    },
+    {
+      "seed": 2909,
+      "route_group": "default_L3",
+      "expected_route": "l3_core",
+      "selected_layer": 3,
+      "other_layer": 2,
+      "intervention_start_step": 501,
+      "intervention_end_step": 700,
+      "C2_stop_step": 800,
+      "C4_stop_step": 400,
+      "start_checkpoint": "experiments/level7_5/formal/seed2909/level6_1.pt",
+      "start_checkpoint_sha256": "e52dc48b363fd4b3a90211db2cfbfe39f21269b2b25bd6e276bfe30b64071579",
+      "C2_reference": "experiments/level7_5/formal/seed2909/curriculum_stage1.pt",
+      "C2_reference_sha256": "9bedb9025827207586d15e064e30a0e8b9c6ef6510f0369697572784db28ad2f",
+      "C4_reference": "experiments/level7_5/formal/seed2909/stage2/resume.pt",
+      "C4_reference_sha256": "80bca482b6f354209f190e30b64c52e76c66e796e748ede34205461dede7b0c2",
+      "C4_reference_history": "stage2_only"
+    }
+  ],
+  "registered_branches": [
+    {
+      "name": "intact_replay",
+      "suppression_role": "none"
+    },
+    {
+      "name": "selected_layer_suppression",
+      "suppression_role": "selected"
+    },
+    {
+      "name": "other_layer_suppression",
+      "suppression_role": "other"
+    }
+  ],
+  "intervention": {
+    "operation": "During registered C2 steps only, set the selected per-layer Memory tensor to zero after every chunk before it is passed to the next chunk and before the Probe reads the recurrent state.",
+    "gradient_semantics": "Multiplication by zero blocks the selected layer's cross-chunk forward signal and its cross-chunk gradient path. Same-chunk computation and the layer's internal auxiliary loss remain active.",
+    "release": "All suppression is removed after the 200-step window. C2 then continues to the source-specific original stop, followed by an entirely unsuppressed C4 stage.",
+    "intact_control": "Uses the original random_step implementation without a mask and must exactly reproduce both original C2 and C4 endpoints.",
+    "matched_other_control": "Uses the identical 200-step schedule but suppresses L3 for seed1879 or L2 for the default L3 seeds.",
+    "active_steps_per_intervention_branch": 200,
+    "no_C4_intervention": true
+  },
+  "fixed_training_protocol": {
+    "initialization": "restore model, Probe, optimizer, CPU RNG, and all CUDA RNG states from each fixed-stage source, then perform the original set_seed(model_seed + 20000) reset",
+    "C2_chunks": 2,
+    "C2_batch_size": 8,
+    "C4_chunks": 4,
+    "C4_batch_size": 4,
+    "chunk_size": 128,
+    "learning_rate": 0.001,
+    "Probe_weight": 0.5,
+    "validation_at": "step1 and every100 steps",
+    "validation_batches": 10,
+    "validation_batch_size": 8,
+    "compute_budget": "Every branch runs to its frozen source-specific C2 and C4 stop steps regardless of counterfactual validation performance.",
+    "no_branch_early_stopping": true,
+    "same_random_stream_within_seed": true
+  },
+  "intact_replay_gate": {
+    "at_C2_and_C4": [
+      "model state exact",
+      "Probe state exact",
+      "optimizer state exact",
+      "CPU RNG exact",
+      "all CUDA RNG states exact",
+      "validation history exact",
+      "stop step exact"
+    ],
+    "failure_action": "Close that seed before running or interpreting its counterfactual branches."
+  },
+  "fresh_endpoint_causal_panel": {
+    "checkpoint": "each branch's fixed-compute C4 endpoint",
+    "evaluation_chunks": 16,
+    "chunk_size": 128,
+    "samples_per_branch_condition": 2048,
+    "evaluation_batch_size": 16,
+    "dataset_seed": 7530000,
+    "same_examples_for_all_twelve_branches_and_conditions": true,
+    "fixed_sample_size_no_extension": true,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ]
+  },
+  "endpoint_route_classifier": {
+    "formed_behavior": "intact query >=0.90 and minimum local >=0.90",
+    "whole_memory_causal": "formed behavior and reset-all, zero-all, and roll-all query <=0.20",
+    "L2_core": "whole-Memory causal; zero-L2 and roll-L2 <=0.20; keep-L2 >=0.80; zero-L3 >=0.80; keep-L3 <=0.20; keep-L2+L3 >=0.90",
+    "L3_support": "keep-L2+L3 minus keep-L2 >=0.03 and intact minus roll-L3 >=0.05",
+    "L3_core": "whole-Memory causal; zero-L3 and roll-L3 <=0.20; keep-L3 >=0.80; zero-L2 >=0.80; keep-L2 <=0.20",
+    "original_routes": {
+      "seed1879": "l2_core_l3_supported",
+      "seed2203": "l3_core",
+      "seed2551": "l3_core",
+      "seed2909": "l3_core"
+    }
+  },
+  "per_seed_directional_effect": "The selected-layer branch no longer has the original route, while the matched-other-layer branch retains the original route.",
+  "registered_cohort_outcomes": {
+    "layer_specific_route_commitment_confirmed": "seed1879 has the directional L2-specific effect and at least two of three default seeds have the converse L3-specific effect",
+    "partial_layer_specific_route_commitment": "seed1879 has the directional effect or at least one default seed has it, but the full confirmation rule is not met",
+    "routes_recover_after_transient_selected_layer_suppression": "none of the four selected-layer suppression branches changes its original endpoint route",
+    "transient_suppression_disrupts_routes_nonspecifically": "selected-layer route changes occur but one or more matched-other branches also lose their original route and no registered directional criterion is met",
+    "heterogeneous_route_commitment_effects": "route changes occur without satisfying another registered cohort outcome",
+    "formal_integrity_failed_causal_interpretation_closed": "a source, exact replay, training schedule, suppression count, or endpoint panel integrity gate fails"
+  },
+  "secondary_outputs": [
+    "C2 and C4 validation trajectories for all branches",
+    "fresh 16-chunk query difference from intact control",
+    "whole-Memory causality and complete layer atlas at all endpoints",
+    "selected-versus-other suppression effect sizes",
+    "alternative route identity when the original route changes"
+  ],
+  "locks": {
+    "no_window_layer_or_duration_change": true,
+    "no_branch_addition_or_removal": true,
+    "no_early_stop_or_compute_extension": true,
+    "no_endpoint_threshold_change": true,
+    "no_sample_extension": true,
+    "no_dataset_seed_change": true,
+    "no_checkpoint_replacement": true,
+    "seed909_locked": true
+  },
+  "scope": "This tests whether a 200-step zero-mask intervention on the selected recurrent layer is necessary for the original route under a fixed training budget. A route change supports causal involvement of that layer during the registered window. Route recovery does not prove the precursor is epiphenomenal because the intervention is transient and the network may re-form the route later. Zero masking may also induce distribution shift, which is why matched other-layer controls are required.",
+  "stop_rule": "Report all twelve fixed branches and registered alternatives. Do not change intervention windows, layers, compute budgets, endpoint thresholds, or panel size after observing results."
+}

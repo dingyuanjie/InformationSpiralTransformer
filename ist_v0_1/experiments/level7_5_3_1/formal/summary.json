@@ -1,0 +1,958 @@
+{
+  "diagnosis": {
+    "classification": "continued_C4_destabilizes_preformed_routes",
+    "initially_unformed_branches": 6,
+    "initially_unformed_recovered_original_route": 3,
+    "initially_formed_branches": 6,
+    "initially_formed_preserved_original_route": 1,
+    "opposite_layer_migrations": [],
+    "registered_stop_boundary": "Report the fixed +1000-step recovery trajectories; do not add recovery steps, change panels, or reclassify the frozen baseline groups."
+  },
+  "integrity": {
+    "script_sha256": "706511b3a25ef42ec6adf810c413af1fad633eb703b56452ff3e9059e4c46cbd",
+    "preregistration_sha256": "f9c386fba0436ffe05d45497460411aff4a8f4bdf3dd3fbcf816a15c1553ce89",
+    "parent_result_sha256": "b972ce9cb9b7136b3126bebbf1ab151d4eb923147b8b27170ee052f40a8d5716",
+    "all_source_hashes_validated": true,
+    "expected_recovery_branches": 12,
+    "completed_recovery_branches": 12,
+    "all_recovery_steps_exact": true,
+    "no_recovery_suppression": true,
+    "no_training_beyond_recovery_budget": true,
+    "all_registered_milestones_saved": true,
+    "expected_screen_panels": 60,
+    "completed_screen_panels": 60,
+    "all_screen_integrity_passed": true,
+    "screen_samples_fixed": true,
+    "screen_dataset_seed": 7531000,
+    "expected_confirmation_panels": 12,
+    "completed_confirmation_panels": 12,
+    "all_confirmation_integrity_passed": true,
+    "confirmation_conditions_exact": true,
+    "confirmation_samples_fixed": true,
+    "confirmation_dataset_seed": 7531001,
+    "seed909_used": false,
+    "passed": true
+  },
+  "branches": [
+    {
+      "id": "seed1879_intact_replay",
+      "seed": 1879,
+      "branch": "intact_replay",
+      "baseline_route": "l2_core_l3_supported",
+      "expected_route": "l2_core_l3_supported",
+      "baseline_unformed": false,
+      "first_screen_recovery_step": 0,
+      "final_route": "unformed_behavior",
+      "final_intact_query": 0.7919921875,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.7353515625,
+          "intact_query": 0.9501953125,
+          "minimum_local": 0.990234375
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.5322265625,
+          "intact_query": 0.728515625,
+          "minimum_local": 0.978515625
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.54296875,
+          "intact_query": 0.736328125,
+          "minimum_local": 0.97265625
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.5986328125,
+          "intact_query": 0.81640625,
+          "minimum_local": 0.9970703125
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.57421875,
+          "intact_query": 0.78125,
+          "minimum_local": 0.974609375
+        }
+      ]
+    },
+    {
+      "id": "seed1879_selected_layer_suppression",
+      "seed": 1879,
+      "branch": "selected_layer_suppression",
+      "baseline_route": "unformed_behavior",
+      "expected_route": "l2_core_l3_supported",
+      "baseline_unformed": true,
+      "first_screen_recovery_step": null,
+      "final_route": "unformed_behavior",
+      "final_intact_query": 0.38330078125,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.3837890625,
+          "intact_query": 0.8544921875,
+          "minimum_local": 0.9931640625
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.3583984375,
+          "intact_query": 0.857421875,
+          "minimum_local": 0.998046875
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.291015625,
+          "intact_query": 0.7802734375,
+          "minimum_local": 0.9873046875
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.2705078125,
+          "intact_query": 0.845703125,
+          "minimum_local": 0.9560546875
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.076171875,
+          "intact_query": 0.38671875,
+          "minimum_local": 0.9013671875
+        }
+      ]
+    },
+    {
+      "id": "seed1879_other_layer_suppression",
+      "seed": 1879,
+      "branch": "other_layer_suppression",
+      "baseline_route": "unformed_behavior",
+      "expected_route": "l2_core_l3_supported",
+      "baseline_unformed": true,
+      "first_screen_recovery_step": null,
+      "final_route": "unformed_behavior",
+      "final_intact_query": 0.74853515625,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.611328125,
+          "intact_query": 0.8349609375,
+          "minimum_local": 0.9970703125
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.5224609375,
+          "intact_query": 0.7919921875,
+          "minimum_local": 0.97265625
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.2421875,
+          "intact_query": 0.494140625,
+          "minimum_local": 0.9814453125
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.2724609375,
+          "intact_query": 0.4736328125,
+          "minimum_local": 0.83203125
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.55078125,
+          "intact_query": 0.7578125,
+          "minimum_local": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": "seed2203_intact_replay",
+      "seed": 2203,
+      "branch": "intact_replay",
+      "baseline_route": "l3_core",
+      "expected_route": "l3_core",
+      "baseline_unformed": false,
+      "first_screen_recovery_step": 0,
+      "final_route": "unformed_behavior",
+      "final_intact_query": 0.87060546875,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.921875,
+          "intact_query": 0.9765625,
+          "minimum_local": 0.9951171875
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.9150390625,
+          "intact_query": 0.9658203125,
+          "minimum_local": 0.9921875
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.34765625,
+          "intact_query": 0.384765625,
+          "minimum_local": 0.9052734375
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.677734375,
+          "intact_query": 0.75,
+          "minimum_local": 1.0
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.83984375,
+          "intact_query": 0.8671875,
+          "minimum_local": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "branch": "selected_layer_suppression",
+      "baseline_route": "unformed_behavior",
+      "expected_route": "l3_core",
+      "baseline_unformed": true,
+      "first_screen_recovery_step": 600,
+      "final_route": "l3_core",
+      "final_intact_query": 0.96630859375,
+      "original_route_recovered_or_preserved": true,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.7119140625,
+          "intact_query": 0.7734375,
+          "minimum_local": 0.998046875
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.7373046875,
+          "intact_query": 0.841796875,
+          "minimum_local": 0.99609375
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.560546875,
+          "intact_query": 0.6171875,
+          "minimum_local": 0.99609375
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8837890625,
+          "intact_query": 0.9638671875,
+          "minimum_local": 0.9931640625
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.9267578125,
+          "intact_query": 0.9619140625,
+          "minimum_local": 1.0
+        }
+      ]
+    },
+    {
+      "id": "seed2203_other_layer_suppression",
+      "seed": 2203,
+      "branch": "other_layer_suppression",
+      "baseline_route": "unformed_behavior",
+      "expected_route": "l3_core",
+      "baseline_unformed": true,
+      "first_screen_recovery_step": 300,
+      "final_route": "distributed_or_other",
+      "final_intact_query": 0.91357421875,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.7978515625,
+          "intact_query": 0.857421875,
+          "minimum_local": 0.98828125
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.6640625,
+          "intact_query": 0.7177734375,
+          "minimum_local": 0.986328125
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.94140625,
+          "intact_query": 0.9931640625,
+          "minimum_local": 0.998046875
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.7021484375,
+          "intact_query": 0.7421875,
+          "minimum_local": 0.9951171875
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.4228515625,
+          "intact_query": 0.923828125,
+          "minimum_local": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": "seed2551_intact_replay",
+      "seed": 2551,
+      "branch": "intact_replay",
+      "baseline_route": "l3_core",
+      "expected_route": "l3_core",
+      "baseline_unformed": false,
+      "first_screen_recovery_step": 0,
+      "final_route": "unformed_behavior",
+      "final_intact_query": 0.83349609375,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.904296875,
+          "intact_query": 0.9677734375,
+          "minimum_local": 0.99609375
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.92578125,
+          "intact_query": 0.98828125,
+          "minimum_local": 0.9970703125
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.63671875,
+          "intact_query": 0.5732421875,
+          "minimum_local": 0.900390625
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8779296875,
+          "intact_query": 0.98046875,
+          "minimum_local": 0.99609375
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.771484375,
+          "intact_query": 0.8271484375,
+          "minimum_local": 0.994140625
+        }
+      ]
+    },
+    {
+      "id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "branch": "selected_layer_suppression",
+      "baseline_route": "l3_core",
+      "expected_route": "l3_core",
+      "baseline_unformed": false,
+      "first_screen_recovery_step": 0,
+      "final_route": "unformed_behavior",
+      "final_intact_query": 0.24365234375,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8720703125,
+          "intact_query": 0.93359375,
+          "minimum_local": 0.9912109375
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.92578125,
+          "intact_query": 0.9892578125,
+          "minimum_local": 0.9912109375
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.890625,
+          "intact_query": 0.953125,
+          "minimum_local": 0.990234375
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8427734375,
+          "intact_query": 0.9111328125,
+          "minimum_local": 0.9951171875
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.1787109375,
+          "intact_query": 0.2412109375,
+          "minimum_local": 0.642578125
+        }
+      ]
+    },
+    {
+      "id": "seed2551_other_layer_suppression",
+      "seed": 2551,
+      "branch": "other_layer_suppression",
+      "baseline_route": "unformed_behavior",
+      "expected_route": "l3_core",
+      "baseline_unformed": true,
+      "first_screen_recovery_step": 300,
+      "final_route": "l3_core",
+      "final_intact_query": 0.96240234375,
+      "original_route_recovered_or_preserved": true,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.583984375,
+          "intact_query": 0.6474609375,
+          "minimum_local": 0.9794921875
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.5009765625,
+          "intact_query": 0.580078125,
+          "minimum_local": 0.98828125
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.9248046875,
+          "intact_query": 0.9873046875,
+          "minimum_local": 0.99609375
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8623046875,
+          "intact_query": 0.9189453125,
+          "minimum_local": 0.9912109375
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.89453125,
+          "intact_query": 0.9609375,
+          "minimum_local": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": "seed2909_intact_replay",
+      "seed": 2909,
+      "branch": "intact_replay",
+      "baseline_route": "l3_core",
+      "expected_route": "l3_core",
+      "baseline_unformed": false,
+      "first_screen_recovery_step": 0,
+      "final_route": "l3_core",
+      "final_intact_query": 0.94091796875,
+      "original_route_recovered_or_preserved": true,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8515625,
+          "intact_query": 0.9189453125,
+          "minimum_local": 0.994140625
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.908203125,
+          "intact_query": 0.9541015625,
+          "minimum_local": 0.986328125
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.7705078125,
+          "intact_query": 0.8193359375,
+          "minimum_local": 0.9736328125
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.134765625,
+          "intact_query": 0.1953125,
+          "minimum_local": 0.5361328125
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.89453125,
+          "intact_query": 0.9384765625,
+          "minimum_local": 1.0
+        }
+      ]
+    },
+    {
+      "id": "seed2909_selected_layer_suppression",
+      "seed": 2909,
+      "branch": "selected_layer_suppression",
+      "baseline_route": "l3_core",
+      "expected_route": "l3_core",
+      "baseline_unformed": false,
+      "first_screen_recovery_step": 0,
+      "final_route": "unformed_behavior",
+      "final_intact_query": 0.06201171875,
+      "original_route_recovered_or_preserved": false,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8642578125,
+          "intact_query": 0.92578125,
+          "minimum_local": 0.9990234375
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.599609375,
+          "intact_query": 0.6748046875,
+          "minimum_local": 0.9951171875
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.673828125,
+          "intact_query": 0.703125,
+          "minimum_local": 0.9609375
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.0029296875,
+          "intact_query": 0.0654296875,
+          "minimum_local": 0.0615234375
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 2,
+          "retention_gap_l2_minus_l3": 0.0078125,
+          "intact_query": 0.0634765625,
+          "minimum_local": 0.064453125
+        }
+      ]
+    },
+    {
+      "id": "seed2909_other_layer_suppression",
+      "seed": 2909,
+      "branch": "other_layer_suppression",
+      "baseline_route": "unformed_behavior",
+      "expected_route": "l3_core",
+      "baseline_unformed": true,
+      "first_screen_recovery_step": 1000,
+      "final_route": "l3_core",
+      "final_intact_query": 0.98388671875,
+      "original_route_recovered_or_preserved": true,
+      "opposite_route_observed": false,
+      "screen_trajectory": [
+        {
+          "recovery_step": 0,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8212890625,
+          "intact_query": 0.8955078125,
+          "minimum_local": 0.9892578125
+        },
+        {
+          "recovery_step": 100,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.8056640625,
+          "intact_query": 0.8857421875,
+          "minimum_local": 0.9921875
+        },
+        {
+          "recovery_step": 300,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.7578125,
+          "intact_query": 0.828125,
+          "minimum_local": 0.962890625
+        },
+        {
+          "recovery_step": 600,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.81640625,
+          "intact_query": 0.8798828125,
+          "minimum_local": 0.9736328125
+        },
+        {
+          "recovery_step": 1000,
+          "dominant_retention_layer": 3,
+          "retention_gap_l2_minus_l3": -0.9208984375,
+          "intact_query": 0.982421875,
+          "minimum_local": 0.9990234375
+        }
+      ]
+    }
+  ],
+  "final_endpoints": [
+    {
+      "id": "seed1879_intact_replay",
+      "seed": 1879,
+      "branch": "intact_replay",
+      "route_class": "unformed_behavior",
+      "intact_query": 0.7919921875,
+      "layer_atlas": {
+        "necessary_layers": [
+          2
+        ],
+        "misassignment_sensitive_layers": [
+          2
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[2],\"necessary_layers\":[2],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.0693359375,
+        "minimum_local": 0.96240234375,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "id": "seed1879_selected_layer_suppression",
+      "seed": 1879,
+      "branch": "selected_layer_suppression",
+      "route_class": "unformed_behavior",
+      "intact_query": 0.38330078125,
+      "layer_atlas": {
+        "necessary_layers": [
+          2
+        ],
+        "misassignment_sensitive_layers": [
+          2
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[2],\"necessary_layers\":[2],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06884765625,
+        "minimum_local": 0.89404296875,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "id": "seed1879_other_layer_suppression",
+      "seed": 1879,
+      "branch": "other_layer_suppression",
+      "route_class": "unformed_behavior",
+      "intact_query": 0.74853515625,
+      "layer_atlas": {
+        "necessary_layers": [
+          2
+        ],
+        "misassignment_sensitive_layers": [
+          2
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[2],\"necessary_layers\":[2],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06982421875,
+        "minimum_local": 0.98828125,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "id": "seed2203_intact_replay",
+      "seed": 2203,
+      "branch": "intact_replay",
+      "route_class": "unformed_behavior",
+      "intact_query": 0.87060546875,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06787109375,
+        "minimum_local": 0.99658203125,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "branch": "selected_layer_suppression",
+      "route_class": "l3_core",
+      "intact_query": 0.96630859375,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.0712890625,
+        "minimum_local": 0.99853515625,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "id": "seed2203_other_layer_suppression",
+      "seed": 2203,
+      "branch": "other_layer_suppression",
+      "route_class": "distributed_or_other",
+      "intact_query": 0.91357421875,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[[1,3]]}",
+        "profile_class": "distributed_pair_sufficiency",
+        "whole_memory_max_disrupted_query": 0.0732421875,
+        "minimum_local": 0.99609375,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "id": "seed2551_intact_replay",
+      "seed": 2551,
+      "branch": "intact_replay",
+      "route_class": "unformed_behavior",
+      "intact_query": 0.83349609375,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.068359375,
+        "minimum_local": 0.99658203125,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "branch": "selected_layer_suppression",
+      "route_class": "unformed_behavior",
+      "intact_query": 0.24365234375,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06884765625,
+        "minimum_local": 0.6650390625,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "id": "seed2551_other_layer_suppression",
+      "seed": 2551,
+      "branch": "other_layer_suppression",
+      "route_class": "l3_core",
+      "intact_query": 0.96240234375,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.07080078125,
+        "minimum_local": 0.99853515625,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "id": "seed2909_intact_replay",
+      "seed": 2909,
+      "branch": "intact_replay",
+      "route_class": "l3_core",
+      "intact_query": 0.94091796875,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.06982421875,
+        "minimum_local": 0.99951171875,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "id": "seed2909_selected_layer_suppression",
+      "seed": 2909,
+      "branch": "selected_layer_suppression",
+      "route_class": "unformed_behavior",
+      "intact_query": 0.06201171875,
+      "layer_atlas": {
+        "necessary_layers": [
+          1,
+          2,
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          1,
+          2,
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[1,2,3],\"necessary_layers\":[1,2,3],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06640625,
+        "minimum_local": 0.0703125,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "id": "seed2909_other_layer_suppression",
+      "seed": 2909,
+      "branch": "other_layer_suppression",
+      "route_class": "l3_core",
+      "intact_query": 0.98388671875,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.06787109375,
+        "minimum_local": 1.0,
+        "whole_memory_causality_passed": true
+      }
+    }
+  ],
+  "elapsed_seconds_this_invocation": 7072.638550399999
+}

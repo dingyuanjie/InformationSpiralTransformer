@@ -1,0 +1,484 @@
+{
+  "diagnosis": {
+    "classification": "transient_suppression_disrupts_routes_nonspecifically",
+    "seed1879_layer_specific_effect": false,
+    "default_L3_layer_specific_effect_count": 0,
+    "default_L3_layer_specific_effect_expected_for_confirmation": 2,
+    "selected_layer_route_change_count": 2,
+    "other_layer_route_change_count": 4,
+    "registered_stop_boundary": "Report all twelve fixed branches; do not change intervention windows, layers, compute budgets, endpoint thresholds, or panel size."
+  },
+  "integrity": {
+    "script_sha256": "2f18f487c73640e6755abb85af899394c72349186f6459ca2ce564a57fdc21fd",
+    "preregistration_sha256": "0972ef12bc9095c25159afbc3146bc72625306e533a69d0dae5675401f54707a",
+    "parent_result_sha256": "66aa4e6ca8f707fa0683005bb1c9eecb7159845bf269c11717e5b238384e2889",
+    "all_source_hashes_validated": true,
+    "all_intact_C2_and_C4_exact_gates_passed": true,
+    "expected_training_branches": 12,
+    "completed_training_branches": 12,
+    "all_suppression_counts_exact": true,
+    "all_interventions_exactly_200_C2_steps": true,
+    "no_C4_suppression": true,
+    "no_training_beyond_registered_C4": true,
+    "expected_endpoint_panels": 12,
+    "completed_endpoint_panels": 12,
+    "all_endpoint_panel_integrity_passed": true,
+    "all_conditions_exact": true,
+    "fixed_N_completed": true,
+    "shared_fresh_dataset_seed": 7530000,
+    "seed909_used": false,
+    "passed": true
+  },
+  "seeds": [
+    {
+      "seed": 1879,
+      "route_group": "exceptional_L2_core_L3_support",
+      "expected_route": "l2_core_l3_supported",
+      "selected_layer": 2,
+      "other_layer": 3,
+      "control_exact_replay_passed": true,
+      "routes": {
+        "intact_replay": "l2_core_l3_supported",
+        "selected_layer_suppression": "unformed_behavior",
+        "other_layer_suppression": "unformed_behavior"
+      },
+      "intact_query": {
+        "intact_replay": 0.947265625,
+        "selected_layer_suppression": 0.8359375,
+        "other_layer_suppression": 0.82763671875
+      },
+      "selected_layer_route_changed": true,
+      "other_layer_route_preserved": false,
+      "layer_specific_commitment_effect": false,
+      "selected_layer_query_drop_from_control": 0.111328125,
+      "other_layer_query_drop_from_control": 0.11962890625
+    },
+    {
+      "seed": 2203,
+      "route_group": "default_L3",
+      "expected_route": "l3_core",
+      "selected_layer": 3,
+      "other_layer": 2,
+      "control_exact_replay_passed": true,
+      "routes": {
+        "intact_replay": "l3_core",
+        "selected_layer_suppression": "unformed_behavior",
+        "other_layer_suppression": "unformed_behavior"
+      },
+      "intact_query": {
+        "intact_replay": 0.97119140625,
+        "selected_layer_suppression": 0.77587890625,
+        "other_layer_suppression": 0.86181640625
+      },
+      "selected_layer_route_changed": true,
+      "other_layer_route_preserved": false,
+      "layer_specific_commitment_effect": false,
+      "selected_layer_query_drop_from_control": 0.1953125,
+      "other_layer_query_drop_from_control": 0.109375
+    },
+    {
+      "seed": 2551,
+      "route_group": "default_L3",
+      "expected_route": "l3_core",
+      "selected_layer": 3,
+      "other_layer": 2,
+      "control_exact_replay_passed": true,
+      "routes": {
+        "intact_replay": "l3_core",
+        "selected_layer_suppression": "l3_core",
+        "other_layer_suppression": "unformed_behavior"
+      },
+      "intact_query": {
+        "intact_replay": 0.96435546875,
+        "selected_layer_suppression": 0.93017578125,
+        "other_layer_suppression": 0.67578125
+      },
+      "selected_layer_route_changed": false,
+      "other_layer_route_preserved": false,
+      "layer_specific_commitment_effect": false,
+      "selected_layer_query_drop_from_control": 0.0341796875,
+      "other_layer_query_drop_from_control": 0.28857421875
+    },
+    {
+      "seed": 2909,
+      "route_group": "default_L3",
+      "expected_route": "l3_core",
+      "selected_layer": 3,
+      "other_layer": 2,
+      "control_exact_replay_passed": true,
+      "routes": {
+        "intact_replay": "l3_core",
+        "selected_layer_suppression": "l3_core",
+        "other_layer_suppression": "unformed_behavior"
+      },
+      "intact_query": {
+        "intact_replay": 0.91796875,
+        "selected_layer_suppression": 0.92626953125,
+        "other_layer_suppression": 0.89892578125
+      },
+      "selected_layer_route_changed": false,
+      "other_layer_route_preserved": false,
+      "layer_specific_commitment_effect": false,
+      "selected_layer_query_drop_from_control": -0.00830078125,
+      "other_layer_query_drop_from_control": 0.01904296875
+    }
+  ],
+  "endpoints": [
+    {
+      "seed": 1879,
+      "branch": "intact_replay",
+      "suppressed_layer": null,
+      "route_class": "l2_core_l3_supported",
+      "intact_query": 0.947265625,
+      "minimum_local": 0.9912109375,
+      "whole_memory_causal": true,
+      "layer_atlas": {
+        "necessary_layers": [
+          2
+        ],
+        "misassignment_sensitive_layers": [
+          2
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[2],\"necessary_layers\":[2],\"sufficient_layers\":[],\"sufficient_pairs\":[[2,3]]}",
+        "profile_class": "distributed_pair_sufficiency",
+        "whole_memory_max_disrupted_query": 0.06591796875,
+        "minimum_local": 0.9912109375,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "seed": 1879,
+      "branch": "selected_layer_suppression",
+      "suppressed_layer": 2,
+      "route_class": "unformed_behavior",
+      "intact_query": 0.8359375,
+      "minimum_local": 0.99072265625,
+      "whole_memory_causal": false,
+      "layer_atlas": {
+        "necessary_layers": [
+          2
+        ],
+        "misassignment_sensitive_layers": [],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[],\"necessary_layers\":[2],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.068359375,
+        "minimum_local": 0.99072265625,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "seed": 1879,
+      "branch": "other_layer_suppression",
+      "suppressed_layer": 3,
+      "route_class": "unformed_behavior",
+      "intact_query": 0.82763671875,
+      "minimum_local": 0.99462890625,
+      "whole_memory_causal": false,
+      "layer_atlas": {
+        "necessary_layers": [
+          2
+        ],
+        "misassignment_sensitive_layers": [
+          2
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[2],\"necessary_layers\":[2],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.0693359375,
+        "minimum_local": 0.99462890625,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "seed": 2203,
+      "branch": "intact_replay",
+      "suppressed_layer": null,
+      "route_class": "l3_core",
+      "intact_query": 0.97119140625,
+      "minimum_local": 0.9931640625,
+      "whole_memory_causal": true,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.064453125,
+        "minimum_local": 0.9931640625,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "seed": 2203,
+      "branch": "selected_layer_suppression",
+      "suppressed_layer": 3,
+      "route_class": "unformed_behavior",
+      "intact_query": 0.77587890625,
+      "minimum_local": 0.998046875,
+      "whole_memory_causal": false,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06103515625,
+        "minimum_local": 0.998046875,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "seed": 2203,
+      "branch": "other_layer_suppression",
+      "suppressed_layer": 2,
+      "route_class": "unformed_behavior",
+      "intact_query": 0.86181640625,
+      "minimum_local": 0.98681640625,
+      "whole_memory_causal": false,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06982421875,
+        "minimum_local": 0.98681640625,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "seed": 2551,
+      "branch": "intact_replay",
+      "suppressed_layer": null,
+      "route_class": "l3_core",
+      "intact_query": 0.96435546875,
+      "minimum_local": 0.99365234375,
+      "whole_memory_causal": true,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.064453125,
+        "minimum_local": 0.99365234375,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "seed": 2551,
+      "branch": "selected_layer_suppression",
+      "suppressed_layer": 3,
+      "route_class": "l3_core",
+      "intact_query": 0.93017578125,
+      "minimum_local": 0.9892578125,
+      "whole_memory_causal": true,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.060546875,
+        "minimum_local": 0.9892578125,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "seed": 2551,
+      "branch": "other_layer_suppression",
+      "suppressed_layer": 2,
+      "route_class": "unformed_behavior",
+      "intact_query": 0.67578125,
+      "minimum_local": 0.97509765625,
+      "whole_memory_causal": false,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[]}",
+        "profile_class": "fully_distributed_or_unresolved",
+        "whole_memory_max_disrupted_query": 0.06640625,
+        "minimum_local": 0.97509765625,
+        "whole_memory_causality_passed": false
+      }
+    },
+    {
+      "seed": 2909,
+      "branch": "intact_replay",
+      "suppressed_layer": null,
+      "route_class": "l3_core",
+      "intact_query": 0.91796875,
+      "minimum_local": 0.99658203125,
+      "whole_memory_causal": true,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.0615234375,
+        "minimum_local": 0.99658203125,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "seed": 2909,
+      "branch": "selected_layer_suppression",
+      "suppressed_layer": 3,
+      "route_class": "l3_core",
+      "intact_query": 0.92626953125,
+      "minimum_local": 1.0,
+      "whole_memory_causal": true,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [
+          3
+        ],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[3],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "layer3_dominant",
+        "whole_memory_max_disrupted_query": 0.06591796875,
+        "minimum_local": 1.0,
+        "whole_memory_causality_passed": true
+      }
+    },
+    {
+      "seed": 2909,
+      "branch": "other_layer_suppression",
+      "suppressed_layer": 2,
+      "route_class": "unformed_behavior",
+      "intact_query": 0.89892578125,
+      "minimum_local": 0.99462890625,
+      "whole_memory_causal": false,
+      "layer_atlas": {
+        "necessary_layers": [
+          3
+        ],
+        "misassignment_sensitive_layers": [
+          3
+        ],
+        "sufficient_layers": [],
+        "sufficient_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "signature_key": "{\"misassignment_sensitive_layers\":[3],\"necessary_layers\":[3],\"sufficient_layers\":[],\"sufficient_pairs\":[[1,3],[2,3]]}",
+        "profile_class": "distributed_pair_sufficiency",
+        "whole_memory_max_disrupted_query": 0.064453125,
+        "minimum_local": 0.99462890625,
+        "whole_memory_causality_passed": false
+      }
+    }
+  ],
+  "elapsed_seconds_this_invocation": 6845.508784500001
+}

@@ -1,0 +1,308 @@
+{
+  "id": "seed1879_intact_replay__freeze_l3_update_gate",
+  "source_id": "seed1879_intact_replay",
+  "seed": 1879,
+  "source_branch": "intact_replay",
+  "arm": "freeze_l3_update_gate",
+  "parameter_group": {
+    "kind": "update_gate",
+    "layer": 3
+  },
+  "initialization_audit": {
+    "arm": "freeze_l3_update_gate",
+    "frozen_parameter_names": [
+      "blocks.2.memory.update_gate.0.weight",
+      "blocks.2.memory.update_gate.0.bias"
+    ],
+    "frozen_parameter_count": 2,
+    "source_model_exact": true,
+    "source_probe_exact": true,
+    "source_optimizer_exact": true,
+    "source_CPU_RNG_exact": true,
+    "source_CUDA_RNG_exact": true,
+    "frozen_initial_fingerprint": "bf689d9c343620e11fe5e0ff7eef657ef52e46d5fb8b6b2ca874cdcbe26f67d3",
+    "frozen_parameters_require_grad_false": true,
+    "learning_rate": 0.001,
+    "passed": true
+  },
+  "frozen_parameter_names": [
+    "blocks.2.memory.update_gate.0.weight",
+    "blocks.2.memory.update_gate.0.bias"
+  ],
+  "training_steps_completed": 1000,
+  "memory_mask_active_steps": 0,
+  "history": [
+    {
+      "training_step": 1,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.95,
+      "local": 0.9875,
+      "probe_first": 1.0,
+      "probe_final": 1.0,
+      "probe_min": 1.0,
+      "probe_by_chunk": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "memory_first_final_cosine": 0.7014167487621308,
+      "gate_means": [
+        0.4300685524940491,
+        0.2683078348636627,
+        0.29733794927597046
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 100,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.975,
+      "local": 1.0,
+      "probe_first": 0.9875,
+      "probe_final": 0.9875,
+      "probe_min": 0.9875,
+      "probe_by_chunk": [
+        0.9875,
+        0.9875,
+        0.9875,
+        0.9875
+      ],
+      "memory_first_final_cosine": 0.7701338410377503,
+      "gate_means": [
+        0.427024781703949,
+        0.20406752824783325,
+        0.2989400029182434
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 200,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 1.0,
+      "local": 1.0,
+      "probe_first": 1.0,
+      "probe_final": 0.9875,
+      "probe_min": 0.9875,
+      "probe_by_chunk": [
+        1.0,
+        1.0,
+        0.9875,
+        0.9875
+      ],
+      "memory_first_final_cosine": 0.7576587975025177,
+      "gate_means": [
+        0.4212237298488617,
+        0.22674652934074402,
+        0.2997424602508545
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 300,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.9375,
+      "local": 0.9625,
+      "probe_first": 0.9375,
+      "probe_final": 0.9375,
+      "probe_min": 0.925,
+      "probe_by_chunk": [
+        0.9375,
+        0.925,
+        0.9375,
+        0.9375
+      ],
+      "memory_first_final_cosine": 0.6589950740337371,
+      "gate_means": [
+        0.4399654269218445,
+        0.21709412336349487,
+        0.35744261741638184
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 400,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.9625,
+      "local": 0.975,
+      "probe_first": 0.9625,
+      "probe_final": 0.9625,
+      "probe_min": 0.9625,
+      "probe_by_chunk": [
+        0.9625,
+        0.9625,
+        0.9625,
+        0.9625
+      ],
+      "memory_first_final_cosine": 0.6985846161842346,
+      "gate_means": [
+        0.44555264711380005,
+        0.22154122591018677,
+        0.3455171585083008
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 500,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.9875,
+      "local": 0.9875,
+      "probe_first": 0.9875,
+      "probe_final": 0.975,
+      "probe_min": 0.975,
+      "probe_by_chunk": [
+        0.9875,
+        0.9875,
+        0.9875,
+        0.975
+      ],
+      "memory_first_final_cosine": 0.6553767859935761,
+      "gate_means": [
+        0.4516850411891937,
+        0.2731190621852875,
+        0.27657559514045715
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 600,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.95,
+      "local": 0.9875,
+      "probe_first": 0.9875,
+      "probe_final": 0.9875,
+      "probe_min": 0.975,
+      "probe_by_chunk": [
+        0.9875,
+        0.9875,
+        0.975,
+        0.9875
+      ],
+      "memory_first_final_cosine": 0.6514754176139832,
+      "gate_means": [
+        0.4529258608818054,
+        0.2014082819223404,
+        0.33902212977409363
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 700,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.8875,
+      "local": 0.95,
+      "probe_first": 0.925,
+      "probe_final": 0.9125,
+      "probe_min": 0.8375,
+      "probe_by_chunk": [
+        0.925,
+        0.8375,
+        0.9,
+        0.9125
+      ],
+      "memory_first_final_cosine": 0.6217223346233368,
+      "gate_means": [
+        0.44817274808883667,
+        0.34580641984939575,
+        0.3899937868118286
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 800,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.075,
+      "local": 0.75,
+      "probe_first": 0.275,
+      "probe_final": 0.2375,
+      "probe_min": 0.2375,
+      "probe_by_chunk": [
+        0.275,
+        0.35,
+        0.275,
+        0.2375
+      ],
+      "memory_first_final_cosine": 0.1873991422355175,
+      "gate_means": [
+        0.41161519289016724,
+        0.5698059797286987,
+        0.12649866938591003
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 900,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.175,
+      "local": 0.9625,
+      "probe_first": 0.2,
+      "probe_final": 0.225,
+      "probe_min": 0.2,
+      "probe_by_chunk": [
+        0.2,
+        0.25,
+        0.2125,
+        0.225
+      ],
+      "memory_first_final_cosine": 0.29237976372241975,
+      "gate_means": [
+        0.4610036015510559,
+        0.5001046061515808,
+        0.21289709210395813
+      ],
+      "samples": 80
+    },
+    {
+      "training_step": 1000,
+      "chunks": 4,
+      "total_tokens": 512,
+      "query": 0.825,
+      "local": 0.925,
+      "probe_first": 0.9125,
+      "probe_final": 0.8625,
+      "probe_min": 0.8625,
+      "probe_by_chunk": [
+        0.9125,
+        0.8875,
+        0.9,
+        0.8625
+      ],
+      "memory_first_final_cosine": 0.6577406048774719,
+      "gate_means": [
+        0.4549049139022827,
+        0.206340953707695,
+        0.37112829089164734
+      ],
+      "samples": 80
+    }
+  ],
+  "milestones": [
+    {
+      "recovery_step": 300,
+      "checkpoint": "experiments/level7_5_3_3/formal/seed1879/intact_replay/freeze_l3_update_gate/training/model_step0300.pt",
+      "checkpoint_sha256": "8c969ef9fb01048d5d51b7ca7aa16057b219ada995067efc5a90e135363f638a"
+    },
+    {
+      "recovery_step": 600,
+      "checkpoint": "experiments/level7_5_3_3/formal/seed1879/intact_replay/freeze_l3_update_gate/training/model_step0600.pt",
+      "checkpoint_sha256": "653f84bd094c460b65904beb01341bec6895f75ba4375575e4fd20a0bda1e368"
+    },
+    {
+      "recovery_step": 1000,
+      "checkpoint": "experiments/level7_5_3_3/formal/seed1879/intact_replay/freeze_l3_update_gate/training/model_step1000.pt",
+      "checkpoint_sha256": "d25fcf1d76212e5fb847c2f6b8eaa87fcea35bcb6fe9dd77a48b1a47c95c81dc"
+    }
+  ],
+  "training_complete": true,
+  "training_beyond_registered_budget": false
+}

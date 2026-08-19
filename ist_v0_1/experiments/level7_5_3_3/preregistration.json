@@ -1,0 +1,141 @@
+{
+  "level": "7.5.3.3",
+  "title": "Fixed-state Memory parameter-group and update-gate causal intervention",
+  "status": "preregistered_before_formal_run",
+  "parent": "Level 7.5.3.2",
+  "hypothesis": "With inherited AdamW state, CPU/CUDA RNG, data stream, and endpoint weights held fixed, freezing the layer-specific Memory pathway or its update gate will selectively alter the route volatility observed in Level 7.5.3.1/7.5.3.2.",
+  "parent_result": {
+    "path": "experiments/level7_5_3_2/formal/result.json",
+    "sha256": "bc1490388243c38a011d72b7dec272345d13ae034f1847e3cd21dc778e3cb6cd",
+    "required_classification": "optimizer_and_data_stream_both_causal"
+  },
+  "frozen_source_ids": [
+    "seed1879_intact_replay",
+    "seed2203_selected_layer_suppression",
+    "seed2551_selected_layer_suppression",
+    "seed2909_intact_replay"
+  ],
+  "selection_roles": [
+    "persistent_L2_loss",
+    "unformed_L3_recovery",
+    "late_L3_collapse",
+    "transient_L3_collapse_recovery"
+  ],
+  "arms": [
+    {
+      "name": "preserve_optimizer_preserve_rng",
+      "kind": "none",
+      "layer": null
+    },
+    {
+      "name": "freeze_l2_memory_pathway",
+      "kind": "memory_pathway",
+      "layer": 2
+    },
+    {
+      "name": "freeze_l3_memory_pathway",
+      "kind": "memory_pathway",
+      "layer": 3
+    },
+    {
+      "name": "freeze_l2_update_gate",
+      "kind": "update_gate",
+      "layer": 2
+    },
+    {
+      "name": "freeze_l3_update_gate",
+      "kind": "update_gate",
+      "layer": 3
+    }
+  ],
+  "parameter_groups": {
+    "memory_pathway": "For layer L, blocks.(L-1).memory.*, blocks.(L-1).memory_read.*, and blocks.(L-1).memory_fusion_gate.*.",
+    "update_gate": "For layer L, blocks.(L-1).memory.update_gate.* only.",
+    "freeze_semantics": "Selected parameters retain exact source values and AdamW state but have requires_grad=False for all 1,000 additional C4 steps; all other parameters update normally."
+  },
+  "fixed_state": {
+    "source_model": true,
+    "source_Probe": true,
+    "source_AdamW_optimizer": true,
+    "source_CPU_RNG": true,
+    "source_CUDA_RNG": true,
+    "learning_rate": 0.001,
+    "additional_C4_steps": 1000,
+    "chunks": 4,
+    "chunk_size": 128,
+    "batch_size": 4,
+    "Probe_weight": 0.5,
+    "validation_at": "step1 and every100 steps",
+    "validation_batches": 10,
+    "validation_batch_size": 8,
+    "all_memory_masks_removed": true,
+    "no_early_stopping": true
+  },
+  "trajectory_screen_panel": {
+    "milestones": [0, 300, 600, 1000],
+    "step0_shared_once_per_source": true,
+    "conditions": [
+      "intact",
+      "zero_l2",
+      "zero_l3",
+      "keep_l2",
+      "keep_l3"
+    ],
+    "chunks": 16,
+    "samples_per_condition": 1024,
+    "dataset_seed": 7533000,
+    "formed_threshold": 0.9,
+    "local_threshold": 0.9
+  },
+  "final_confirmation_panel": {
+    "milestone": 1000,
+    "arms": 20,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ],
+    "chunks": 16,
+    "samples_per_condition": 2048,
+    "dataset_seed": 7533001
+  },
+  "material_effect_definition": {
+    "formed_vector_changed": "Any change in the formed/unformed state at steps300/600/1000 relative to the exact reference.",
+    "final_fate_changed": "Any change in final source-specific L2/L3 route formation.",
+    "continuous_change": "At least 0.15 absolute intact-query difference at one registered post-source milestone.",
+    "material_effect": "Any of the three conditions above."
+  },
+  "registered_outcomes": {
+    "l3_update_gate_dominant": "L3 update-gate and full L3 pathway freezes affect the same sources, at least 2/4, while L2 pathway freeze affects 0/4.",
+    "l3_non_gate_memory_pathway": "L3 pathway freeze affects at least 2/4, L3 update-gate freeze affects at most 1/4, and L2 pathway freeze affects 0/4.",
+    "l2_update_gate_dominant": "L2 pathway and L2 update-gate freezes match across all four diagnostic comparisons, with at least one material L2 effect and at most one L3 pathway effect.",
+    "distributed_l2_l3_memory_pathway": "Both L2 and L3 full-pathway freezes affect the diagnostic endpoints.",
+    "layer_specific_memory_pathway": "At least one layer-specific full-pathway effect occurs without satisfying a more specific gate or distributed outcome.",
+    "no_registered_memory_group_effect": "No intervention arm materially changes any registered trajectory.",
+    "formal_integrity_failed_parameter_interpretation_closed": "A source, fixed-state, frozen-parameter, training, panel, or hash lock fails."
+  },
+  "locks": {
+    "source_selection_frozen": true,
+    "parameter_group_names_frozen": true,
+    "optimizer_and_rng_frozen": true,
+    "training_budget_frozen": true,
+    "panels_frozen": true,
+    "seed909_excluded": true,
+    "no_post_hoc_group_changes": true
+  },
+  "scope": "Mechanism localization on four outcome-stratified endpoints; not a prevalence estimate over the full seed set.",
+  "stop_rule": "Report the fixed parameter-group intervention. Do not add groups, layers, seeds, steps, optimizer resets, RNG resets, or post-hoc gates."
+}
