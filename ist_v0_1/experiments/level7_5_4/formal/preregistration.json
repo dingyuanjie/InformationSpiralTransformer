@@ -1,0 +1,68 @@
+{
+  "level": "7.5.4",
+  "title": "Minimum sufficient Memory parameter subset",
+  "parent": "experiments/level7_5_3_4/formal/result.json",
+  "frozen_source_ids": [
+    "seed1879_intact_replay",
+    "seed2203_selected_layer_suppression",
+    "seed2551_selected_layer_suppression",
+    "seed2909_intact_replay"
+  ],
+  "arms": [
+    "preserve_optimizer_preserve_rng",
+    "single_l2_slot_queries",
+    "single_l2_write_core",
+    "single_l2_read_fusion",
+    "single_l3_slot_queries",
+    "single_l3_write_core",
+    "single_l3_read_fusion",
+    "pair_l2_all",
+    "pair_l3_all",
+    "cross_slot_queries",
+    "cross_write_core",
+    "cross_read_fusion",
+    "triple_l2_l3_slot_queries",
+    "triple_l2_l3_write_core",
+    "triple_l2_l3_read_fusion",
+    "all_memory_groups"
+  ],
+  "sources": 4,
+  "training_steps": 1000,
+  "freeze_rule": "freeze only the registered combination; preserve optimizer, RNG, data stream and update gate",
+  "stop_rule": "no post-hoc combinations or extra seeds",
+  "trajectory_screen_panel": {
+    "milestones": [
+      0,
+      300,
+      600,
+      1000
+    ],
+    "conditions": [
+      "intact",
+      "zero_l2",
+      "zero_l3",
+      "keep_l2",
+      "keep_l3"
+    ]
+  },
+  "final_confirmation_panel": {
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ]
+  }
+}
