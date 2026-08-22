@@ -1,0 +1,991 @@
+{
+  "diagnosis": {
+    "classification": "minimum_sufficient_recovery_candidates_found",
+    "effect_counts": {
+      "all_memory_frozen": 3,
+      "restore_l3_read_fusion": 4,
+      "restore_l3_slot_queries": 3
+    },
+    "recovery_gain_over_all_frozen": {
+      "restore_l3_read_fusion": [
+        0.07080078125,
+        -0.1064453125,
+        0.19384765625,
+        0.099609375
+      ],
+      "restore_l3_slot_queries": [
+        0.01611328125,
+        0.04931640625,
+        0.091796875,
+        0.0771484375
+      ]
+    },
+    "recovery_count_at_5pp": {
+      "restore_l3_read_fusion": 3,
+      "restore_l3_slot_queries": 2
+    },
+    "minimum_sufficient_candidates": [
+      "restore_l3_read_fusion"
+    ],
+    "outcome_stratified_sources": 4,
+    "interpretation_scope": "Four frozen outcome-stratified endpoints; not a prevalence estimate.",
+    "registered_stop_boundary": "Report the fixed parameter-group intervention. Do not add groups, layers, seeds, steps, or post-hoc gates."
+  },
+  "integrity": {
+    "script_sha256": "483e9318f056e7932651f7f7db91af4c5d3435365772040fd85f88a82bbaf1c0",
+    "preregistration_sha256": "a9a81b0e385cc51f471f89ffdcfab54c971134098ca0a1c42f142ce06394f20d",
+    "parent_result_sha256": "3f35b3f3f27a335acd56d5daf4973c474bf925b6b383ad5d782ffcecd3a99f34",
+    "all_sources_validated": true,
+    "expected_new_training_arms": 12,
+    "completed_new_training_arms": 12,
+    "all_training_steps_exact": true,
+    "all_initialization_gates_passed": true,
+    "all_optimizer_states_preserved": true,
+    "all_CPU_RNG_preserved": true,
+    "all_CUDA_RNG_preserved": true,
+    "all_frozen_parameter_snapshots_unchanged": true,
+    "no_memory_masks": true,
+    "no_training_beyond_budget": true,
+    "expected_shared_source_screens": 4,
+    "completed_shared_source_screens": 4,
+    "expected_trajectory_screens": 48,
+    "completed_trajectory_screens": 48,
+    "all_screen_integrity_passed": true,
+    "expected_confirmation_panels": 16,
+    "completed_confirmation_panels": 16,
+    "all_confirmation_integrity_passed": true,
+    "screen_dataset_seed": 7551000,
+    "confirmation_dataset_seed": 7551001,
+    "seed909_used": false,
+    "passed": true
+  },
+  "endpoint_outcomes": [
+    {
+      "id": "seed1879_intact_replay__preserve_optimizer_preserve_rng",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "selection_role": "persistent_L2_loss",
+      "arm": "preserve_optimizer_preserve_rng",
+      "parameter_group": {
+        "kind": "none",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.94921875,
+          "minimum_local": 0.984375,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.7607421875,
+          "minimum_local": 0.9521484375,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.822265625,
+          "minimum_local": 0.9912109375,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.767578125,
+          "minimum_local": 0.9580078125,
+          "dominant_retention_layer": 2,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.7835286458333334,
+      "trajectory_query_min": 0.7607421875,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.80322265625
+    },
+    {
+      "id": "seed1879_intact_replay__all_memory_frozen",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "selection_role": "persistent_L2_loss",
+      "arm": "all_memory_frozen",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.94921875,
+          "minimum_local": 0.984375,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.9580078125,
+          "minimum_local": 0.9833984375,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.76171875,
+          "minimum_local": 0.966796875,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.8310546875,
+          "minimum_local": 0.98046875,
+          "dominant_retention_layer": 2,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.8502604166666666,
+      "trajectory_query_min": 0.76171875,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.83935546875
+    },
+    {
+      "id": "seed1879_intact_replay__restore_l3_read_fusion",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "selection_role": "persistent_L2_loss",
+      "arm": "restore_l3_read_fusion",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.94921875,
+          "minimum_local": 0.984375,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.900390625,
+          "minimum_local": 0.970703125,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.806640625,
+          "minimum_local": 0.9462890625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.9189453125,
+          "minimum_local": 0.9541015625,
+          "dominant_retention_layer": 2,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        false,
+        true
+      ],
+      "trajectory_query_mean": 0.8753255208333334,
+      "trajectory_query_min": 0.806640625,
+      "final_route": "l2_core_l3_supported",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.91015625
+    },
+    {
+      "id": "seed1879_intact_replay__restore_l3_slot_queries",
+      "source_id": "seed1879_intact_replay",
+      "seed": 1879,
+      "selection_role": "persistent_L2_loss",
+      "arm": "restore_l3_slot_queries",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.94921875,
+          "minimum_local": 0.984375,
+          "dominant_retention_layer": 2,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.82421875,
+          "minimum_local": 0.8798828125,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.84375,
+          "minimum_local": 0.884765625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.857421875,
+          "minimum_local": 0.8837890625,
+          "dominant_retention_layer": 2,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.841796875,
+      "trajectory_query_min": 0.82421875,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.85546875
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__preserve_optimizer_preserve_rng",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "selection_role": "unformed_L3_recovery",
+      "arm": "preserve_optimizer_preserve_rng",
+      "parameter_group": {
+        "kind": "none",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.6015625,
+          "minimum_local": 0.9794921875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.96875,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.966796875,
+          "minimum_local": 1.0,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        true,
+        true
+      ],
+      "trajectory_query_mean": 0.845703125,
+      "trajectory_query_min": 0.6015625,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.9677734375
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__all_memory_frozen",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "selection_role": "unformed_L3_recovery",
+      "arm": "all_memory_frozen",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.6748046875,
+          "minimum_local": 0.9736328125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.931640625,
+          "minimum_local": 0.9970703125,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.9130859375,
+          "minimum_local": 0.994140625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        true,
+        true
+      ],
+      "trajectory_query_mean": 0.83984375,
+      "trajectory_query_min": 0.6748046875,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.9033203125
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__restore_l3_read_fusion",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "selection_role": "unformed_L3_recovery",
+      "arm": "restore_l3_read_fusion",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.841796875,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.8740234375,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.8134765625,
+          "minimum_local": 0.9892578125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        false
+      ],
+      "trajectory_query_mean": 0.8430989583333334,
+      "trajectory_query_min": 0.8134765625,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.796875
+    },
+    {
+      "id": "seed2203_selected_layer_suppression__restore_l3_slot_queries",
+      "source_id": "seed2203_selected_layer_suppression",
+      "seed": 2203,
+      "selection_role": "unformed_L3_recovery",
+      "arm": "restore_l3_slot_queries",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.765625,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.8671875,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.8193359375,
+          "minimum_local": 0.984375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.958984375,
+          "minimum_local": 0.9814453125,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        true
+      ],
+      "trajectory_query_mean": 0.8818359375,
+      "trajectory_query_min": 0.8193359375,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.95263671875
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__preserve_optimizer_preserve_rng",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "selection_role": "late_L3_collapse",
+      "arm": "preserve_optimizer_preserve_rng",
+      "parameter_group": {
+        "kind": "none",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9228515625,
+          "minimum_local": 0.98046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.9423828125,
+          "minimum_local": 0.9833984375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.927734375,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.244140625,
+          "minimum_local": 0.658203125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        true,
+        false
+      ],
+      "trajectory_query_mean": 0.7047526041666666,
+      "trajectory_query_min": 0.244140625,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.25927734375
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__all_memory_frozen",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "selection_role": "late_L3_collapse",
+      "arm": "all_memory_frozen",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9228515625,
+          "minimum_local": 0.98046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.953125,
+          "minimum_local": 0.9931640625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9765625,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.78515625,
+          "minimum_local": 0.998046875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        true,
+        false
+      ],
+      "trajectory_query_mean": 0.9049479166666666,
+      "trajectory_query_min": 0.78515625,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.767578125
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__restore_l3_read_fusion",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "selection_role": "late_L3_collapse",
+      "arm": "restore_l3_read_fusion",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9228515625,
+          "minimum_local": 0.98046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.986328125,
+          "minimum_local": 0.998046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9501953125,
+          "minimum_local": 1.0,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.9638671875,
+          "minimum_local": 0.984375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        true,
+        true
+      ],
+      "trajectory_query_mean": 0.966796875,
+      "trajectory_query_min": 0.9501953125,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.96142578125
+    },
+    {
+      "id": "seed2551_selected_layer_suppression__restore_l3_slot_queries",
+      "source_id": "seed2551_selected_layer_suppression",
+      "seed": 2551,
+      "selection_role": "late_L3_collapse",
+      "arm": "restore_l3_slot_queries",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.9228515625,
+          "minimum_local": 0.98046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.9228515625,
+          "minimum_local": 0.98046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9921875,
+          "minimum_local": 0.998046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.859375,
+          "minimum_local": 0.9951171875,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        true,
+        false
+      ],
+      "trajectory_query_mean": 0.9248046875,
+      "trajectory_query_min": 0.859375,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.859375
+    },
+    {
+      "id": "seed2909_intact_replay__preserve_optimizer_preserve_rng",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "preserve_optimizer_preserve_rng",
+      "parameter_group": {
+        "kind": "none",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.91796875,
+          "minimum_local": 0.994140625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.806640625,
+          "minimum_local": 0.9658203125,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.1708984375,
+          "minimum_local": 0.5166015625,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.9384765625,
+          "minimum_local": 1.0,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        false,
+        false,
+        true
+      ],
+      "trajectory_query_mean": 0.638671875,
+      "trajectory_query_min": 0.1708984375,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.9443359375
+    },
+    {
+      "id": "seed2909_intact_replay__all_memory_frozen",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "all_memory_frozen",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.91796875,
+          "minimum_local": 0.994140625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.9462890625,
+          "minimum_local": 0.99609375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.93359375,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.806640625,
+          "minimum_local": 0.9990234375,
+          "dominant_retention_layer": 3,
+          "formed": false
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        true,
+        false
+      ],
+      "trajectory_query_mean": 0.8955078125,
+      "trajectory_query_min": 0.806640625,
+      "final_route": "unformed_behavior",
+      "final_expected_route_formed": false,
+      "final_intact_query": 0.82421875
+    },
+    {
+      "id": "seed2909_intact_replay__restore_l3_read_fusion",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "restore_l3_read_fusion",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.91796875,
+          "minimum_local": 0.994140625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.9150390625,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.8896484375,
+          "minimum_local": 1.0,
+          "dominant_retention_layer": 3,
+          "formed": false
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.923828125,
+          "minimum_local": 1.0,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        false,
+        true
+      ],
+      "trajectory_query_mean": 0.9095052083333334,
+      "trajectory_query_min": 0.8896484375,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.923828125
+    },
+    {
+      "id": "seed2909_intact_replay__restore_l3_slot_queries",
+      "source_id": "seed2909_intact_replay",
+      "seed": 2909,
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "restore_l3_slot_queries",
+      "parameter_group": {
+        "kind": "combination",
+        "layer": null
+      },
+      "trajectory": [
+        {
+          "training_step": 0,
+          "intact_query": 0.91796875,
+          "minimum_local": 0.994140625,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 300,
+          "intact_query": 0.935546875,
+          "minimum_local": 0.990234375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 600,
+          "intact_query": 0.9375,
+          "minimum_local": 0.998046875,
+          "dominant_retention_layer": 3,
+          "formed": true
+        },
+        {
+          "training_step": 1000,
+          "intact_query": 0.900390625,
+          "minimum_local": 0.9912109375,
+          "dominant_retention_layer": 3,
+          "formed": true
+        }
+      ],
+      "formed_vector_300_600_1000": [
+        true,
+        true,
+        true
+      ],
+      "trajectory_query_mean": 0.9244791666666666,
+      "trajectory_query_min": 0.900390625,
+      "final_route": "l3_core",
+      "final_expected_route_formed": true,
+      "final_intact_query": 0.9013671875
+    }
+  ],
+  "causal_comparisons": [
+    {
+      "source_id": "seed1879_intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "all_memory_frozen",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.197265625,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed1879_intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "restore_l3_read_fusion",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.1513671875,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed1879_intact_replay",
+      "selection_role": "persistent_L2_loss",
+      "arm": "restore_l3_slot_queries",
+      "formed_vector_changed": false,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.08984375,
+      "material_effect": false
+    },
+    {
+      "source_id": "seed2203_selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "all_memory_frozen",
+      "formed_vector_changed": false,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.0732421875,
+      "material_effect": false
+    },
+    {
+      "source_id": "seed2203_selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "restore_l3_read_fusion",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.240234375,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed2203_selected_layer_suppression",
+      "selection_role": "unformed_L3_recovery",
+      "arm": "restore_l3_slot_queries",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.265625,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed2551_selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "all_memory_frozen",
+      "formed_vector_changed": false,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.541015625,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed2551_selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "restore_l3_read_fusion",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.7197265625,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed2551_selected_layer_suppression",
+      "selection_role": "late_L3_collapse",
+      "arm": "restore_l3_slot_queries",
+      "formed_vector_changed": false,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.615234375,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed2909_intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "all_memory_frozen",
+      "formed_vector_changed": true,
+      "final_fate_changed": true,
+      "max_absolute_query_delta": 0.7626953125,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed2909_intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "restore_l3_read_fusion",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.71875,
+      "material_effect": true
+    },
+    {
+      "source_id": "seed2909_intact_replay",
+      "selection_role": "transient_L3_collapse_recovery",
+      "arm": "restore_l3_slot_queries",
+      "formed_vector_changed": true,
+      "final_fate_changed": false,
+      "max_absolute_query_delta": 0.7666015625,
+      "material_effect": true
+    }
+  ],
+  "elapsed_seconds_this_invocation": 12103.095190400001
+}

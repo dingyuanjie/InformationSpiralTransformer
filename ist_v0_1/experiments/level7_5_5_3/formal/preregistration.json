@@ -1,0 +1,67 @@
+{
+  "level": "7.5.5.3",
+  "title": "Delayed L3 slot unfreezing interaction",
+  "parent": "experiments/level7_5_5_2/formal/result.json",
+  "parent_sha256": "8ef17a9401f1e240757890bec85c4d20b84040ad9ed96c67cc67cf9abc5d6507",
+  "frozen_source_ids": [
+    "seed1879_intact_replay",
+    "seed2203_selected_layer_suppression",
+    "seed2551_selected_layer_suppression",
+    "seed2909_intact_replay"
+  ],
+  "arms": [
+    "preserve_optimizer_preserve_rng",
+    "all_memory_frozen",
+    "restore_l3_read_fusion",
+    "restore_l3_slot_read_fusion",
+    "read_then_slot_300",
+    "read_then_slot_600"
+  ],
+  "training": {
+    "steps": 1000,
+    "batch_size": 4,
+    "learning_rate": 0.001,
+    "delayed_rule": "read/fusion active from step 1; slot queries open after step 300 or 600; all other L2/L3 Memory groups remain frozen"
+  },
+  "trajectory_screen_panel": {
+    "milestones": [
+      0,
+      300,
+      600,
+      1000
+    ],
+    "samples": 1024,
+    "dataset_seed": 7553000,
+    "conditions": [
+      "intact",
+      "zero_l2",
+      "zero_l3",
+      "keep_l2",
+      "keep_l3"
+    ]
+  },
+  "final_confirmation_panel": {
+    "samples": 2048,
+    "dataset_seed": 7553001,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ]
+  },
+  "primary_test": "delayed slot opening improves joint-from-start and approaches read-only recovery",
+  "stop_rule": "no extra delays, arms, thresholds, seeds, or steps"
+}

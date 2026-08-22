@@ -506,8 +506,8 @@ def diagnose(
             })
     by_arm = {arm: [row for row in comparisons if row["arm"] == arm] for arm in INTERVENTION_ARMS}
     effect_counts = {arm: sum(row["material_effect"] for row in rows) for arm, rows in by_arm.items()}
-    l2_effects = {kind: effect_counts[f"freeze_l2_{kind}"] for kind in ("slot_queries", "write_core", "read_fusion")}
-    l3_effects = {kind: effect_counts[f"freeze_l3_{kind}"] for kind in ("slot_queries", "write_core", "read_fusion")}
+    l2_effects = {kind: effect_counts[f"single_l2_{kind}"] for kind in ("slot_queries", "write_core", "read_fusion")}
+    l3_effects = {kind: effect_counts[f"single_l3_{kind}"] for kind in ("slot_queries", "write_core", "read_fusion")}
     dominant_l3 = [kind for kind, count in l3_effects.items() if count >= 2 and all(count >= other_count for other_count in l3_effects.values())]
     dominant_l2 = [kind for kind, count in l2_effects.items() if count >= 1 and count == max(l2_effects.values())]
     if not integrity_passed:
@@ -597,18 +597,9 @@ def build_integrity(
 
 
 def plot_parameter_effects(outcomes: list[dict[str, Any]], path: Path) -> None:
-    colors = {
-        EXACT_ARM: "#333333",
-        "freeze_l2_slot_queries": "#d1495b", "freeze_l3_slot_queries": "#0077b6",
-        "freeze_l2_write_core": "#f4a261", "freeze_l3_write_core": "#2a9d8f",
-        "freeze_l2_read_fusion": "#6a4c93", "freeze_l3_read_fusion": "#8ac926",
-    }
-    labels = {
-        EXACT_ARM: "exact reference",
-        "freeze_l2_slot_queries": "freeze L2 slots", "freeze_l3_slot_queries": "freeze L3 slots",
-        "freeze_l2_write_core": "freeze L2 write", "freeze_l3_write_core": "freeze L3 write",
-        "freeze_l2_read_fusion": "freeze L2 read", "freeze_l3_read_fusion": "freeze L3 read",
-    }
+    palette=["#d1495b","#0077b6","#f4a261","#2a9d8f","#6a4c93","#8ac926","#e76f51","#264653","#457b9d","#bc6c25","#606c38","#9b5de5","#00b4d8","#f15bb5","#52b788"]
+    colors={EXACT_ARM:"#333333", **{arm:palette[i] for i,arm in enumerate(INTERVENTION_ARMS)}}
+    labels={EXACT_ARM:"exact reference", **{arm:arm.replace('_',' ') for arm in INTERVENTION_ARMS}}
     by_key = {(row["source_id"], row["arm"]): row for row in outcomes}
     figure, axes = plt.subplots(2, 2, figsize=(16, 10), sharex=True, sharey=True)
     for axis, spec in zip(axes.flat, SOURCE_SPECS):
