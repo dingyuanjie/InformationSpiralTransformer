@@ -1,0 +1,11 @@
+{
+  "level":"7.5.5.6","title":"L3 slot AdamW step/weight-decay decomposition",
+  "parent":"experiments/level7_5_5_5/formal/result.json","parent_sha256":"2f684d0aed31fd9b4640f08e27aa9d08150bf33ecc2137f417e25432a38677b4",
+  "frozen_source_ids":["seed1879_intact_replay","seed2203_selected_layer_suppression","seed2551_selected_layer_suppression","seed2909_intact_replay"],
+  "arms":["preserve_optimizer_preserve_rng","all_memory_frozen","restore_l3_read_fusion","read_slot_dose_025_keep","read_slot_dose_025_reset_m1","read_slot_dose_025_reset_m1_step","read_slot_dose_025_reset_m1_nodecay","read_slot_dose_025_reset_m1_step_nodecay"],
+  "training":{"steps":1000,"batch_size":4,"learning_rate":0.001,"slot_open_after_step":300,"slot_gradient_dose":0.25,"rule":"factorially reset slot exp_avg, slot AdamW step, and/or cancel slot decoupled weight decay; preserve exp_avg_sq"},
+  "trajectory_screen_panel":{"milestones":[0,300,600,1000],"samples":1024,"dataset_seed":7556000,"conditions":["intact","zero_l2","zero_l3","keep_l2","keep_l3"]},
+  "final_confirmation_panel":{"samples":2048,"dataset_seed":7556001,"conditions":["intact","reset_all","zero_all","batch_roll_all","zero_l1","zero_l2","zero_l3","batch_roll_l1","batch_roll_l2","batch_roll_l3","keep_l1","keep_l2","keep_l3","keep_l1_l2","keep_l1_l3","keep_l2_l3"]},
+  "primary_test":"whether AdamW bias-correction step or decoupled weight decay explains residual slot interference after m1 reset",
+  "stop_rule":"preserve second moment; no extra doses, arms, delays, seeds, or steps"
+}

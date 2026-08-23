@@ -1,0 +1,75 @@
+{
+  "level": "7.5.5.4",
+  "title": "Delayed L3 slot gradient-dose intervention",
+  "parent": "experiments/level7_5_5_3/formal/result.json",
+  "parent_sha256": "d0f704290c5de6361f13061e8bffb41dff13b1e2bdf090f514467769e2a6cb46",
+  "frozen_source_ids": [
+    "seed1879_intact_replay",
+    "seed2203_selected_layer_suppression",
+    "seed2551_selected_layer_suppression",
+    "seed2909_intact_replay"
+  ],
+  "arms": [
+    "preserve_optimizer_preserve_rng",
+    "all_memory_frozen",
+    "restore_l3_read_fusion",
+    "read_slot_dose_010",
+    "read_slot_dose_025",
+    "read_slot_dose_050",
+    "read_slot_dose_100"
+  ],
+  "training": {
+    "steps": 1000,
+    "batch_size": 4,
+    "learning_rate": 0.001,
+    "slot_open_after_step": 300,
+    "slot_gradient_doses": [
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "rule": "read/fusion active from step 1; L3 slot queries frozen through step 300, then gradient-scaled; other L2/L3 Memory groups frozen"
+  },
+  "trajectory_screen_panel": {
+    "milestones": [
+      0,
+      300,
+      600,
+      1000
+    ],
+    "samples": 1024,
+    "dataset_seed": 7554000,
+    "conditions": [
+      "intact",
+      "zero_l2",
+      "zero_l3",
+      "keep_l2",
+      "keep_l3"
+    ]
+  },
+  "final_confirmation_panel": {
+    "samples": 2048,
+    "dataset_seed": 7554001,
+    "conditions": [
+      "intact",
+      "reset_all",
+      "zero_all",
+      "batch_roll_all",
+      "zero_l1",
+      "zero_l2",
+      "zero_l3",
+      "batch_roll_l1",
+      "batch_roll_l2",
+      "batch_roll_l3",
+      "keep_l1",
+      "keep_l2",
+      "keep_l3",
+      "keep_l1_l2",
+      "keep_l1_l3",
+      "keep_l2_l3"
+    ]
+  },
+  "primary_test": "whether slot-query interference scales with its post-step300 gradient dose",
+  "stop_rule": "no extra doses, delays, arms, thresholds, seeds, or steps"
+}
