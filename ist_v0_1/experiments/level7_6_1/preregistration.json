@@ -1,0 +1,9 @@
+{
+  "level":"7.6.1","title":"High-powered paired long-context confirmation",
+  "parent":"experiments/level7_6/formal","variants":["transformer-matched","ist-full","ist-stable"],
+  "seeds":[313,42,2026,7,1234],"lengths":[1024,2048,4096,8192],"samples_per_seed_length":1000,
+  "checkpoint":"stage3.pt","paired_examples":true,
+  "primary_endpoint":"pooled query accuracy and Wilson 95% interval at 2048 tokens",
+  "secondary_endpoints":["1024/4096/8192 accuracy","paired accuracy difference","throughput","peak CUDA memory"],
+  "stop_rule":"no retraining, checkpoint selection, extra seeds, lengths, or post-hoc sample changes"
+}

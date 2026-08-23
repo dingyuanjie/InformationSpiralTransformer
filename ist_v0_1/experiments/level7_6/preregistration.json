@@ -1,0 +1,14 @@
+{
+  "level":"7.6",
+  "title":"Stable IST external long-context validation",
+  "variants":["transformer-matched","ist-full","ist-stable"],
+  "stable_policy":"freeze blocks.2.memory.slot_queries for the complete training run",
+  "seeds":[313,42,2026,7,1234],
+  "training_curriculum":[{"length":128,"steps":2000},{"length":256,"steps":800},{"length":512,"steps":800}],
+  "long_context_lengths":[1024,2048,4096,8192],
+  "chunk_size_interpretation":128,
+  "comparison_rules":["fixed training steps","same examples per seed","parameter-matched Transformer","same optimizer and learning rate"],
+  "primary_endpoint":"mean query accuracy across seeds at each held-out long-context length",
+  "secondary_endpoints":["accuracy AUC","peak CUDA memory","tokens per second","cross-seed variance","OOM status"],
+  "stop_rule":"no post-hoc seeds, context lengths, curriculum changes, or variant-specific compute"
+}
