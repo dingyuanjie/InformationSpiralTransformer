@@ -1,0 +1,31 @@
+{
+  "variants": [
+    "transformer-matched",
+    "ist-full",
+    "ist-stable"
+  ],
+  "seed": 313,
+  "lengths": [
+    1024,
+    2048,
+    4096,
+    8192
+  ],
+  "measured_forwards": {
+    "1024": 120,
+    "2048": 80,
+    "4096": 50,
+    "8192": 30
+  },
+  "warmup": 10,
+  "repeats": 3,
+  "batch_size": 1,
+  "dtype": "bf16-if-supported",
+  "fixed_replay": true,
+  "source_checkpoint": "level7_6_4/stage_4096.pt",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype_used": "torch.bfloat16",
+  "matched_width": 96,
+  "matched_transformer_parameters": 339187
+}

@@ -125,7 +125,24 @@ def atomic_torch_save(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     torch.save(payload, temporary)
-    os.replace(temporary, path)
+    last_error: OSError | None = None
+    for attempt in range(12):
+        try:
+            os.replace(temporary, path)
+            return
+        except PermissionError as error:
+            last_error = error
+            time.sleep(0.05 * (attempt + 1))
+    # Windows Defender/indexers can keep the destination handle open longer
+    # than the retry window. Preserve resumability with a direct final write;
+    # the temporary file remains as an additional recovery copy if this fails.
+    try:
+        torch.save(payload, path)
+        temporary.unlink(missing_ok=True)
+    except OSError:
+        if last_error is not None:
+            raise last_error
+        raise
 
 
 def _digest_value(digest: Any, value: Any) -> None:

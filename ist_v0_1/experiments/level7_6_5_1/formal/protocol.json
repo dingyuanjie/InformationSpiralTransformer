@@ -1,0 +1,44 @@
+{
+  "protocol": {
+    "variants": [
+      "transformer-matched",
+      "ist-full",
+      "ist-stable"
+    ],
+    "seed": 313,
+    "length": 8192,
+    "window": [
+      2048,
+      4095
+    ],
+    "modes": [
+      "fixed_replay",
+      "streaming_rng",
+      "reseed_each_sample"
+    ],
+    "warmup": 10,
+    "measured": 30,
+    "repeats": 3
+  },
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "gpu_capability": [
+      12,
+      0
+    ],
+    "dtype": "torch.bfloat16",
+    "cudnn_version": 91900,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "deterministic_algorithms": false,
+    "allow_tf32_matmul": false,
+    "flash_sdp_enabled": true,
+    "mem_efficient_sdp_enabled": true,
+    "math_sdp_enabled": true
+  },
+  "matched_width": 96,
+  "matched_transformer_parameters": 339187
+}
