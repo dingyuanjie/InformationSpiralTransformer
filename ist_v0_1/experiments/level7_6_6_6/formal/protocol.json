@@ -1,0 +1,194 @@
+{
+  "protocol": {
+    "variant": "ist-full",
+    "length": 32768,
+    "windows": {
+      "near": [
+        16,
+        4095
+      ],
+      "far": [
+        16384,
+        32766
+      ]
+    },
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "groups": {
+      "313": "low",
+      "42": "intermediate",
+      "2026": "high",
+      "7": "high",
+      "1234": "low"
+    },
+    "conditions": [
+      "intact",
+      "selected_keep",
+      "selected_ablate",
+      "selected_boost_2",
+      "top4_keep",
+      "top4_ablate",
+      "top4_boost_2"
+    ],
+    "samples_per_seed_window": 30,
+    "slot_selection_source": "level7_6_6_5 validation accuracy only",
+    "frozen_selections": {
+      "313": {
+        "selected": {
+          "layer": 1,
+          "slot": 24,
+          "validation_accuracy": 0.140625
+        },
+        "top4": [
+          {
+            "layer": 1,
+            "slot": 24,
+            "validation_accuracy": 0.140625
+          },
+          {
+            "layer": 2,
+            "slot": 26,
+            "validation_accuracy": 0.140625
+          },
+          {
+            "layer": 0,
+            "slot": 5,
+            "validation_accuracy": 0.125
+          },
+          {
+            "layer": 0,
+            "slot": 14,
+            "validation_accuracy": 0.125
+          }
+        ]
+      },
+      "42": {
+        "selected": {
+          "layer": 2,
+          "slot": 7,
+          "validation_accuracy": 0.1875
+        },
+        "top4": [
+          {
+            "layer": 2,
+            "slot": 7,
+            "validation_accuracy": 0.1875
+          },
+          {
+            "layer": 2,
+            "slot": 18,
+            "validation_accuracy": 0.15625
+          },
+          {
+            "layer": 2,
+            "slot": 19,
+            "validation_accuracy": 0.15625
+          },
+          {
+            "layer": 0,
+            "slot": 5,
+            "validation_accuracy": 0.140625
+          }
+        ]
+      },
+      "2026": {
+        "selected": {
+          "layer": 2,
+          "slot": 31,
+          "validation_accuracy": 0.234375
+        },
+        "top4": [
+          {
+            "layer": 2,
+            "slot": 31,
+            "validation_accuracy": 0.234375
+          },
+          {
+            "layer": 2,
+            "slot": 3,
+            "validation_accuracy": 0.203125
+          },
+          {
+            "layer": 2,
+            "slot": 5,
+            "validation_accuracy": 0.203125
+          },
+          {
+            "layer": 2,
+            "slot": 12,
+            "validation_accuracy": 0.203125
+          }
+        ]
+      },
+      "7": {
+        "selected": {
+          "layer": 2,
+          "slot": 0,
+          "validation_accuracy": 0.234375
+        },
+        "top4": [
+          {
+            "layer": 2,
+            "slot": 0,
+            "validation_accuracy": 0.234375
+          },
+          {
+            "layer": 2,
+            "slot": 20,
+            "validation_accuracy": 0.21875
+          },
+          {
+            "layer": 2,
+            "slot": 24,
+            "validation_accuracy": 0.15625
+          },
+          {
+            "layer": 2,
+            "slot": 26,
+            "validation_accuracy": 0.15625
+          }
+        ]
+      },
+      "1234": {
+        "selected": {
+          "layer": 2,
+          "slot": 18,
+          "validation_accuracy": 0.34375
+        },
+        "top4": [
+          {
+            "layer": 2,
+            "slot": 18,
+            "validation_accuracy": 0.34375
+          },
+          {
+            "layer": 2,
+            "slot": 11,
+            "validation_accuracy": 0.328125
+          },
+          {
+            "layer": 2,
+            "slot": 0,
+            "validation_accuracy": 0.3125
+          },
+          {
+            "layer": 2,
+            "slot": 4,
+            "validation_accuracy": 0.28125
+          }
+        ]
+      }
+    },
+    "paired_examples": true,
+    "primary_seed": 1234,
+    "negative_control_seed": 313
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

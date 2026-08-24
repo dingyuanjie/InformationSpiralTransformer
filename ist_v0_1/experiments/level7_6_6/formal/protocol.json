@@ -1,0 +1,67 @@
+{
+  "protocol": {
+    "variants": [
+      "transformer-matched",
+      "ist-full",
+      "ist-stable"
+    ],
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "lengths": [
+      16384,
+      32768
+    ],
+    "windows": {
+      "16384": [
+        [
+          16,
+          2047
+        ],
+        [
+          2048,
+          4095
+        ],
+        [
+          4096,
+          8191
+        ],
+        [
+          8192,
+          16382
+        ]
+      ],
+      "32768": [
+        [
+          16,
+          4095
+        ],
+        [
+          4096,
+          8191
+        ],
+        [
+          8192,
+          16383
+        ],
+        [
+          16384,
+          32766
+        ]
+      ]
+    },
+    "samples_per_seed_window": 50,
+    "frozen_zero_shot": true,
+    "source": "level7_6_4/stage_4096.pt",
+    "chance_accuracy": 0.0625
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16",
+  "matched_width": 96,
+  "matched_transformer_parameters": 339187
+}

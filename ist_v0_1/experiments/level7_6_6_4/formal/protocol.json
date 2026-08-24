@@ -1,0 +1,73 @@
+{
+  "protocol": {
+    "variant": "ist-full",
+    "length": 32768,
+    "windows": {
+      "near": [
+        16,
+        4095
+      ],
+      "far": [
+        16384,
+        32766
+      ]
+    },
+    "low_seeds_primary_rescue": [
+      313,
+      1234
+    ],
+    "high_seeds_specificity_control": [
+      2026,
+      7
+    ],
+    "conditions": {
+      "intact": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "l3_decor_0_25": [
+        0.0,
+        0.0,
+        0.25
+      ],
+      "l3_decor_0_50": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "l3_decor_1_00": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "l1_decor_0_25": [
+        0.25,
+        0.0,
+        0.0
+      ],
+      "l2_l3_decor_0_25": [
+        0.0,
+        0.25,
+        0.25
+      ],
+      "all_layers_decor_0_25": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "samples_per_seed_window": 30,
+    "paired_examples": true,
+    "geometry_operation": "norm-preserving sign-aligned QR interpolation",
+    "primary_endpoint": "low-group combined accuracy change vs intact",
+    "secondary_endpoints": [
+      "target_probability",
+      "target_logit_margin",
+      "slot_redundancy"
+    ]
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

@@ -1,0 +1,664 @@
+{
+  "protocol": {
+    "variants": [
+      "transformer-matched",
+      "ist-full",
+      "ist-stable"
+    ],
+    "seed": 313,
+    "lengths": [
+      1024,
+      2048,
+      4096,
+      8192
+    ],
+    "measured_forwards": {
+      "1024": 120,
+      "2048": 80,
+      "4096": 50,
+      "8192": 30
+    },
+    "warmup": 10,
+    "repeats": 3,
+    "batch_size": 1,
+    "dtype": "bf16-if-supported",
+    "fixed_replay": true,
+    "source_checkpoint": "level7_6_4/stage_4096.pt"
+  },
+  "matched_width": 96,
+  "curves": [
+    {
+      "variant": "transformer-matched",
+      "points": [
+        {
+          "length": 1024,
+          "median_latency_ms": 5.4376516668223,
+          "median_tokens_per_second": 188316.58641319582,
+          "median_peak_memory_mb": 111.28955078125,
+          "latency_cv": 0.04223523675541705
+        },
+        {
+          "length": 2048,
+          "median_latency_ms": 13.77048875001492,
+          "median_tokens_per_second": 148723.8424996194,
+          "median_peak_memory_mb": 331.17236328125,
+          "latency_cv": 0.004804111196626598
+        },
+        {
+          "length": 4096,
+          "median_latency_ms": 48.109260000055656,
+          "median_tokens_per_second": 85139.53446790205,
+          "median_peak_memory_mb": 1202.62548828125,
+          "latency_cv": 0.017212900179582366
+        },
+        {
+          "length": 8192,
+          "median_latency_ms": 183.6497833331426,
+          "median_tokens_per_second": 44606.64124574341,
+          "median_peak_memory_mb": 4673.71923828125,
+          "latency_cv": 0.003279008320516803
+        }
+      ],
+      "latency_scaling_exponent": 1.703822378650337,
+      "memory_scaling_exponent": 1.8037076324297787
+    },
+    {
+      "variant": "ist-full",
+      "points": [
+        {
+          "length": 1024,
+          "median_latency_ms": 14.028572499955771,
+          "median_tokens_per_second": 72993.88444570739,
+          "median_peak_memory_mb": 38.84619140625,
+          "latency_cv": 0.09617132656064871
+        },
+        {
+          "length": 2048,
+          "median_latency_ms": 14.747607500248705,
+          "median_tokens_per_second": 138869.98280673407,
+          "median_peak_memory_mb": 42.65869140625,
+          "latency_cv": 0.09025423233137259
+        },
+        {
+          "length": 4096,
+          "median_latency_ms": 19.2600339994533,
+          "median_tokens_per_second": 212668.36808887596,
+          "median_peak_memory_mb": 49.97119140625,
+          "latency_cv": 0.1598617335896205
+        },
+        {
+          "length": 8192,
+          "median_latency_ms": 51.48955000040587,
+          "median_tokens_per_second": 159100.2446114877,
+          "median_peak_memory_mb": 64.28369140625,
+          "latency_cv": 0.04597474022656667
+        }
+      ],
+      "latency_scaling_exponent": 0.601286367118064,
+      "memory_scaling_exponent": 0.24082957547624
+    },
+    {
+      "variant": "ist-stable",
+      "points": [
+        {
+          "length": 1024,
+          "median_latency_ms": 17.290884166626103,
+          "median_tokens_per_second": 59221.957080509936,
+          "median_peak_memory_mb": 38.84619140625,
+          "latency_cv": 0.05950796348059756
+        },
+        {
+          "length": 2048,
+          "median_latency_ms": 18.674401249882067,
+          "median_tokens_per_second": 109668.84413565515,
+          "median_peak_memory_mb": 42.65869140625,
+          "latency_cv": 0.025293778142649156
+        },
+        {
+          "length": 4096,
+          "median_latency_ms": 22.355119999847375,
+          "median_tokens_per_second": 183224.2457221417,
+          "median_peak_memory_mb": 49.97119140625,
+          "latency_cv": 0.07620327341335335
+        },
+        {
+          "length": 8192,
+          "median_latency_ms": 46.01977666704139,
+          "median_tokens_per_second": 178010.42493687232,
+          "median_peak_memory_mb": 64.28369140625,
+          "latency_cv": 0.021289093189240146
+        }
+      ],
+      "latency_scaling_exponent": 0.4496270321037507,
+      "memory_scaling_exponent": 0.24082957547624
+    }
+  ],
+  "lengthwise_ratios": [
+    {
+      "length": 1024,
+      "ist_full_speedup": 0.38761261467190933,
+      "transformer_over_ist_full_memory": 2.864876755030984
+    },
+    {
+      "length": 2048,
+      "ist_full_speedup": 0.933743914040477,
+      "transformer_over_ist_full_memory": 7.763303382361357
+    },
+    {
+      "length": 4096,
+      "ist_full_speedup": 2.497880325726385,
+      "transformer_over_ist_full_memory": 24.066376134686976
+    },
+    {
+      "length": 8192,
+      "ist_full_speedup": 3.566738946673548,
+      "transformer_over_ist_full_memory": 72.70458705840353
+    }
+  ],
+  "runs": [
+    {
+      "variant": "transformer-matched",
+      "length": 1024,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 0.652518200018676,
+      "cuda_seconds": 0.6524666748046875,
+      "wall_latency_ms": 5.4376516668223,
+      "cuda_latency_ms": 5.437222290039062,
+      "wall_tokens_per_second": 188316.58641319582,
+      "cuda_tokens_per_second": 188331.45775113112,
+      "peak_memory_mb": 111.28955078125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 1024,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 0.6619758000015281,
+      "cuda_seconds": 0.6619293823242187,
+      "wall_latency_ms": 5.516465000012734,
+      "cuda_latency_ms": 5.516078186035156,
+      "wall_tokens_per_second": 185626.12107529663,
+      "cuda_tokens_per_second": 185639.13807320961,
+      "peak_memory_mb": 111.28955078125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 1024,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 0.6110142999968957,
+      "cuda_seconds": 0.6109649047851563,
+      "wall_latency_ms": 5.091785833307465,
+      "cuda_latency_ms": 5.091374206542969,
+      "wall_tokens_per_second": 201108.22283639564,
+      "cuda_tokens_per_second": 201124.4820080301,
+      "peak_memory_mb": 111.28955078125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 2048,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.1016391000011936,
+      "cuda_seconds": 1.101556396484375,
+      "wall_latency_ms": 13.77048875001492,
+      "cuda_latency_ms": 13.769454956054688,
+      "wall_tokens_per_second": 148723.8424996194,
+      "cuda_tokens_per_second": 148735.00850514462,
+      "peak_memory_mb": 331.17236328125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 2048,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.1102394000045024,
+      "cuda_seconds": 1.1101204833984375,
+      "wall_latency_ms": 13.87799250005628,
+      "cuda_latency_ms": 13.876506042480468,
+      "wall_tokens_per_second": 147571.7759605141,
+      "cuda_tokens_per_second": 147587.583915606,
+      "peak_memory_mb": 331.17236328125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 2048,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.1005598999909125,
+      "cuda_seconds": 1.1004583740234375,
+      "wall_latency_ms": 13.756998749886407,
+      "cuda_latency_ms": 13.755729675292969,
+      "wall_tokens_per_second": 148869.67987962568,
+      "cuda_tokens_per_second": 148883.4142821567,
+      "peak_memory_mb": 331.17236328125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 4096,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 2.459697700018296,
+      "cuda_seconds": 2.45956396484375,
+      "wall_latency_ms": 49.19395400036592,
+      "cuda_latency_ms": 49.191279296875,
+      "wall_tokens_per_second": 83262.2643012093,
+      "cuda_tokens_per_second": 83266.79156441879,
+      "peak_memory_mb": 1202.62548828125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 4096,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 2.405463000002783,
+      "cuda_seconds": 2.405288330078125,
+      "wall_latency_ms": 48.109260000055656,
+      "cuda_latency_ms": 48.1057666015625,
+      "wall_tokens_per_second": 85139.53446790205,
+      "cuda_tokens_per_second": 85145.71722607077,
+      "peak_memory_mb": 1202.62548828125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 4096,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 2.3780336000199895,
+      "cuda_seconds": 2.377873291015625,
+      "wall_latency_ms": 47.56067200039979,
+      "cuda_latency_ms": 47.5574658203125,
+      "wall_tokens_per_second": 86121.57540510717,
+      "cuda_tokens_per_second": 86127.38146048432,
+      "peak_memory_mb": 1202.62548828125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 8192,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 5.492008400004124,
+      "cuda_seconds": 5.49183251953125,
+      "wall_latency_ms": 183.06694666680414,
+      "cuda_latency_ms": 183.061083984375,
+      "wall_tokens_per_second": 44748.65697580059,
+      "cuda_tokens_per_second": 44750.09008850413,
+      "peak_memory_mb": 4673.71923828125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 8192,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 5.528136100008851,
+      "cuda_seconds": 5.5279873046875,
+      "wall_latency_ms": 184.27120333362836,
+      "cuda_latency_ms": 184.26624348958333,
+      "wall_tokens_per_second": 44456.21373171448,
+      "cuda_tokens_per_second": 44457.41034745248,
+      "peak_memory_mb": 4673.71923828125
+    },
+    {
+      "variant": "transformer-matched",
+      "length": 8192,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 5.509493499994278,
+      "cuda_seconds": 5.5093388671875,
+      "wall_latency_ms": 183.6497833331426,
+      "cuda_latency_ms": 183.64462890625,
+      "wall_tokens_per_second": 44606.64124574341,
+      "cuda_tokens_per_second": 44607.89323809731,
+      "peak_memory_mb": 4673.71923828125
+    },
+    {
+      "variant": "ist-full",
+      "length": 1024,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 1.4267502999864519,
+      "cuda_seconds": 1.4267120361328125,
+      "wall_latency_ms": 11.889585833220432,
+      "cuda_latency_ms": 11.889266967773438,
+      "wall_tokens_per_second": 86125.79229958238,
+      "cuda_tokens_per_second": 86128.10215933519,
+      "peak_memory_mb": 38.84619140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 1024,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 1.6834286999946926,
+      "cuda_seconds": 1.683372802734375,
+      "wall_latency_ms": 14.028572499955771,
+      "cuda_latency_ms": 14.028106689453125,
+      "wall_tokens_per_second": 72993.88444570739,
+      "cuda_tokens_per_second": 72996.30824520909,
+      "peak_memory_mb": 38.84619140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 1024,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 1.7034948999935295,
+      "cuda_seconds": 1.7034512939453126,
+      "wall_latency_ms": 14.195790833279412,
+      "cuda_latency_ms": 14.19542744954427,
+      "wall_tokens_per_second": 72134.05804764472,
+      "cuda_tokens_per_second": 72135.9045819275,
+      "peak_memory_mb": 38.84619140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 2048,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.3157606000022497,
+      "cuda_seconds": 1.315706787109375,
+      "wall_latency_ms": 16.44700750002812,
+      "cuda_latency_ms": 16.446334838867188,
+      "wall_tokens_per_second": 124521.1324915185,
+      "cuda_tokens_per_second": 124526.22545176545,
+      "peak_memory_mb": 42.65869140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 2048,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.101912899990566,
+      "cuda_seconds": 1.10185986328125,
+      "wall_latency_ms": 13.773911249882076,
+      "cuda_latency_ms": 13.773248291015625,
+      "wall_tokens_per_second": 148686.88804841353,
+      "cuda_tokens_per_second": 148694.04491429398,
+      "peak_memory_mb": 42.65869140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 2048,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.1798086000198964,
+      "cuda_seconds": 1.179701904296875,
+      "wall_latency_ms": 14.747607500248705,
+      "cuda_latency_ms": 14.746273803710938,
+      "wall_tokens_per_second": 138869.98280673407,
+      "cuda_tokens_per_second": 138882.54261796057,
+      "peak_memory_mb": 42.65869140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 4096,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 0.8946284000121523,
+      "cuda_seconds": 0.8945720825195312,
+      "wall_latency_ms": 17.892568000243045,
+      "cuda_latency_ms": 17.891441650390625,
+      "wall_tokens_per_second": 228921.86297374204,
+      "cuda_tokens_per_second": 228936.27467468905,
+      "peak_memory_mb": 49.97119140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 4096,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 0.9630016999726649,
+      "cuda_seconds": 0.9629273071289063,
+      "wall_latency_ms": 19.2600339994533,
+      "cuda_latency_ms": 19.258546142578126,
+      "wall_tokens_per_second": 212668.36808887596,
+      "cuda_tokens_per_second": 212684.7982020969,
+      "peak_memory_mb": 49.97119140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 4096,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 1.2052349000005051,
+      "cuda_seconds": 1.205177978515625,
+      "wall_latency_ms": 24.104698000010103,
+      "cuda_latency_ms": 24.1035595703125,
+      "wall_tokens_per_second": 169925.38135090028,
+      "cuda_tokens_per_second": 169933.4070576405,
+      "peak_memory_mb": 49.97119140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 8192,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 1.5446865000121761,
+      "cuda_seconds": 1.544556396484375,
+      "wall_latency_ms": 51.48955000040587,
+      "cuda_latency_ms": 51.48521321614583,
+      "wall_tokens_per_second": 159100.2446114877,
+      "cuda_tokens_per_second": 159113.64619601067,
+      "peak_memory_mb": 64.28369140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 8192,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 1.60128239999176,
+      "cuda_seconds": 1.6011851806640625,
+      "wall_latency_ms": 53.376079999725334,
+      "cuda_latency_ms": 53.37283935546875,
+      "wall_tokens_per_second": 153476.9881947523,
+      "cuda_tokens_per_second": 153486.3068730598,
+      "peak_memory_mb": 64.28369140625
+    },
+    {
+      "variant": "ist-full",
+      "length": 8192,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 1.4609530000016093,
+      "cuda_seconds": 1.4608587646484374,
+      "wall_latency_ms": 48.69843333338698,
+      "cuda_latency_ms": 48.695292154947914,
+      "wall_tokens_per_second": 168218.96392267875,
+      "cuda_tokens_per_second": 168229.8151930815,
+      "peak_memory_mb": 64.28369140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 1024,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 2.2751634000160266,
+      "cuda_seconds": 2.275099853515625,
+      "wall_latency_ms": 18.959695000133554,
+      "cuda_latency_ms": 18.959165445963542,
+      "wall_tokens_per_second": 54009.307638798346,
+      "cuda_tokens_per_second": 54010.816189064506,
+      "peak_memory_mb": 38.84619140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 1024,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 2.040394700015895,
+      "cuda_seconds": 2.0403433837890623,
+      "wall_latency_ms": 17.003289166799124,
+      "cuda_latency_ms": 17.00286153157552,
+      "wall_tokens_per_second": 60223.64202330203,
+      "cuda_tokens_per_second": 60225.15669485159,
+      "peak_memory_mb": 38.84619140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 1024,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 120,
+      "wall_seconds": 2.0749060999951325,
+      "cuda_seconds": 2.074819580078125,
+      "wall_latency_ms": 17.290884166626103,
+      "cuda_latency_ms": 17.290163167317708,
+      "wall_tokens_per_second": 59221.957080509936,
+      "cuda_tokens_per_second": 59224.4266344224,
+      "peak_memory_mb": 38.84619140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 2048,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.5200222000130452,
+      "cuda_seconds": 1.5198934326171876,
+      "wall_latency_ms": 19.000277500163065,
+      "cuda_latency_ms": 18.998667907714843,
+      "wall_tokens_per_second": 107787.89941264929,
+      "cuda_tokens_per_second": 107797.03134704316,
+      "peak_memory_mb": 42.65869140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 2048,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.445896499993978,
+      "cuda_seconds": 1.44582275390625,
+      "wall_latency_ms": 18.073706249924726,
+      "cuda_latency_ms": 18.072784423828125,
+      "wall_tokens_per_second": 113313.78145025067,
+      "cuda_tokens_per_second": 113319.56116843884,
+      "peak_memory_mb": 42.65869140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 2048,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 80,
+      "wall_seconds": 1.4939520999905653,
+      "cuda_seconds": 1.49391162109375,
+      "wall_latency_ms": 18.674401249882067,
+      "cuda_latency_ms": 18.673895263671874,
+      "wall_tokens_per_second": 109668.84413565515,
+      "cuda_tokens_per_second": 109671.81571293117,
+      "peak_memory_mb": 42.65869140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 4096,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 1.1177559999923687,
+      "cuda_seconds": 1.11766162109375,
+      "wall_latency_ms": 22.355119999847375,
+      "cuda_latency_ms": 22.353232421875,
+      "wall_tokens_per_second": 183224.2457221417,
+      "cuda_tokens_per_second": 183239.7177596396,
+      "peak_memory_mb": 49.97119140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 4096,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 1.0607242999831215,
+      "cuda_seconds": 1.0606759033203126,
+      "wall_latency_ms": 21.21448599966243,
+      "cuda_latency_ms": 21.21351806640625,
+      "wall_tokens_per_second": 193075.6182386496,
+      "cuda_tokens_per_second": 193084.42791893295,
+      "peak_memory_mb": 49.97119140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 4096,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 50,
+      "wall_seconds": 1.2308730999939144,
+      "cuda_seconds": 1.2308001708984375,
+      "wall_latency_ms": 24.617461999878287,
+      "cuda_latency_ms": 24.61600341796875,
+      "wall_tokens_per_second": 166385.95806587418,
+      "cuda_tokens_per_second": 166395.8169996871,
+      "peak_memory_mb": 49.97119140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 8192,
+      "repeat": 0,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 1.3805933000112418,
+      "cuda_seconds": 1.380537109375,
+      "wall_latency_ms": 46.01977666704139,
+      "cuda_latency_ms": 46.017903645833336,
+      "wall_tokens_per_second": 178010.42493687232,
+      "cuda_tokens_per_second": 178017.6703190985,
+      "peak_memory_mb": 64.28369140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 8192,
+      "repeat": 1,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 1.4046692000119947,
+      "cuda_seconds": 1.4046114501953124,
+      "wall_latency_ms": 46.82230666706649,
+      "cuda_latency_ms": 46.82038167317708,
+      "wall_tokens_per_second": 174959.34273913133,
+      "cuda_tokens_per_second": 174966.53609496553,
+      "peak_memory_mb": 64.28369140625
+    },
+    {
+      "variant": "ist-stable",
+      "length": 8192,
+      "repeat": 2,
+      "warmup": 10,
+      "measured": 30,
+      "wall_seconds": 1.346326599974418,
+      "cuda_seconds": 1.3462513427734375,
+      "wall_latency_ms": 44.8775533324806,
+      "cuda_latency_ms": 44.87504475911458,
+      "wall_tokens_per_second": 182541.145666044,
+      "cuda_tokens_per_second": 182551.34995349773,
+      "peak_memory_mb": 64.28369140625
+    }
+  ]
+}

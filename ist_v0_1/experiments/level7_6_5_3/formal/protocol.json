@@ -1,0 +1,83 @@
+{
+  "protocol": {
+    "variants": [
+      "transformer-matched",
+      "ist-full",
+      "ist-stable"
+    ],
+    "seed": 313,
+    "length": 8192,
+    "rounds": 12,
+    "forwards_per_block": 20,
+    "warmup_per_model": 10,
+    "schedule_seed": 76553,
+    "randomized_interleaved_schedule": [
+      [
+        "transformer-matched",
+        "ist-stable",
+        "ist-full"
+      ],
+      [
+        "ist-full",
+        "transformer-matched",
+        "ist-stable"
+      ],
+      [
+        "ist-stable",
+        "transformer-matched",
+        "ist-full"
+      ],
+      [
+        "transformer-matched",
+        "ist-full",
+        "ist-stable"
+      ],
+      [
+        "ist-full",
+        "ist-stable",
+        "transformer-matched"
+      ],
+      [
+        "transformer-matched",
+        "ist-stable",
+        "ist-full"
+      ],
+      [
+        "ist-full",
+        "transformer-matched",
+        "ist-stable"
+      ],
+      [
+        "ist-stable",
+        "transformer-matched",
+        "ist-full"
+      ],
+      [
+        "transformer-matched",
+        "ist-full",
+        "ist-stable"
+      ],
+      [
+        "ist-full",
+        "ist-stable",
+        "transformer-matched"
+      ],
+      [
+        "ist-stable",
+        "ist-full",
+        "transformer-matched"
+      ],
+      [
+        "ist-stable",
+        "ist-full",
+        "transformer-matched"
+      ]
+    ],
+    "batch_size": 1
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16",
+  "matched_width": 96,
+  "matched_transformer_parameters": 339187
+}

@@ -42,6 +42,8 @@ class SpiralMemory(nn.Module):
         self.propagation_relative_cap = None
         self.propagation_consistency_threshold = None
         self.propagation_consistency_temperature = 0.1
+        # Disabled-by-default control for slot-geometry causal experiments.
+        self.slot_decorrelation_strength = 0.0
 
     def initialize_memory(self, batch_size, device):
         return torch.zeros(
@@ -112,6 +114,18 @@ class SpiralMemory(nn.Module):
         )
 
         new_memory = gate * compressed + (1 - gate) * memory
+        if self.slot_decorrelation_strength:
+            strength = float(self.slot_decorrelation_strength)
+            if not 0.0 <= strength <= 1.0:
+                raise ValueError("slot_decorrelation_strength must be in [0, 1]")
+            source = new_memory.float()
+            norms = source.norm(dim=-1, keepdim=True).clamp_min(1e-8)
+            orthogonal, _ = torch.linalg.qr(source.transpose(-1, -2), mode="reduced")
+            orthogonal = orthogonal.transpose(-1, -2)
+            signs = torch.sign((orthogonal * source).sum(dim=-1, keepdim=True))
+            signs = torch.where(signs == 0, torch.ones_like(signs), signs)
+            decorrelated = orthogonal * signs * norms
+            new_memory = ((1.0 - strength) * source + strength * decorrelated).to(new_memory.dtype)
         normalized_memory = F.normalize(new_memory, dim=-1)
         gram = normalized_memory @ normalized_memory.transpose(-1, -2)
         identity = torch.eye(
