@@ -1,0 +1,66 @@
+{
+  "memory_arch": "hierarchical_v0_2",
+  "batch": 2,
+  "chunks": 2,
+  "chunk_size": 64,
+  "hidden_size": 64,
+  "layers": 3,
+  "config": {
+    "enabled": true,
+    "fast": {
+      "enabled": true,
+      "slots": 32
+    },
+    "slow": {
+      "enabled": true,
+      "slots": 8,
+      "update_interval": 1,
+      "retention_bias": 2.0
+    },
+    "episodic": {
+      "enabled": true,
+      "slots": 64,
+      "top_k": 4,
+      "age_weight": 1.0,
+      "usage_weight": 1.0,
+      "importance_weight": 1.0,
+      "redundancy_weight": 0.25
+    },
+    "router": {
+      "enabled": true,
+      "mode": "soft",
+      "temperature": 1.0
+    },
+    "consolidation": {
+      "enabled": true
+    }
+  },
+  "interventions": [
+    "normal",
+    "zero_fast",
+    "zero_slow",
+    "zero_episodic",
+    "freeze_fast",
+    "freeze_slow",
+    "freeze_episodic",
+    "keep_only_fast",
+    "keep_only_slow",
+    "keep_only_episodic",
+    "roll_fast",
+    "roll_slow",
+    "roll_episodic",
+    "swap_fast",
+    "swap_slow",
+    "swap_episodic"
+  ],
+  "checks": [
+    "forward",
+    "backward",
+    "state shapes",
+    "cross-chunk change",
+    "checkpoint exact recovery",
+    "module ablations",
+    "causal interventions",
+    "old checkpoint strict load and roundtrip"
+  ]
+}

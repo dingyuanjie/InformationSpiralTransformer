@@ -1,0 +1,55 @@
+{
+  "architectures": [
+    "v0_1",
+    "hierarchical_v0_2"
+  ],
+  "seeds": [
+    2026
+  ],
+  "chunk_size": 512,
+  "matched_training_stages": [
+    [
+      2,
+      2,
+      2
+    ]
+  ],
+  "milestones": [
+    1,
+    2
+  ],
+  "samples_per_seed": 16,
+  "chance": 0.0625,
+  "hierarchical_config": {
+    "enabled": true,
+    "fast": {
+      "enabled": true,
+      "slots": 32
+    },
+    "slow": {
+      "enabled": true,
+      "slots": 8,
+      "update_interval": 1,
+      "retention_bias": 2.0
+    },
+    "episodic": {
+      "enabled": true,
+      "slots": 64,
+      "top_k": 4,
+      "age_weight": 1.0,
+      "usage_weight": 1.0,
+      "importance_weight": 1.0,
+      "redundancy_weight": 0.25
+    },
+    "router": {
+      "enabled": true,
+      "mode": "soft",
+      "temperature": 1.0
+    },
+    "consolidation": {
+      "enabled": true
+    }
+  },
+  "primary": "paired accuracy curve and rightmost Wilson lower bound above chance",
+  "identical_training_and_evaluation_streams": true
+}

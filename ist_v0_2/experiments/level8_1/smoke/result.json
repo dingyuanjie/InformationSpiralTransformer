@@ -1,0 +1,697 @@
+{
+  "protocol": {
+    "architectures": [
+      "v0_1",
+      "hierarchical_v0_2"
+    ],
+    "seeds": [
+      2026
+    ],
+    "chunk_size": 512,
+    "matched_training_stages": [
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "milestones": [
+      1,
+      2
+    ],
+    "samples_per_seed": 16,
+    "chance": 0.0625,
+    "hierarchical_config": {
+      "enabled": true,
+      "fast": {
+        "enabled": true,
+        "slots": 32
+      },
+      "slow": {
+        "enabled": true,
+        "slots": 8,
+        "update_interval": 1,
+        "retention_bias": 2.0
+      },
+      "episodic": {
+        "enabled": true,
+        "slots": 64,
+        "top_k": 4,
+        "age_weight": 1.0,
+        "usage_weight": 1.0,
+        "importance_weight": 1.0,
+        "redundancy_weight": 0.25
+      },
+      "router": {
+        "enabled": true,
+        "mode": "soft",
+        "temperature": 1.0
+      },
+      "consolidation": {
+        "enabled": true
+      }
+    },
+    "primary": "paired accuracy curve and rightmost Wilson lower bound above chance",
+    "identical_training_and_evaluation_streams": true
+  },
+  "lifetimes": {
+    "v0_1": 2,
+    "hierarchical_v0_2": 0
+  },
+  "summary": [
+    {
+      "architecture": "v0_1",
+      "chunks": 1,
+      "correct": 6,
+      "samples": 16,
+      "accuracy": 0.375,
+      "wilson95": [
+        0.18481232558863633,
+        0.6135895945449727
+      ],
+      "above_chance": true
+    },
+    {
+      "architecture": "v0_1",
+      "chunks": 2,
+      "correct": 7,
+      "samples": 16,
+      "accuracy": 0.4375,
+      "wilson95": [
+        0.23098652405492354,
+        0.6682144360118811
+      ],
+      "above_chance": true
+    },
+    {
+      "architecture": "hierarchical_v0_2",
+      "chunks": 1,
+      "correct": 1,
+      "samples": 16,
+      "accuracy": 0.0625,
+      "wilson95": [
+        0.01111934476464252,
+        0.28328737570298945
+      ],
+      "above_chance": false
+    },
+    {
+      "architecture": "hierarchical_v0_2",
+      "chunks": 2,
+      "correct": 1,
+      "samples": 16,
+      "accuracy": 0.0625,
+      "wilson95": [
+        0.01111934476464252,
+        0.28328737570298945
+      ],
+      "above_chance": false
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "difference": -0.3125,
+      "improved": 0,
+      "harmed": 5,
+      "ties": 11,
+      "mcnemar_exact_p": 0.0625,
+      "chunks": 1
+    },
+    {
+      "difference": -0.375,
+      "improved": 1,
+      "harmed": 7,
+      "ties": 8,
+      "mcnemar_exact_p": 0.0703125,
+      "chunks": 2
+    }
+  ],
+  "models": [
+    {
+      "architecture": "v0_1",
+      "seed": 2026,
+      "parameters": 345171,
+      "transferred": null
+    },
+    {
+      "architecture": "hierarchical_v0_2",
+      "seed": 2026,
+      "parameters": 609579,
+      "transferred": 105
+    }
+  ],
+  "training": [
+    {
+      "architecture": "v0_1",
+      "seed": 2026,
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "loss": 5.29934549331665,
+          "query_loss": 2.9921875,
+          "local_loss": 4.55859375,
+          "accuracy": 0.0
+        }
+      ]
+    },
+    {
+      "architecture": "hierarchical_v0_2",
+      "seed": 2026,
+      "history": [
+        {
+          "stage": 1,
+          "chunks": 2,
+          "step": 1,
+          "loss": 4.781796932220459,
+          "query_loss": 2.515625,
+          "local_loss": 4.4765625,
+          "accuracy": 0.0
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "architecture": "v0_1",
+      "seed": 2026,
+      "replicate": 0,
+      "samples": 16,
+      "rows": [
+        {
+          "chunks": 1,
+          "correctness": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "predictions": [
+            3,
+            3,
+            12,
+            9,
+            3,
+            9,
+            0,
+            12,
+            8,
+            9,
+            9,
+            11,
+            12,
+            13,
+            14,
+            3
+          ],
+          "targets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "diagnostics": null
+        },
+        {
+          "chunks": 2,
+          "correctness": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "predictions": [
+            0,
+            3,
+            12,
+            9,
+            3,
+            3,
+            9,
+            12,
+            8,
+            9,
+            9,
+            11,
+            12,
+            13,
+            14,
+            9
+          ],
+          "targets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "diagnostics": null
+        }
+      ]
+    },
+    {
+      "architecture": "hierarchical_v0_2",
+      "seed": 2026,
+      "replicate": 0,
+      "samples": 16,
+      "rows": [
+        {
+          "chunks": 1,
+          "correctness": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "predictions": [
+            3,
+            3,
+            3,
+            9,
+            3,
+            9,
+            3,
+            9,
+            3,
+            9,
+            3,
+            3,
+            3,
+            9,
+            3,
+            9
+          ],
+          "targets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "diagnostics": [
+            {
+              "layer": 0,
+              "fast_memory_norm": 0.25040489435195923,
+              "slow_memory_norm": 0.022579191252589226,
+              "episodic_memory_norm": 0.00762254698202014,
+              "fast_write_rate": 0.2734180986881256,
+              "slow_write_rate": 0.016773533076047897,
+              "episodic_write_rate": 0.2198839634656906,
+              "retention_gate": 0.8807892799377441,
+              "importance_score": 0.4996950030326843,
+              "router_distribution": [
+                0.2734180688858032,
+                0.2798110246658325,
+                0.2198839634656906,
+                0.22688694298267365
+              ],
+              "slot_replacement": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "memory_similarity_to_initial": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "memory_similarity_to_target_encoding": [
+                0.03757181018590927,
+                0.18555927276611328,
+                0.1314079463481903
+              ]
+            },
+            {
+              "layer": 1,
+              "fast_memory_norm": 0.17381611466407776,
+              "slow_memory_norm": 0.02478967048227787,
+              "episodic_memory_norm": 0.012781055644154549,
+              "fast_write_rate": 0.2248443365097046,
+              "slow_write_rate": 0.01577639766037464,
+              "episodic_write_rate": 0.2792503535747528,
+              "retention_gate": 0.8807869553565979,
+              "importance_score": 0.543321967124939,
+              "router_distribution": [
+                0.2248443365097046,
+                0.26407158374786377,
+                0.2792503535747528,
+                0.23183369636535645
+              ],
+              "slot_replacement": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "memory_similarity_to_initial": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "memory_similarity_to_target_encoding": [
+                -0.1294579952955246,
+                -0.010708608664572239,
+                -0.05020848661661148
+              ]
+            },
+            {
+              "layer": 2,
+              "fast_memory_norm": 0.1236414760351181,
+              "slow_memory_norm": 0.02744171768426895,
+              "episodic_memory_norm": 0.01139080710709095,
+              "fast_write_rate": 0.2526698708534241,
+              "slow_write_rate": 0.013110175728797913,
+              "episodic_write_rate": 0.24079349637031555,
+              "retention_gate": 0.8807893991470337,
+              "importance_score": 0.46144920587539673,
+              "router_distribution": [
+                0.2526698410511017,
+                0.22065570950508118,
+                0.24079351127147675,
+                0.2858809232711792
+              ],
+              "slot_replacement": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "memory_similarity_to_initial": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "memory_similarity_to_target_encoding": [
+                -0.11613510549068451,
+                -0.0037340468261390924,
+                0.02311110869050026
+              ]
+            }
+          ]
+        },
+        {
+          "chunks": 2,
+          "correctness": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "predictions": [
+            9,
+            3,
+            3,
+            3,
+            3,
+            3,
+            9,
+            3,
+            9,
+            3,
+            9,
+            3,
+            3,
+            9,
+            3,
+            3
+          ],
+          "targets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "diagnostics": [
+            {
+              "layer": 0,
+              "fast_memory_norm": 0.4520907700061798,
+              "slow_memory_norm": 0.04453688859939575,
+              "episodic_memory_norm": 0.015156541019678116,
+              "fast_write_rate": 0.27423614263534546,
+              "slow_write_rate": 0.016730455681681633,
+              "episodic_write_rate": 0.2196618914604187,
+              "retention_gate": 0.8807240724563599,
+              "importance_score": 0.4986008405685425,
+              "router_distribution": [
+                0.27423614263534546,
+                0.2789389193058014,
+                0.2196619063615799,
+                0.22716301679611206
+              ],
+              "slot_replacement": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "memory_similarity_to_initial": [
+                0.9985960125923157,
+                0.9976486563682556,
+                0.9981209635734558
+              ],
+              "memory_similarity_to_target_encoding": [
+                0.042000915855169296,
+                0.17454136908054352,
+                0.13575640320777893
+              ]
+            },
+            {
+              "layer": 1,
+              "fast_memory_norm": 0.3191990852355957,
+              "slow_memory_norm": 0.04858227074146271,
+              "episodic_memory_norm": 0.025366827845573425,
+              "fast_write_rate": 0.2255777269601822,
+              "slow_write_rate": 0.015764502808451653,
+              "episodic_write_rate": 0.2789149880409241,
+              "retention_gate": 0.8806561827659607,
+              "importance_score": 0.5426068305969238,
+              "router_distribution": [
+                0.22557774186134338,
+                0.26369187235832214,
+                0.2789149582386017,
+                0.2318154126405716
+              ],
+              "slot_replacement": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "memory_similarity_to_initial": [
+                0.9967435598373413,
+                0.9946122169494629,
+                0.9972420930862427
+              ],
+              "memory_similarity_to_target_encoding": [
+                -0.13471722602844238,
+                -0.01524112094193697,
+                -0.047496020793914795
+              ]
+            },
+            {
+              "layer": 2,
+              "fast_memory_norm": 0.1754760593175888,
+              "slow_memory_norm": 0.051782943308353424,
+              "episodic_memory_norm": 0.022723471745848656,
+              "fast_write_rate": 0.24807101488113403,
+              "slow_write_rate": 0.012972740456461906,
+              "episodic_write_rate": 0.23269619047641754,
+              "retention_gate": 0.8807141184806824,
+              "importance_score": 0.45015379786491394,
+              "router_distribution": [
+                0.24807101488113403,
+                0.2174575924873352,
+                0.23269620537757874,
+                0.301775187253952
+              ],
+              "slot_replacement": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "memory_similarity_to_initial": [
+                0.8828142881393433,
+                0.9246193170547485,
+                0.9504692554473877
+              ],
+              "memory_similarity_to_target_encoding": [
+                -0.15251575410366058,
+                -0.048512157052755356,
+                0.010434715077280998
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
