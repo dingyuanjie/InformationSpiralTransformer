@@ -1,0 +1,24 @@
+{
+  "protocol": {
+    "model": "locked level7_8_4 stage_load16.pt",
+    "no_training": true,
+    "seeds": [
+      2026,
+      7
+    ],
+    "loads": [
+      2,
+      4
+    ],
+    "samples_per_key_per_seed": 128,
+    "pooled_samples_per_key": 256,
+    "routing": "oracle marker L3 gate",
+    "filler_chunks": 16,
+    "primary": "every key's Wilson lower bound exceeds 1/16 chance",
+    "switch_control": "on identical Memory, change query key k to (k+1)%load",
+    "strict_success": "all keys and switched queries above chance, and every switch significantly favors the switched key value over old-key leakage after within-load Holm correction"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

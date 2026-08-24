@@ -1,0 +1,33 @@
+{
+  "protocol": {
+    "source": "locked level7_8_4 stage_load16.pt",
+    "seeds": [
+      2026,
+      7
+    ],
+    "branches": [
+      "all_key_counterfactual",
+      "single_key_equal_compute"
+    ],
+    "loads": [
+      2,
+      4
+    ],
+    "steps": {
+      "2": 400,
+      "4": 400
+    },
+    "memory_batch": 8,
+    "learning_rate": 0.0005,
+    "writer": "frozen; Memory construction has no gradient",
+    "trainable": "L3 memory_read, fusion gate, FFN, norm2, and output head",
+    "all_key_branch": "every stored Memory is queried once for every Key",
+    "control_branch": "one random Key per Memory repeated to equal query rows",
+    "eval_samples_per_key_per_seed": 128,
+    "primary": "strict per-key and Holm-corrected query-switch confirmation",
+    "paired_queries": "identical query except one Key token"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

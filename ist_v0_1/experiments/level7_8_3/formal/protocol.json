@@ -1,0 +1,66 @@
+{
+  "protocol": {
+    "variant": "ist-full",
+    "checkpoint": "level7_6_4/stage_4096.pt",
+    "conditions": [
+      "normal_update",
+      "freeze_l3_after_first",
+      "oracle_marker_l3_gate"
+    ],
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "chunk_size": 512,
+    "samples_per_seed": 32,
+    "write_chunks": [
+      1,
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900
+    ],
+    "milestones": [
+      1,
+      99,
+      100,
+      199,
+      200,
+      299,
+      300,
+      399,
+      400,
+      499,
+      500,
+      599,
+      600,
+      699,
+      700,
+      799,
+      800,
+      899,
+      900,
+      1000
+    ],
+    "target_schedule": "target_v=(base+7*v) mod 16; first 10 versions are distinct",
+    "query": "retrieve the most recently marked target",
+    "oracle_gate": "L3 updates only on the 10 marked write chunks; L1/L2 always update",
+    "primary": "immediate acquisition and pre-next-write retention across rewrite ordinal",
+    "controls": [
+      "normal L3 update",
+      "L3 frozen after first write"
+    ],
+    "identical_streams_and_queries": true
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

@@ -1,0 +1,46 @@
+{
+  "protocol": {
+    "variant": "ist-full",
+    "checkpoint": "level7_6_4/stage_4096.pt",
+    "conditions": [
+      "normal_update",
+      "freeze_l3_after_first",
+      "oracle_marker_l3_gate"
+    ],
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "chunk_size": 512,
+    "samples_per_seed": 32,
+    "milestones": [
+      1,
+      16,
+      128,
+      511,
+      512,
+      513,
+      640,
+      1000
+    ],
+    "writes": {
+      "A": 1,
+      "B": 512
+    },
+    "target_relation": "B=(A+7) mod 16",
+    "oracle_gate": "L3 updates iff the current stream chunk contains marker token 17",
+    "l1_l2": "always update",
+    "identical_streams_and_queries": true,
+    "primary": "before rewrite retrieve A; from chunk 512 retrieve B",
+    "controls": {
+      "normal_update": "L3 always updates",
+      "freeze_l3_after_first": "L3 never accepts B"
+    }
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}
