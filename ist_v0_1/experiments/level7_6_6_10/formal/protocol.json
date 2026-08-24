@@ -1,0 +1,49 @@
+{
+  "protocol": {
+    "variant": "ist-full",
+    "seed": 2026,
+    "length": 32768,
+    "windows": {
+      "near": [
+        16,
+        4095
+      ],
+      "far": [
+        16384,
+        32766
+      ]
+    },
+    "samples_per_window": 128,
+    "balanced_targets": true,
+    "bank_a": [
+      31,
+      3,
+      5,
+      12
+    ],
+    "bank_b": [
+      28,
+      4,
+      13,
+      24
+    ],
+    "conditions": [
+      "intact",
+      "a_ablate",
+      "b_ablate",
+      "ab_ablate",
+      "a_keep_only",
+      "b_keep_only",
+      "a_boost_2",
+      "b_boost_2",
+      "a_ablate_b_boost_2",
+      "b_ablate_a_boost_2"
+    ],
+    "paired_examples": true,
+    "primary_family": "A ablate, B ablate, A+B ablate vs intact with Holm correction",
+    "interaction": "paired additive interaction with 10000 bootstrap resamples"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

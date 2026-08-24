@@ -1,0 +1,52 @@
+{
+  "protocol": {
+    "variant": "ist-full",
+    "checkpoint": "level7_6_4/stage_4096.pt",
+    "locked_normal": "level7_8/formal/result.json",
+    "conditions": {
+      "freeze_all": [
+        0,
+        1,
+        2
+      ],
+      "freeze_l1": [
+        0
+      ],
+      "freeze_l2": [
+        1
+      ],
+      "freeze_l3": [
+        2
+      ]
+    },
+    "intervention": "after chunk 1, run every filler forward but discard updates from frozen layers",
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "chunk_size": 512,
+    "milestones": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1000
+    ],
+    "samples_per_seed": 32,
+    "identical_streams_and_queries": true,
+    "primary": "paired early-write accuracy versus normal update",
+    "interpretation": "recovery under freezing causally identifies overwrite; layer freezes localize it"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

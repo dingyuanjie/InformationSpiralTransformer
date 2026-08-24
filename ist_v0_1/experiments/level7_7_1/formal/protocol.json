@@ -1,0 +1,51 @@
+{
+  "protocol": {
+    "branch": "adaptive_bankdrop_k8_p50",
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "source": "level7_6_4/formal/ist-full_seed*/stage_4096.pt",
+    "locked_comparators": "level7_7/formal/result.json",
+    "dropout": {
+      "size": 8,
+      "conditional_probability": 0.5,
+      "metric": "mean absolute off-diagonal slot cosine",
+      "layer_thresholds": [
+        0.189,
+        0.165,
+        0.169
+      ]
+    },
+    "train": {
+      "length": 4096,
+      "steps": 200,
+      "batch": 1,
+      "identical_examples_to_level7_7": true
+    },
+    "eval": {
+      "length": 32768,
+      "windows": {
+        "near": [
+          16,
+          4095
+        ],
+        "far": [
+          16384,
+          32766
+        ]
+      },
+      "samples_per_seed_window": 100,
+      "identical_examples_to_level7_7": true,
+      "dropout_disabled": true
+    },
+    "primary": "adaptive vs control paired accuracy and successful-seed count",
+    "secondary": "adaptive vs fixed bankdrop and per-layer activation rates"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

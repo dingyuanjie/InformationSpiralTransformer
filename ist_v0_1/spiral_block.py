@@ -27,6 +27,15 @@ class SpiralBlock(nn.Module):
         self.memory_read_keep_slots = None
         self.memory_read_ablate_slots = None
         self.memory_read_slot_scales = None
+        self.memory_bank_dropout_probability = 0.0
+        self.memory_bank_dropout_size = 8
+        # Optional per-layer threshold for topology-aware training dropout.
+        # When set, dropout is eligible only for samples whose mean absolute
+        # off-diagonal slot cosine is at or above this value.
+        self.memory_bank_dropout_redundancy_threshold = None
+        self.last_training_bank_dropout_mask = None
+        self.last_training_bank_dropout_redundancy = None
+        self.last_training_bank_dropout_eligible = None
         self.fusion_gate_floor = None
         self.historical_read_scale = 1.0
         self.historical_consistency_threshold = None
@@ -68,13 +77,54 @@ class SpiralBlock(nn.Module):
                     slot_scale[int(slot)] = float(scale)
                 read_memory = new_memory * slot_scale[None, :, None]
             explicit_mask = None
-            if self.memory_read_keep_slots is not None or self.memory_read_ablate_slots is not None:
-                explicit_mask = torch.zeros(
+            if self.training and self.memory_bank_dropout_probability > 0:
+                probability = float(self.memory_bank_dropout_probability)
+                drop_size = int(self.memory_bank_dropout_size)
+                if not 0.0 <= probability <= 1.0:
+                    raise ValueError("memory_bank_dropout_probability must be in [0, 1]")
+                if not 1 <= drop_size < new_memory.size(1):
+                    raise ValueError("memory_bank_dropout_size must leave at least one slot")
+                activate = torch.rand(new_memory.size(0), device=x.device) < probability
+                threshold = self.memory_bank_dropout_redundancy_threshold
+                if threshold is not None:
+                    normalized = F.normalize(new_memory.float(), dim=-1)
+                    cosine = normalized @ normalized.transpose(-1, -2)
+                    slots = new_memory.size(1)
+                    off_diagonal = ~torch.eye(
+                        slots, device=x.device, dtype=torch.bool
+                    ).unsqueeze(0)
+                    redundancy = cosine.abs().masked_select(
+                        off_diagonal.expand(new_memory.size(0), -1, -1)
+                    ).view(new_memory.size(0), -1).mean(dim=-1)
+                    eligible = redundancy >= float(threshold)
+                    activate &= eligible
+                    self.last_training_bank_dropout_redundancy = redundancy.detach()
+                    self.last_training_bank_dropout_eligible = eligible.detach()
+                else:
+                    self.last_training_bank_dropout_redundancy = None
+                    self.last_training_bank_dropout_eligible = None
+                scores = torch.rand(new_memory.size(0), new_memory.size(1), device=x.device)
+                dropped = scores.topk(drop_size, dim=-1).indices
+                training_mask = torch.zeros(
                     new_memory.size(0), new_memory.size(1), device=x.device, dtype=torch.bool
                 )
+                training_mask.scatter_(1, dropped, True)
+                training_mask &= activate[:, None]
+                explicit_mask = training_mask
+                self.last_training_bank_dropout_mask = training_mask.detach()
+            else:
+                self.last_training_bank_dropout_mask = None
+                self.last_training_bank_dropout_redundancy = None
+                self.last_training_bank_dropout_eligible = None
+            if self.memory_read_keep_slots is not None or self.memory_read_ablate_slots is not None:
+                if explicit_mask is None:
+                    explicit_mask = torch.zeros(
+                        new_memory.size(0), new_memory.size(1), device=x.device, dtype=torch.bool
+                    )
                 if self.memory_read_keep_slots is not None:
-                    explicit_mask.fill_(True)
-                    explicit_mask[:, list(self.memory_read_keep_slots)] = False
+                    keep_mask = torch.ones_like(explicit_mask)
+                    keep_mask[:, list(self.memory_read_keep_slots)] = False
+                    explicit_mask |= keep_mask
                 if self.memory_read_ablate_slots is not None:
                     explicit_mask[:, list(self.memory_read_ablate_slots)] = True
                 if explicit_mask.all(dim=1).any():

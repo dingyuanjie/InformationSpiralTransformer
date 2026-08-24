@@ -1,0 +1,41 @@
+{
+  "protocol": {
+    "variant": "ist-full",
+    "checkpoint": "level7_6_4/stage_4096.pt",
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "chunk_size": 512,
+    "milestones": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1000
+    ],
+    "samples_per_seed": 32,
+    "balanced_targets": true,
+    "single_write": "chunk 1 only",
+    "conditions": {
+      "early": "query the chunk-1 target",
+      "late": "write a different target immediately before query",
+      "reset": "query with no incoming Memory"
+    },
+    "streaming": "one forward trajectory; queries do not mutate the main trajectory",
+    "primary": "early-write accuracy and Wilson interval over chunk lifetime",
+    "diagnostics": "late-write viability, reset prior, per-layer anchor cosine and redundancy"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}

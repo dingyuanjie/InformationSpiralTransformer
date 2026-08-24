@@ -1,0 +1,48 @@
+{
+  "protocol": {
+    "branches": {
+      "control_continue": {
+        "dropout_probability": 0.0,
+        "dropout_size": 8
+      },
+      "bankdrop_k8_p50": {
+        "dropout_probability": 0.5,
+        "dropout_size": 8
+      }
+    },
+    "seeds": [
+      313,
+      42,
+      2026,
+      7,
+      1234
+    ],
+    "source": "level7_6_4/stage_4096.pt",
+    "train": {
+      "length": 4096,
+      "steps": 200,
+      "batch": 1,
+      "identical_examples": true
+    },
+    "eval": {
+      "length": 32768,
+      "windows": {
+        "near": [
+          16,
+          4095
+        ],
+        "far": [
+          16384,
+          32766
+        ]
+      },
+      "samples_per_seed_window": 100,
+      "balanced_targets": true,
+      "dropout_disabled": true
+    },
+    "primary": "paired bankdrop vs control 32K accuracy and successful-seed count"
+  },
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.11.0+cu128",
+  "dtype": "torch.bfloat16"
+}
