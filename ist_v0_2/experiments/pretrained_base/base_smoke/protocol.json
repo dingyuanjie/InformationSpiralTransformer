@@ -1,0 +1,9 @@
+{
+  "status": "executor_ready_user_override",
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "target_scale": "approximately 0.5B",
+  "same_source_checkpoint": true,
+  "frozen_backbone_first": true,
+  "trainable": ["memory", "read", "write", "fusion"],
+  "required_metrics": ["perplexity", "short_qa", "long_memory", "state_update", "causal_ablation"]
+}

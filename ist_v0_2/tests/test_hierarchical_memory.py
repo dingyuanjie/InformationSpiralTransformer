@@ -38,3 +38,15 @@ def test_all_components_can_be_disabled():
         model = build(config).eval()
         with torch.no_grad(): logits = model(torch.randint(19, (1, 32)))
         assert torch.isfinite(logits).all()
+
+
+def test_bfloat16_forward_without_autocast():
+    if not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
+        return
+    memory = build().blocks[0].memory.cuda().to(torch.bfloat16).eval()
+    hidden = torch.randn(1, 32, 64, device="cuda", dtype=torch.bfloat16)
+    with torch.no_grad():
+        state, feature = memory(hidden)
+        _, feature = memory(hidden, state)
+    assert feature.dtype == torch.bfloat16
+    assert torch.isfinite(feature).all()

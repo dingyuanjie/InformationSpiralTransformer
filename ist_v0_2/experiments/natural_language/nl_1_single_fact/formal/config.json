@@ -1,0 +1,58 @@
+{
+  "task": "NL-1 single-fact retrieval",
+  "architectures": [
+    "transformer",
+    "ist_v0_1",
+    "ist_v0_2"
+  ],
+  "seeds": [
+    313,
+    42,
+    2026,
+    7,
+    1234
+  ],
+  "distances": [
+    2048,
+    4096,
+    8192,
+    16384,
+    32768
+  ],
+  "splits": [
+    "train",
+    "validation",
+    "held_out",
+    "ood"
+  ],
+  "stages": [
+    [
+      2048,
+      120,
+      4
+    ],
+    [
+      4096,
+      100,
+      2
+    ],
+    [
+      8192,
+      80,
+      1
+    ]
+  ],
+  "evaluation_samples_per_seed": 32,
+  "v0_2_conditions": [
+    "normal",
+    "zero_memory",
+    "reset_memory",
+    "roll_memory",
+    "zero_fast",
+    "zero_slow",
+    "zero_episodic"
+  ],
+  "tokenizer": "lossless UTF-8 bytes",
+  "vocab_size": 273,
+  "chunk_size": 512
+}

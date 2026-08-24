@@ -1,0 +1,236 @@
+{
+  "status": "complete",
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "freeze_backbone": true,
+    "trainable": [
+      "hierarchical_memory",
+      "read",
+      "write",
+      "fusion"
+    ],
+    "steps": 50,
+    "distances": [
+      512,
+      1024,
+      2048
+    ],
+    "samples": 16,
+    "chunk_size": 512,
+    "conditions": [
+      "base",
+      "normal",
+      "zero_memory",
+      "reset_memory",
+      "roll_memory",
+      "zero_fast",
+      "zero_slow",
+      "zero_episodic"
+    ],
+    "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+  },
+  "backbone_parameters": 494032768,
+  "trainable_memory_parameters": 28970376,
+  "history": [
+    {
+      "step": 1,
+      "loss": 1.6796875,
+      "correct": 0
+    },
+    {
+      "step": 10,
+      "loss": 1.8515625,
+      "correct": 0
+    },
+    {
+      "step": 20,
+      "loss": 0.318359375,
+      "correct": 1
+    },
+    {
+      "step": 30,
+      "loss": 4.875,
+      "correct": 0
+    },
+    {
+      "step": 40,
+      "loss": 4.9375,
+      "correct": 0
+    },
+    {
+      "step": 50,
+      "loss": 0.8203125,
+      "correct": 1
+    }
+  ],
+  "summary": [
+    {
+      "distance": 512,
+      "condition": "base",
+      "correct": 16,
+      "samples": 16,
+      "accuracy": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "normal",
+      "correct": 13,
+      "samples": 16,
+      "accuracy": 0.8125
+    },
+    {
+      "distance": 512,
+      "condition": "zero_memory",
+      "correct": 13,
+      "samples": 16,
+      "accuracy": 0.8125
+    },
+    {
+      "distance": 512,
+      "condition": "reset_memory",
+      "correct": 13,
+      "samples": 16,
+      "accuracy": 0.8125
+    },
+    {
+      "distance": 512,
+      "condition": "roll_memory",
+      "correct": 13,
+      "samples": 16,
+      "accuracy": 0.8125
+    },
+    {
+      "distance": 512,
+      "condition": "zero_fast",
+      "correct": 13,
+      "samples": 16,
+      "accuracy": 0.8125
+    },
+    {
+      "distance": 512,
+      "condition": "zero_slow",
+      "correct": 13,
+      "samples": 16,
+      "accuracy": 0.8125
+    },
+    {
+      "distance": 512,
+      "condition": "zero_episodic",
+      "correct": 13,
+      "samples": 16,
+      "accuracy": 0.8125
+    },
+    {
+      "distance": 1024,
+      "condition": "base",
+      "correct": 16,
+      "samples": 16,
+      "accuracy": 1.0
+    },
+    {
+      "distance": 1024,
+      "condition": "normal",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 1024,
+      "condition": "zero_memory",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 1024,
+      "condition": "reset_memory",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 1024,
+      "condition": "roll_memory",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 1024,
+      "condition": "zero_fast",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 1024,
+      "condition": "zero_slow",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 1024,
+      "condition": "zero_episodic",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 2048,
+      "condition": "base",
+      "correct": 16,
+      "samples": 16,
+      "accuracy": 1.0
+    },
+    {
+      "distance": 2048,
+      "condition": "normal",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 2048,
+      "condition": "zero_memory",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 2048,
+      "condition": "reset_memory",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 2048,
+      "condition": "roll_memory",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 2048,
+      "condition": "zero_fast",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 2048,
+      "condition": "zero_slow",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    },
+    {
+      "distance": 2048,
+      "condition": "zero_episodic",
+      "correct": 4,
+      "samples": 16,
+      "accuracy": 0.25
+    }
+  ]
+}

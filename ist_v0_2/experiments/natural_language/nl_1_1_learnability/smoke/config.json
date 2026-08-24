@@ -1,0 +1,31 @@
+{
+  "task": "NL-1.1 short-range learnability",
+  "architectures": [
+    "transformer",
+    "ist_v0_1",
+    "ist_v0_2"
+  ],
+  "seeds": [
+    2026
+  ],
+  "distances": [
+    512,
+    1024
+  ],
+  "stages": [
+    [
+      512,
+      3,
+      2
+    ]
+  ],
+  "splits": [
+    "validation",
+    "held_out",
+    "ood"
+  ],
+  "options": 4,
+  "chance": 0.25,
+  "samples_per_seed": 8,
+  "gate": "held-out Wilson lower bound above chance at 512 and 1K"
+}

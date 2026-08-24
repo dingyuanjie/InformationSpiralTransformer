@@ -147,7 +147,10 @@ class HierarchicalMemory(nn.Module):
 
         metrics = torch.stack((state["fast_usage"], state["fast_age"] / 1000,
                                p_fast[:, None].expand_as(state["fast_usage"])), dim=-1)
-        consolidation_logits = self.consolidation_score(torch.cat((new_fast.float(), metrics), dim=-1)).squeeze(-1)
+        consolidation_input = torch.cat((new_fast.float(), metrics), dim=-1).to(
+            self.consolidation_score.weight.dtype
+        )
+        consolidation_logits = self.consolidation_score(consolidation_input).squeeze(-1)
         consolidation = torch.sigmoid(consolidation_logits)
         consolidation = consolidation if self.config.consolidation.enabled else torch.zeros_like(consolidation)
         consolidated = (consolidation[..., None] * new_fast.float()).sum(1) / consolidation.sum(1, keepdim=True).clamp_min(1e-6)
