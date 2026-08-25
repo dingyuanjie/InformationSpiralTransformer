@@ -1,0 +1,20 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "task": "persistence-only fixed-set 1K overfit",
+  "fixed_examples": 32,
+  "steps": 600,
+  "batch": 4,
+  "freeze_backbone": true,
+  "adapter": "hidden + zero_initialized_scale * (memory(history)-memory(reset))",
+  "gate": {
+    "fixed_normal": 0.95,
+    "normal_minus_zero_or_reset": 0.5,
+    "consecutive_checks": 2
+  },
+  "hard_invariants": [
+    "no-history equals Base",
+    "reset equals Base"
+  ],
+  "not_a_generalization_result": true,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

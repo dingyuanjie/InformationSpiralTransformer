@@ -1,0 +1,30 @@
+{
+  "stage": "Frozen Memory 0.5",
+  "task": "fixed-32 in-layer Fast-Memory learnability gate",
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "distance": 1024,
+  "chunk_size": 512,
+  "fixed_examples": 32,
+  "freeze_backbone": true,
+  "injection_layer_requested": -4,
+  "layers_after_injection_if_qwen_24": 4,
+  "steps": 1200,
+  "batch": 4,
+  "lr": 0.0002,
+  "conditions": [
+    "normal",
+    "zero_fast",
+    "reset_memory",
+    "roll_fast",
+    "swap_fast"
+  ],
+  "gate": {
+    "normal": 0.95,
+    "causal_gap": 0.5,
+    "consecutive_checks": 2
+  },
+  "not_a_generalization_result": true,
+  "resolved_injection_layer": 20,
+  "total_backbone_layers": 24,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

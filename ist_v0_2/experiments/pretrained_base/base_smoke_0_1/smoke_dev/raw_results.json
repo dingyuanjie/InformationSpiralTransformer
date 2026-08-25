@@ -1,0 +1,110 @@
+{
+  "status": "complete",
+  "identity_max_logit_delta": 0.0,
+  "final_memory_scale": 0.00010061264038085938,
+  "backbone_parameters": 494032768,
+  "trainable_parameters": 28970377,
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "adapter": "zero-initialized residual hierarchical IST",
+    "freeze_backbone": true,
+    "steps": 1,
+    "curriculum": [
+      512,
+      1024
+    ],
+    "distances": [
+      512
+    ],
+    "samples": 1,
+    "distillation_weight": 0.05,
+    "conditions": [
+      "base",
+      "normal",
+      "zero_memory",
+      "reset_memory",
+      "roll_memory",
+      "zero_fast",
+      "zero_slow",
+      "zero_episodic"
+    ],
+    "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+  },
+  "history": [
+    {
+      "step": 1,
+      "distance": 1024,
+      "loss": 1.65625,
+      "task_loss": 1.65625,
+      "distill_loss": 7.548806024715304e-10,
+      "correct": 0,
+      "memory_scale": 0.00010061264038085938
+    }
+  ],
+  "summary": [
+    {
+      "distance": 512,
+      "condition": "base",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "normal",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "zero_memory",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "reset_memory",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "roll_memory",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "zero_fast",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "zero_slow",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    },
+    {
+      "distance": 512,
+      "condition": "zero_episodic",
+      "correct": 1,
+      "samples": 1,
+      "accuracy": 1.0,
+      "base_agreement": 1.0
+    }
+  ]
+}

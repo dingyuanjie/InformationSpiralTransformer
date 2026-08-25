@@ -1,0 +1,23 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "task": "unique-stream frozen Fast-Memory generalization",
+  "distance": 1024,
+  "seeds": [
+    313,
+    42,
+    2026
+  ],
+  "steps_per_seed": 1000,
+  "batch": 4,
+  "unique_training_examples_per_seed": 4000,
+  "validation_samples": 64,
+  "heldout_samples_per_seed": 128,
+  "validate_every": 100,
+  "checkpoint_selection": "max validation normal-minus-zero-fast, tie by normal",
+  "same_frozen_backbone": true,
+  "fast_only": true,
+  "persistence_only": true,
+  "primary": "paired held-out normal vs zero-fast",
+  "chance": 0.25,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

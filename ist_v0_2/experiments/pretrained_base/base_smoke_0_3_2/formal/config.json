@@ -1,0 +1,21 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "source_checkpoint": "D:\\code\\InformationSpiralTransformer\\ist_v0_2\\experiments\\pretrained_base\\base_smoke_0_3_1\\formal\\memory_checkpoint.pt",
+  "source_total_step": 1000,
+  "additional_steps": 1000,
+  "batch": 4,
+  "memory_lr": 8e-05,
+  "gate_lr": 2e-06,
+  "memory_clip_norm": 1.0,
+  "gate_gradient_clamp": 5.0,
+  "fast_only": true,
+  "persistence_only": true,
+  "gate": {
+    "fixed_normal": 0.95,
+    "causal_gap": 0.5,
+    "zero_fast_equals_reset": true,
+    "consecutive_checks": 2
+  },
+  "not_a_generalization_result": true,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

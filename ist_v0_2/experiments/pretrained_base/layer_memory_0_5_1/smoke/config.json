@@ -1,0 +1,31 @@
+{
+  "stage": "Frozen Memory 0.5.1",
+  "task": "unique-stream in-layer Fast-Memory generalization",
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "distance": 1024,
+  "chunk_size": 512,
+  "seeds": [
+    2026
+  ],
+  "fresh_adapter_per_seed": true,
+  "freeze_backbone": true,
+  "injection_layer_requested": -4,
+  "steps_per_seed": 2,
+  "batch": 2,
+  "unique_training_examples_per_seed": 4,
+  "lr": 0.0002,
+  "binding_weight": 0.5,
+  "binding_margin": 1.0,
+  "validation_samples": 4,
+  "heldout_samples_per_seed": 4,
+  "checkpoint_selection": "max normal-minus-max(zero_fast, reset_memory, swap_fast)",
+  "primary_controls": [
+    "zero_fast",
+    "reset_memory",
+    "swap_fast"
+  ],
+  "chance": 0.25,
+  "resolved_injection_layer": 20,
+  "total_backbone_layers": 24,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

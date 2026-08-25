@@ -1,0 +1,30 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "task": "full-context teacher distillation",
+  "teacher": "frozen Qwen full 1K",
+  "student": "frozen Qwen 2x512 + Fast persistence",
+  "fresh_memory_per_seed": true,
+  "initial_scale": -0.01,
+  "seeds": [
+    2026
+  ],
+  "steps_per_seed": 2,
+  "warmup_steps": 1,
+  "micro_batch": 1,
+  "gradient_accumulation": 1,
+  "effective_batch": 1,
+  "unique_training_examples_per_seed": 2,
+  "loss_weights": {
+    "answer_ce": 1.0,
+    "hidden_cosine": 1.0,
+    "hidden_mse": 0.05,
+    "full_vocab_kl": 0.1,
+    "temperature": 2.0
+  },
+  "validation_samples": 2,
+  "heldout_samples_per_seed": 2,
+  "checkpoint_selection": "max validation normal-minus-zero-fast, tie by normal",
+  "primary": "paired held-out normal vs zero-fast",
+  "chance": 0.25,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

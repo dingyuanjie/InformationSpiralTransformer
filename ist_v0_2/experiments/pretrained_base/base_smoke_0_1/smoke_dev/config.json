@@ -1,0 +1,26 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "adapter": "zero-initialized residual hierarchical IST",
+  "freeze_backbone": true,
+  "steps": 1,
+  "curriculum": [
+    512,
+    1024
+  ],
+  "distances": [
+    512
+  ],
+  "samples": 1,
+  "distillation_weight": 0.05,
+  "conditions": [
+    "base",
+    "normal",
+    "zero_memory",
+    "reset_memory",
+    "roll_memory",
+    "zero_fast",
+    "zero_slow",
+    "zero_episodic"
+  ],
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

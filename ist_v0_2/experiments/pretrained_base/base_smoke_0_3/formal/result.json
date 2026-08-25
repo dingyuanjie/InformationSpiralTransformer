@@ -1,0 +1,801 @@
+{
+  "status": "complete",
+  "persistence_causal_gate_passed": false,
+  "invariants": {
+    "no_history_vs_base_max_delta": 0.0,
+    "reset_vs_base_max_delta": 0.0,
+    "random_initial_historical_signal": 0.453125
+  },
+  "completed_steps": 600,
+  "fixed_train": {
+    "normal": 0.53125,
+    "zero_memory": 0.09375,
+    "reset_memory": 0.09375,
+    "roll_memory": 0.53125,
+    "zero_fast": 0.4375,
+    "zero_slow": 0.53125,
+    "zero_episodic": 0.53125
+  },
+  "heldout_diagnostic": {
+    "normal": 0.1875,
+    "zero_memory": 0.1875,
+    "reset_memory": 0.1875,
+    "roll_memory": 0.1875,
+    "zero_fast": 0.1875,
+    "zero_slow": 0.1875,
+    "zero_episodic": 0.1875
+  },
+  "causal_gap": 0.4375,
+  "final_diagnostics": {
+    "router_distribution": [
+      1.0,
+      9.920449878242366e-18,
+      9.825582188149884e-18,
+      1.2752928053860746e-17
+    ],
+    "fast_write_rate": 1.0,
+    "slow_write_rate": 6.043442042894713e-19,
+    "episodic_write_rate": 9.812029660993815e-18,
+    "retention_gate": 0.8789063096046448,
+    "memory_scale": -0.006195068359375
+  },
+  "history": [
+    {
+      "step": 1,
+      "loss": 1.59375,
+      "task_loss": 1.59375,
+      "distill_loss": 2.989708391964996e-08,
+      "batch_accuracy": 0.0,
+      "gradient_norms": {
+        "fast": 0.0,
+        "slow": 0.0,
+        "episodic": 0.0,
+        "router": 0.0,
+        "scale": 0.0269775390625
+      },
+      "diagnostics": {
+        "router_distribution": [
+          0.4325134754180908,
+          0.3793318271636963,
+          0.08774647861719131,
+          0.10040827095508575
+        ],
+        "fast_write_rate": 0.4325134754180908,
+        "slow_write_rate": 0.022910643368959427,
+        "episodic_write_rate": 0.08774647861719131,
+        "retention_gate": 0.8804404735565186,
+        "memory_scale": -0.00020122528076171875
+      }
+    },
+    {
+      "step": 25,
+      "loss": 2.1566808223724365,
+      "task_loss": 2.14306640625,
+      "distill_loss": 0.6807163953781128,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 2.0357723236083984,
+        "slow": 5.36849991849075e-21,
+        "episodic": 1.4523284350976018e-19,
+        "router": 1.0530905569794413e-07,
+        "scale": 432.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          1.640461022639518e-23,
+          2.9954009009393925e-24,
+          6.296686167752306e-24
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 1.0014714423449449e-24,
+        "episodic_write_rate": 2.995400703724166e-24,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0033721923828125
+      }
+    },
+    {
+      "step": 50,
+      "loss": 1.3612408638000488,
+      "task_loss": 1.3603515625,
+      "distill_loss": 0.04446406662464142,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 0.18438230454921722,
+        "slow": 3.451236925389635e-22,
+        "episodic": 2.3692123260615158e-20,
+        "router": 2.6680164744163903e-09,
+        "scale": 0.9375
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          4.756548846278632e-24,
+          1.1689772794910561e-24,
+          3.099726966793966e-24
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.900662995653521e-25,
+        "episodic_write_rate": 1.1689772794910561e-24,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0024871826171875
+      },
+      "fixed_normal": 0.34375,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.25,
+      "stable_checks": 0
+    },
+    {
+      "step": 75,
+      "loss": 1.5332207679748535,
+      "task_loss": 1.5322265625,
+      "distill_loss": 0.049712538719177246,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 0.49883198738098145,
+        "slow": 8.470329472543003e-22,
+        "episodic": 4.2189691214890816e-20,
+        "router": 6.136390506839007e-09,
+        "scale": 23.625
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          5.567000647283602e-21,
+          3.8518164540930302e-22,
+          5.7645804914101356e-21
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 3.397446709073149e-22,
+        "episodic_write_rate": 3.85181670652852e-22,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0029754638671875
+      }
+    },
+    {
+      "step": 100,
+      "loss": 1.6133311986923218,
+      "task_loss": 1.60546875,
+      "distill_loss": 0.39312201738357544,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 1.2432167530059814,
+        "slow": 3.0868801224055613e-22,
+        "episodic": 2.6497955441311973e-20,
+        "router": 4.135793574278068e-08,
+        "scale": 137.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          4.024394430990302e-21,
+          2.445026034336254e-22,
+          2.2144275271865943e-21
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.453032278326651e-22,
+        "episodic_write_rate": 2.445026034336254e-22,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.003021240234375
+      },
+      "fixed_normal": 0.375,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.28125,
+      "stable_checks": 0
+    },
+    {
+      "step": 125,
+      "loss": 1.4712039232254028,
+      "task_loss": 1.470703125,
+      "distill_loss": 0.02504202164709568,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 0.285350501537323,
+        "slow": 5.293955920339377e-22,
+        "episodic": 2.6451190656134317e-20,
+        "router": 1.5332429770253952e-09,
+        "scale": 18.875
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          3.2999225719835266e-17,
+          2.832181383214596e-17,
+          3.305120905825055e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.0124605335797556e-18,
+        "episodic_write_rate": 2.832181383214596e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0022125244140625
+      }
+    },
+    {
+      "step": 150,
+      "loss": 1.4653286933898926,
+      "task_loss": 1.4638671875,
+      "distill_loss": 0.0730782002210617,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 7.510951995849609,
+        "slow": 1.1323374561898739e-21,
+        "episodic": 4.7275336561360345e-20,
+        "router": 8.780971683108874e-08,
+        "scale": 26.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          4.4170015342233186e-17,
+          2.9654332315797436e-17,
+          1.417966902672691e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.6945596637504232e-18,
+        "episodic_write_rate": 2.9654332315797436e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.003143310546875
+      },
+      "fixed_normal": 0.3125,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.21875,
+      "stable_checks": 0
+    },
+    {
+      "step": 175,
+      "loss": 1.093242883682251,
+      "task_loss": 1.08447265625,
+      "distill_loss": 0.43850991129875183,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 1.0298794507980347,
+        "slow": 0.0,
+        "episodic": 1.346950294105163e-20,
+        "router": 1.0711036502186744e-08,
+        "scale": 54.75
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          3.6379115765572324e-20,
+          2.825064776173527e-20,
+          2.4346009534838326e-20
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.2156929358092157e-21,
+        "episodic_write_rate": 2.825064776173527e-20,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.00311279296875
+      }
+    },
+    {
+      "step": 200,
+      "loss": 1.054895043373108,
+      "task_loss": 1.0537109375,
+      "distill_loss": 0.05920621007680893,
+      "batch_accuracy": 0.75,
+      "gradient_norms": {
+        "fast": 1.0159095525741577,
+        "slow": 1.2967491197527487e-22,
+        "episodic": 1.5891173542909353e-20,
+        "router": 9.891174990173113e-09,
+        "scale": 168.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          4.75382869383333e-19,
+          8.788225321704789e-19,
+          5.956210160434285e-19
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.8995433430459773e-20,
+        "episodic_write_rate": 8.788225321704789e-19,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0017547607421875
+      },
+      "fixed_normal": 0.375,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.28125,
+      "stable_checks": 0
+    },
+    {
+      "step": 225,
+      "loss": 1.152347207069397,
+      "task_loss": 1.14794921875,
+      "distill_loss": 0.2198968380689621,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 1.1744070053100586,
+        "slow": 1.058129197239763e-21,
+        "episodic": 5.239365231085145e-20,
+        "router": 1.3866270798246205e-08,
+        "scale": 14.625
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          9.458717660315266e-18,
+          1.3106939849337515e-17,
+          1.5006288810824626e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 5.771097479102574e-19,
+        "episodic_write_rate": 1.3106939849337515e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0035247802734375
+      }
+    },
+    {
+      "step": 250,
+      "loss": 0.7840390205383301,
+      "task_loss": 0.75067138671875,
+      "distill_loss": 1.6683803796768188,
+      "batch_accuracy": 0.75,
+      "gradient_norms": {
+        "fast": 1.1248852014541626,
+        "slow": 1.793701077876368e-21,
+        "episodic": 5.809344371922466e-20,
+        "router": 1.4583387830668926e-08,
+        "scale": 1.1796875
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          3.932226794126513e-18,
+          4.132486806835294e-18,
+          5.581261389678033e-18
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.4016917666838665e-19,
+        "episodic_write_rate": 4.132486806835294e-18,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.00457763671875
+      },
+      "fixed_normal": 0.4375,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.34375,
+      "stable_checks": 0
+    },
+    {
+      "step": 275,
+      "loss": 0.9966766238212585,
+      "task_loss": 0.99072265625,
+      "distill_loss": 0.29769980907440186,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 1.331843614578247,
+        "slow": 3.743392066509216e-23,
+        "episodic": 1.4165660244839532e-20,
+        "router": 4.0569667625334205e-09,
+        "scale": 53.25
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          1.0504053924539353e-17,
+          1.2384864114137926e-17,
+          3.3707252619511255e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 6.403977501669959e-19,
+        "episodic_write_rate": 1.2384864941318538e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.00323486328125
+      }
+    },
+    {
+      "step": 300,
+      "loss": 0.772457480430603,
+      "task_loss": 0.76025390625,
+      "distill_loss": 0.6101776361465454,
+      "batch_accuracy": 0.75,
+      "gradient_norms": {
+        "fast": 1.2130669355392456,
+        "slow": 1.3496992307596107e-22,
+        "episodic": 1.8097046132325202e-20,
+        "router": 2.1991649390429302e-08,
+        "scale": 61.75
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          8.841007303001491e-18,
+          1.314469071813321e-17,
+          2.1704858622644373e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 5.386021122516529e-19,
+        "episodic_write_rate": 1.314469071813321e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0035552978515625
+      },
+      "fixed_normal": 0.3125,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.21875,
+      "stable_checks": 0
+    },
+    {
+      "step": 325,
+      "loss": 1.3588240146636963,
+      "task_loss": 1.35546875,
+      "distill_loss": 0.16776041686534882,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 1.2231615781784058,
+        "slow": 2.2149462063872207e-21,
+        "episodic": 7.510167298059859e-20,
+        "router": 5.797018420850009e-09,
+        "scale": 41.75
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          1.2633967074066432e-17,
+          1.3018078317672781e-17,
+          3.380480037478841e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 7.70485084681972e-19,
+        "episodic_write_rate": 1.3018077490492169e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.004913330078125
+      }
+    },
+    {
+      "step": 350,
+      "loss": 4.56215238571167,
+      "task_loss": 4.53515625,
+      "distill_loss": 1.3498140573501587,
+      "batch_accuracy": 0.0,
+      "gradient_norms": {
+        "fast": 14.918405532836914,
+        "slow": 2.175739465988051e-21,
+        "episodic": 6.494764968294658e-20,
+        "router": 2.3371684676476434e-07,
+        "scale": 628.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          4.245372145030406e-18,
+          2.4541675360575594e-18,
+          6.7043187170769906e-18
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.5904525730108774e-19,
+        "episodic_write_rate": 2.4541675360575594e-18,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0054931640625
+      },
+      "fixed_normal": 0.4375,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.34375,
+      "stable_checks": 0
+    },
+    {
+      "step": 375,
+      "loss": 1.5859309434890747,
+      "task_loss": 1.57373046875,
+      "distill_loss": 0.6100228428840637,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 3.3701536655426025,
+        "slow": 9.030811990258911e-22,
+        "episodic": 3.662585469500894e-20,
+        "router": 1.8869283024969263e-08,
+        "scale": 119.5
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          2.164038485697954e-17,
+          2.619030835993972e-17,
+          3.88197780530157e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 1.3192039777166665e-18,
+        "episodic_write_rate": 2.6190310014300945e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.004180908203125
+      }
+    },
+    {
+      "step": 400,
+      "loss": 1.168317198753357,
+      "task_loss": 1.166015625,
+      "distill_loss": 0.11508116126060486,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 0.6122449636459351,
+        "slow": 6.286224294427265e-22,
+        "episodic": 3.5265475398308794e-20,
+        "router": 1.231212554131389e-08,
+        "scale": 32.5
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          2.5683736335367345e-17,
+          3.554896032719322e-17,
+          5.4244932928063704e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 1.5666482337218511e-18,
+        "episodic_write_rate": 3.554896032719322e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.004302978515625
+      },
+      "fixed_normal": 0.40625,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.3125,
+      "stable_checks": 0
+    },
+    {
+      "step": 425,
+      "loss": 1.8036134243011475,
+      "task_loss": 1.796875,
+      "distill_loss": 0.3369240462779999,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 1.767272710800171,
+        "slow": 3.335561391473902e-21,
+        "episodic": 9.430580827435939e-20,
+        "router": 9.663573052876018e-08,
+        "scale": 80.5
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          1.9623389305691462e-17,
+          1.6250889575890288e-17,
+          3.222725445008648e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 1.1962680848863058e-18,
+        "episodic_write_rate": 1.6250887921529063e-17,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.005340576171875
+      }
+    },
+    {
+      "step": 450,
+      "loss": 1.0555717945098877,
+      "task_loss": 1.0498046875,
+      "distill_loss": 0.2883528172969818,
+      "batch_accuracy": 0.75,
+      "gradient_norms": {
+        "fast": 1.0262818336486816,
+        "slow": 1.6740958743820435e-22,
+        "episodic": 1.3286036866126783e-20,
+        "router": 8.757030656170173e-09,
+        "scale": 17.625
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          5.5696750708380025e-18,
+          5.592242212309674e-18,
+          1.101540870741351e-17
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 3.3951268935660443e-19,
+        "episodic_write_rate": 5.592242212309674e-18,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0062255859375
+      },
+      "fixed_normal": 0.46875,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.375,
+      "stable_checks": 0
+    },
+    {
+      "step": 475,
+      "loss": 1.0988538265228271,
+      "task_loss": 1.0484619140625,
+      "distill_loss": 2.5195939540863037,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 1.5422229766845703,
+        "slow": 7.923267940070929e-22,
+        "episodic": 3.8880852442405065e-20,
+        "router": 9.919843080297142e-08,
+        "scale": 104.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          1.4616029960905783e-16,
+          1.4994906474723651e-16,
+          1.5362971407063207e-16
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 8.91164521859107e-18,
+        "episodic_write_rate": 1.4994907798212631e-16,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.006378173828125
+      }
+    },
+    {
+      "step": 500,
+      "loss": 0.8809163570404053,
+      "task_loss": 0.8525390625,
+      "distill_loss": 1.4188653230667114,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 2.0016167163848877,
+        "slow": 6.483745598763743e-23,
+        "episodic": 1.8859007107870118e-20,
+        "router": 2.722325476156584e-08,
+        "scale": 51.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          7.475506746047365e-16,
+          1.039010211892409e-15,
+          1.2107117312347361e-15
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 4.5564694794556794e-17,
+        "episodic_write_rate": 1.039010211892409e-15,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.00439453125
+      },
+      "fixed_normal": 0.40625,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.3125,
+      "stable_checks": 0
+    },
+    {
+      "step": 525,
+      "loss": 3.00595760345459,
+      "task_loss": 2.9921875,
+      "distill_loss": 0.6885084509849548,
+      "batch_accuracy": 0.0,
+      "gradient_norms": {
+        "fast": 4.652648448944092,
+        "slow": 3.9792804729408965e-22,
+        "episodic": 2.644194465096705e-20,
+        "router": 1.5654106277906976e-07,
+        "scale": 362.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          7.36673924529044e-16,
+          1.076492266841359e-15,
+          1.1611647507433326e-15
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 4.49275506559317e-17,
+        "episodic_write_rate": 1.076492266841359e-15,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.0052490234375
+      }
+    },
+    {
+      "step": 550,
+      "loss": 0.906150758266449,
+      "task_loss": 0.891845703125,
+      "distill_loss": 0.7152521014213562,
+      "batch_accuracy": 0.5,
+      "gradient_norms": {
+        "fast": 0.6275138258934021,
+        "slow": 2.043915936720669e-21,
+        "episodic": 8.289689382632761e-20,
+        "router": 2.087181982801667e-08,
+        "scale": 19.0
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          1.0231313616862654e-16,
+          1.3767167951881005e-16,
+          1.717127425288783e-16
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 6.239767881212616e-18,
+        "episodic_write_rate": 1.3767167951881005e-16,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.005950927734375
+      },
+      "fixed_normal": 0.40625,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.3125,
+      "stable_checks": 0
+    },
+    {
+      "step": 575,
+      "loss": 1.0119882822036743,
+      "task_loss": 1.001953125,
+      "distill_loss": 0.5017549991607666,
+      "batch_accuracy": 0.75,
+      "gradient_norms": {
+        "fast": 1.4238206148147583,
+        "slow": 1.5197415783601178e-21,
+        "episodic": 5.831051400653447e-20,
+        "router": 5.329805485843053e-09,
+        "scale": 25.625
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          3.870684142962261e-18,
+          3.968118574495495e-18,
+          5.985698115296035e-18
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.359530112368097e-19,
+        "episodic_write_rate": 3.968118574495495e-18,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.006317138671875
+      }
+    },
+    {
+      "step": 600,
+      "loss": 1.8763282299041748,
+      "task_loss": 1.869140625,
+      "distill_loss": 0.35938072204589844,
+      "batch_accuracy": 0.25,
+      "gradient_norms": {
+        "fast": 3.184593439102173,
+        "slow": 1.269997798849422e-21,
+        "episodic": 4.4505926177010005e-20,
+        "router": 1.1205312944184698e-07,
+        "scale": 118.5
+      },
+      "diagnostics": {
+        "router_distribution": [
+          1.0,
+          4.363330168331999e-18,
+          4.368504596653825e-18,
+          6.1004156585479515e-18
+        ],
+        "fast_write_rate": 1.0,
+        "slow_write_rate": 2.6561074491928598e-19,
+        "episodic_write_rate": 4.368504596653825e-18,
+        "retention_gate": 0.8789063096046448,
+        "memory_scale": -0.006195068359375
+      },
+      "fixed_normal": 0.53125,
+      "fixed_zero_memory": 0.09375,
+      "fixed_reset_memory": 0.09375,
+      "causal_gap": 0.4375,
+      "stable_checks": 0
+    }
+  ],
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "task": "persistence-only fixed-set 1K overfit",
+    "fixed_examples": 32,
+    "steps": 600,
+    "batch": 4,
+    "freeze_backbone": true,
+    "adapter": "hidden + zero_initialized_scale * (memory(history)-memory(reset))",
+    "gate": {
+      "fixed_normal": 0.95,
+      "normal_minus_zero_or_reset": 0.5,
+      "consecutive_checks": 2
+    },
+    "hard_invariants": [
+      "no-history equals Base",
+      "reset equals Base"
+    ],
+    "not_a_generalization_result": true,
+    "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+  },
+  "backbone_parameters": 494032768,
+  "trainable_parameters": 28970377
+}

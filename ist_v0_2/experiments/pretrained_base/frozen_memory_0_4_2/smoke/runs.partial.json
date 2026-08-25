@@ -1,0 +1,82 @@
+[
+  {
+    "seed": 2026,
+    "invariants": {
+      "no_history_vs_base_max_delta": 0.0,
+      "reset_vs_base_max_delta": 0.0,
+      "random_initial_historical_signal": 0.96875
+    },
+    "best": {
+      "score": 0.0,
+      "normal": 0.0,
+      "step": 1,
+      "phase": "fixed_gate_teacher_warmup"
+    },
+    "history": [
+      {
+        "step": 1,
+        "phase": "fixed_gate_teacher_warmup",
+        "loss": 1.458739161491394,
+        "task_loss": 1.3671875,
+        "hidden_cosine_loss": 0.007577300071716309,
+        "hidden_mse_loss": 1.3146464824676514,
+        "logit_kl_loss": 0.18241950869560242,
+        "batch_accuracy": 0.0,
+        "raw_memory_grad": 0.1240234375,
+        "raw_gate_grad": 0.15916377305984497,
+        "diagnostics": {
+          "router_distribution": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fast_write_rate": 1.0,
+          "slow_write_rate": 0.0,
+          "episodic_write_rate": 0.0,
+          "retention_gate": 0.8789063096046448,
+          "memory_scale": -0.00999966636300087
+        },
+        "validation": {
+          "base": 0.5,
+          "normal": 0.0,
+          "zero_fast": 0.0,
+          "reset_memory": 0.0
+        },
+        "validation_causal_gap": 0.0
+      }
+    ],
+    "heldout": {
+      "split": "held_out",
+      "samples": 2,
+      "correctness": {
+        "base": [
+          1,
+          1
+        ],
+        "normal": [
+          0,
+          0
+        ],
+        "zero_fast": [
+          0,
+          0
+        ],
+        "reset_memory": [
+          0,
+          0
+        ]
+      },
+      "accuracy": {
+        "base": 1.0,
+        "normal": 0.0,
+        "zero_fast": 0.0,
+        "reset_memory": 0.0
+      },
+      "targets": [
+        1,
+        2
+      ]
+    }
+  }
+]

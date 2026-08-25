@@ -6,13 +6,16 @@ from config import HierarchicalMemoryConfig
 from hierarchical_memory import HierarchicalMemory
 
 class FrozenPretrainedIST(nn.Module):
-    def __init__(self, backbone, memory_config=None, identity_preserving=True):
+    def __init__(self, backbone, memory_config=None, identity_preserving=True,
+                 persistence_only=False):
         super().__init__();self.backbone=backbone
         hidden=int(backbone.config.hidden_size);config=memory_config or HierarchicalMemoryConfig()
         self.memory=HierarchicalMemory(hidden,config);self.memory_arch="pretrained_hierarchical_v0_2"
         self.identity_preserving=identity_preserving
+        self.persistence_only=persistence_only
         self.memory_scale=nn.Parameter(torch.zeros(()))
         self.last_base_logits=None
+        self.last_adapted_hidden=None
         for parameter in self.backbone.parameters():parameter.requires_grad_(False)
         self.backbone.eval()
     def train(self,mode=True):
@@ -24,7 +27,16 @@ class FrozenPretrainedIST(nn.Module):
             hidden=core.last_hidden_state.detach()
             self.last_base_logits=self.backbone.get_output_embeddings()(hidden[:,-1:]).detach()
         state,feature=self.memory(hidden,state)
-        adapted=(hidden+torch.tanh(self.memory_scale)*(feature-hidden)) if self.identity_preserving else feature
+        if self.persistence_only:
+            historical_diagnostics=self.memory.last_diagnostics
+            _,local_feature=self.memory(hidden,None)
+            self.memory.last_diagnostics=historical_diagnostics
+            delta=feature-local_feature
+        else:
+            delta=feature-hidden
+        scale=torch.tanh(self.memory_scale.float()).to(hidden.dtype)
+        adapted=(hidden+scale*delta) if self.identity_preserving else feature
+        self.last_adapted_hidden=adapted[:,-1]
         logits=self.backbone.get_output_embeddings()(adapted[:,-1:])
         if detach_state:state=self.memory.detach_state(state)
         return logits,state

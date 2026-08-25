@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "summary": {
+    "fast_geometry": {
+      "cross_example_cosine_mean": 0.9999971389770508,
+      "within_example_slot_cosine_mean": 0.4775807559490204,
+      "between_example_variance": 0.3900105953216553,
+      "variance_to_mean_square_ratio": 0.0005245000356808305,
+      "mean_slot_norm": 489.9693908691406,
+      "effective_rank": 1.0010014772415161,
+      "maximum_rank": 4.0,
+      "normalized_effective_rank": 0.25025036931037903,
+      "top1_energy_fraction": 0.9999087452888489
+    },
+    "writer": {
+      "normalized_attention_entropy": 0.6580950766801834,
+      "fact_attention_mass": 0.36735498905181885,
+      "fact_attention_enrichment_over_uniform": 9.477651357650757,
+      "slot_top_token_inside_fact_rate": 0.40625
+    },
+    "reader": {
+      "normalized_query_slot_entropy": 0.9635667204856873,
+      "query_top1_slot_weight": 0.04213714599609375
+    },
+    "swap_response": {
+      "normal_accuracy": 0.5,
+      "swap_accuracy": 0.5,
+      "prediction_flip_rate": 0.0,
+      "same_answer_label_swap_rate": 0.0,
+      "candidate_symmetric_kl": 0.000819716602563858,
+      "candidate_logit_l2": 0.07544417306780815,
+      "fast_state_swap_l2": 123.15719330310822
+    }
+  },
+  "diagnosis_flags": {
+    "high_cross_example_similarity": true,
+    "low_effective_rank": false,
+    "writer_not_fact_enriched": false,
+    "reader_nearly_uniform": true,
+    "swap_output_insensitive": true
+  },
+  "runs": [
+    {
+      "seed": 2026,
+      "checkpoint": "D:\\code\\InformationSpiralTransformer\\ist_v0_2\\experiments\\pretrained_base\\layer_memory_0_5_3\\formal\\seed2026\\best.pt",
+      "samples": 4,
+      "fast_geometry": {
+        "cross_example_cosine_mean": 0.9999971389770508,
+        "within_example_slot_cosine_mean": 0.4775807559490204,
+        "between_example_variance": 0.3900105953216553,
+        "variance_to_mean_square_ratio": 0.0005245000356808305,
+        "mean_slot_norm": 489.9693908691406,
+        "effective_rank": 1.0010014772415161,
+        "maximum_rank": 4,
+        "normalized_effective_rank": 0.25025036931037903,
+        "top1_energy_fraction": 0.9999087452888489
+      },
+      "writer": {
+        "normalized_attention_entropy": 0.6580950766801834,
+        "fact_attention_mass": 0.36735498905181885,
+        "fact_attention_enrichment_over_uniform": 9.477651357650757,
+        "slot_top_token_inside_fact_rate": 0.40625
+      },
+      "reader": {
+        "normalized_query_slot_entropy": 0.9635667204856873,
+        "query_top1_slot_weight": 0.04213714599609375
+      },
+      "swap_response": {
+        "normal_accuracy": 0.5,
+        "swap_accuracy": 0.5,
+        "prediction_flip_rate": 0.0,
+        "same_answer_label_swap_rate": 0.0,
+        "candidate_symmetric_kl": 0.000819716602563858,
+        "candidate_logit_l2": 0.07544417306780815,
+        "fast_state_swap_l2": 123.15719330310822
+      }
+    }
+  ],
+  "protocol": {
+    "stage": "Frozen Memory 0.5.4",
+    "task": "frozen Fast-Memory content-collapse tomography",
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "source": "D:\\code\\InformationSpiralTransformer\\ist_v0_2\\experiments\\pretrained_base\\layer_memory_0_5_3\\formal",
+    "seeds": [
+      2026
+    ],
+    "heldout_samples_per_seed": 4,
+    "batch": 2,
+    "training": false,
+    "measurements": [
+      "cross-example slot geometry",
+      "effective rank",
+      "fact attention enrichment",
+      "query-to-slot entropy",
+      "swap logit response"
+    ],
+    "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+  }
+}

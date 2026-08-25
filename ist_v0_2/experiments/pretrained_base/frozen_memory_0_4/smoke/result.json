@@ -1,0 +1,156 @@
+{
+  "status": "complete",
+  "generalization_gate_passed": false,
+  "summary": {
+    "base": {
+      "accuracy": 1.0,
+      "correct": 2,
+      "samples": 2,
+      "wilson95": [
+        0.34238022750666547,
+        1.0
+      ]
+    },
+    "normal": {
+      "accuracy": 0.5,
+      "correct": 1,
+      "samples": 2,
+      "wilson95": [
+        0.09453120573423457,
+        0.9054687942657654
+      ]
+    },
+    "zero_fast": {
+      "accuracy": 0.5,
+      "correct": 1,
+      "samples": 2,
+      "wilson95": [
+        0.09453120573423457,
+        0.9054687942657654
+      ]
+    },
+    "reset_memory": {
+      "accuracy": 0.5,
+      "correct": 1,
+      "samples": 2,
+      "wilson95": [
+        0.09453120573423457,
+        0.9054687942657654
+      ]
+    }
+  },
+  "paired_normal_vs_zero_fast": {
+    "improved": 0,
+    "harmed": 0,
+    "ties": 2,
+    "mcnemar_exact_p": 1.0,
+    "difference": 0.0
+  },
+  "paired_normal_vs_base": {
+    "improved": 0,
+    "harmed": 1,
+    "ties": 1,
+    "mcnemar_exact_p": 1.0,
+    "difference": -0.5
+  },
+  "runs": [
+    {
+      "seed": 2026,
+      "invariants": {
+        "no_history_vs_base_max_delta": 0.0,
+        "reset_vs_base_max_delta": 0.0,
+        "random_initial_historical_signal": 0.96875
+      },
+      "best": {
+        "score": 0.0,
+        "normal": 0.0,
+        "step": 1
+      },
+      "history": [
+        {
+          "step": 1,
+          "loss": 1.421875,
+          "task_loss": 1.421875,
+          "distill_loss": 5.738863273485606e-10,
+          "batch_accuracy": 0.0,
+          "raw_memory_grad": 0.0,
+          "raw_gate_grad": 0.053466796875,
+          "diagnostics": {
+            "router_distribution": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fast_write_rate": 1.0,
+            "slow_write_rate": 0.0,
+            "episodic_write_rate": 0.0,
+            "retention_gate": 0.8789063096046448,
+            "memory_scale": 1.999999312829459e-06
+          },
+          "validation": {
+            "base": 1.0,
+            "normal": 0.0,
+            "zero_fast": 0.0,
+            "reset_memory": 0.0
+          },
+          "validation_causal_gap": 0.0
+        }
+      ],
+      "heldout": {
+        "split": "held_out",
+        "samples": 2,
+        "correctness": {
+          "base": [
+            1,
+            1
+          ],
+          "normal": [
+            0,
+            1
+          ],
+          "zero_fast": [
+            0,
+            1
+          ],
+          "reset_memory": [
+            0,
+            1
+          ]
+        },
+        "accuracy": {
+          "base": 1.0,
+          "normal": 0.5,
+          "zero_fast": 0.5,
+          "reset_memory": 0.5
+        },
+        "targets": [
+          1,
+          2
+        ]
+      }
+    }
+  ],
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "task": "unique-stream frozen Fast-Memory generalization",
+    "distance": 1024,
+    "seeds": [
+      2026
+    ],
+    "steps_per_seed": 2,
+    "batch": 1,
+    "unique_training_examples_per_seed": 2,
+    "validation_samples": 2,
+    "heldout_samples_per_seed": 2,
+    "validate_every": 1,
+    "checkpoint_selection": "max validation normal-minus-zero-fast, tie by normal",
+    "same_frozen_backbone": true,
+    "fast_only": true,
+    "persistence_only": true,
+    "primary": "paired held-out normal vs zero-fast",
+    "chance": 0.25,
+    "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+  },
+  "backbone_parameters": 494032768
+}

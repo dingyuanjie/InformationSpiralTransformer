@@ -210,8 +210,12 @@ class HierarchicalMemory(nn.Module):
         causal_weights = causal_weights / causal_weights.sum(-1, keepdim=True).clamp_min(1e-6)
         episode_context = (causal_weights[..., None].to(selected_values.dtype) * selected_values).sum(2)
 
-        feature = base_feature if self.config.fast.enabled else hidden
-        if self.config.fast.enabled: feature = feature + p_fast[:, None, None] * fast_gate * fast_context
+        suppress_fast = self.intervention == "zero_fast" or (
+            self.intervention.startswith("keep_only_") and self.intervention != "keep_only_fast"
+        )
+        fast_path_enabled = self.config.fast.enabled and not suppress_fast
+        feature = base_feature if fast_path_enabled else hidden
+        if fast_path_enabled: feature = feature + p_fast[:, None, None] * fast_gate * fast_context
         if self.config.slow.enabled: feature = feature + p_slow[:, None, None] * slow_gate * slow_context
         if self.config.episodic.enabled: feature = feature + p_episode[:, None, None] * episode_gate * episode_context
         new_state = {"fast": new_fast, "slow": new_slow,

@@ -1,0 +1,26 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "task": "Fast-only persistence causal confirmation",
+  "fixed_examples": 32,
+  "steps": 1000,
+  "batch": 4,
+  "freeze_backbone": true,
+  "persistence_only": true,
+  "fast_only": true,
+  "disabled": [
+    "router",
+    "slow",
+    "episodic",
+    "consolidation"
+  ],
+  "fp32_residual_gate": true,
+  "complete_zero_fast": true,
+  "gate": {
+    "fixed_normal": 0.95,
+    "normal_minus_zero_or_reset": 0.5,
+    "zero_fast_equals_reset": true,
+    "consecutive_checks": 2
+  },
+  "not_a_generalization_result": true,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

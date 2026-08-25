@@ -1,0 +1,26 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "task": "nonzero-gate unique-stream generalization",
+  "initial_scale": -0.01,
+  "fresh_memory_per_seed": true,
+  "no_fixed_set_weights": true,
+  "seeds": [
+    313,
+    42,
+    2026
+  ],
+  "steps_per_seed": 1500,
+  "fixed_gate_warmup_steps": 500,
+  "joint_steps": 1000,
+  "batch": 4,
+  "unique_training_examples_per_seed": 6000,
+  "memory_lr": 8e-05,
+  "gate_lr_after_warmup": 2e-06,
+  "distill_weight": 0.02,
+  "validation_samples": 64,
+  "heldout_samples_per_seed": 128,
+  "checkpoint_selection": "max validation normal-minus-zero-fast, tie by normal",
+  "primary": "paired held-out normal vs zero-fast",
+  "chance": 0.25,
+  "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+}

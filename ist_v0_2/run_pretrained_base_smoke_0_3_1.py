@@ -1,0 +1,21 @@
+"""Base Smoke 0.3.1: Fast-only persistence causal confirmation."""
+from __future__ import annotations
+import argparse,json
+import torch
+from config import HierarchicalMemoryConfig
+from experiment_utils import ROOT,atomic_json,atomic_torch,run_metadata,parameter_count
+from pretrained_memory_adapter import FrozenPretrainedIST,load_qwen
+from run_pretrained_base_smoke import MODEL_ID,candidate_ids
+from run_pretrained_base_smoke_0_2 import fixed_data,train,score,diagnostics
+from run_pretrained_base_smoke_0_3 import invariants
+
+def fast_only_config():
+    return HierarchicalMemoryConfig.from_dict({"slow":{"enabled":False},"episodic":{"enabled":False},"router":{"enabled":False,"mode":"disabled"},"consolidation":{"enabled":False}})
+def main():
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument("--model-id",default=MODEL_ID);p.add_argument("--steps",type=int,default=1000);p.add_argument("--batch",type=int,default=4);p.add_argument("--output",default="experiments/pretrained_base/base_smoke_0_3_1/formal");p.add_argument("--dry-run",action="store_true");p.add_argument("--local-files-only",action="store_true");args=p.parse_args();protocol={"model_id":args.model_id,"task":"Fast-only persistence causal confirmation","fixed_examples":32,"steps":args.steps,"batch":args.batch,"freeze_backbone":True,"persistence_only":True,"fast_only":True,"disabled":["router","slow","episodic","consolidation"],"fp32_residual_gate":True,"complete_zero_fast":True,"gate":{"fixed_normal":.95,"normal_minus_zero_or_reset":.5,"zero_fast_equals_reset":True,"consecutive_checks":2},"not_a_generalization_result":True}
+    if args.dry_run:print(json.dumps(protocol,indent=2));return 0
+    if not torch.cuda.is_available():raise RuntimeError("CUDA required")
+    device=torch.device("cuda");dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16;root=ROOT/args.output;root.mkdir(parents=True,exist_ok=True);tokenizer,backbone=load_qwen(args.model_id,dtype,device,args.local_files_only);labels=candidate_ids(tokenizer);adapter=FrozenPretrainedIST(backbone,fast_only_config(),identity_preserving=True,persistence_only=True).to(device=device,dtype=dtype);adapter.memory_scale.data=adapter.memory_scale.data.float();checks=invariants(backbone,adapter,tokenizer,device)
+    if checks["no_history_vs_base_max_delta"]!=0 or checks["reset_vs_base_max_delta"]!=0:raise RuntimeError(f"identity invariant failed: {checks}")
+    data=fixed_data(tokenizer,device);history,optimizer,completed=train(adapter,tokenizer,labels,data,args.steps,args.batch,device,dtype,root);conditions=("normal","zero_memory","reset_memory","roll_memory","zero_fast");fixed={c:score(adapter,labels,data,c,args.batch) for c in conditions};held=fixed_data(tokenizer,device,99500000,"held_out");heldout={c:score(adapter,labels,held,c,args.batch) for c in conditions};gap=fixed["normal"]-max(fixed["zero_memory"],fixed["reset_memory"]);zero_consistent=abs(fixed["zero_fast"]-fixed["reset_memory"])<1e-12;passed=fixed["normal"]>=.95 and gap>=.5 and zero_consistent;revision=getattr(backbone.config,"_commit_hash",None);protocol["resolved_revision"]=revision;result={"status":"complete","fast_persistence_gate_passed":passed,"invariants":checks,"completed_steps":completed,"fixed_train":fixed,"heldout_diagnostic":heldout,"causal_gap":gap,"zero_fast_equals_reset":zero_consistent,"final_diagnostics":diagnostics(adapter),"history":history,"protocol":protocol,"backbone_parameters":parameter_count(backbone),"trainable_parameters":sum(p.numel() for p in adapter.trainable_parameters())+1};atomic_json(root/"config.json",protocol);atomic_json(root/"run_metadata.json",run_metadata(device,99600001));atomic_torch(root/"memory_checkpoint.pt",{"memory":adapter.memory.state_dict(),"memory_scale":adapter.memory_scale.detach(),"optimizer":optimizer.state_dict(),"history":history,"revision":revision});atomic_json(root/"raw_results.json",result);atomic_json(root/"result.json",result);(root/"ANALYSIS.md").write_text("# Base Smoke 0.3.1\n\nFast-only persistence confirmation. Fixed-set success is not held-out generalization.\n",encoding="utf-8");print(json.dumps(result,indent=2));return 0
+if __name__=="__main__":raise SystemExit(main())

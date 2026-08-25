@@ -1,0 +1,224 @@
+{
+  "status": "complete",
+  "generalization_gate_passed": false,
+  "summary": {
+    "full_context_base": {
+      "accuracy": 1.0,
+      "correct": 4,
+      "samples": 4,
+      "wilson95": [
+        0.5101091635454165,
+        1.0
+      ]
+    },
+    "normal": {
+      "accuracy": 0.5,
+      "correct": 2,
+      "samples": 4,
+      "wilson95": [
+        0.1500389891521544,
+        0.8499610108478456
+      ]
+    },
+    "zero_fast": {
+      "accuracy": 0.75,
+      "correct": 3,
+      "samples": 4,
+      "wilson95": [
+        0.30064184258241056,
+        0.9544127391902976
+      ]
+    },
+    "reset_memory": {
+      "accuracy": 0.75,
+      "correct": 3,
+      "samples": 4,
+      "wilson95": [
+        0.30064184258241056,
+        0.9544127391902976
+      ]
+    },
+    "swap_fast": {
+      "accuracy": 0.75,
+      "correct": 3,
+      "samples": 4,
+      "wilson95": [
+        0.30064184258241056,
+        0.9544127391902976
+      ]
+    }
+  },
+  "paired_normal_vs_controls": {
+    "zero_fast": {
+      "improved": 0,
+      "harmed": 1,
+      "ties": 3,
+      "mcnemar_exact_p": 1.0,
+      "difference": -0.25
+    },
+    "reset_memory": {
+      "improved": 0,
+      "harmed": 1,
+      "ties": 3,
+      "mcnemar_exact_p": 1.0,
+      "difference": -0.25
+    },
+    "swap_fast": {
+      "improved": 0,
+      "harmed": 1,
+      "ties": 3,
+      "mcnemar_exact_p": 1.0,
+      "difference": -0.25
+    }
+  },
+  "runs": [
+    {
+      "seed": 2026,
+      "best": {
+        "score": -0.25,
+        "normal": 0.0,
+        "step": 1
+      },
+      "history": [
+        {
+          "step": 1,
+          "loss": 2.7410073280334473,
+          "task_loss": 1.45703125,
+          "representation_cosine_loss": 0.019599825143814087,
+          "representation_mse_loss": 0.07687985897064209,
+          "delta_cosine_loss": 1.0150976181030273,
+          "delta_mse_loss": 0.07687985897064209,
+          "binding_loss": 0.9901860356330872,
+          "batch_accuracy": 0.0,
+          "raw_trainable_grad": 3.620976209640503,
+          "injection_scale": -0.009809430688619614,
+          "injection_norm": 0.07304541021585464,
+          "teacher_delta_norm": 8.19238567352295,
+          "student_delta_norm": 0.07707561552524567,
+          "informative_swap_rate": 1.0,
+          "validation": {
+            "full_context_base": 1.0,
+            "normal": 0.0,
+            "zero_fast": 0.25,
+            "reset_memory": 0.25,
+            "swap_fast": 0.25
+          },
+          "validation_causal_score": -0.25
+        },
+        {
+          "step": 2,
+          "loss": 2.470123767852783,
+          "task_loss": 1.4140625,
+          "representation_cosine_loss": 0.009669393301010132,
+          "representation_mse_loss": 0.03853420540690422,
+          "delta_cosine_loss": 0.8126480579376221,
+          "delta_mse_loss": 0.03853420540690422,
+          "binding_loss": 0.9311938881874084,
+          "batch_accuracy": 0.0,
+          "raw_trainable_grad": 6.721639633178711,
+          "injection_scale": -0.00984781701117754,
+          "injection_norm": 0.10574281215667725,
+          "teacher_delta_norm": 5.877310752868652,
+          "student_delta_norm": 0.10693907737731934,
+          "informative_swap_rate": 1.0,
+          "validation": {
+            "full_context_base": 1.0,
+            "normal": 0.0,
+            "zero_fast": 0.25,
+            "reset_memory": 0.25,
+            "swap_fast": 0.25
+          },
+          "validation_causal_score": -0.25
+        }
+      ],
+      "heldout": {
+        "split": "held_out",
+        "samples": 4,
+        "correctness": {
+          "full_context_base": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normal": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "zero_fast": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "reset_memory": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "swap_fast": [
+            0,
+            1,
+            1,
+            1
+          ]
+        },
+        "accuracy": {
+          "full_context_base": 1.0,
+          "normal": 0.5,
+          "zero_fast": 0.75,
+          "reset_memory": 0.75,
+          "swap_fast": 0.75
+        },
+        "targets": [
+          1,
+          2,
+          3,
+          3
+        ]
+      }
+    }
+  ],
+  "protocol": {
+    "stage": "Frozen Memory 0.5.3",
+    "task": "layer-matched write/read with full-context teacher distillation",
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "teacher": "frozen Qwen full 1024 layer-input query representation",
+    "student": "frozen Qwen 2x512 with historical Fast Memory",
+    "distance": 1024,
+    "chunk_size": 512,
+    "seeds": [
+      2026
+    ],
+    "fresh_adapter_per_seed": true,
+    "freeze_backbone": true,
+    "injection_layer_requested": -4,
+    "memory_write_representation": "injection-layer input",
+    "memory_read_representation": "injection-layer input",
+    "layer_matched_write_read": true,
+    "steps_per_seed": 2,
+    "batch": 2,
+    "unique_training_examples_per_seed": 4,
+    "lr": 0.0002,
+    "loss_weights": {
+      "answer_ce": 1.0,
+      "layer_representation_cosine": 0.5,
+      "layer_representation_mse": 0.05,
+      "missing_delta_cosine": 1.0,
+      "missing_delta_mse": 0.1,
+      "swap_binding": 0.25,
+      "swap_margin": 1.0
+    },
+    "validation_samples": 4,
+    "heldout_samples_per_seed": 4,
+    "checkpoint_selection": "max normal-minus-max(zero_fast, reset_memory, swap_fast)",
+    "chance": 0.25,
+    "resolved_injection_layer": 20,
+    "total_backbone_layers": 24,
+    "resolved_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+  },
+  "backbone_parameters": 494032768
+}
