@@ -1,5 +1,6 @@
 """Frozen causal-LM backbone with trainable IST hierarchical Memory."""
 from __future__ import annotations
+from pathlib import Path
 import torch
 import torch.nn as nn
 from config import HierarchicalMemoryConfig
@@ -46,6 +47,19 @@ class FrozenPretrainedIST(nn.Module):
 def load_qwen(model_id="Qwen/Qwen2.5-0.5B",dtype=torch.bfloat16,device="cuda",local_files_only=False):
     try:from transformers import AutoModelForCausalLM,AutoTokenizer
     except ImportError as error:raise RuntimeError("Install requirements first: pip install -r requirements.txt") from error
-    tokenizer=AutoTokenizer.from_pretrained(model_id,use_fast=True,local_files_only=local_files_only)
-    backbone=AutoModelForCausalLM.from_pretrained(model_id,dtype=dtype,attn_implementation="sdpa",local_files_only=local_files_only).to(device)
+    resolved_model=model_id
+    if local_files_only and not Path(model_id).exists():
+        # transformers 4.57 may still call model_info() from tokenizer regex
+        # compatibility code even with local_files_only=True.  Resolving the
+        # cached snapshot first makes _is_local true and guarantees no network.
+        try:
+            from huggingface_hub import snapshot_download
+            resolved_model=snapshot_download(repo_id=model_id,local_files_only=True)
+        except Exception as error:
+            raise FileNotFoundError(
+                f"No complete local Hugging Face snapshot for {model_id!r}. "
+                "Run once online or pass --model-id with a local model directory."
+            ) from error
+    tokenizer=AutoTokenizer.from_pretrained(resolved_model,use_fast=True,local_files_only=local_files_only)
+    backbone=AutoModelForCausalLM.from_pretrained(resolved_model,dtype=dtype,attn_implementation="sdpa",local_files_only=local_files_only).to(device)
     return tokenizer,backbone
