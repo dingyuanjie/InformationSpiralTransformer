@@ -165,16 +165,29 @@ class CognitiveEventMemory(nn.Module):
         stores = []
         if intervention != "zero_working": stores.append((0, state["working"]))
         if intervention != "zero_episodic": stores.append((1, state["episodic"]))
-        keys = torch.cat([store["keys"] for _, store in stores], dim=1)
         valid = torch.cat([store["valid"] for _, store in stores], dim=1)
         values = torch.cat([store["values"] for _, store in stores], dim=1)
         token_valid = torch.cat([store["token_valid"] for _, store in stores], dim=1)
         token_ids = torch.cat([store["token_ids"] for _, store in stores], dim=1)
         positions = torch.cat([store["positions"] for _, store in stores], dim=1)
         store_ids = torch.cat([torch.full_like(store["valid"], kind) for kind, store in stores], dim=1)
+        if intervention == "swap" and values.size(0) > 1:
+            values, token_valid, token_ids, positions, valid, store_ids = [
+                torch.roll(item, 1, 0)
+                for item in (values, token_valid, token_ids, positions, valid, store_ids)
+            ]
+        denominator = token_valid.sum(-1, keepdim=True).clamp_min(1)
+        pooled = (values.float() * token_valid[..., None]).sum(2) / denominator
+        # Recompute retrieval keys from exact stored events. This lets the Key
+        # projection learn without keeping a graph through every source chunk.
+        keys = self.event_key(pooled.to(self.event_key.weight.dtype)).to(values.dtype)
         q = self.query(query_hidden)
         event_scores = torch.einsum("bth,bsh->bts", q.float(), keys.float()) / math.sqrt(self.hidden_size)
         event_scores = event_scores.masked_fill(~valid[:, None], -torch.inf)
+        self.last_event_scores = event_scores
+        self.last_event_positions = positions
+        self.last_event_token_ids = token_ids
+        self.last_event_store_ids = store_ids
         count = min(self.config.retrieved_events, keys.size(1))
         top_scores, top = event_scores.topk(count, dim=-1)
         top_valid = valid[:, None].expand(-1, query_hidden.size(1), -1).gather(2, top)
@@ -191,12 +204,18 @@ class CognitiveEventMemory(nn.Module):
         event_context = (token_weights[..., None].to(gather_values.dtype) * self.value(gather_values)).sum(3)
         context = (event_weights[..., None].to(event_context.dtype) * event_context).sum(2)
         context = self.output(context)
+        semantic_provenance = None
         if intervention != "zero_semantic" and state["semantic"]["valid"].any():
             semantic_scores = torch.einsum("bth,bsh->bts", q.float(), state["semantic"]["keys"].float())
             semantic_scores = semantic_scores.masked_fill(~state["semantic"]["valid"][:, None], -1e4)
             semantic_weights = semantic_scores.softmax(-1)
             semantic = torch.einsum("bts,bsh->bth", semantic_weights.to(keys.dtype), state["semantic"]["keys"])
             context = context + self.config.semantic_mix * self.semantic_output(semantic)
+            semantic_provenance = {
+                "weights": semantic_weights.detach(),
+                "source_token_ids": state["semantic"]["source_token_ids"].detach(),
+                "source_positions": state["semantic"]["source_positions"].detach(),
+            }
         expanded_ids = token_ids[:, None].expand(-1, query_hidden.size(1), -1, -1)
         expanded_positions = positions[:, None].expand_as(expanded_ids)
         provenance = {
@@ -205,8 +224,22 @@ class CognitiveEventMemory(nn.Module):
             "token_ids": expanded_ids.gather(2, top[..., None].expand(-1, -1, -1, self.config.event_span)).detach(),
             "positions": expanded_positions.gather(2, top[..., None].expand(-1, -1, -1, self.config.event_span)).detach(),
             "token_weights": token_weights.detach(),
+            "semantic": semantic_provenance,
         }
         return context, provenance
+
+    def reinforce_from_provenance(self, state, provenance, min_weight=0.6, mode="fixed"):
+        """Rehearse confident episodic top-1 events without answer supervision."""
+        weights = provenance["event_weights"][:, -1]
+        stores = provenance["store_ids"][:, -1]
+        indices = provenance["event_indices"][:, -1]
+        slots = torch.full((weights.size(0), 1), -1, device=weights.device, dtype=torch.long)
+        working_capacity = self.config.working_events
+        confident = weights[:, 0] >= min_weight
+        episodic = stores[:, 0] == 1
+        selected = confident & episodic
+        slots[selected, 0] = indices[selected, 0] - working_capacity
+        return self.reinforce(state, slots, mode=mode), slots
 
     def reinforce(self, state, episodic_slots, mode="fixed"):
         """Rehearse retrieved episodic slots and consolidate repeated traces."""

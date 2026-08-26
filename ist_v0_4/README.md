@@ -61,3 +61,12 @@ python run_v0_4_paired_tomography.py --local-files-only
 
 This uses paired stream prefixes to compare fixed versus relative rehearsal,
 capacity scaling and exact semantic source references.
+
+## Milestone 2.2
+
+```powershell
+python run_v0_4_query_alignment.py --local-files-only
+```
+
+This aligns natural-language Query and event Keys while every other component
+remains frozen.
