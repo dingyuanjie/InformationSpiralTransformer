@@ -3,6 +3,8 @@
 This frozen, untrained diagnostic separates three questions: whether Query
 top-k touches the retained fact span, whether cross-example Memory swap removes
 that self-fact alignment, and whether Memory changes the correct-answer logit.
+Self-fact identity is locked to `(absolute position, token id)`, and paired swap
+examples are forced to use different answers; position alone is not accepted.
 
 ```powershell
 cd D:\code\InformationSpiralTransformer\ist_v0_3

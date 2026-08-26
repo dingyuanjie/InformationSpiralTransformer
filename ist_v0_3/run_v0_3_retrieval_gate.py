@@ -55,14 +55,21 @@ def evaluate(args):
             batch_size = min(2, args.samples - start_sample)
             if batch_size < 2:
                 break
-            streams, facts, metadata = [], [], []
+            streams, facts, fact_signatures, metadata = [], [], [], []
+            used_answers = set()
             for offset in range(batch_size):
-                stream, fact, meta = make_stream(
-                    tokenizer, args.chunk_size, chunk_count,
-                    args.seed + start_sample + offset,
-                )
+                sample_seed = args.seed + start_sample + offset
+                for _ in range(32):
+                    stream, fact, meta = make_stream(
+                        tokenizer, args.chunk_size, chunk_count, sample_seed,
+                    )
+                    if meta["answer"] not in used_answers:
+                        break
+                    sample_seed += 100003
+                used_answers.add(meta["answer"])
                 streams.append(stream)
                 facts.append(fact)
+                fact_signatures.append({(position, int(stream[position])) for position in fact})
                 metadata.append(meta)
             stream_batch = torch.stack(streams).to(device)
             state = None
@@ -88,14 +95,18 @@ def evaluate(args):
             swap_provenance = model.last_provenance
             for row, meta in enumerate(metadata):
                 positions = normal_provenance["positions"][row, -1].cpu().tolist()
+                token_ids = normal_provenance["token_ids"][row, -1].cpu().tolist()
                 weights = normal_provenance["weights"][row, -1].cpu().tolist()
                 swapped_positions = swap_provenance["positions"][row, -1].cpu().tolist()
+                swapped_token_ids = swap_provenance["token_ids"][row, -1].cpu().tolist()
                 swapped_weights = swap_provenance["weights"][row, -1].cpu().tolist()
-                fact = facts[row]
-                normal_hits += bool(fact.intersection(positions))
-                swap_hits += bool(fact.intersection(swapped_positions))
-                normal_mass += sum(weight for position, weight in zip(positions, weights) if position in fact)
-                swap_mass += sum(weight for position, weight in zip(swapped_positions, swapped_weights) if position in fact)
+                signature = fact_signatures[row]
+                normal_pairs = list(zip(positions, token_ids))
+                swapped_pairs = list(zip(swapped_positions, swapped_token_ids))
+                normal_hits += any(pair in signature for pair in normal_pairs)
+                swap_hits += any(pair in signature for pair in swapped_pairs)
+                normal_mass += sum(weight for pair, weight in zip(normal_pairs, weights) if pair in signature)
+                swap_mass += sum(weight for pair, weight in zip(swapped_pairs, swapped_weights) if pair in signature)
                 answer_index = ANSWERS.index(meta["answer"])
                 scores = normal_logits[row, -1, candidate_ids].float()
                 correct += int(scores.argmax().item() == answer_index)

@@ -17,44 +17,44 @@
     "min_retrieval_hit": 0.5,
     "min_swap_gap": 0.2,
     "min_logit_effect": 0.01,
-    "output": "experiments\\retrieval_gate\\results.json",
-    "log": "experiments\\retrieval_gate\\run.log",
+    "output": "experiments\\reader_alignment\\locked_retrieval_results.json",
+    "log": "experiments\\reader_alignment\\locked_retrieval.log",
     "local_files_only": true,
-    "checkpoint": null,
+    "checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
     "dry_run": false
   },
   "result": {
-    "status": "fail",
+    "status": "pass",
     "rows": [
       {
         "chunks": 2,
         "examples": 8,
-        "normal_fact_hit_rate": 0.5,
+        "normal_fact_hit_rate": 1.0,
         "swap_self_fact_hit_rate": 0.0,
-        "normal_fact_weight_mass": 0.12933174706995487,
+        "normal_fact_weight_mass": 0.9999996147262828,
         "swap_self_fact_weight_mass": 0.0,
-        "normal_answer_accuracy": 0.125,
-        "normal_minus_zero_target_logit": -0.01123046875
+        "normal_answer_accuracy": 1.0,
+        "normal_minus_zero_target_logit": 10.015625
       },
       {
         "chunks": 8,
         "examples": 8,
-        "normal_fact_hit_rate": 0.125,
+        "normal_fact_hit_rate": 1.0,
         "swap_self_fact_hit_rate": 0.0,
-        "normal_fact_weight_mass": 0.040545474737882614,
+        "normal_fact_weight_mass": 0.9999996147262828,
         "swap_self_fact_weight_mass": 0.0,
-        "normal_answer_accuracy": 0.125,
-        "normal_minus_zero_target_logit": -0.00927734375
+        "normal_answer_accuracy": 1.0,
+        "normal_minus_zero_target_logit": 10.015625
       },
       {
         "chunks": 16,
         "examples": 8,
-        "normal_fact_hit_rate": 0.125,
+        "normal_fact_hit_rate": 1.0,
         "swap_self_fact_hit_rate": 0.0,
-        "normal_fact_weight_mass": 0.040545474737882614,
+        "normal_fact_weight_mass": 0.9999991349177435,
         "swap_self_fact_weight_mass": 0.0,
-        "normal_answer_accuracy": 0.125,
-        "normal_minus_zero_target_logit": 0.00341796875
+        "normal_answer_accuracy": 1.0,
+        "normal_minus_zero_target_logit": 8.4921875
       }
     ]
   }
