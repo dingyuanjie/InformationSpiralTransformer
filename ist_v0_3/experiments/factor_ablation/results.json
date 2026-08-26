@@ -1,0 +1,138 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
+    "factor_chunks": 8,
+    "capacity_chunks": 32,
+    "capacities": [
+      64,
+      128,
+      256
+    ],
+    "conditions": [
+      "train_distribution",
+      "new_template_only",
+      "new_answers_only",
+      "random_position_only",
+      "distractors_only",
+      "strict_full"
+    ],
+    "samples": 10,
+    "chunk_size": 128,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 4303,
+    "output": "experiments\\factor_ablation\\results.json",
+    "log": "experiments\\factor_ablation\\run.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "complete",
+    "factor_rows": [
+      {
+        "setting": "train_distribution",
+        "chunks": 8,
+        "capacity": 64,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 1.0,
+        "oracle_answer_accuracy": 1.0,
+        "distractor_weight_mass": 0.0
+      },
+      {
+        "setting": "new_template_only",
+        "chunks": 8,
+        "capacity": 64,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 0.9,
+        "oracle_answer_accuracy": 1.0,
+        "distractor_weight_mass": 0.0
+      },
+      {
+        "setting": "new_answers_only",
+        "chunks": 8,
+        "capacity": 64,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 0.2,
+        "oracle_answer_accuracy": 0.2,
+        "distractor_weight_mass": 0.0
+      },
+      {
+        "setting": "random_position_only",
+        "chunks": 8,
+        "capacity": 64,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 1.0,
+        "oracle_answer_accuracy": 1.0,
+        "distractor_weight_mass": 0.0
+      },
+      {
+        "setting": "distractors_only",
+        "chunks": 8,
+        "capacity": 64,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 0.7,
+        "answer_accuracy": 0.2,
+        "oracle_answer_accuracy": 1.0,
+        "distractor_weight_mass": 0.7999914317668272
+      },
+      {
+        "setting": "strict_full",
+        "chunks": 8,
+        "capacity": 64,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 0.7,
+        "answer_accuracy": 0.3,
+        "oracle_answer_accuracy": 0.5,
+        "distractor_weight_mass": 0.6861927337944508
+      }
+    ],
+    "capacity_rows": [
+      {
+        "setting": "strict_capacity_64",
+        "chunks": 32,
+        "capacity": 64,
+        "examples": 10,
+        "writer_availability": 0.5,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 0.2,
+        "oracle_answer_accuracy": 0.2,
+        "distractor_weight_mass": 0.4447811199352145
+      },
+      {
+        "setting": "strict_capacity_128",
+        "chunks": 32,
+        "capacity": 128,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 0.7,
+        "answer_accuracy": 0.2,
+        "oracle_answer_accuracy": 0.2,
+        "distractor_weight_mass": 0.5963280141353607
+      },
+      {
+        "setting": "strict_capacity_256",
+        "chunks": 32,
+        "capacity": 256,
+        "examples": 10,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 0.7,
+        "answer_accuracy": 0.2,
+        "oracle_answer_accuracy": 0.3,
+        "distractor_weight_mass": 0.6406328499317169
+      }
+    ]
+  }
+}
