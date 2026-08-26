@@ -35,9 +35,11 @@ def test_read_reports_source_tokens_and_swap_is_causal():
     state = module.write(hidden, ids)
     query = torch.randn(2, 2, 16)
     normal, provenance = module.read(query, state)
-    swapped, _ = module.read(query, state, "swap")
+    swapped, swapped_provenance = module.read(query, state, "swap")
     assert provenance["token_ids"].shape == (2, 2, 2)
     assert not torch.allclose(normal, swapped)
+    assert (swapped_provenance["token_ids"][0] >= 10).all()
+    assert (swapped_provenance["token_ids"][1] < 10).all()
 
 
 def test_zero_intervention_removes_context():
@@ -45,4 +47,3 @@ def test_zero_intervention_removes_context():
     state = module.write(torch.randn(1, 8, 16), torch.arange(8)[None])
     context, _ = module.read(torch.randn(1, 2, 16), state, "zero")
     assert torch.equal(context, torch.zeros_like(context))
-

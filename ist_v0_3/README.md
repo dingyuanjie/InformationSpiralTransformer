@@ -40,3 +40,10 @@ The formal gate measures whether at least one answer-span token remains in
 Memory after 2/4/8/16 chunks. Every distance must reach 80% span-hit rate. A
 failure means selection or retention must be redesigned; training the Reader is
 not allowed to hide a failed Writer.
+
+After coverage passes, run the frozen Reader diagnostic:
+
+```powershell
+python run_v0_3_retrieval_gate.py --dry-run
+python run_v0_3_retrieval_gate.py --local-files-only
+```

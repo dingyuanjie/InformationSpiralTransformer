@@ -135,19 +135,27 @@ class SourceTokenMemory(nn.Module):
 
     def _intervene(self, state, intervention):
         values, valid = state["values"], state["valid"]
+        metadata = {key: state[key] for key in ("token_ids", "positions", "chunk_ids")}
         if intervention in {"zero", "reset"}:
-            return torch.zeros_like(values), torch.zeros_like(valid)
+            empty = {key: torch.full_like(value, -1) for key, value in metadata.items()}
+            return torch.zeros_like(values), torch.zeros_like(valid), empty
         if intervention == "swap" and values.size(0) > 1:
-            return torch.roll(values, 1, 0), torch.roll(valid, 1, 0)
+            return (
+                torch.roll(values, 1, 0), torch.roll(valid, 1, 0),
+                {key: torch.roll(value, 1, 0) for key, value in metadata.items()},
+            )
         if intervention == "shuffle":
-            return torch.roll(values, 1, 1), torch.roll(valid, 1, 1)
-        return values, valid
+            return (
+                torch.roll(values, 1, 1), torch.roll(valid, 1, 1),
+                {key: torch.roll(value, 1, 1) for key, value in metadata.items()},
+            )
+        return values, valid, metadata
 
     def read(self, query_hidden, state, intervention="normal"):
         if state is None:
             context = torch.zeros_like(query_hidden)
             return context, None
-        memory, valid = self._intervene(state, intervention)
+        memory, valid, metadata = self._intervene(state, intervention)
         q = self.query(query_hidden)
         k = self.key(memory)
         v = self.value(memory)
@@ -168,8 +176,8 @@ class SourceTokenMemory(nn.Module):
         provenance = {
             "slot_indices": top_indices.detach(),
             "weights": weights.detach(),
-            "token_ids": state["token_ids"][:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices).detach(),
-            "positions": state["positions"][:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices).detach(),
-            "chunk_ids": state["chunk_ids"][:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices).detach(),
+            "token_ids": metadata["token_ids"][:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices).detach(),
+            "positions": metadata["positions"][:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices).detach(),
+            "chunk_ids": metadata["chunk_ids"][:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices).detach(),
         }
         return context, provenance

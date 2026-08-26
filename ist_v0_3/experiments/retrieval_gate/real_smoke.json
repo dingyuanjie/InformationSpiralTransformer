@@ -1,0 +1,38 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "chunks": [
+      2
+    ],
+    "chunk_size": 128,
+    "samples": 2,
+    "capacity": 64,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 1303,
+    "min_retrieval_hit": 0.5,
+    "min_swap_gap": 0.2,
+    "min_logit_effect": 0.01,
+    "output": "experiments\\retrieval_gate\\real_smoke.json",
+    "log": "experiments\\retrieval_gate\\real_smoke.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "fail",
+    "rows": [
+      {
+        "chunks": 2,
+        "examples": 2,
+        "normal_fact_hit_rate": 0.5,
+        "swap_self_fact_hit_rate": 0.5,
+        "normal_fact_weight_mass": 1.3969165593152866e-05,
+        "swap_self_fact_weight_mass": 7.960342190926895e-05,
+        "normal_answer_accuracy": 0.0,
+        "normal_minus_zero_target_logit": -0.03125
+      }
+    ]
+  }
+}
