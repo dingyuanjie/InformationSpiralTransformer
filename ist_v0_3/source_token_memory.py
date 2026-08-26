@@ -161,6 +161,10 @@ class SourceTokenMemory(nn.Module):
         v = self.value(memory)
         scores = torch.einsum("bth,bsh->bts", q.float(), k.float()) / math.sqrt(self.hidden_size)
         scores = scores.masked_fill(~valid[:, None], -torch.inf)
+        # Keep a live (non-detached) score tensor for supervised Reader
+        # alignment. Public provenance below remains detached diagnostics.
+        self.last_read_scores = scores
+        self.last_read_positions = metadata["positions"]
         top_k = min(self.config.reads_per_query, memory.size(1))
         top_scores, top_indices = scores.topk(top_k, dim=-1)
         top_valid = valid[:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices)

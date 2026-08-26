@@ -33,6 +33,13 @@ def evaluate(args):
         injection_layer=args.injection_layer,
     )
     model = FrozenTokenMemoryIST(backbone, config).to(device)
+    if args.checkpoint:
+        payload = torch.load(args.checkpoint, map_location=device, weights_only=True)
+        missing, unexpected = model.load_state_dict(payload["adapter"], strict=False)
+        unexpected = [key for key in unexpected if not key.startswith("backbone.")]
+        if unexpected:
+            raise RuntimeError(f"unexpected adapter keys: {unexpected}")
+        print(f"loaded_reader_checkpoint={args.checkpoint}", flush=True)
     candidate_ids = torch.tensor(
         [tokenizer.encode(answer, add_special_tokens=False)[0] for answer in ANSWERS],
         device=device,
@@ -134,6 +141,7 @@ def main():
     parser.add_argument("--output", type=Path, default=Path("experiments/retrieval_gate/results.json"))
     parser.add_argument("--log", type=Path, default=Path("experiments/retrieval_gate/run.log"))
     parser.add_argument("--local-files-only", action="store_true")
+    parser.add_argument("--checkpoint", type=Path)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     args.log.parent.mkdir(parents=True, exist_ok=True)
