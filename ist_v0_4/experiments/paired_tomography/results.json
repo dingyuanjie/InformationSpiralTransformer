@@ -1,0 +1,244 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "lengths": [
+      4,
+      16,
+      32
+    ],
+    "capacities": [
+      32,
+      64,
+      128
+    ],
+    "policies": [
+      "fixed",
+      "relative"
+    ],
+    "samples": 4,
+    "chunk_size": 128,
+    "semantic_slots": 8,
+    "age_decay": 0.02,
+    "access_bonus": 0.4,
+    "consolidation_accesses": 3,
+    "rehearse_every": 4,
+    "rehearsals_per_visit": 2,
+    "injection_layer": -4,
+    "min_retention": 0.75,
+    "min_semantic_exact": 0.75,
+    "seed": 3404,
+    "output": "experiments\\paired_tomography\\results.json",
+    "log": "experiments\\paired_tomography\\run.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "pass",
+    "target_tokens": [
+      "shortcode",
+      "operators",
+      "Canon",
+      "Ticks"
+    ],
+    "rows": [
+      {
+        "capacity": 32,
+        "policy": "fixed",
+        "chunks": 4,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 109.45070838928223,
+        "mean_eviction_floor": 23.1192626953125
+      },
+      {
+        "capacity": 32,
+        "policy": "fixed",
+        "chunks": 16,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 10.0,
+        "mean_target_utility_when_retained": 111.92608642578125,
+        "mean_eviction_floor": 23.38490104675293
+      },
+      {
+        "capacity": 32,
+        "policy": "fixed",
+        "chunks": 32,
+        "samples": 4,
+        "episodic_retention_rate": 0.25,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.5,
+        "mean_target_utility_when_retained": 362.4373779296875,
+        "mean_eviction_floor": 372.50437927246094
+      },
+      {
+        "capacity": 32,
+        "policy": "relative",
+        "chunks": 4,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 412.6604461669922,
+        "mean_eviction_floor": 23.1192626953125
+      },
+      {
+        "capacity": 32,
+        "policy": "relative",
+        "chunks": 16,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 10.0,
+        "mean_target_utility_when_retained": 3103.4051971435547,
+        "mean_eviction_floor": 23.381710052490234
+      },
+      {
+        "capacity": 32,
+        "policy": "relative",
+        "chunks": 32,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 18.0,
+        "mean_target_utility_when_retained": 45790.537353515625,
+        "mean_eviction_floor": 375.8836975097656
+      },
+      {
+        "capacity": 64,
+        "policy": "fixed",
+        "chunks": 4,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 109.45070838928223,
+        "mean_eviction_floor": 21.53150463104248
+      },
+      {
+        "capacity": 64,
+        "policy": "fixed",
+        "chunks": 16,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 10.0,
+        "mean_target_utility_when_retained": 111.92608642578125,
+        "mean_eviction_floor": 23.218313217163086
+      },
+      {
+        "capacity": 64,
+        "policy": "fixed",
+        "chunks": 32,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 18.0,
+        "mean_target_utility_when_retained": 115.02468299865723,
+        "mean_eviction_floor": 23.296632766723633
+      },
+      {
+        "capacity": 64,
+        "policy": "relative",
+        "chunks": 4,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 412.6604461669922,
+        "mean_eviction_floor": 21.53178358078003
+      },
+      {
+        "capacity": 64,
+        "policy": "relative",
+        "chunks": 16,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 10.0,
+        "mean_target_utility_when_retained": 3103.4051971435547,
+        "mean_eviction_floor": 23.218313217163086
+      },
+      {
+        "capacity": 64,
+        "policy": "relative",
+        "chunks": 32,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 18.0,
+        "mean_target_utility_when_retained": 45790.537353515625,
+        "mean_eviction_floor": 23.296632766723633
+      },
+      {
+        "capacity": 128,
+        "policy": "fixed",
+        "chunks": 4,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 109.45070838928223,
+        "mean_eviction_floor": 21.53130340576172
+      },
+      {
+        "capacity": 128,
+        "policy": "fixed",
+        "chunks": 16,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 10.0,
+        "mean_target_utility_when_retained": 111.92608642578125,
+        "mean_eviction_floor": 22.775168418884277
+      },
+      {
+        "capacity": 128,
+        "policy": "fixed",
+        "chunks": 32,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 18.0,
+        "mean_target_utility_when_retained": 115.02468299865723,
+        "mean_eviction_floor": 23.005983352661133
+      },
+      {
+        "capacity": 128,
+        "policy": "relative",
+        "chunks": 4,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 412.6604461669922,
+        "mean_eviction_floor": 21.530983924865723
+      },
+      {
+        "capacity": 128,
+        "policy": "relative",
+        "chunks": 16,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 10.0,
+        "mean_target_utility_when_retained": 3103.4051971435547,
+        "mean_eviction_floor": 22.775168418884277
+      },
+      {
+        "capacity": 128,
+        "policy": "relative",
+        "chunks": 32,
+        "samples": 4,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 18.0,
+        "mean_target_utility_when_retained": 45790.537353515625,
+        "mean_eviction_floor": 23.005983352661133
+      }
+    ]
+  }
+}
