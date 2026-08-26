@@ -77,13 +77,16 @@ class CognitiveEventMemory(nn.Module):
 
     def _events(self, hidden, token_ids, position_offset):
         batch, tokens, hidden_size = hidden.shape
-        span = self.config.event_span
-        count = math.ceil(tokens / span)
-        padded = count * span
-        values = F.pad(hidden, (0, 0, 0, padded - tokens)).reshape(batch, count, span, hidden_size)
-        ids = F.pad(token_ids, (0, padded - tokens), value=-1).reshape(batch, count, span)
+        span, stride = self.config.event_span, self.config.event_stride
+        starts = torch.arange(0, tokens, stride, device=hidden.device)
+        indices = starts[:, None] + torch.arange(span, device=hidden.device)[None]
+        valid_indices = indices < tokens
+        safe = indices.clamp_max(tokens - 1)
+        count = starts.numel()
+        values = hidden[:, safe].masked_fill(~valid_indices[None, :, :, None], 0)
+        ids = token_ids[:, safe].masked_fill(~valid_indices[None], -1)
         valid = ids >= 0
-        positions = torch.arange(padded, device=hidden.device).add(position_offset).reshape(1, count, span).expand(batch, -1, -1)
+        positions = indices.add(position_offset).reshape(1, count, span).expand(batch, -1, -1)
         positions = positions.masked_fill(~valid, -1)
         denominator = valid.sum(-1, keepdim=True).clamp_min(1)
         pooled = (values.float() * valid[..., None]).sum(2) / denominator

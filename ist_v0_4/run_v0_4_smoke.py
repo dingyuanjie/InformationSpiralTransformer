@@ -8,7 +8,7 @@ from config import CognitiveMemoryConfig
 
 def main():
     torch.manual_seed(404)
-    config = CognitiveMemoryConfig(event_span=4, working_events=2, episodic_events=4,
+    config = CognitiveMemoryConfig(event_span=4, event_stride=4, working_events=2, episodic_events=4,
                                    semantic_slots=2, admissions_per_chunk=1,
                                    retrieved_events=2, consolidation_accesses=2)
     memory = CognitiveEventMemory(16, config)

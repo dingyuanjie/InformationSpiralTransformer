@@ -11,7 +11,7 @@ from config import CognitiveMemoryConfig
 def build():
     torch.manual_seed(4)
     return CognitiveEventMemory(12, CognitiveMemoryConfig(
-        event_span=4, working_events=2, episodic_events=4, semantic_slots=2,
+        event_span=4, event_stride=4, working_events=2, episodic_events=4, semantic_slots=2,
         admissions_per_chunk=1, retrieved_events=2, consolidation_accesses=2,
     ))
 

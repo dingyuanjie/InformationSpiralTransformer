@@ -1,0 +1,46 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "samples": 64,
+    "chunk_tokens": 128,
+    "seed": 5404,
+    "min_complete": 0.95,
+    "output": "experiments\\relation_coverage\\results.json",
+    "log": "experiments\\relation_coverage\\run.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "pass",
+    "rows": [
+      {
+        "span": 8,
+        "stride": 8,
+        "relation_complete_rate": 0.0625,
+        "mean_events_per_chunk": 16.0,
+        "overlap_factor": 1.0
+      },
+      {
+        "span": 16,
+        "stride": 16,
+        "relation_complete_rate": 0.46875,
+        "mean_events_per_chunk": 8.0,
+        "overlap_factor": 1.0
+      },
+      {
+        "span": 16,
+        "stride": 8,
+        "relation_complete_rate": 0.921875,
+        "mean_events_per_chunk": 16.0,
+        "overlap_factor": 2.0
+      },
+      {
+        "span": 24,
+        "stride": 8,
+        "relation_complete_rate": 1.0,
+        "mean_events_per_chunk": 16.0,
+        "overlap_factor": 3.0
+      }
+    ]
+  }
+}

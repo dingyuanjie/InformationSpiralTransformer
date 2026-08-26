@@ -70,3 +70,12 @@ python run_v0_4_query_alignment.py --local-files-only
 
 This aligns natural-language Query and event Keys while every other component
 remains frozen.
+
+## Milestone 2.2.1
+
+```powershell
+python run_v0_4_relation_coverage_gate.py --local-files-only
+```
+
+This replaces fixed eight-token blocks with overlapping 24-token relation-complete event
+windows before Query is retrained.
