@@ -53,3 +53,9 @@ After Reader alignment, keep its checkpoint locked and run the strict OOD gate:
 ```powershell
 python run_v0_3_strict_generalization.py --local-files-only
 ```
+
+If the strict gate fails, decompose Writer, Reader and Decoder without training:
+
+```powershell
+python run_v0_3_failure_decomposition.py --local-files-only
+```
