@@ -1,0 +1,60 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "chunks": [
+      2,
+      8,
+      16
+    ],
+    "chunk_size": 128,
+    "samples": 8,
+    "capacity": 64,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 1303,
+    "min_retrieval_hit": 0.5,
+    "min_swap_gap": 0.2,
+    "min_logit_effect": 0.01,
+    "output": "experiments\\retrieval_gate\\results.json",
+    "log": "experiments\\retrieval_gate\\run.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "fail",
+    "rows": [
+      {
+        "chunks": 2,
+        "examples": 8,
+        "normal_fact_hit_rate": 0.375,
+        "swap_self_fact_hit_rate": 0.375,
+        "normal_fact_weight_mass": 2.5141494916169904e-05,
+        "swap_self_fact_weight_mass": 5.215155010773742e-05,
+        "normal_answer_accuracy": 0.0,
+        "normal_minus_zero_target_logit": -0.0244140625
+      },
+      {
+        "chunks": 8,
+        "examples": 8,
+        "normal_fact_hit_rate": 0.0,
+        "swap_self_fact_hit_rate": 0.0,
+        "normal_fact_weight_mass": 0.0,
+        "swap_self_fact_weight_mass": 0.0,
+        "normal_answer_accuracy": 0.0,
+        "normal_minus_zero_target_logit": -0.0146484375
+      },
+      {
+        "chunks": 16,
+        "examples": 8,
+        "normal_fact_hit_rate": 0.0,
+        "swap_self_fact_hit_rate": 0.0,
+        "normal_fact_weight_mass": 0.0,
+        "swap_self_fact_weight_mass": 0.0,
+        "normal_answer_accuracy": 0.0,
+        "normal_minus_zero_target_logit": -0.0322265625
+      }
+    ]
+  }
+}
