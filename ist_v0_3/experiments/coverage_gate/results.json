@@ -1,0 +1,54 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "chunks": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "chunk_size": 128,
+    "samples": 16,
+    "capacity": 64,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "min_hit_rate": 0.8,
+    "seed": 303,
+    "output": "experiments\\coverage_gate\\results.json",
+    "local_files_only": true,
+    "dry_run": false,
+    "smoke_test": false
+  },
+  "result": {
+    "status": "pass",
+    "gate": 0.8,
+    "rows": [
+      {
+        "chunks": 2,
+        "distance_tokens": 256,
+        "span_hit_rate": 1.0,
+        "fact_token_recall": 0.7708333333333333
+      },
+      {
+        "chunks": 4,
+        "distance_tokens": 512,
+        "span_hit_rate": 1.0,
+        "fact_token_recall": 0.7708333333333333
+      },
+      {
+        "chunks": 8,
+        "distance_tokens": 1024,
+        "span_hit_rate": 1.0,
+        "fact_token_recall": 0.7708333333333333
+      },
+      {
+        "chunks": 16,
+        "distance_tokens": 2048,
+        "span_hit_rate": 0.9375,
+        "fact_token_recall": 0.4583333333333333
+      }
+    ]
+  }
+}

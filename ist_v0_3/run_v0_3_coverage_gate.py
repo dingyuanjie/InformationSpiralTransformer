@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import random
+import sys
 from pathlib import Path
 
 import torch
@@ -14,6 +15,27 @@ from source_token_memory import SourceTokenMemory
 
 
 DEFAULT_MODEL = "Qwen/Qwen2.5-0.5B"
+
+
+class Tee:
+    """Mirror terminal output into a persistent UTF-8 log file."""
+
+    def __init__(self, terminal, log_file):
+        self.terminal = terminal
+        self.log_file = log_file
+
+    def write(self, text):
+        self.terminal.write(text)
+        self.log_file.write(text)
+        self.log_file.flush()
+        return len(text)
+
+    def flush(self):
+        self.terminal.flush()
+        self.log_file.flush()
+
+    def isatty(self):
+        return self.terminal.isatty()
 
 
 def synthetic_smoke() -> dict:
@@ -118,12 +140,18 @@ def main() -> int:
     parser.add_argument("--min-hit-rate", type=float, default=0.8)
     parser.add_argument("--seed", type=int, default=303)
     parser.add_argument("--output", type=Path, default=Path("experiments/coverage_gate/results.json"))
+    parser.add_argument("--log", type=Path, default=Path("experiments/coverage_gate/run.log"))
     parser.add_argument("--local-files-only", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--smoke-test", action="store_true")
     args = parser.parse_args()
+    args.log.parent.mkdir(parents=True, exist_ok=True)
+    log_file = args.log.open("w", encoding="utf-8")
+    sys.stdout = Tee(sys.__stdout__, log_file)
+    sys.stderr = Tee(sys.__stderr__, log_file)
     protocol = vars(args).copy()
     protocol["output"] = str(protocol["output"])
+    protocol["log"] = str(protocol["log"])
     if args.dry_run:
         print(json.dumps({"status": "protocol-pass", "protocol": protocol}, ensure_ascii=False, indent=2))
         return 0

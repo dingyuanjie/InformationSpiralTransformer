@@ -13,4 +13,6 @@ python run_v0_3_coverage_gate.py --local-files-only
 
 The formal protocol evaluates 2, 4, 8, and 16 chunks. Every distance must reach
 an 80% span-hit rate. `smoke.json` records the implementation smoke check; the
-formal command writes `results.json` alongside it.
+formal command writes `results.json` alongside it. Terminal output and Python
+tracebacks are mirrored automatically to `run.log`, so a failed VS Code run can
+be diagnosed without copying its terminal contents.
