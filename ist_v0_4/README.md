@@ -32,3 +32,13 @@ python -m pytest tests -q
 
 This milestone validates lifecycle and provenance invariants only. The next gate
 must audit arbitrary-token span coverage before connecting a pretrained model.
+
+## Milestone 1
+
+```powershell
+python run_v0_4_lifecycle_gate.py --dry-run
+python run_v0_4_lifecycle_gate.py
+```
+
+This compares incidental, distinctive, repeated and retrieval-reinforced event
+traces across 16/32/64 chunks.

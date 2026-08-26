@@ -1,0 +1,55 @@
+{
+  "protocol": {
+    "lengths": [
+      4
+    ],
+    "samples": 2,
+    "chunk_tokens": 64,
+    "hidden_size": 32,
+    "working_events": 4,
+    "episodic_events": 16,
+    "semantic_slots": 8,
+    "admissions_per_chunk": 2,
+    "age_decay": 0.04,
+    "access_bonus": 0.4,
+    "consolidation_accesses": 3,
+    "rehearse_every": 4,
+    "rehearsals_per_visit": 2,
+    "min_admission": 0.9,
+    "min_reinforced_retention": 0.8,
+    "min_consolidation": 0.8,
+    "seed": 1404,
+    "output": "experiments\\lifecycle_gate\\smoke.json",
+    "log": "experiments\\lifecycle_gate\\smoke.log",
+    "dry_run": false
+  },
+  "result": {
+    "status": "pass",
+    "rows": [
+      {
+        "chunks": 4,
+        "samples": 2,
+        "incidental_admitted_rate": 0.5,
+        "incidental_working_rate": 0.0,
+        "incidental_episodic_rate": 0.5,
+        "incidental_span_intact_rate": 0.5,
+        "incidental_consolidated_rate": 0.0,
+        "distinctive_admitted_rate": 1.0,
+        "distinctive_working_rate": 0.0,
+        "distinctive_episodic_rate": 1.0,
+        "distinctive_span_intact_rate": 1.0,
+        "distinctive_consolidated_rate": 0.0,
+        "repeated_admitted_rate": 1.0,
+        "repeated_working_rate": 0.0,
+        "repeated_episodic_rate": 1.0,
+        "repeated_span_intact_rate": 1.0,
+        "repeated_consolidated_rate": 0.0,
+        "reinforced_admitted_rate": 1.0,
+        "reinforced_working_rate": 0.0,
+        "reinforced_episodic_rate": 1.0,
+        "reinforced_span_intact_rate": 1.0,
+        "reinforced_consolidated_rate": 1.0
+      }
+    ]
+  }
+}
