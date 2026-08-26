@@ -1,0 +1,265 @@
+{
+  "status": "complete",
+  "confirmation_passed": false,
+  "best_method": "prototype_pc1_topk4",
+  "best_method_summary": {
+    "settings": {
+      "transform": "prototype_pc1",
+      "temperature": 1.0,
+      "top_k": 4
+    },
+    "normal_accuracy": 0.25,
+    "normal_wilson95": [
+      0.04558726080970238,
+      0.6993581574175893
+    ],
+    "swap_accuracy": 0.25,
+    "normal_vs_swap": {
+      "improved": 0,
+      "harmed": 0,
+      "ties": 4,
+      "mcnemar_exact_p": 1.0,
+      "difference": 0.0
+    },
+    "normal_vs_baseline": {
+      "improved": 1,
+      "harmed": 0,
+      "ties": 3,
+      "mcnemar_exact_p": 1.0,
+      "difference": 0.25
+    },
+    "samples": 4,
+    "normal_gain_vs_baseline": 0.25
+  },
+  "ranking": [
+    "prototype_pc1_topk4",
+    "baseline",
+    "prototype_center"
+  ],
+  "summary": {
+    "baseline": {
+      "settings": {
+        "transform": "normal",
+        "temperature": 1.0,
+        "top_k": null
+      },
+      "normal_accuracy": 0.0,
+      "normal_wilson95": [
+        0.0,
+        0.48989083645458353
+      ],
+      "swap_accuracy": 0.0,
+      "normal_vs_swap": {
+        "improved": 0,
+        "harmed": 0,
+        "ties": 4,
+        "mcnemar_exact_p": 1.0,
+        "difference": 0.0
+      },
+      "normal_vs_baseline": {
+        "improved": 0,
+        "harmed": 0,
+        "ties": 4,
+        "mcnemar_exact_p": 1.0,
+        "difference": 0.0
+      },
+      "samples": 4,
+      "normal_gain_vs_baseline": 0.0
+    },
+    "prototype_center": {
+      "settings": {
+        "transform": "prototype",
+        "temperature": 1.0,
+        "top_k": null
+      },
+      "normal_accuracy": 0.0,
+      "normal_wilson95": [
+        0.0,
+        0.48989083645458353
+      ],
+      "swap_accuracy": 0.25,
+      "normal_vs_swap": {
+        "improved": 0,
+        "harmed": 1,
+        "ties": 3,
+        "mcnemar_exact_p": 1.0,
+        "difference": -0.25
+      },
+      "normal_vs_baseline": {
+        "improved": 0,
+        "harmed": 0,
+        "ties": 4,
+        "mcnemar_exact_p": 1.0,
+        "difference": 0.0
+      },
+      "samples": 4,
+      "normal_gain_vs_baseline": 0.0
+    },
+    "prototype_pc1_topk4": {
+      "settings": {
+        "transform": "prototype_pc1",
+        "temperature": 1.0,
+        "top_k": 4
+      },
+      "normal_accuracy": 0.25,
+      "normal_wilson95": [
+        0.04558726080970238,
+        0.6993581574175893
+      ],
+      "swap_accuracy": 0.25,
+      "normal_vs_swap": {
+        "improved": 0,
+        "harmed": 0,
+        "ties": 4,
+        "mcnemar_exact_p": 1.0,
+        "difference": 0.0
+      },
+      "normal_vs_baseline": {
+        "improved": 1,
+        "harmed": 0,
+        "ties": 3,
+        "mcnemar_exact_p": 1.0,
+        "difference": 0.25
+      },
+      "samples": 4,
+      "normal_gain_vs_baseline": 0.25
+    }
+  },
+  "runs": [
+    {
+      "seed": 2026,
+      "calibration": {
+        "calibration_samples": 4,
+        "prototype_norm": 4453.67822265625,
+        "pc1_explained_fraction": 0.9998502731323242
+      },
+      "evaluation": {
+        "base_accuracy": 1.0,
+        "methods": {
+          "baseline": {
+            "settings": {
+              "transform": "normal",
+              "temperature": 1.0,
+              "top_k": null
+            },
+            "normal_accuracy": 0.0,
+            "swap_accuracy": 0.0,
+            "normal_minus_swap": 0.0,
+            "normal_vs_swap": {
+              "improved": 0,
+              "harmed": 0,
+              "ties": 4,
+              "mcnemar_exact_p": 1.0,
+              "difference": 0.0
+            },
+            "prediction_change_vs_baseline": 0.0,
+            "normal_correctness": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "swap_correctness": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "prototype_center": {
+            "settings": {
+              "transform": "prototype",
+              "temperature": 1.0,
+              "top_k": null
+            },
+            "normal_accuracy": 0.0,
+            "swap_accuracy": 0.25,
+            "normal_minus_swap": -0.25,
+            "normal_vs_swap": {
+              "improved": 0,
+              "harmed": 1,
+              "ties": 3,
+              "mcnemar_exact_p": 1.0,
+              "difference": -0.25
+            },
+            "prediction_change_vs_baseline": 0.25,
+            "normal_correctness": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "swap_correctness": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "prototype_pc1_topk4": {
+            "settings": {
+              "transform": "prototype_pc1",
+              "temperature": 1.0,
+              "top_k": 4
+            },
+            "normal_accuracy": 0.25,
+            "swap_accuracy": 0.25,
+            "normal_minus_swap": 0.0,
+            "normal_vs_swap": {
+              "improved": 0,
+              "harmed": 0,
+              "ties": 4,
+              "mcnemar_exact_p": 1.0,
+              "difference": 0.0
+            },
+            "prediction_change_vs_baseline": 0.75,
+            "normal_correctness": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "swap_correctness": [
+              1,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "protocol": {
+    "stage": "Frozen Memory 0.5.4.2",
+    "task": "frozen Memory de-collapse and sparse-read interventions",
+    "source": "D:\\code\\InformationSpiralTransformer\\ist_v0_2\\experiments\\pretrained_base\\layer_memory_0_5_3\\formal",
+    "seeds": [
+      2026
+    ],
+    "calibration_samples_per_seed": 4,
+    "heldout_samples_per_seed": 4,
+    "methods": {
+      "baseline": {
+        "transform": "normal",
+        "temperature": 1.0,
+        "top_k": null
+      },
+      "prototype_center": {
+        "transform": "prototype",
+        "temperature": 1.0,
+        "top_k": null
+      },
+      "prototype_pc1_topk4": {
+        "transform": "prototype_pc1",
+        "temperature": 1.0,
+        "top_k": 4
+      }
+    },
+    "primary_method": "prototype_pc1_topk4",
+    "calibration_seed_base": 470000000,
+    "heldout_seed_base": 480000000,
+    "training": false,
+    "calibration_split_separate_from_heldout": true
+  }
+}

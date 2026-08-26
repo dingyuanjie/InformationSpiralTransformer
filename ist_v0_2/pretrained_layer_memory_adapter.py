@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 from contextlib import nullcontext
+import math
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 from hierarchical_memory import HierarchicalMemory
 from run_pretrained_base_smoke_0_3_1 import fast_only_config
@@ -40,6 +42,12 @@ class FrozenLayerInjectedIST(nn.Module):
         self.last_pre_injection = None
         self.last_post_injection = None
         self.last_layer_input_sequence = None
+        # Frozen diagnostic controls. Defaults preserve the trained architecture.
+        self.memory_transform = "normal"
+        self.memory_prototype = None
+        self.memory_pc1 = None
+        self.read_temperature = 1.0
+        self.read_top_k = None
 
         layers = self.backbone.model.layers
         resolved = injection_layer if injection_layer >= 0 else len(layers) + injection_layer
@@ -88,7 +96,48 @@ class FrozenLayerInjectedIST(nn.Module):
             memory = torch.roll(memory, 1, dims=1)
         elif self.intervention == "swap_fast" and memory.size(0) > 1:
             memory = torch.roll(memory, 1, dims=0)
+        if "prototype" in self.memory_transform:
+            if self.memory_prototype is None:
+                raise RuntimeError("prototype transform requested without a calibration prototype")
+            memory = memory - self.memory_prototype[None].to(memory)
+        if "slot_center" in self.memory_transform:
+            memory = memory - memory.mean(1, keepdim=True)
+        if "pc1" in self.memory_transform:
+            if self.memory_pc1 is None:
+                raise RuntimeError("PC1 transform requested without a calibration component")
+            flat = memory.float().flatten(1)
+            component = self.memory_pc1.float().flatten().to(flat.device)
+            flat = flat - (flat @ component)[:, None] * component[None]
+            memory = flat.reshape_as(memory).to(state["fast"].dtype)
         return memory
+
+    def _diagnostic_layer_read(self, query, memory):
+        """Exact MHA read with optional temperature/top-k attention controls."""
+        if self.read_temperature == 1.0 and self.read_top_k is None:
+            return self.layer_read(query, memory, memory, need_weights=False)[0]
+        batch, tokens, hidden = query.shape
+        heads = self.layer_read.num_heads
+        head_dim = hidden // heads
+        weight = self.layer_read.in_proj_weight
+        bias = self.layer_read.in_proj_bias
+        q_bias = None if bias is None else bias[:hidden]
+        k_bias = None if bias is None else bias[hidden:2 * hidden]
+        v_bias = None if bias is None else bias[2 * hidden:]
+        q = F.linear(query, weight[:hidden], q_bias)
+        k = F.linear(memory, weight[hidden:2 * hidden], k_bias)
+        v = F.linear(memory, weight[2 * hidden:], v_bias)
+        q = q.reshape(batch, tokens, heads, head_dim).transpose(1, 2)
+        k = k.reshape(batch, memory.size(1), heads, head_dim).transpose(1, 2)
+        v = v.reshape(batch, memory.size(1), heads, head_dim).transpose(1, 2)
+        scores = (q @ k.transpose(-1, -2)) / math.sqrt(head_dim)
+        scores = scores / max(float(self.read_temperature), 1e-6)
+        if self.read_top_k is not None and self.read_top_k < memory.size(1):
+            top = scores.topk(int(self.read_top_k), dim=-1).indices
+            mask = torch.zeros_like(scores, dtype=torch.bool).scatter_(-1, top, True)
+            scores = scores.masked_fill(~mask, torch.finfo(scores.dtype).min)
+        attention = scores.softmax(-1)
+        context = (attention @ v).transpose(1, 2).reshape(batch, tokens, hidden)
+        return F.linear(context, self.layer_read.out_proj.weight, self.layer_read.out_proj.bias)
 
     def _pre_hook(self, historical_fast):
         def inject(_module, args, kwargs):
@@ -99,9 +148,9 @@ class FrozenLayerInjectedIST(nn.Module):
             if historical_fast is None:
                 return args, kwargs
             memory = historical_fast.to(hidden.dtype)
-            context, _ = self.layer_read(
-                self.query_norm(hidden), self.memory_norm(memory), self.memory_norm(memory),
-                need_weights=False,
+            normalized_memory = self.memory_norm(memory)
+            context = self._diagnostic_layer_read(
+                self.query_norm(hidden), normalized_memory
             )
             delta = self.layer_out(context)
             scale = torch.tanh(self.injection_scale.float()).to(hidden.dtype)

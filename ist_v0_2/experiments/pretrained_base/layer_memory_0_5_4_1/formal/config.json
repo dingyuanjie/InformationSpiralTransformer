@@ -1,0 +1,51 @@
+{
+  "stage": "Frozen Memory 0.5.4.1",
+  "task": "frozen Memory de-collapse and sparse-read interventions",
+  "source": "D:\\code\\InformationSpiralTransformer\\ist_v0_2\\experiments\\pretrained_base\\layer_memory_0_5_3\\formal",
+  "seeds": [
+    313,
+    42,
+    2026
+  ],
+  "calibration_samples_per_seed": 64,
+  "heldout_samples_per_seed": 64,
+  "methods": {
+    "baseline": {
+      "transform": "normal",
+      "temperature": 1.0,
+      "top_k": null
+    },
+    "prototype_center": {
+      "transform": "prototype",
+      "temperature": 1.0,
+      "top_k": null
+    },
+    "slot_center": {
+      "transform": "slot_center",
+      "temperature": 1.0,
+      "top_k": null
+    },
+    "prototype_pc1": {
+      "transform": "prototype_pc1",
+      "temperature": 1.0,
+      "top_k": null
+    },
+    "prototype_temp025": {
+      "transform": "prototype",
+      "temperature": 0.25,
+      "top_k": null
+    },
+    "prototype_topk4": {
+      "transform": "prototype",
+      "temperature": 1.0,
+      "top_k": 4
+    },
+    "prototype_pc1_topk4": {
+      "transform": "prototype_pc1",
+      "temperature": 1.0,
+      "top_k": 4
+    }
+  },
+  "training": false,
+  "calibration_split_separate_from_heldout": true
+}
