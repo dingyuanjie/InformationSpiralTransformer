@@ -42,3 +42,13 @@ python run_v0_4_lifecycle_gate.py
 
 This compares incidental, distinctive, repeated and retrieval-reinforced event
 traces across 16/32/64 chunks.
+
+## Milestone 2
+
+```powershell
+python run_v0_4_pretrained_writer_gate.py --dry-run
+python run_v0_4_pretrained_writer_gate.py --local-files-only
+```
+
+This connects a frozen Qwen 0.5B and audits open-token event coverage before any
+Reader training.
