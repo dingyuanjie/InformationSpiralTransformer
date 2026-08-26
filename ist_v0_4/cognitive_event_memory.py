@@ -131,6 +131,15 @@ class CognitiveEventMemory(nn.Module):
         values, ids, positions, token_valid, keys, surprise = self._events(hidden, token_ids, position_offset)
         novelty = self._novelty(keys, state["episodic"])
         score = self.config.surprise_weight * surprise + self.config.novelty_weight * novelty
+        if keys.size(1) > 1 and self.config.redundancy_weight:
+            normalized = F.normalize(keys.float(), dim=-1)
+            similarity = torch.einsum("beh,bfh->bef", normalized, normalized)
+            diagonal = torch.eye(keys.size(1), device=keys.device, dtype=torch.bool)[None]
+            redundancy = similarity.masked_fill(diagonal, -1).max(-1).values
+            redundancy_penalty = (redundancy - self.config.redundancy_threshold).clamp_min(0)
+            score = score - self.config.redundancy_weight * redundancy_penalty
+        else:
+            redundancy_penalty = torch.zeros_like(score)
         batch, events = score.shape
         common = {
             "values": values, "token_ids": ids, "positions": positions,
@@ -159,7 +168,8 @@ class CognitiveEventMemory(nn.Module):
         new_state = {"working": working, "episodic": episodic_new,
                      "semantic": state["semantic"], "clock": clock}
         self.last_diagnostics = {"event_scores": score.detach(), "novelty": novelty.detach(),
-                                 "surprise": surprise.detach(), "admitted": selected.detach()}
+                                 "surprise": surprise.detach(), "redundancy_penalty": redundancy_penalty.detach(),
+                                 "admitted": selected.detach()}
         return new_state
 
     def read(self, query_hidden, state, intervention="normal"):

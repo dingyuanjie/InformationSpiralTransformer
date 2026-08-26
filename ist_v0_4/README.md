@@ -79,3 +79,12 @@ python run_v0_4_relation_coverage_gate.py --local-files-only
 
 This replaces fixed eight-token blocks with overlapping 24-token relation-complete event
 windows before Query is retrained.
+
+## Milestone 2.2.2
+
+```powershell
+python run_v0_4_relational_query_alignment.py --local-files-only
+```
+
+This retrains Query/Key from scratch and validates on held-out entities, query
+wording and answer tokens.

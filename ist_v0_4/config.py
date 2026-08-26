@@ -17,6 +17,8 @@ class CognitiveMemoryConfig:
     access_bonus: float = 0.25
     consolidation_accesses: int = 3
     semantic_mix: float = 0.1
+    redundancy_weight: float = 0.25
+    redundancy_threshold: float = 0.9
 
     def validate(self, hidden_size: int) -> None:
         for name in ("event_span", "working_events", "episodic_events", "semantic_slots",
