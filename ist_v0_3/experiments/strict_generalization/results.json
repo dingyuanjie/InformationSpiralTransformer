@@ -1,0 +1,80 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
+    "chunks": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "chunk_size": 128,
+    "samples": 10,
+    "capacity": 64,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 3303,
+    "min_hit": 0.75,
+    "min_accuracy": 0.6,
+    "max_swap_hit": 0.2,
+    "min_logit_effect": 0.01,
+    "output": "experiments\\strict_generalization\\results.json",
+    "log": "experiments\\strict_generalization\\run.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "fail",
+    "answers": [
+      "Falcon",
+      "Saffron",
+      "Obsidian",
+      "Willow",
+      "Harbor"
+    ],
+    "rows": [
+      {
+        "chunks": 4,
+        "examples": 10,
+        "fact_hit_rate": 0.5,
+        "swap_self_fact_hit_rate": 0.0,
+        "fact_weight_mass": 0.11872506653890014,
+        "distractor_weight_mass": 0.8375031029805541,
+        "answer_accuracy": 0.2,
+        "normal_minus_zero_target_logit": 0.26640625
+      },
+      {
+        "chunks": 8,
+        "examples": 10,
+        "fact_hit_rate": 0.6,
+        "swap_self_fact_hit_rate": 0.0,
+        "fact_weight_mass": 0.17532915994524956,
+        "distractor_weight_mass": 0.7983563465997576,
+        "answer_accuracy": 0.1,
+        "normal_minus_zero_target_logit": 0.4203125
+      },
+      {
+        "chunks": 16,
+        "examples": 10,
+        "fact_hit_rate": 0.5,
+        "swap_self_fact_hit_rate": 0.0,
+        "fact_weight_mass": 0.08992277402430773,
+        "distractor_weight_mass": 0.8720024356618523,
+        "answer_accuracy": 0.3,
+        "normal_minus_zero_target_logit": 0.26640625
+      },
+      {
+        "chunks": 32,
+        "examples": 10,
+        "fact_hit_rate": 0.2,
+        "swap_self_fact_hit_rate": 0.0,
+        "fact_weight_mass": 0.0783685326576233,
+        "distractor_weight_mass": 0.6401533999480307,
+        "answer_accuracy": 0.0,
+        "normal_minus_zero_target_logit": 0.11796875
+      }
+    ]
+  }
+}
