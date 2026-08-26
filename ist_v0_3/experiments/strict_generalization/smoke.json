@@ -1,0 +1,47 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
+    "chunks": [
+      4
+    ],
+    "chunk_size": 128,
+    "samples": 2,
+    "capacity": 64,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 3303,
+    "min_hit": 0.75,
+    "min_accuracy": 0.6,
+    "max_swap_hit": 0.2,
+    "min_logit_effect": 0.01,
+    "output": "experiments\\strict_generalization\\smoke.json",
+    "log": "experiments\\strict_generalization\\smoke.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "fail",
+    "answers": [
+      "Falcon",
+      "Saffron",
+      "Obsidian",
+      "Willow",
+      "Harbor"
+    ],
+    "rows": [
+      {
+        "chunks": 4,
+        "examples": 2,
+        "fact_hit_rate": 0.5,
+        "swap_self_fact_hit_rate": 0.0,
+        "fact_weight_mass": 0.00536899222061038,
+        "distractor_weight_mass": 0.9706665156409144,
+        "answer_accuracy": 0.0,
+        "normal_minus_zero_target_logit": -1.08984375
+      }
+    ]
+  }
+}

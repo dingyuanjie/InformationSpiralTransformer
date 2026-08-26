@@ -47,3 +47,9 @@ After coverage passes, run the frozen Reader diagnostic:
 python run_v0_3_retrieval_gate.py --dry-run
 python run_v0_3_retrieval_gate.py --local-files-only
 ```
+
+After Reader alignment, keep its checkpoint locked and run the strict OOD gate:
+
+```powershell
+python run_v0_3_strict_generalization.py --local-files-only
+```
