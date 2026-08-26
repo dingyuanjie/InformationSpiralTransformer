@@ -52,6 +52,15 @@ class CognitiveEventMemory(nn.Module):
                 "keys": torch.zeros(batch, self.config.semantic_slots, self.hidden_size, device=device, dtype=dtype),
                 "counts": torch.zeros(batch, self.config.semantic_slots, device=device),
                 "valid": torch.zeros(batch, self.config.semantic_slots, device=device, dtype=torch.bool),
+                "source_token_ids": torch.full(
+                    (batch, self.config.semantic_slots, self.config.event_span), -1,
+                    device=device, dtype=torch.long),
+                "source_positions": torch.full(
+                    (batch, self.config.semantic_slots, self.config.event_span), -1,
+                    device=device, dtype=torch.long),
+                "source_valid": torch.zeros(
+                    batch, self.config.semantic_slots, self.config.event_span,
+                    device=device, dtype=torch.bool),
             },
             "clock": 0,
         }
@@ -199,8 +208,10 @@ class CognitiveEventMemory(nn.Module):
         }
         return context, provenance
 
-    def reinforce(self, state, episodic_slots):
+    def reinforce(self, state, episodic_slots, mode="fixed"):
         """Rehearse retrieved episodic slots and consolidate repeated traces."""
+        if mode not in {"fixed", "relative"}:
+            raise ValueError("reinforcement mode must be fixed or relative")
         result = self.detach_state(state)
         episodic, semantic = result["episodic"], result["semantic"]
         for batch in range(episodic_slots.size(0)):
@@ -209,7 +220,10 @@ class CognitiveEventMemory(nn.Module):
                     continue
                 episodic["accesses"][batch, slot] += 1
                 episodic["last_access"][batch, slot] = int(result["clock"])
-                episodic["strength"][batch, slot] += self.config.access_bonus
+                boost = self.config.access_bonus
+                if mode == "relative":
+                    boost *= max(1.0, float(episodic["strength"][batch, slot]))
+                episodic["strength"][batch, slot] += boost
                 if episodic["accesses"][batch, slot] >= self.config.consolidation_accesses:
                     empty = torch.where(~semantic["valid"][batch])[0]
                     target = int(empty[0]) if empty.numel() else int(torch.argmax(
@@ -220,5 +234,7 @@ class CognitiveEventMemory(nn.Module):
                     ) / (count + 1)
                     semantic["counts"][batch, target] = count + 1
                     semantic["valid"][batch, target] = True
+                    semantic["source_token_ids"][batch, target] = episodic["token_ids"][batch, slot]
+                    semantic["source_positions"][batch, target] = episodic["positions"][batch, slot]
+                    semantic["source_valid"][batch, target] = episodic["token_valid"][batch, slot]
         return result
-

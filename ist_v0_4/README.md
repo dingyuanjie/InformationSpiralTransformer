@@ -52,3 +52,12 @@ python run_v0_4_pretrained_writer_gate.py --local-files-only
 
 This connects a frozen Qwen 0.5B and audits open-token event coverage before any
 Reader training.
+
+## Milestone 2.1
+
+```powershell
+python run_v0_4_paired_tomography.py --local-files-only
+```
+
+This uses paired stream prefixes to compare fixed versus relative rehearsal,
+capacity scaling and exact semantic source references.

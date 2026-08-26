@@ -54,4 +54,5 @@ def test_rehearsal_consolidates_repeated_episode():
     state = memory.reinforce(state, slot)
     assert state["semantic"]["valid"].any()
     assert state["episodic"]["accesses"].max() >= 2
-
+    semantic_ids = state["semantic"]["source_token_ids"][state["semantic"]["valid"]]
+    assert (semantic_ids >= 0).any()

@@ -1,0 +1,84 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "lengths": [
+      2,
+      4
+    ],
+    "capacities": [
+      32
+    ],
+    "policies": [
+      "fixed",
+      "relative"
+    ],
+    "samples": 1,
+    "chunk_size": 128,
+    "semantic_slots": 8,
+    "age_decay": 0.02,
+    "access_bonus": 0.4,
+    "consolidation_accesses": 3,
+    "rehearse_every": 4,
+    "rehearsals_per_visit": 2,
+    "injection_layer": -4,
+    "min_retention": 0.75,
+    "min_semantic_exact": 0.75,
+    "seed": 3404,
+    "output": "experiments\\paired_tomography\\smoke.json",
+    "log": "experiments\\paired_tomography\\smoke.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "pass",
+    "target_tokens": [
+      "shortcode"
+    ],
+    "rows": [
+      {
+        "capacity": 32,
+        "policy": "fixed",
+        "chunks": 2,
+        "samples": 1,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 0.0,
+        "mean_accesses": 2.0,
+        "mean_target_utility_when_retained": 25.703594207763672,
+        "mean_eviction_floor": 21.592924118041992
+      },
+      {
+        "capacity": 32,
+        "policy": "fixed",
+        "chunks": 4,
+        "samples": 1,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 26.67792510986328,
+        "mean_eviction_floor": 23.09914779663086
+      },
+      {
+        "capacity": 32,
+        "policy": "relative",
+        "chunks": 2,
+        "samples": 1,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 0.0,
+        "mean_accesses": 2.0,
+        "mean_target_utility_when_retained": 48.4179801940918,
+        "mean_eviction_floor": 21.592924118041992
+      },
+      {
+        "capacity": 32,
+        "policy": "relative",
+        "chunks": 4,
+        "samples": 1,
+        "episodic_retention_rate": 1.0,
+        "semantic_exact_rate": 1.0,
+        "mean_accesses": 4.0,
+        "mean_target_utility_when_retained": 94.68050384521484,
+        "mean_eviction_floor": 23.09914779663086
+      }
+    ]
+  }
+}
