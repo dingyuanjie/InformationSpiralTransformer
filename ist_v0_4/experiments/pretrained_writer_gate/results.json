@@ -1,0 +1,93 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "lengths": [
+      4,
+      16,
+      32
+    ],
+    "samples": 8,
+    "chunk_size": 128,
+    "working_events": 4,
+    "episodic_events": 32,
+    "semantic_slots": 8,
+    "admissions_per_chunk": 16,
+    "age_decay": 0.02,
+    "access_bonus": 0.4,
+    "consolidation_accesses": 3,
+    "rehearse_every": 4,
+    "rehearsals_per_visit": 2,
+    "injection_layer": -4,
+    "min_repeated": 0.75,
+    "min_reinforced": 0.75,
+    "min_consolidation": 0.75,
+    "seed": 2404,
+    "output": "experiments\\pretrained_writer_gate\\results.json",
+    "log": "experiments\\pretrained_writer_gate\\run.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "fail",
+    "target_tokens": [
+      "shortcode",
+      "operators",
+      "Canon",
+      "Ticks",
+      "GetX",
+      " kostenlos",
+      " Blender",
+      " boasts"
+    ],
+    "rows": [
+      {
+        "chunks": 4,
+        "samples": 8,
+        "single_admitted_rate": 1.0,
+        "single_retained_rate": 0.625,
+        "single_intact_rate": 0.625,
+        "single_consolidated_rate": 0.0,
+        "repeated_admitted_rate": 1.0,
+        "repeated_retained_rate": 1.0,
+        "repeated_intact_rate": 1.0,
+        "repeated_consolidated_rate": 0.0,
+        "reinforced_admitted_rate": 1.0,
+        "reinforced_retained_rate": 1.0,
+        "reinforced_intact_rate": 1.0,
+        "reinforced_consolidated_rate": 1.0
+      },
+      {
+        "chunks": 16,
+        "samples": 8,
+        "single_admitted_rate": 1.0,
+        "single_retained_rate": 0.75,
+        "single_intact_rate": 0.75,
+        "single_consolidated_rate": 0.0,
+        "repeated_admitted_rate": 1.0,
+        "repeated_retained_rate": 0.875,
+        "repeated_intact_rate": 0.875,
+        "repeated_consolidated_rate": 0.0,
+        "reinforced_admitted_rate": 1.0,
+        "reinforced_retained_rate": 1.0,
+        "reinforced_intact_rate": 1.0,
+        "reinforced_consolidated_rate": 1.0
+      },
+      {
+        "chunks": 32,
+        "samples": 8,
+        "single_admitted_rate": 1.0,
+        "single_retained_rate": 0.25,
+        "single_intact_rate": 0.25,
+        "single_consolidated_rate": 0.0,
+        "repeated_admitted_rate": 1.0,
+        "repeated_retained_rate": 0.5,
+        "repeated_intact_rate": 0.5,
+        "repeated_consolidated_rate": 0.0,
+        "reinforced_admitted_rate": 1.0,
+        "reinforced_retained_rate": 0.25,
+        "reinforced_intact_rate": 0.25,
+        "reinforced_consolidated_rate": 1.0
+      }
+    ]
+  }
+}
