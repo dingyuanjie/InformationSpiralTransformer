@@ -1,0 +1,84 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
+    "chunks": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "chunk_size": 128,
+    "samples": 10,
+    "capacity": 64,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 3303,
+    "output": "experiments\\failure_decomposition\\results.json",
+    "log": "experiments\\failure_decomposition\\run.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "complete",
+    "answers": [
+      "Falcon",
+      "Saffron",
+      "Obsidian",
+      "Willow",
+      "Harbor"
+    ],
+    "rows": [
+      {
+        "chunks": 4,
+        "examples": 10,
+        "writer_fact_availability": 1.0,
+        "writer_fact_token_recall": 0.7166666666666666,
+        "distractor_availability": 1.0,
+        "reader_fact_hit_rate": 0.5,
+        "reader_hit_given_writer_available": 0.5,
+        "normal_answer_accuracy": 0.2,
+        "oracle_answer_accuracy": 0.3,
+        "oracle_minus_zero_target_logit": 0.6953125
+      },
+      {
+        "chunks": 8,
+        "examples": 10,
+        "writer_fact_availability": 1.0,
+        "writer_fact_token_recall": 0.8166666666666667,
+        "distractor_availability": 1.0,
+        "reader_fact_hit_rate": 0.6,
+        "reader_hit_given_writer_available": 0.6,
+        "normal_answer_accuracy": 0.1,
+        "oracle_answer_accuracy": 0.3,
+        "oracle_minus_zero_target_logit": 0.384375
+      },
+      {
+        "chunks": 16,
+        "examples": 10,
+        "writer_fact_availability": 1.0,
+        "writer_fact_token_recall": 0.5166666666666666,
+        "distractor_availability": 1.0,
+        "reader_fact_hit_rate": 0.5,
+        "reader_hit_given_writer_available": 0.5,
+        "normal_answer_accuracy": 0.3,
+        "oracle_answer_accuracy": 0.4,
+        "oracle_minus_zero_target_logit": 0.5125
+      },
+      {
+        "chunks": 32,
+        "examples": 10,
+        "writer_fact_availability": 0.3,
+        "writer_fact_token_recall": 0.13333333333333333,
+        "distractor_availability": 0.8,
+        "reader_fact_hit_rate": 0.2,
+        "reader_hit_given_writer_available": 0.6666666666666666,
+        "normal_answer_accuracy": 0.0,
+        "oracle_answer_accuracy": 0.1,
+        "oracle_minus_zero_target_logit": -0.0140625
+      }
+    ]
+  }
+}
