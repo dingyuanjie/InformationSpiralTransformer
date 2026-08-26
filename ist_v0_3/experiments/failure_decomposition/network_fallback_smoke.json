@@ -1,0 +1,45 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
+    "chunks": [
+      4
+    ],
+    "chunk_size": 128,
+    "samples": 2,
+    "capacity": 64,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 3303,
+    "output": "experiments\\failure_decomposition\\network_fallback_smoke.json",
+    "log": "experiments\\failure_decomposition\\network_fallback_smoke.log",
+    "local_files_only": false,
+    "dry_run": false
+  },
+  "result": {
+    "status": "complete",
+    "answers": [
+      "Falcon",
+      "Saffron",
+      "Obsidian",
+      "Willow",
+      "Harbor"
+    ],
+    "rows": [
+      {
+        "chunks": 4,
+        "examples": 2,
+        "writer_fact_availability": 1.0,
+        "writer_fact_token_recall": 0.41666666666666663,
+        "distractor_availability": 1.0,
+        "reader_fact_hit_rate": 0.5,
+        "reader_hit_given_writer_available": 0.5,
+        "normal_answer_accuracy": 0.0,
+        "oracle_answer_accuracy": 0.5,
+        "oracle_minus_zero_target_logit": 1.1171875
+      }
+    ]
+  }
+}

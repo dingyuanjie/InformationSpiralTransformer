@@ -61,11 +61,23 @@ def load_model(model_id: str, local_files_only: bool):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     dtype = torch.bfloat16 if device.type == "cuda" and torch.cuda.is_bf16_supported() else torch.float32
-    tokenizer = AutoTokenizer.from_pretrained(model_id, local_files_only=local_files_only, use_fast=True)
-    backbone = AutoModelForCausalLM.from_pretrained(
-        model_id, local_files_only=local_files_only, dtype=dtype,
-        attn_implementation="sdpa",
-    ).to(device)
+    # Prefer the cache even when online fallback is allowed. Some tokenizer
+    # versions otherwise call the Hub API for model-family detection despite
+    # every required file already being present locally.
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(model_id, local_files_only=True, use_fast=True)
+        backbone = AutoModelForCausalLM.from_pretrained(
+            model_id, local_files_only=True, dtype=dtype,
+            attn_implementation="sdpa",
+        ).to(device)
+    except OSError:
+        if local_files_only:
+            raise
+        tokenizer = AutoTokenizer.from_pretrained(model_id, local_files_only=False, use_fast=True)
+        backbone = AutoModelForCausalLM.from_pretrained(
+            model_id, local_files_only=False, dtype=dtype,
+            attn_implementation="sdpa",
+        ).to(device)
     return tokenizer, backbone, device
 
 
