@@ -20,4 +20,3 @@ class SourceTokenMemoryConfig:
             raise ValueError("reads_per_query must be in [1, capacity]")
         if hidden_size % self.heads:
             raise ValueError("hidden_size must be divisible by heads")
-

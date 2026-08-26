@@ -22,6 +22,10 @@ class SourceTokenMemory(nn.Module):
         self.config = config or SourceTokenMemoryConfig()
         self.config.validate(hidden_size)
         self.salience = nn.Linear(hidden_size, 1, bias=False)
+        # Selection starts from the deterministic novelty signal. A randomly
+        # initialized scorer can suppress the answer span before it has learned
+        # anything, making provenance depend on initialization noise.
+        nn.init.zeros_(self.salience.weight)
         self.query = nn.Linear(hidden_size, hidden_size, bias=False)
         self.key = nn.Linear(hidden_size, hidden_size, bias=False)
         self.value = nn.Linear(hidden_size, hidden_size, bias=False)
@@ -43,6 +47,47 @@ class SourceTokenMemory(nn.Module):
     @staticmethod
     def detach_state(state):
         return {key: value.detach() if torch.is_tensor(value) else value for key, value in state.items()}
+
+    def _balanced_keep(self, scores, chunks, valid):
+        """Keep a score-ranked quota from every represented source chunk.
+
+        A single global top-k silently turns Memory into a recency/salience race:
+        an early fact can disappear merely because later chunks contain many
+        moderately salient tokens. The discrete quota is deliberately simple
+        and auditable. Unused quota is filled by global score.
+        """
+        batch, candidates = scores.shape
+        capacity = self.config.capacity
+        keep = torch.zeros(batch, capacity, dtype=torch.long, device=scores.device)
+        for row in range(batch):
+            valid_indices = torch.where(valid[row])[0]
+            chunk_values = torch.unique(chunks[row, valid_indices], sorted=True)
+            if chunk_values.numel() > capacity:
+                # More chunks than slots: retain the chunks whose best evidence
+                # is strongest. This case is explicit rather than accidental.
+                best = torch.stack([
+                    scores[row, valid_indices[chunks[row, valid_indices] == chunk]].max()
+                    for chunk in chunk_values
+                ])
+                chunk_values = chunk_values[best.topk(capacity).indices]
+            quota = max(1, capacity // max(1, chunk_values.numel()))
+            chosen = []
+            for chunk in chunk_values:
+                group = valid_indices[chunks[row, valid_indices] == chunk]
+                count = min(quota, group.numel())
+                chosen.extend(group[scores[row, group].topk(count).indices].tolist())
+            selected = torch.zeros(candidates, dtype=torch.bool, device=scores.device)
+            if chosen:
+                selected[torch.tensor(chosen, device=scores.device)] = True
+            remaining = valid_indices[~selected[valid_indices]]
+            room = capacity - len(chosen)
+            if room and remaining.numel():
+                chosen.extend(remaining[scores[row, remaining].topk(min(room, remaining.numel())).indices].tolist())
+            if len(chosen) < capacity:
+                invalid = torch.where(~valid[row])[0].tolist()
+                chosen.extend(invalid[:capacity - len(chosen)])
+            keep[row] = torch.tensor(chosen[:capacity], device=scores.device)
+        return keep
 
     def write(self, hidden, token_ids, state=None, chunk_id=0, position_offset=0):
         batch, tokens, _ = hidden.shape
@@ -68,7 +113,8 @@ class SourceTokenMemory(nn.Module):
         chunks = torch.cat((state["chunk_ids"], selected_chunks), dim=1)
         valid = torch.cat((state["valid"], torch.ones_like(selected, dtype=torch.bool)), dim=1)
         merged_scores = merged_scores.masked_fill(~valid, -torch.inf)
-        keep_scores, keep = merged_scores.topk(self.config.capacity, dim=1)
+        keep = self._balanced_keep(merged_scores, chunks, valid)
+        keep_scores = merged_scores.gather(1, keep)
         gather_hidden = keep[..., None].expand(-1, -1, self.hidden_size)
         new_state = {
             "values": values.gather(1, gather_hidden),
@@ -127,4 +173,3 @@ class SourceTokenMemory(nn.Module):
             "chunk_ids": state["chunk_ids"][:, None].expand(-1, query_hidden.size(1), -1).gather(2, top_indices).detach(),
         }
         return context, provenance
-
