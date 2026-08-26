@@ -41,7 +41,7 @@ def load_model(model_id: str, local_files_only: bool):
     dtype = torch.bfloat16 if device.type == "cuda" and torch.cuda.is_bf16_supported() else torch.float32
     tokenizer = AutoTokenizer.from_pretrained(model_id, local_files_only=local_files_only, use_fast=True)
     backbone = AutoModelForCausalLM.from_pretrained(
-        model_id, local_files_only=local_files_only, torch_dtype=dtype,
+        model_id, local_files_only=local_files_only, dtype=dtype,
         attn_implementation="sdpa",
     ).to(device)
     return tokenizer, backbone, device

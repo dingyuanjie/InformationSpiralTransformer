@@ -17,6 +17,12 @@ class FrozenTokenMemoryIST(nn.Module):
         hidden = int(backbone.config.hidden_size)
         self.memory = SourceTokenMemory(hidden, self.config)
         self.query_norm = nn.LayerNorm(hidden)
+        backbone_parameter = next(backbone.parameters())
+        # ``Module.to(device)`` does not align the dtype of newly constructed
+        # adapter layers with a BF16/FP16 backbone. Do it here so the first
+        # cross-chunk read cannot mix Float32 LayerNorm weights with BF16 states.
+        self.memory.to(device=backbone_parameter.device, dtype=backbone_parameter.dtype)
+        self.query_norm.to(device=backbone_parameter.device, dtype=backbone_parameter.dtype)
         self.injection_gate = nn.Parameter(torch.tensor(self.config.initial_gate, dtype=torch.float32))
         layers = backbone.model.layers
         layer = self.config.injection_layer
@@ -72,4 +78,3 @@ class FrozenTokenMemoryIST(nn.Module):
         if detach_state:
             state = self.memory.detach_state(state)
         return logits, state
-
