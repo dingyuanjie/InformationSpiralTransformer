@@ -65,3 +65,9 @@ Then isolate the OOD factors and 32-chunk capacity scaling:
 ```powershell
 python run_v0_3_factor_ablation.py --local-files-only
 ```
+
+Train the open-vocabulary copy and multi-entity binding objective:
+
+```powershell
+python run_v0_3_open_copy_alignment.py --local-files-only
+```

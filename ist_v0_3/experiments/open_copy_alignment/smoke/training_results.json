@@ -1,0 +1,114 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "initial_checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
+    "steps": 3,
+    "batch": 2,
+    "curriculum_chunks": [
+      4
+    ],
+    "chunk_size": 128,
+    "capacity": 128,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "train_token_count": 16,
+    "heldout_token_count": 8,
+    "lr": 0.0001,
+    "retrieval_weight": 0.5,
+    "causal_weight": 0.25,
+    "causal_margin": 0.5,
+    "save_every": 1,
+    "seed": 5303,
+    "output": "experiments\\open_copy_alignment\\smoke",
+    "log": "experiments\\open_copy_alignment\\smoke.log",
+    "local_files_only": true,
+    "resume": true,
+    "dry_run": false,
+    "train_token_ids": [
+      83387,
+      32838,
+      94333,
+      43784,
+      76622,
+      26073,
+      87568,
+      37019,
+      8362,
+      69857,
+      30254,
+      23489,
+      84984,
+      56327,
+      5778,
+      67273
+    ],
+    "heldout_token_ids": [
+      16724,
+      27670,
+      89165,
+      38616,
+      9959,
+      71454,
+      20905,
+      82400
+    ],
+    "heldout_token_text": [
+      " ultimate",
+      "graduate",
+      " tinder",
+      "Adjust",
+      " Water",
+      " Dalton",
+      "alla",
+      "LOGGER"
+    ]
+  },
+  "summary": {
+    "status": "complete",
+    "final": {
+      "step": 3,
+      "chunks": 4,
+      "loss": 16.02300453186035,
+      "answer_loss": 14.93064022064209,
+      "retrieval_loss": 2.1847283840179443,
+      "causal_loss": 0.0,
+      "exact_token_accuracy": 0.0,
+      "gate": -0.041847068816423416
+    },
+    "checkpoint": "experiments\\open_copy_alignment\\smoke\\reader_step_000003.pt"
+  },
+  "history": [
+    {
+      "step": 1,
+      "chunks": 4,
+      "loss": 16.7183895111084,
+      "answer_loss": 14.675683975219727,
+      "retrieval_loss": 4.085409641265869,
+      "causal_loss": 0.0,
+      "exact_token_accuracy": 0.0,
+      "gate": -0.04176298528909683
+    },
+    {
+      "step": 2,
+      "chunks": 4,
+      "loss": 13.155889511108398,
+      "answer_loss": 12.128829002380371,
+      "retrieval_loss": 1.8002148866653442,
+      "causal_loss": 0.5078125,
+      "exact_token_accuracy": 0.0,
+      "gate": -0.04178740084171295
+    },
+    {
+      "step": 3,
+      "chunks": 4,
+      "loss": 16.02300453186035,
+      "answer_loss": 14.93064022064209,
+      "retrieval_loss": 2.1847283840179443,
+      "causal_loss": 0.0,
+      "exact_token_accuracy": 0.0,
+      "gate": -0.041847068816423416
+    }
+  ]
+}
