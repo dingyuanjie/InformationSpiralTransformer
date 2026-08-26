@@ -59,3 +59,9 @@ If the strict gate fails, decompose Writer, Reader and Decoder without training:
 ```powershell
 python run_v0_3_failure_decomposition.py --local-files-only
 ```
+
+Then isolate the OOD factors and 32-chunk capacity scaling:
+
+```powershell
+python run_v0_3_factor_ablation.py --local-files-only
+```

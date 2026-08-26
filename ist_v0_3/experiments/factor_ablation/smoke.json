@@ -1,0 +1,66 @@
+{
+  "protocol": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "checkpoint": "experiments\\reader_alignment\\reader_step_000400.pt",
+    "factor_chunks": 2,
+    "capacity_chunks": 4,
+    "capacities": [
+      64
+    ],
+    "conditions": [
+      "train_distribution",
+      "new_answers_only"
+    ],
+    "samples": 2,
+    "chunk_size": 128,
+    "writes_per_chunk": 8,
+    "reads_per_query": 4,
+    "heads": 8,
+    "injection_layer": -4,
+    "seed": 4303,
+    "output": "experiments\\factor_ablation\\smoke.json",
+    "log": "experiments\\factor_ablation\\smoke.log",
+    "local_files_only": true,
+    "dry_run": false
+  },
+  "result": {
+    "status": "complete",
+    "factor_rows": [
+      {
+        "setting": "train_distribution",
+        "chunks": 2,
+        "capacity": 64,
+        "examples": 2,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 1.0,
+        "oracle_answer_accuracy": 1.0,
+        "distractor_weight_mass": 0.0
+      },
+      {
+        "setting": "new_answers_only",
+        "chunks": 2,
+        "capacity": 64,
+        "examples": 2,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 0.5,
+        "oracle_answer_accuracy": 0.5,
+        "distractor_weight_mass": 0.0
+      }
+    ],
+    "capacity_rows": [
+      {
+        "setting": "strict_capacity_64",
+        "chunks": 4,
+        "capacity": 64,
+        "examples": 2,
+        "writer_availability": 1.0,
+        "reader_hit_given_available": 1.0,
+        "answer_accuracy": 0.5,
+        "oracle_answer_accuracy": 0.5,
+        "distractor_weight_mass": 0.5025712102651596
+      }
+    ]
+  }
+}
