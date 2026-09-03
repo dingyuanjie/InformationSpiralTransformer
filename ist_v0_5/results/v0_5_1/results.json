@@ -1,0 +1,3499 @@
+{
+  "status": "complete",
+  "protocol": {
+    "base_config": "configs/level_a.json",
+    "capacities": [
+      4,
+      8,
+      12,
+      16,
+      24,
+      32,
+      64
+    ],
+    "reader_conditions": [
+      "oracle_current",
+      "oracle_stable"
+    ],
+    "seeds": [
+      505,
+      1505,
+      2505,
+      3505,
+      4505
+    ],
+    "steps": 300,
+    "batch_size": 32,
+    "train_chunks": [
+      2,
+      4,
+      8
+    ],
+    "evaluation_chunks": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "evaluation_samples": 128,
+    "learning_rate": 0.0005,
+    "contrastive_weight": 0.2,
+    "reference_capacity": 12
+  },
+  "split_audit": {
+    "binding_overlap": 0,
+    "train_binding_count": 206,
+    "heldout_binding_count": 50,
+    "shared_entity_vocabulary": true,
+    "shared_value_vocabulary": true,
+    "label_is_resampled_per_example": true,
+    "query_visible_during_history_write": false,
+    "passed": true
+  },
+  "device": "cuda",
+  "summary": [
+    {
+      "condition": "oracle_current",
+      "chunks": 2,
+      "mean_accuracy": 0.925,
+      "std_accuracy": 0.06779341609348949,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_current",
+      "chunks": 4,
+      "mean_accuracy": 0.9140625,
+      "std_accuracy": 0.06743233008450027,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_current",
+      "chunks": 8,
+      "mean_accuracy": 0.8703125,
+      "std_accuracy": 0.07525996611745185,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_current",
+      "chunks": 16,
+      "mean_accuracy": 0.8265625,
+      "std_accuracy": 0.04328717242873459,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_current",
+      "chunks": 32,
+      "mean_accuracy": 0.796875,
+      "std_accuracy": 0.04588804736121379,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_stable",
+      "chunks": 2,
+      "mean_accuracy": 1.0,
+      "std_accuracy": 0.0,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_stable",
+      "chunks": 4,
+      "mean_accuracy": 1.0,
+      "std_accuracy": 0.0,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_stable",
+      "chunks": 8,
+      "mean_accuracy": 1.0,
+      "std_accuracy": 0.0,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_stable",
+      "chunks": 16,
+      "mean_accuracy": 0.9546875,
+      "std_accuracy": 0.013975424859373685,
+      "seeds": 5
+    },
+    {
+      "condition": "oracle_stable",
+      "chunks": 32,
+      "mean_accuracy": 0.9,
+      "std_accuracy": 0.03921843874378479,
+      "seeds": 5
+    }
+  ],
+  "runs": [
+    {
+      "condition": "oracle_current",
+      "seed": 505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 4.766727924346924,
+          "task_loss": 4.766727924346924,
+          "retrieval_loss": 1.6709339618682861,
+          "accuracy": 0.0,
+          "gradient_norm": 4.218834400177002,
+          "evidence_gate": 0.4998749792575836
+        },
+        {
+          "step": 30,
+          "loss": 3.379995107650757,
+          "task_loss": 3.379995107650757,
+          "retrieval_loss": 2.430663824081421,
+          "accuracy": 0.15625,
+          "gradient_norm": 2.304530143737793,
+          "evidence_gate": 0.49963894486427307
+        },
+        {
+          "step": 60,
+          "loss": 2.9324655532836914,
+          "task_loss": 2.9324655532836914,
+          "retrieval_loss": 3.6012942790985107,
+          "accuracy": 0.21875,
+          "gradient_norm": 2.7062714099884033,
+          "evidence_gate": 0.501480758190155
+        },
+        {
+          "step": 90,
+          "loss": 2.8771748542785645,
+          "task_loss": 2.8771748542785645,
+          "retrieval_loss": 3.343752384185791,
+          "accuracy": 0.125,
+          "gradient_norm": 3.7238118648529053,
+          "evidence_gate": 0.5034443140029907
+        },
+        {
+          "step": 120,
+          "loss": 2.4730453491210938,
+          "task_loss": 2.4730453491210938,
+          "retrieval_loss": 2.344113349914551,
+          "accuracy": 0.34375,
+          "gradient_norm": 2.6627707481384277,
+          "evidence_gate": 0.5054543614387512
+        },
+        {
+          "step": 150,
+          "loss": 2.524017810821533,
+          "task_loss": 2.524017810821533,
+          "retrieval_loss": 2.6461215019226074,
+          "accuracy": 0.28125,
+          "gradient_norm": 2.9015674591064453,
+          "evidence_gate": 0.5079953670501709
+        },
+        {
+          "step": 180,
+          "loss": 1.9457212686538696,
+          "task_loss": 1.9457212686538696,
+          "retrieval_loss": 1.8232090473175049,
+          "accuracy": 0.40625,
+          "gradient_norm": 4.401458740234375,
+          "evidence_gate": 0.5113660097122192
+        },
+        {
+          "step": 210,
+          "loss": 1.5989174842834473,
+          "task_loss": 1.5989174842834473,
+          "retrieval_loss": 1.6782994270324707,
+          "accuracy": 0.59375,
+          "gradient_norm": 4.0902204513549805,
+          "evidence_gate": 0.5142598152160645
+        },
+        {
+          "step": 240,
+          "loss": 0.7890276908874512,
+          "task_loss": 0.7890276908874512,
+          "retrieval_loss": 1.095037579536438,
+          "accuracy": 0.8125,
+          "gradient_norm": 2.477597236633301,
+          "evidence_gate": 0.5166470408439636
+        },
+        {
+          "step": 270,
+          "loss": 0.6225399971008301,
+          "task_loss": 0.6225399971008301,
+          "retrieval_loss": 1.1092255115509033,
+          "accuracy": 0.84375,
+          "gradient_norm": 2.589369297027588,
+          "evidence_gate": 0.5180814266204834
+        },
+        {
+          "step": 300,
+          "loss": 0.5068158507347107,
+          "task_loss": 0.5068158507347107,
+          "retrieval_loss": 1.1057498455047607,
+          "accuracy": 0.875,
+          "gradient_norm": 1.382989525794983,
+          "evidence_gate": 0.5192002058029175
+        }
+      ],
+      "training_seconds": 11.419778899999983,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.9453125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9453125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.96875,
+          "reader_same_binding_hit": 0.96875,
+          "mean_read_entropy": 0.8121426403522491,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9296875,
+          "reader_same_binding_hit": 0.9296875,
+          "mean_read_entropy": 0.8547641336917877,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 0.7890625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.7890625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.8359375,
+          "reader_same_binding_hit": 0.8359375,
+          "mean_read_entropy": 0.7902083694934845,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.7734375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.7734375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.8828125,
+          "reader_same_binding_hit": 0.8828125,
+          "mean_read_entropy": 0.7702604383230209,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.78125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.78125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.875,
+          "reader_same_binding_hit": 0.875,
+          "mean_read_entropy": 0.7654361128807068,
+          "evidence_gate": 0.5192002058029175
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1640625,
+          "exact_target_retention": 0.0625,
+          "same_binding_retention": 0.125,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.10833333333333334,
+          "reader_exact_hit": 0.0625,
+          "reader_same_binding_hit": 0.125,
+          "mean_read_entropy": 0.8456254005432129,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.21875,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.2265625,
+          "accuracy_given_exact_retained": 0.8125,
+          "accuracy_given_exact_absent": 0.13392857142857142,
+          "reader_exact_hit": 0.1171875,
+          "reader_same_binding_hit": 0.21875,
+          "mean_read_entropy": 0.8672646284103394,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.296875,
+          "exact_target_retention": 0.21875,
+          "same_binding_retention": 0.34375,
+          "accuracy_given_exact_retained": 0.75,
+          "accuracy_given_exact_absent": 0.17,
+          "reader_exact_hit": 0.203125,
+          "reader_same_binding_hit": 0.3125,
+          "mean_read_entropy": 0.8532831817865372,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.3515625,
+          "exact_target_retention": 0.25,
+          "same_binding_retention": 0.4140625,
+          "accuracy_given_exact_retained": 0.78125,
+          "accuracy_given_exact_absent": 0.20833333333333334,
+          "reader_exact_hit": 0.234375,
+          "reader_same_binding_hit": 0.3671875,
+          "mean_read_entropy": 0.8530885577201843,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.4375,
+          "exact_target_retention": 0.3984375,
+          "same_binding_retention": 0.59375,
+          "accuracy_given_exact_retained": 0.7450980392156863,
+          "accuracy_given_exact_absent": 0.23376623376623376,
+          "reader_exact_hit": 0.3671875,
+          "reader_same_binding_hit": 0.5,
+          "mean_read_entropy": 0.8541606366634369,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.5,
+          "exact_target_retention": 0.5234375,
+          "same_binding_retention": 0.7109375,
+          "accuracy_given_exact_retained": 0.7014925373134329,
+          "accuracy_given_exact_absent": 0.2786885245901639,
+          "reader_exact_hit": 0.4609375,
+          "reader_same_binding_hit": 0.59375,
+          "mean_read_entropy": 0.8774124383926392,
+          "evidence_gate": 0.5192002058029175
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.515625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.515625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.703125,
+          "reader_same_binding_hit": 0.7734375,
+          "mean_read_entropy": 1.0509148836135864,
+          "evidence_gate": 0.5192002058029175
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.78125,
+          "prediction_change_rate": 0.671875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.515625
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.78125,
+          "prediction_change_rate": 0.703125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.578125
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.78125,
+          "prediction_change_rate": 0.71875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.703125
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.78125,
+          "prediction_change_rate": 0.0,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_current",
+      "seed": 1505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.093363285064697,
+          "task_loss": 5.093363285064697,
+          "retrieval_loss": 1.7448328733444214,
+          "accuracy": 0.0,
+          "gradient_norm": 3.769244909286499,
+          "evidence_gate": 0.500124990940094
+        },
+        {
+          "step": 30,
+          "loss": 3.4334614276885986,
+          "task_loss": 3.4334614276885986,
+          "retrieval_loss": 2.8193092346191406,
+          "accuracy": 0.03125,
+          "gradient_norm": 2.6934452056884766,
+          "evidence_gate": 0.5014780163764954
+        },
+        {
+          "step": 60,
+          "loss": 2.767817974090576,
+          "task_loss": 2.767817974090576,
+          "retrieval_loss": 2.1401591300964355,
+          "accuracy": 0.34375,
+          "gradient_norm": 1.8409143686294556,
+          "evidence_gate": 0.503450334072113
+        },
+        {
+          "step": 90,
+          "loss": 2.743828296661377,
+          "task_loss": 2.743828296661377,
+          "retrieval_loss": 3.089637279510498,
+          "accuracy": 0.1875,
+          "gradient_norm": 2.0117037296295166,
+          "evidence_gate": 0.5052341818809509
+        },
+        {
+          "step": 120,
+          "loss": 2.714573860168457,
+          "task_loss": 2.714573860168457,
+          "retrieval_loss": 3.1446590423583984,
+          "accuracy": 0.15625,
+          "gradient_norm": 3.3797292709350586,
+          "evidence_gate": 0.509222686290741
+        },
+        {
+          "step": 150,
+          "loss": 2.3262033462524414,
+          "task_loss": 2.3262033462524414,
+          "retrieval_loss": 2.284708023071289,
+          "accuracy": 0.375,
+          "gradient_norm": 4.074592590332031,
+          "evidence_gate": 0.5135329961776733
+        },
+        {
+          "step": 180,
+          "loss": 1.0550165176391602,
+          "task_loss": 1.0550165176391602,
+          "retrieval_loss": 1.0667498111724854,
+          "accuracy": 0.8125,
+          "gradient_norm": 2.4165585041046143,
+          "evidence_gate": 0.5171034336090088
+        },
+        {
+          "step": 210,
+          "loss": 1.031479835510254,
+          "task_loss": 1.031479835510254,
+          "retrieval_loss": 1.1699055433273315,
+          "accuracy": 0.84375,
+          "gradient_norm": 3.1540088653564453,
+          "evidence_gate": 0.5195817947387695
+        },
+        {
+          "step": 240,
+          "loss": 0.8600826263427734,
+          "task_loss": 0.8600826263427734,
+          "retrieval_loss": 1.1644762754440308,
+          "accuracy": 0.84375,
+          "gradient_norm": 3.129572868347168,
+          "evidence_gate": 0.5212585926055908
+        },
+        {
+          "step": 270,
+          "loss": 0.6028915643692017,
+          "task_loss": 0.6028915643692017,
+          "retrieval_loss": 0.9805976748466492,
+          "accuracy": 0.875,
+          "gradient_norm": 1.5907933712005615,
+          "evidence_gate": 0.5232175588607788
+        },
+        {
+          "step": 300,
+          "loss": 0.30959463119506836,
+          "task_loss": 0.30959463119506836,
+          "retrieval_loss": 1.0067182779312134,
+          "accuracy": 0.96875,
+          "gradient_norm": 2.084385871887207,
+          "evidence_gate": 0.5247762799263
+        }
+      ],
+      "training_seconds": 11.675012300000162,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.96875,
+          "reader_same_binding_hit": 0.96875,
+          "mean_read_entropy": 0.8557116389274597,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.921875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.921875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.921875,
+          "reader_same_binding_hit": 0.921875,
+          "mean_read_entropy": 0.8591235727071762,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 0.8203125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.8203125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.8515625,
+          "reader_same_binding_hit": 0.8515625,
+          "mean_read_entropy": 0.7427645474672318,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.84375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.84375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.890625,
+          "reader_same_binding_hit": 0.8984375,
+          "mean_read_entropy": 0.745577022433281,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.796875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.796875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.8359375,
+          "reader_same_binding_hit": 0.875,
+          "mean_read_entropy": 0.735236793756485,
+          "evidence_gate": 0.5247762799263
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1953125,
+          "exact_target_retention": 0.0625,
+          "same_binding_retention": 0.1484375,
+          "accuracy_given_exact_retained": 0.875,
+          "accuracy_given_exact_absent": 0.15,
+          "reader_exact_hit": 0.0546875,
+          "reader_same_binding_hit": 0.140625,
+          "mean_read_entropy": 0.9189540147781372,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.265625,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.2265625,
+          "accuracy_given_exact_retained": 0.875,
+          "accuracy_given_exact_absent": 0.17857142857142858,
+          "reader_exact_hit": 0.1015625,
+          "reader_same_binding_hit": 0.203125,
+          "mean_read_entropy": 0.954059287905693,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.296875,
+          "exact_target_retention": 0.1953125,
+          "same_binding_retention": 0.3046875,
+          "accuracy_given_exact_retained": 0.8,
+          "accuracy_given_exact_absent": 0.17475728155339806,
+          "reader_exact_hit": 0.1640625,
+          "reader_same_binding_hit": 0.2578125,
+          "mean_read_entropy": 0.9524698853492737,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.3671875,
+          "exact_target_retention": 0.28125,
+          "same_binding_retention": 0.421875,
+          "accuracy_given_exact_retained": 0.8055555555555556,
+          "accuracy_given_exact_absent": 0.1956521739130435,
+          "reader_exact_hit": 0.21875,
+          "reader_same_binding_hit": 0.34375,
+          "mean_read_entropy": 0.9290034770965576,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.421875,
+          "exact_target_retention": 0.40625,
+          "same_binding_retention": 0.5625,
+          "accuracy_given_exact_retained": 0.7307692307692307,
+          "accuracy_given_exact_absent": 0.21052631578947367,
+          "reader_exact_hit": 0.3046875,
+          "reader_same_binding_hit": 0.4453125,
+          "mean_read_entropy": 0.8797065764665604,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.5234375,
+          "exact_target_retention": 0.546875,
+          "same_binding_retention": 0.765625,
+          "accuracy_given_exact_retained": 0.6428571428571429,
+          "accuracy_given_exact_absent": 0.3793103448275862,
+          "reader_exact_hit": 0.40625,
+          "reader_same_binding_hit": 0.6328125,
+          "mean_read_entropy": 0.9277809113264084,
+          "evidence_gate": 0.5247762799263
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.5859375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.5859375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.703125,
+          "reader_same_binding_hit": 0.796875,
+          "mean_read_entropy": 1.0684752464294434,
+          "evidence_gate": 0.5247762799263
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.859375,
+          "prediction_change_rate": 0.78125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.640625
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.859375,
+          "prediction_change_rate": 0.953125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.5625
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.859375,
+          "prediction_change_rate": 0.8125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.6875
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.859375,
+          "prediction_change_rate": 0.015625,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_current",
+      "seed": 2505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.180741310119629,
+          "task_loss": 5.180741310119629,
+          "retrieval_loss": 2.2765114307403564,
+          "accuracy": 0.0,
+          "gradient_norm": 5.085531711578369,
+          "evidence_gate": 0.4998749792575836
+        },
+        {
+          "step": 30,
+          "loss": 3.3595681190490723,
+          "task_loss": 3.3595681190490723,
+          "retrieval_loss": 1.7819057703018188,
+          "accuracy": 0.09375,
+          "gradient_norm": 1.8601492643356323,
+          "evidence_gate": 0.5012607574462891
+        },
+        {
+          "step": 60,
+          "loss": 2.902169704437256,
+          "task_loss": 2.902169704437256,
+          "retrieval_loss": 3.348705291748047,
+          "accuracy": 0.09375,
+          "gradient_norm": 2.7452523708343506,
+          "evidence_gate": 0.5028284788131714
+        },
+        {
+          "step": 90,
+          "loss": 2.6601061820983887,
+          "task_loss": 2.6601061820983887,
+          "retrieval_loss": 2.093048334121704,
+          "accuracy": 0.28125,
+          "gradient_norm": 2.5054469108581543,
+          "evidence_gate": 0.5050513744354248
+        },
+        {
+          "step": 120,
+          "loss": 2.607395648956299,
+          "task_loss": 2.607395648956299,
+          "retrieval_loss": 2.685378313064575,
+          "accuracy": 0.21875,
+          "gradient_norm": 3.165086269378662,
+          "evidence_gate": 0.5073966979980469
+        },
+        {
+          "step": 150,
+          "loss": 2.311417818069458,
+          "task_loss": 2.311417818069458,
+          "retrieval_loss": 2.312864065170288,
+          "accuracy": 0.40625,
+          "gradient_norm": 3.4124159812927246,
+          "evidence_gate": 0.5110049843788147
+        },
+        {
+          "step": 180,
+          "loss": 1.3472882509231567,
+          "task_loss": 1.3472882509231567,
+          "retrieval_loss": 1.7257070541381836,
+          "accuracy": 0.75,
+          "gradient_norm": 2.6848721504211426,
+          "evidence_gate": 0.51536625623703
+        },
+        {
+          "step": 210,
+          "loss": 0.9921753406524658,
+          "task_loss": 0.9921753406524658,
+          "retrieval_loss": 1.4792180061340332,
+          "accuracy": 0.8125,
+          "gradient_norm": 3.662771224975586,
+          "evidence_gate": 0.519117534160614
+        },
+        {
+          "step": 240,
+          "loss": 0.4506152868270874,
+          "task_loss": 0.4506152868270874,
+          "retrieval_loss": 0.9501488208770752,
+          "accuracy": 0.9375,
+          "gradient_norm": 2.180490732192993,
+          "evidence_gate": 0.5209968090057373
+        },
+        {
+          "step": 270,
+          "loss": 0.5139307975769043,
+          "task_loss": 0.5139307975769043,
+          "retrieval_loss": 1.0735996961593628,
+          "accuracy": 0.875,
+          "gradient_norm": 1.8770349025726318,
+          "evidence_gate": 0.522632896900177
+        },
+        {
+          "step": 300,
+          "loss": 0.17143091559410095,
+          "task_loss": 0.17143091559410095,
+          "retrieval_loss": 0.9327050447463989,
+          "accuracy": 1.0,
+          "gradient_norm": 1.0590298175811768,
+          "evidence_gate": 0.5232938528060913
+        }
+      ],
+      "training_seconds": 11.782318000000487,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.96875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.96875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7894322127103806,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.9765625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9765625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9921875,
+          "reader_same_binding_hit": 0.9921875,
+          "mean_read_entropy": 0.8268186002969742,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 0.9140625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9140625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9453125,
+          "reader_same_binding_hit": 0.9453125,
+          "mean_read_entropy": 0.7120571434497833,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.8515625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.8515625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9375,
+          "reader_same_binding_hit": 0.9375,
+          "mean_read_entropy": 0.7386115193367004,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.7734375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.7734375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9296875,
+          "reader_same_binding_hit": 0.9296875,
+          "mean_read_entropy": 0.7274735122919083,
+          "evidence_gate": 0.5232938528060913
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1953125,
+          "exact_target_retention": 0.0546875,
+          "same_binding_retention": 0.1796875,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.1487603305785124,
+          "reader_exact_hit": 0.0546875,
+          "reader_same_binding_hit": 0.1796875,
+          "mean_read_entropy": 0.7928488403558731,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.28125,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.265625,
+          "accuracy_given_exact_retained": 0.9375,
+          "accuracy_given_exact_absent": 0.1875,
+          "reader_exact_hit": 0.125,
+          "reader_same_binding_hit": 0.265625,
+          "mean_read_entropy": 0.7963800430297852,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.328125,
+          "exact_target_retention": 0.1875,
+          "same_binding_retention": 0.34375,
+          "accuracy_given_exact_retained": 0.875,
+          "accuracy_given_exact_absent": 0.20192307692307693,
+          "reader_exact_hit": 0.1875,
+          "reader_same_binding_hit": 0.34375,
+          "mean_read_entropy": 0.8131845891475677,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.375,
+          "exact_target_retention": 0.2421875,
+          "same_binding_retention": 0.4453125,
+          "accuracy_given_exact_retained": 0.7741935483870968,
+          "accuracy_given_exact_absent": 0.24742268041237114,
+          "reader_exact_hit": 0.2421875,
+          "reader_same_binding_hit": 0.4375,
+          "mean_read_entropy": 0.8640012741088867,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.40625,
+          "exact_target_retention": 0.3984375,
+          "same_binding_retention": 0.5625,
+          "accuracy_given_exact_retained": 0.7450980392156863,
+          "accuracy_given_exact_absent": 0.18181818181818182,
+          "reader_exact_hit": 0.390625,
+          "reader_same_binding_hit": 0.546875,
+          "mean_read_entropy": 0.8989160507917404,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.4296875,
+          "exact_target_retention": 0.5546875,
+          "same_binding_retention": 0.6953125,
+          "accuracy_given_exact_retained": 0.6619718309859155,
+          "accuracy_given_exact_absent": 0.14035087719298245,
+          "reader_exact_hit": 0.5234375,
+          "reader_same_binding_hit": 0.6484375,
+          "mean_read_entropy": 0.9420647025108337,
+          "evidence_gate": 0.5232938528060913
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.5,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.5,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.6796875,
+          "reader_same_binding_hit": 0.8515625,
+          "mean_read_entropy": 1.0718234479427338,
+          "evidence_gate": 0.5232938528060913
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.890625,
+          "prediction_change_rate": 0.8125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.59375
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.890625,
+          "prediction_change_rate": 0.875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.734375
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.890625,
+          "prediction_change_rate": 0.84375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.625
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.890625,
+          "prediction_change_rate": 0.03125,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_current",
+      "seed": 3505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 4.828976154327393,
+          "task_loss": 4.828976154327393,
+          "retrieval_loss": 2.4663305282592773,
+          "accuracy": 0.03125,
+          "gradient_norm": 4.329692840576172,
+          "evidence_gate": 0.500124990940094
+        },
+        {
+          "step": 30,
+          "loss": 3.4398088455200195,
+          "task_loss": 3.4398088455200195,
+          "retrieval_loss": 2.5012094974517822,
+          "accuracy": 0.03125,
+          "gradient_norm": 3.040750026702881,
+          "evidence_gate": 0.5020657181739807
+        },
+        {
+          "step": 60,
+          "loss": 2.913052797317505,
+          "task_loss": 2.913052797317505,
+          "retrieval_loss": 1.9201295375823975,
+          "accuracy": 0.125,
+          "gradient_norm": 1.6712366342544556,
+          "evidence_gate": 0.5034996867179871
+        },
+        {
+          "step": 90,
+          "loss": 2.747041940689087,
+          "task_loss": 2.747041940689087,
+          "retrieval_loss": 2.6916794776916504,
+          "accuracy": 0.1875,
+          "gradient_norm": 2.382244825363159,
+          "evidence_gate": 0.5064263939857483
+        },
+        {
+          "step": 120,
+          "loss": 2.57193922996521,
+          "task_loss": 2.57193922996521,
+          "retrieval_loss": 2.1049838066101074,
+          "accuracy": 0.21875,
+          "gradient_norm": 3.0081329345703125,
+          "evidence_gate": 0.5099939107894897
+        },
+        {
+          "step": 150,
+          "loss": 2.128209114074707,
+          "task_loss": 2.128209114074707,
+          "retrieval_loss": 1.9634137153625488,
+          "accuracy": 0.46875,
+          "gradient_norm": 3.4589784145355225,
+          "evidence_gate": 0.5143396854400635
+        },
+        {
+          "step": 180,
+          "loss": 1.1910982131958008,
+          "task_loss": 1.1910982131958008,
+          "retrieval_loss": 1.4095981121063232,
+          "accuracy": 0.8125,
+          "gradient_norm": 3.2543115615844727,
+          "evidence_gate": 0.5184959173202515
+        },
+        {
+          "step": 210,
+          "loss": 0.4534939229488373,
+          "task_loss": 0.4534939229488373,
+          "retrieval_loss": 0.8832851648330688,
+          "accuracy": 1.0,
+          "gradient_norm": 1.5916892290115356,
+          "evidence_gate": 0.5221076011657715
+        },
+        {
+          "step": 240,
+          "loss": 0.23154804110527039,
+          "task_loss": 0.23154804110527039,
+          "retrieval_loss": 0.9317134618759155,
+          "accuracy": 1.0,
+          "gradient_norm": 1.7049603462219238,
+          "evidence_gate": 0.5245804786682129
+        },
+        {
+          "step": 270,
+          "loss": 0.2099170982837677,
+          "task_loss": 0.2099170982837677,
+          "retrieval_loss": 0.9017970561981201,
+          "accuracy": 0.96875,
+          "gradient_norm": 1.214361548423767,
+          "evidence_gate": 0.5259376168251038
+        },
+        {
+          "step": 300,
+          "loss": 0.25432634353637695,
+          "task_loss": 0.25432634353637695,
+          "retrieval_loss": 0.9114760160446167,
+          "accuracy": 0.9375,
+          "gradient_norm": 3.601128101348877,
+          "evidence_gate": 0.5274256467819214
+        }
+      ],
+      "training_seconds": 12.11666570000034,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.8659908920526505,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.9765625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9765625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.9122064709663391,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 0.9765625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9765625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7965857088565826,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7982470840215683,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9921875,
+          "reader_same_binding_hit": 0.9921875,
+          "mean_read_entropy": 0.7211754471063614,
+          "evidence_gate": 0.5274256467819214
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1640625,
+          "exact_target_retention": 0.0390625,
+          "same_binding_retention": 0.1484375,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.13008130081300814,
+          "reader_exact_hit": 0.0390625,
+          "reader_same_binding_hit": 0.1484375,
+          "mean_read_entropy": 0.8848527669906616,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.1953125,
+          "exact_target_retention": 0.0703125,
+          "same_binding_retention": 0.171875,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.13445378151260504,
+          "reader_exact_hit": 0.0703125,
+          "reader_same_binding_hit": 0.171875,
+          "mean_read_entropy": 0.9407617002725601,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.234375,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.21875,
+          "accuracy_given_exact_retained": 0.9375,
+          "accuracy_given_exact_absent": 0.13392857142857142,
+          "reader_exact_hit": 0.125,
+          "reader_same_binding_hit": 0.21875,
+          "mean_read_entropy": 0.9340313225984573,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.28125,
+          "exact_target_retention": 0.1953125,
+          "same_binding_retention": 0.28125,
+          "accuracy_given_exact_retained": 0.92,
+          "accuracy_given_exact_absent": 0.1262135922330097,
+          "reader_exact_hit": 0.1875,
+          "reader_same_binding_hit": 0.28125,
+          "mean_read_entropy": 0.9661295711994171,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.359375,
+          "exact_target_retention": 0.3515625,
+          "same_binding_retention": 0.4453125,
+          "accuracy_given_exact_retained": 0.7777777777777778,
+          "accuracy_given_exact_absent": 0.13253012048192772,
+          "reader_exact_hit": 0.3125,
+          "reader_same_binding_hit": 0.4375,
+          "mean_read_entropy": 0.9326676279306412,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.484375,
+          "exact_target_retention": 0.484375,
+          "same_binding_retention": 0.6640625,
+          "accuracy_given_exact_retained": 0.6612903225806451,
+          "accuracy_given_exact_absent": 0.3181818181818182,
+          "reader_exact_hit": 0.4296875,
+          "reader_same_binding_hit": 0.6484375,
+          "mean_read_entropy": 0.8767718225717545,
+          "evidence_gate": 0.5274256467819214
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.609375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.609375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.703125,
+          "reader_same_binding_hit": 0.859375,
+          "mean_read_entropy": 1.0662314593791962,
+          "evidence_gate": 0.5274256467819214
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.9375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.609375
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.9375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.5625
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.859375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.53125
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.015625,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_current",
+      "seed": 4505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.002647876739502,
+          "task_loss": 5.002647876739502,
+          "retrieval_loss": 1.6405739784240723,
+          "accuracy": 0.03125,
+          "gradient_norm": 3.979902982711792,
+          "evidence_gate": 0.4998749792575836
+        },
+        {
+          "step": 30,
+          "loss": 3.3590147495269775,
+          "task_loss": 3.3590147495269775,
+          "retrieval_loss": 1.6935393810272217,
+          "accuracy": 0.125,
+          "gradient_norm": 2.87329363822937,
+          "evidence_gate": 0.5011135339736938
+        },
+        {
+          "step": 60,
+          "loss": 3.024624824523926,
+          "task_loss": 3.024624824523926,
+          "retrieval_loss": 3.060875654220581,
+          "accuracy": 0.125,
+          "gradient_norm": 2.972093343734741,
+          "evidence_gate": 0.5025010704994202
+        },
+        {
+          "step": 90,
+          "loss": 2.724294900894165,
+          "task_loss": 2.724294900894165,
+          "retrieval_loss": 2.896411418914795,
+          "accuracy": 0.1875,
+          "gradient_norm": 2.679952621459961,
+          "evidence_gate": 0.505154550075531
+        },
+        {
+          "step": 120,
+          "loss": 2.351442813873291,
+          "task_loss": 2.351442813873291,
+          "retrieval_loss": 2.1626510620117188,
+          "accuracy": 0.34375,
+          "gradient_norm": 3.783409357070923,
+          "evidence_gate": 0.5088220834732056
+        },
+        {
+          "step": 150,
+          "loss": 1.980459451675415,
+          "task_loss": 1.980459451675415,
+          "retrieval_loss": 1.7767055034637451,
+          "accuracy": 0.5625,
+          "gradient_norm": 3.529862403869629,
+          "evidence_gate": 0.5126646161079407
+        },
+        {
+          "step": 180,
+          "loss": 1.309795618057251,
+          "task_loss": 1.309795618057251,
+          "retrieval_loss": 1.438080906867981,
+          "accuracy": 0.65625,
+          "gradient_norm": 3.6177918910980225,
+          "evidence_gate": 0.5167024731636047
+        },
+        {
+          "step": 210,
+          "loss": 1.0159176588058472,
+          "task_loss": 1.0159176588058472,
+          "retrieval_loss": 1.1456972360610962,
+          "accuracy": 0.75,
+          "gradient_norm": 2.5517542362213135,
+          "evidence_gate": 0.5191376805305481
+        },
+        {
+          "step": 240,
+          "loss": 0.6477788686752319,
+          "task_loss": 0.6477788686752319,
+          "retrieval_loss": 0.9706388711929321,
+          "accuracy": 0.875,
+          "gradient_norm": 2.3586223125457764,
+          "evidence_gate": 0.5211113691329956
+        },
+        {
+          "step": 270,
+          "loss": 0.30942702293395996,
+          "task_loss": 0.30942702293395996,
+          "retrieval_loss": 0.9102683067321777,
+          "accuracy": 0.96875,
+          "gradient_norm": 1.8173435926437378,
+          "evidence_gate": 0.522639811038971
+        },
+        {
+          "step": 300,
+          "loss": 0.42913463711738586,
+          "task_loss": 0.42913463711738586,
+          "retrieval_loss": 1.0883358716964722,
+          "accuracy": 0.90625,
+          "gradient_norm": 2.02759051322937,
+          "evidence_gate": 0.523475170135498
+        }
+      ],
+      "training_seconds": 12.209993400000712,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.8359375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.8359375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9453125,
+          "reader_same_binding_hit": 0.9453125,
+          "mean_read_entropy": 0.8558258414268494,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.8203125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.8203125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.875,
+          "reader_same_binding_hit": 0.875,
+          "mean_read_entropy": 0.8864213824272156,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 0.8515625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.8515625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.8828125,
+          "reader_same_binding_hit": 0.8828125,
+          "mean_read_entropy": 0.8067319393157959,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.7890625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.7890625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.8515625,
+          "reader_same_binding_hit": 0.8515625,
+          "mean_read_entropy": 0.7152470052242279,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.7578125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.7578125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.828125,
+          "reader_same_binding_hit": 0.8359375,
+          "mean_read_entropy": 0.7234907746315002,
+          "evidence_gate": 0.523475170135498
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1953125,
+          "exact_target_retention": 0.0859375,
+          "same_binding_retention": 0.203125,
+          "accuracy_given_exact_retained": 0.6363636363636364,
+          "accuracy_given_exact_absent": 0.15384615384615385,
+          "reader_exact_hit": 0.0625,
+          "reader_same_binding_hit": 0.1875,
+          "mean_read_entropy": 0.8672155886888504,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.2734375,
+          "exact_target_retention": 0.1484375,
+          "same_binding_retention": 0.34375,
+          "accuracy_given_exact_retained": 0.5789473684210527,
+          "accuracy_given_exact_absent": 0.22018348623853212,
+          "reader_exact_hit": 0.1171875,
+          "reader_same_binding_hit": 0.296875,
+          "mean_read_entropy": 0.8312004655599594,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.3125,
+          "exact_target_retention": 0.1796875,
+          "same_binding_retention": 0.3828125,
+          "accuracy_given_exact_retained": 0.6086956521739131,
+          "accuracy_given_exact_absent": 0.24761904761904763,
+          "reader_exact_hit": 0.125,
+          "reader_same_binding_hit": 0.3046875,
+          "mean_read_entropy": 0.8781889081001282,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.3671875,
+          "exact_target_retention": 0.28125,
+          "same_binding_retention": 0.46875,
+          "accuracy_given_exact_retained": 0.6388888888888888,
+          "accuracy_given_exact_absent": 0.2608695652173913,
+          "reader_exact_hit": 0.203125,
+          "reader_same_binding_hit": 0.375,
+          "mean_read_entropy": 0.8941382467746735,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.4375,
+          "exact_target_retention": 0.3828125,
+          "same_binding_retention": 0.578125,
+          "accuracy_given_exact_retained": 0.6938775510204082,
+          "accuracy_given_exact_absent": 0.27848101265822783,
+          "reader_exact_hit": 0.28125,
+          "reader_same_binding_hit": 0.46875,
+          "mean_read_entropy": 0.8938766568899155,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.46875,
+          "exact_target_retention": 0.484375,
+          "same_binding_retention": 0.65625,
+          "accuracy_given_exact_retained": 0.7096774193548387,
+          "accuracy_given_exact_absent": 0.24242424242424243,
+          "reader_exact_hit": 0.3515625,
+          "reader_same_binding_hit": 0.5390625,
+          "mean_read_entropy": 0.912273958325386,
+          "evidence_gate": 0.523475170135498
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.5234375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.5234375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.6640625,
+          "reader_same_binding_hit": 0.796875,
+          "mean_read_entropy": 1.0615189671516418,
+          "evidence_gate": 0.523475170135498
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.84375,
+          "prediction_change_rate": 0.859375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.484375
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.84375,
+          "prediction_change_rate": 0.890625,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.625
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.84375,
+          "prediction_change_rate": 0.875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.515625
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.84375,
+          "prediction_change_rate": 0.03125,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_stable",
+      "seed": 505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.143199443817139,
+          "task_loss": 4.800275802612305,
+          "retrieval_loss": 1.714617133140564,
+          "accuracy": 0.0,
+          "gradient_norm": 4.420740604400635,
+          "evidence_gate": 0.8807435035705566
+        },
+        {
+          "step": 30,
+          "loss": 3.7885537147521973,
+          "task_loss": 3.378305673599243,
+          "retrieval_loss": 2.0512399673461914,
+          "accuracy": 0.09375,
+          "gradient_norm": 2.351261854171753,
+          "evidence_gate": 0.8802509307861328
+        },
+        {
+          "step": 60,
+          "loss": 3.367029905319214,
+          "task_loss": 2.9350996017456055,
+          "retrieval_loss": 2.159651279449463,
+          "accuracy": 0.1875,
+          "gradient_norm": 3.213212728500366,
+          "evidence_gate": 0.8810727596282959
+        },
+        {
+          "step": 90,
+          "loss": 2.85373592376709,
+          "task_loss": 2.5443320274353027,
+          "retrieval_loss": 1.547019362449646,
+          "accuracy": 0.375,
+          "gradient_norm": 3.267031669616699,
+          "evidence_gate": 0.882634162902832
+        },
+        {
+          "step": 120,
+          "loss": 2.251791000366211,
+          "task_loss": 1.9963412284851074,
+          "retrieval_loss": 1.2772493362426758,
+          "accuracy": 0.625,
+          "gradient_norm": 5.244667053222656,
+          "evidence_gate": 0.8841332197189331
+        },
+        {
+          "step": 150,
+          "loss": 1.7451297044754028,
+          "task_loss": 1.443915843963623,
+          "retrieval_loss": 1.5060690641403198,
+          "accuracy": 0.6875,
+          "gradient_norm": 4.977093696594238,
+          "evidence_gate": 0.8853946924209595
+        },
+        {
+          "step": 180,
+          "loss": 0.6788302659988403,
+          "task_loss": 0.49498575925827026,
+          "retrieval_loss": 0.9192225337028503,
+          "accuracy": 0.96875,
+          "gradient_norm": 1.8824779987335205,
+          "evidence_gate": 0.886530876159668
+        },
+        {
+          "step": 210,
+          "loss": 0.3906148076057434,
+          "task_loss": 0.23657554388046265,
+          "retrieval_loss": 0.7701961994171143,
+          "accuracy": 0.96875,
+          "gradient_norm": 2.968068838119507,
+          "evidence_gate": 0.8876307606697083
+        },
+        {
+          "step": 240,
+          "loss": 0.17153728008270264,
+          "task_loss": 0.06730793416500092,
+          "retrieval_loss": 0.5211467146873474,
+          "accuracy": 1.0,
+          "gradient_norm": 0.24910609424114227,
+          "evidence_gate": 0.8881411552429199
+        },
+        {
+          "step": 270,
+          "loss": 0.18654611706733704,
+          "task_loss": 0.04248013347387314,
+          "retrieval_loss": 0.7203299403190613,
+          "accuracy": 1.0,
+          "gradient_norm": 0.14598038792610168,
+          "evidence_gate": 0.8883087038993835
+        },
+        {
+          "step": 300,
+          "loss": 0.17233403027057648,
+          "task_loss": 0.029749516397714615,
+          "retrieval_loss": 0.7129225730895996,
+          "accuracy": 1.0,
+          "gradient_norm": 0.1166185587644577,
+          "evidence_gate": 0.8883684873580933
+        }
+      ],
+      "training_seconds": 11.604196700000102,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7319079041481018,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7529475390911102,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.5649140775203705,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.953125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.953125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.4225979819893837,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.8671875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.8671875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.4798414260149002,
+          "evidence_gate": 0.8883684873580933
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1484375,
+          "exact_target_retention": 0.0703125,
+          "same_binding_retention": 0.109375,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.08403361344537816,
+          "reader_exact_hit": 0.0703125,
+          "reader_same_binding_hit": 0.109375,
+          "mean_read_entropy": 0.6343893855810165,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.2265625,
+          "exact_target_retention": 0.1484375,
+          "same_binding_retention": 0.2421875,
+          "accuracy_given_exact_retained": 0.8947368421052632,
+          "accuracy_given_exact_absent": 0.11009174311926606,
+          "reader_exact_hit": 0.1484375,
+          "reader_same_binding_hit": 0.2421875,
+          "mean_read_entropy": 0.6546924561262131,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.2890625,
+          "exact_target_retention": 0.1953125,
+          "same_binding_retention": 0.328125,
+          "accuracy_given_exact_retained": 0.88,
+          "accuracy_given_exact_absent": 0.14563106796116504,
+          "reader_exact_hit": 0.1953125,
+          "reader_same_binding_hit": 0.328125,
+          "mean_read_entropy": 0.6680089235305786,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.390625,
+          "exact_target_retention": 0.25,
+          "same_binding_retention": 0.421875,
+          "accuracy_given_exact_retained": 0.90625,
+          "accuracy_given_exact_absent": 0.21875,
+          "reader_exact_hit": 0.25,
+          "reader_same_binding_hit": 0.421875,
+          "mean_read_entropy": 0.6324521601200104,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.4296875,
+          "exact_target_retention": 0.3671875,
+          "same_binding_retention": 0.546875,
+          "accuracy_given_exact_retained": 0.7446808510638298,
+          "accuracy_given_exact_absent": 0.24691358024691357,
+          "reader_exact_hit": 0.3671875,
+          "reader_same_binding_hit": 0.546875,
+          "mean_read_entropy": 0.7027353495359421,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.4765625,
+          "exact_target_retention": 0.484375,
+          "same_binding_retention": 0.65625,
+          "accuracy_given_exact_retained": 0.7096774193548387,
+          "accuracy_given_exact_absent": 0.25757575757575757,
+          "reader_exact_hit": 0.46875,
+          "reader_same_binding_hit": 0.6484375,
+          "mean_read_entropy": 0.7418779581785202,
+          "evidence_gate": 0.8883684873580933
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.59375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.59375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.7109375,
+          "reader_same_binding_hit": 0.8828125,
+          "mean_read_entropy": 1.0523120760917664,
+          "evidence_gate": 0.8883684873580933
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.6875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.421875
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.9375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.734375
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.859375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.515625
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.28125,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_stable",
+      "seed": 1505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.436599254608154,
+          "task_loss": 5.067217826843262,
+          "retrieval_loss": 1.8469080924987793,
+          "accuracy": 0.0,
+          "gradient_norm": 4.05891752243042,
+          "evidence_gate": 0.8808484673500061
+        },
+        {
+          "step": 30,
+          "loss": 3.7849061489105225,
+          "task_loss": 3.385199546813965,
+          "retrieval_loss": 1.9985333681106567,
+          "accuracy": 0.03125,
+          "gradient_norm": 2.7175519466400146,
+          "evidence_gate": 0.8810524344444275
+        },
+        {
+          "step": 60,
+          "loss": 2.994823455810547,
+          "task_loss": 2.730591058731079,
+          "retrieval_loss": 1.3211615085601807,
+          "accuracy": 0.46875,
+          "gradient_norm": 2.083834171295166,
+          "evidence_gate": 0.882271945476532
+        },
+        {
+          "step": 90,
+          "loss": 2.5015928745269775,
+          "task_loss": 2.1832199096679688,
+          "retrieval_loss": 1.5918643474578857,
+          "accuracy": 0.59375,
+          "gradient_norm": 3.4596381187438965,
+          "evidence_gate": 0.884110152721405
+        },
+        {
+          "step": 120,
+          "loss": 2.1192564964294434,
+          "task_loss": 1.8147332668304443,
+          "retrieval_loss": 1.5226163864135742,
+          "accuracy": 0.625,
+          "gradient_norm": 3.8517796993255615,
+          "evidence_gate": 0.8856760263442993
+        },
+        {
+          "step": 150,
+          "loss": 1.7489286661148071,
+          "task_loss": 1.4298216104507446,
+          "retrieval_loss": 1.595535159111023,
+          "accuracy": 0.71875,
+          "gradient_norm": 4.672103404998779,
+          "evidence_gate": 0.8868434429168701
+        },
+        {
+          "step": 180,
+          "loss": 0.522203803062439,
+          "task_loss": 0.33412569761276245,
+          "retrieval_loss": 0.9403904676437378,
+          "accuracy": 1.0,
+          "gradient_norm": 1.914707064628601,
+          "evidence_gate": 0.8878089189529419
+        },
+        {
+          "step": 210,
+          "loss": 0.4683951735496521,
+          "task_loss": 0.31317785382270813,
+          "retrieval_loss": 0.7760866284370422,
+          "accuracy": 0.96875,
+          "gradient_norm": 2.4628548622131348,
+          "evidence_gate": 0.8885442614555359
+        },
+        {
+          "step": 240,
+          "loss": 0.24244165420532227,
+          "task_loss": 0.08247983455657959,
+          "retrieval_loss": 0.7998090982437134,
+          "accuracy": 1.0,
+          "gradient_norm": 0.6613743901252747,
+          "evidence_gate": 0.8891280293464661
+        },
+        {
+          "step": 270,
+          "loss": 0.14355680346488953,
+          "task_loss": 0.04646904394030571,
+          "retrieval_loss": 0.4854387640953064,
+          "accuracy": 1.0,
+          "gradient_norm": 0.3098762035369873,
+          "evidence_gate": 0.8893930912017822
+        },
+        {
+          "step": 300,
+          "loss": 0.17573410272598267,
+          "task_loss": 0.030702192336320877,
+          "retrieval_loss": 0.7251595258712769,
+          "accuracy": 1.0,
+          "gradient_norm": 0.11916084587574005,
+          "evidence_gate": 0.8894692659378052
+        }
+      ],
+      "training_seconds": 11.369315899999492,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7690234929323196,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7732593715190887,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.5494564473628998,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.9765625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9765625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.49331213533878326,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.9453125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9453125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9921875,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.482893705368042,
+          "evidence_gate": 0.8894692659378052
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1953125,
+          "exact_target_retention": 0.0390625,
+          "same_binding_retention": 0.1640625,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.16260162601626016,
+          "reader_exact_hit": 0.0390625,
+          "reader_same_binding_hit": 0.1640625,
+          "mean_read_entropy": 0.5726965963840485,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.2890625,
+          "exact_target_retention": 0.0859375,
+          "same_binding_retention": 0.2578125,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.2222222222222222,
+          "reader_exact_hit": 0.0859375,
+          "reader_same_binding_hit": 0.2578125,
+          "mean_read_entropy": 0.6869945675134659,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.4140625,
+          "exact_target_retention": 0.171875,
+          "same_binding_retention": 0.3828125,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.29245283018867924,
+          "reader_exact_hit": 0.171875,
+          "reader_same_binding_hit": 0.3828125,
+          "mean_read_entropy": 0.7371361255645752,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.421875,
+          "exact_target_retention": 0.2265625,
+          "same_binding_retention": 0.421875,
+          "accuracy_given_exact_retained": 0.9310344827586207,
+          "accuracy_given_exact_absent": 0.2727272727272727,
+          "reader_exact_hit": 0.2265625,
+          "reader_same_binding_hit": 0.421875,
+          "mean_read_entropy": 0.7636357247829437,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.4921875,
+          "exact_target_retention": 0.4140625,
+          "same_binding_retention": 0.546875,
+          "accuracy_given_exact_retained": 0.8301886792452831,
+          "accuracy_given_exact_absent": 0.25333333333333335,
+          "reader_exact_hit": 0.390625,
+          "reader_same_binding_hit": 0.546875,
+          "mean_read_entropy": 0.8004982620477676,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.578125,
+          "exact_target_retention": 0.53125,
+          "same_binding_retention": 0.65625,
+          "accuracy_given_exact_retained": 0.8382352941176471,
+          "accuracy_given_exact_absent": 0.2833333333333333,
+          "reader_exact_hit": 0.484375,
+          "reader_same_binding_hit": 0.65625,
+          "mean_read_entropy": 0.8130185902118683,
+          "evidence_gate": 0.8894692659378052
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.609375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.609375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.78125,
+          "reader_same_binding_hit": 0.9453125,
+          "mean_read_entropy": 1.0439717769622803,
+          "evidence_gate": 0.8894692659378052
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.671875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.5625
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.796875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.671875
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.890625,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.546875
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.984375,
+          "prediction_change_rate": 0.4375,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_stable",
+      "seed": 2505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.662840366363525,
+          "task_loss": 5.189709663391113,
+          "retrieval_loss": 2.3656530380249023,
+          "accuracy": 0.0,
+          "gradient_norm": 5.342524528503418,
+          "evidence_gate": 0.8808482885360718
+        },
+        {
+          "step": 30,
+          "loss": 3.6441969871520996,
+          "task_loss": 3.360887050628662,
+          "retrieval_loss": 1.4165500402450562,
+          "accuracy": 0.09375,
+          "gradient_norm": 1.8899825811386108,
+          "evidence_gate": 0.8811317086219788
+        },
+        {
+          "step": 60,
+          "loss": 3.211724042892456,
+          "task_loss": 2.810372829437256,
+          "retrieval_loss": 2.00675630569458,
+          "accuracy": 0.21875,
+          "gradient_norm": 2.5874671936035156,
+          "evidence_gate": 0.8818842172622681
+        },
+        {
+          "step": 90,
+          "loss": 2.540764093399048,
+          "task_loss": 2.303178310394287,
+          "retrieval_loss": 1.1879284381866455,
+          "accuracy": 0.46875,
+          "gradient_norm": 2.8596489429473877,
+          "evidence_gate": 0.8835553526878357
+        },
+        {
+          "step": 120,
+          "loss": 1.9947580099105835,
+          "task_loss": 1.708782434463501,
+          "retrieval_loss": 1.4298778772354126,
+          "accuracy": 0.625,
+          "gradient_norm": 4.515627861022949,
+          "evidence_gate": 0.8852535486221313
+        },
+        {
+          "step": 150,
+          "loss": 1.586850643157959,
+          "task_loss": 1.3614091873168945,
+          "retrieval_loss": 1.1272072792053223,
+          "accuracy": 0.75,
+          "gradient_norm": 5.148652076721191,
+          "evidence_gate": 0.8867110013961792
+        },
+        {
+          "step": 180,
+          "loss": 0.5205420255661011,
+          "task_loss": 0.3510315716266632,
+          "retrieval_loss": 0.8475524187088013,
+          "accuracy": 0.96875,
+          "gradient_norm": 1.8984628915786743,
+          "evidence_gate": 0.8878300189971924
+        },
+        {
+          "step": 210,
+          "loss": 0.3720749318599701,
+          "task_loss": 0.2298080176115036,
+          "retrieval_loss": 0.7113345265388489,
+          "accuracy": 0.96875,
+          "gradient_norm": 2.716334342956543,
+          "evidence_gate": 0.8883551359176636
+        },
+        {
+          "step": 240,
+          "loss": 0.2342432141304016,
+          "task_loss": 0.08647149801254272,
+          "retrieval_loss": 0.7388585805892944,
+          "accuracy": 1.0,
+          "gradient_norm": 0.34416574239730835,
+          "evidence_gate": 0.8886617422103882
+        },
+        {
+          "step": 270,
+          "loss": 0.19796690344810486,
+          "task_loss": 0.048882387578487396,
+          "retrieval_loss": 0.7454226016998291,
+          "accuracy": 1.0,
+          "gradient_norm": 0.2212437093257904,
+          "evidence_gate": 0.888809323310852
+        },
+        {
+          "step": 300,
+          "loss": 0.17658892273902893,
+          "task_loss": 0.032252874225378036,
+          "retrieval_loss": 0.721680223941803,
+          "accuracy": 1.0,
+          "gradient_norm": 0.14193673431873322,
+          "evidence_gate": 0.8887869715690613
+        }
+      ],
+      "training_seconds": 11.507179799999903,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7760416716337204,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7661119103431702,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.5836877375841141,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.9375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.4859628975391388,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.8515625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.8515625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9921875,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.5081442892551422,
+          "evidence_gate": 0.8887869715690613
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.15625,
+          "exact_target_retention": 0.0625,
+          "same_binding_retention": 0.1171875,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.1,
+          "reader_exact_hit": 0.0625,
+          "reader_same_binding_hit": 0.1171875,
+          "mean_read_entropy": 0.6344858109951019,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.234375,
+          "exact_target_retention": 0.1484375,
+          "same_binding_retention": 0.2421875,
+          "accuracy_given_exact_retained": 0.8421052631578947,
+          "accuracy_given_exact_absent": 0.12844036697247707,
+          "reader_exact_hit": 0.1484375,
+          "reader_same_binding_hit": 0.2421875,
+          "mean_read_entropy": 0.6575421392917633,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.2734375,
+          "exact_target_retention": 0.1875,
+          "same_binding_retention": 0.3125,
+          "accuracy_given_exact_retained": 0.75,
+          "accuracy_given_exact_absent": 0.16346153846153846,
+          "reader_exact_hit": 0.1796875,
+          "reader_same_binding_hit": 0.3125,
+          "mean_read_entropy": 0.6701920479536057,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.3203125,
+          "exact_target_retention": 0.265625,
+          "same_binding_retention": 0.3984375,
+          "accuracy_given_exact_retained": 0.7058823529411765,
+          "accuracy_given_exact_absent": 0.18085106382978725,
+          "reader_exact_hit": 0.2578125,
+          "reader_same_binding_hit": 0.3984375,
+          "mean_read_entropy": 0.7215769439935684,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.3515625,
+          "exact_target_retention": 0.4296875,
+          "same_binding_retention": 0.5234375,
+          "accuracy_given_exact_retained": 0.6545454545454545,
+          "accuracy_given_exact_absent": 0.1232876712328767,
+          "reader_exact_hit": 0.3828125,
+          "reader_same_binding_hit": 0.5078125,
+          "mean_read_entropy": 0.80941441655159,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.4296875,
+          "exact_target_retention": 0.5859375,
+          "same_binding_retention": 0.65625,
+          "accuracy_given_exact_retained": 0.6533333333333333,
+          "accuracy_given_exact_absent": 0.11320754716981132,
+          "reader_exact_hit": 0.484375,
+          "reader_same_binding_hit": 0.625,
+          "mean_read_entropy": 0.8530207276344299,
+          "evidence_gate": 0.8887869715690613
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.5625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.5625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.734375,
+          "reader_same_binding_hit": 0.9296875,
+          "mean_read_entropy": 1.0493563413619995,
+          "evidence_gate": 0.8887869715690613
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.71875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.65625
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.921875,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.71875
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.9375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.578125
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.265625,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_stable",
+      "seed": 3505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.284803867340088,
+          "task_loss": 4.787140369415283,
+          "retrieval_loss": 2.488316774368286,
+          "accuracy": 0.03125,
+          "gradient_norm": 4.4477691650390625,
+          "evidence_gate": 0.8808484673500061
+        },
+        {
+          "step": 30,
+          "loss": 3.6941370964050293,
+          "task_loss": 3.4073407649993896,
+          "retrieval_loss": 1.4339817762374878,
+          "accuracy": 0.125,
+          "gradient_norm": 3.404201030731201,
+          "evidence_gate": 0.8813714385032654
+        },
+        {
+          "step": 60,
+          "loss": 2.7066919803619385,
+          "task_loss": 2.5291271209716797,
+          "retrieval_loss": 0.887824296951294,
+          "accuracy": 0.40625,
+          "gradient_norm": 2.259843587875366,
+          "evidence_gate": 0.8827105164527893
+        },
+        {
+          "step": 90,
+          "loss": 1.7076438665390015,
+          "task_loss": 1.47960364818573,
+          "retrieval_loss": 1.1402013301849365,
+          "accuracy": 0.84375,
+          "gradient_norm": 3.015193462371826,
+          "evidence_gate": 0.8847288489341736
+        },
+        {
+          "step": 120,
+          "loss": 0.7601310014724731,
+          "task_loss": 0.604920506477356,
+          "retrieval_loss": 0.7760525941848755,
+          "accuracy": 0.96875,
+          "gradient_norm": 2.340104341506958,
+          "evidence_gate": 0.8859062194824219
+        },
+        {
+          "step": 150,
+          "loss": 0.42998990416526794,
+          "task_loss": 0.3109773099422455,
+          "retrieval_loss": 0.5950629711151123,
+          "accuracy": 0.96875,
+          "gradient_norm": 2.11527943611145,
+          "evidence_gate": 0.886677086353302
+        },
+        {
+          "step": 180,
+          "loss": 0.29280346632003784,
+          "task_loss": 0.1369742453098297,
+          "retrieval_loss": 0.7791461944580078,
+          "accuracy": 0.96875,
+          "gradient_norm": 2.6306354999542236,
+          "evidence_gate": 0.8871325254440308
+        },
+        {
+          "step": 210,
+          "loss": 0.19877839088439941,
+          "task_loss": 0.058641500771045685,
+          "retrieval_loss": 0.7006844282150269,
+          "accuracy": 1.0,
+          "gradient_norm": 0.24078072607517242,
+          "evidence_gate": 0.8873422741889954
+        },
+        {
+          "step": 240,
+          "loss": 0.1435510516166687,
+          "task_loss": 0.0509939007461071,
+          "retrieval_loss": 0.4627857804298401,
+          "accuracy": 1.0,
+          "gradient_norm": 1.8037625551223755,
+          "evidence_gate": 0.8874337673187256
+        },
+        {
+          "step": 270,
+          "loss": 0.1696247160434723,
+          "task_loss": 0.03020179644227028,
+          "retrieval_loss": 0.6971145868301392,
+          "accuracy": 1.0,
+          "gradient_norm": 0.11064308136701584,
+          "evidence_gate": 0.8874988555908203
+        },
+        {
+          "step": 300,
+          "loss": 0.12921787798404694,
+          "task_loss": 0.02565985545516014,
+          "retrieval_loss": 0.5177900791168213,
+          "accuracy": 1.0,
+          "gradient_norm": 0.11244196444749832,
+          "evidence_gate": 0.8875365853309631
+        }
+      ],
+      "training_seconds": 12.725653200000124,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7288964688777924,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.722342312335968,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.48576369881629944,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.953125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.953125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.41981416195631027,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.921875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.921875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9921875,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.3215376287698746,
+          "evidence_gate": 0.8875365853309631
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.1328125,
+          "exact_target_retention": 0.03125,
+          "same_binding_retention": 0.1171875,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.10483870967741936,
+          "reader_exact_hit": 0.03125,
+          "reader_same_binding_hit": 0.1171875,
+          "mean_read_entropy": 0.6747252196073532,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.1796875,
+          "exact_target_retention": 0.0859375,
+          "same_binding_retention": 0.171875,
+          "accuracy_given_exact_retained": 0.9090909090909091,
+          "accuracy_given_exact_absent": 0.1111111111111111,
+          "reader_exact_hit": 0.0859375,
+          "reader_same_binding_hit": 0.171875,
+          "mean_read_entropy": 0.7459352016448975,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.234375,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.234375,
+          "accuracy_given_exact_retained": 0.9375,
+          "accuracy_given_exact_absent": 0.13392857142857142,
+          "reader_exact_hit": 0.125,
+          "reader_same_binding_hit": 0.234375,
+          "mean_read_entropy": 0.7497746348381042,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.3203125,
+          "exact_target_retention": 0.1953125,
+          "same_binding_retention": 0.328125,
+          "accuracy_given_exact_retained": 0.88,
+          "accuracy_given_exact_absent": 0.18446601941747573,
+          "reader_exact_hit": 0.1875,
+          "reader_same_binding_hit": 0.328125,
+          "mean_read_entropy": 0.7048406600952148,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.421875,
+          "exact_target_retention": 0.34375,
+          "same_binding_retention": 0.484375,
+          "accuracy_given_exact_retained": 0.8181818181818182,
+          "accuracy_given_exact_absent": 0.21428571428571427,
+          "reader_exact_hit": 0.3203125,
+          "reader_same_binding_hit": 0.484375,
+          "mean_read_entropy": 0.6731312274932861,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.5078125,
+          "exact_target_retention": 0.4375,
+          "same_binding_retention": 0.625,
+          "accuracy_given_exact_retained": 0.7321428571428571,
+          "accuracy_given_exact_absent": 0.3333333333333333,
+          "reader_exact_hit": 0.390625,
+          "reader_same_binding_hit": 0.609375,
+          "mean_read_entropy": 0.703631266951561,
+          "evidence_gate": 0.8875365853309631
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.671875,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.671875,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.703125,
+          "reader_same_binding_hit": 0.921875,
+          "mean_read_entropy": 1.0387692749500275,
+          "evidence_gate": 0.8875365853309631
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.8125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.53125
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.890625,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.703125
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.890625,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.6875
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.0625,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_stable",
+      "seed": 4505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.355351448059082,
+          "task_loss": 5.020010948181152,
+          "retrieval_loss": 1.6767023801803589,
+          "accuracy": 0.03125,
+          "gradient_norm": 4.2004876136779785,
+          "evidence_gate": 0.8807435035705566
+        },
+        {
+          "step": 30,
+          "loss": 3.6445422172546387,
+          "task_loss": 3.3683323860168457,
+          "retrieval_loss": 1.3810486793518066,
+          "accuracy": 0.09375,
+          "gradient_norm": 2.8117547035217285,
+          "evidence_gate": 0.8809649348258972
+        },
+        {
+          "step": 60,
+          "loss": 2.9278955459594727,
+          "task_loss": 2.586652994155884,
+          "retrieval_loss": 1.706213355064392,
+          "accuracy": 0.40625,
+          "gradient_norm": 3.561030387878418,
+          "evidence_gate": 0.8818962574005127
+        },
+        {
+          "step": 90,
+          "loss": 1.779244065284729,
+          "task_loss": 1.5386937856674194,
+          "retrieval_loss": 1.2027511596679688,
+          "accuracy": 0.8125,
+          "gradient_norm": 3.1233294010162354,
+          "evidence_gate": 0.8838931322097778
+        },
+        {
+          "step": 120,
+          "loss": 1.165663480758667,
+          "task_loss": 0.9918066263198853,
+          "retrieval_loss": 0.8692840933799744,
+          "accuracy": 0.8125,
+          "gradient_norm": 5.21635627746582,
+          "evidence_gate": 0.8852814435958862
+        },
+        {
+          "step": 150,
+          "loss": 0.6746439933776855,
+          "task_loss": 0.49217700958251953,
+          "retrieval_loss": 0.9123347997665405,
+          "accuracy": 0.9375,
+          "gradient_norm": 2.3818845748901367,
+          "evidence_gate": 0.8863603472709656
+        },
+        {
+          "step": 180,
+          "loss": 0.3563151955604553,
+          "task_loss": 0.18831199407577515,
+          "retrieval_loss": 0.8400160670280457,
+          "accuracy": 1.0,
+          "gradient_norm": 1.837467074394226,
+          "evidence_gate": 0.8872901797294617
+        },
+        {
+          "step": 210,
+          "loss": 0.24200057983398438,
+          "task_loss": 0.09343187510967255,
+          "retrieval_loss": 0.742843508720398,
+          "accuracy": 1.0,
+          "gradient_norm": 0.7803277373313904,
+          "evidence_gate": 0.887995183467865
+        },
+        {
+          "step": 240,
+          "loss": 0.19235944747924805,
+          "task_loss": 0.04928199574351311,
+          "retrieval_loss": 0.715387225151062,
+          "accuracy": 1.0,
+          "gradient_norm": 0.1708574891090393,
+          "evidence_gate": 0.8884546756744385
+        },
+        {
+          "step": 270,
+          "loss": 0.14416000247001648,
+          "task_loss": 0.036023229360580444,
+          "retrieval_loss": 0.5406838059425354,
+          "accuracy": 1.0,
+          "gradient_norm": 0.160623699426651,
+          "evidence_gate": 0.8886868953704834
+        },
+        {
+          "step": 300,
+          "loss": 0.1656816154718399,
+          "task_loss": 0.025430530309677124,
+          "retrieval_loss": 0.7012553811073303,
+          "accuracy": 1.0,
+          "gradient_norm": 0.08765816688537598,
+          "evidence_gate": 0.8888269066810608
+        }
+      ],
+      "training_seconds": 13.669282400000156,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7378267049789429,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.7418223321437836,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 8,
+          "capacity": 12,
+          "facts": 16,
+          "capacity_fraction": 0.75,
+          "oracle": true,
+          "accuracy": 1.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.5681326016783714,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 16,
+          "capacity": 12,
+          "facts": 32,
+          "capacity_fraction": 0.375,
+          "oracle": true,
+          "accuracy": 0.953125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.953125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 1.0,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.3939538225531578,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": true,
+          "accuracy": 0.9140625,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.9140625,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.9921875,
+          "reader_same_binding_hit": 1.0,
+          "mean_read_entropy": 0.534757174551487,
+          "evidence_gate": 0.8888269066810608
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.2578125,
+          "exact_target_retention": 0.078125,
+          "same_binding_retention": 0.203125,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.19491525423728814,
+          "reader_exact_hit": 0.078125,
+          "reader_same_binding_hit": 0.203125,
+          "mean_read_entropy": 0.5674253106117249,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 32,
+          "capacity": 8,
+          "facts": 64,
+          "capacity_fraction": 0.125,
+          "oracle": false,
+          "accuracy": 0.3828125,
+          "exact_target_retention": 0.140625,
+          "same_binding_retention": 0.359375,
+          "accuracy_given_exact_retained": 1.0,
+          "accuracy_given_exact_absent": 0.2818181818181818,
+          "reader_exact_hit": 0.140625,
+          "reader_same_binding_hit": 0.359375,
+          "mean_read_entropy": 0.5178432166576385,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.4140625,
+          "exact_target_retention": 0.203125,
+          "same_binding_retention": 0.4453125,
+          "accuracy_given_exact_retained": 0.8846153846153846,
+          "accuracy_given_exact_absent": 0.29411764705882354,
+          "reader_exact_hit": 0.203125,
+          "reader_same_binding_hit": 0.4453125,
+          "mean_read_entropy": 0.5495432689785957,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 32,
+          "capacity": 16,
+          "facts": 64,
+          "capacity_fraction": 0.25,
+          "oracle": false,
+          "accuracy": 0.46875,
+          "exact_target_retention": 0.28125,
+          "same_binding_retention": 0.5,
+          "accuracy_given_exact_retained": 0.9166666666666666,
+          "accuracy_given_exact_absent": 0.29347826086956524,
+          "reader_exact_hit": 0.28125,
+          "reader_same_binding_hit": 0.5,
+          "mean_read_entropy": 0.6006912589073181,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 32,
+          "capacity": 24,
+          "facts": 64,
+          "capacity_fraction": 0.375,
+          "oracle": false,
+          "accuracy": 0.5390625,
+          "exact_target_retention": 0.4140625,
+          "same_binding_retention": 0.609375,
+          "accuracy_given_exact_retained": 0.8679245283018868,
+          "accuracy_given_exact_absent": 0.30666666666666664,
+          "reader_exact_hit": 0.4140625,
+          "reader_same_binding_hit": 0.609375,
+          "mean_read_entropy": 0.6489888578653336,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 32,
+          "capacity": 32,
+          "facts": 64,
+          "capacity_fraction": 0.5,
+          "oracle": false,
+          "accuracy": 0.6015625,
+          "exact_target_retention": 0.53125,
+          "same_binding_retention": 0.6796875,
+          "accuracy_given_exact_retained": 0.8676470588235294,
+          "accuracy_given_exact_absent": 0.3,
+          "reader_exact_hit": 0.5,
+          "reader_same_binding_hit": 0.6796875,
+          "mean_read_entropy": 0.7395144999027252,
+          "evidence_gate": 0.8888269066810608
+        },
+        {
+          "chunks": 32,
+          "capacity": 64,
+          "facts": 64,
+          "capacity_fraction": 1.0,
+          "oracle": false,
+          "accuracy": 0.59375,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.59375,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.7265625,
+          "reader_same_binding_hit": 0.9140625,
+          "mean_read_entropy": 1.0341567695140839,
+          "evidence_gate": 0.8888269066810608
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.859375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.484375
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.953125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.59375
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.84375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.53125
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 1.0,
+          "prediction_change_rate": 0.296875,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    }
+  ]
+}

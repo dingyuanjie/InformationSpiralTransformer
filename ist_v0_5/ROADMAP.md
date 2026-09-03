@@ -26,3 +26,5 @@ These items are intentionally gated. Per protocol, they should not be added unti
 ## Formal Level A decision
 
 The first formal run failed the stability gate. v0.5.1 now implements the registered Writer-oracle versus fixed-capacity retention diagnosis, corrected binding corruption, five-seed Reader stability comparison and capacity curve. Level B and Level C remain closed until its formal result passes.
+
+v0.5.1 passed its Reader stability gate. The next registered stage is v0.5.1.1: component ablation of the stabilization package and distractor-count scaling under 100% target availability. Level B/C remain closed until the minimal causal Reader mechanism is isolated.

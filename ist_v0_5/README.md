@@ -68,3 +68,5 @@ python run_v0_5_1.py
 ```
 
 Formal outputs are written to `results/v0_5_1`. Do not interpret the Oracle score as deployable performance; it is a Writer-bypassed Reader diagnostic.
+
+The formal run completed and passed the Reader stability gate. `oracle_stable` reached `100%/100%/100%/95%/90%` mean accuracy at 2/4/8/16/32 chunks across five seeds. Exact Writer retention followed `K/64`, while K=64 retained every target but achieved only 61% accuracy because retrieval faced more distractors. See [`results/v0_5_1/ANALYSIS.md`](results/v0_5_1/ANALYSIS.md).
