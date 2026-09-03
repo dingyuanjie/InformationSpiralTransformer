@@ -22,3 +22,7 @@
 - layer-placement experiments, LoRA, partial unfreezing and 1B scaling.
 
 These items are intentionally gated. Per protocol, they should not be added until the formal Level A run shows a stable held-out signal. This prevents a negative minimal result from being hidden under extra modules or compute.
+
+## Formal Level A decision
+
+The first formal run failed the stability gate. The next registered experiment is a Writer-oracle versus fixed-capacity retention diagnosis with corrected identity corruption. Level B and Level C remain closed.

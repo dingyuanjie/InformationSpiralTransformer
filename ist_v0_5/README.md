@@ -17,7 +17,7 @@ v0.5 is a new, isolated research branch for a **Hybrid Evidence–Core Recursive
 - latency and CUDA peak-memory measurement;
 - CPU smoke tests and unit tests.
 
-The implementation is Level A only. Qwen 0.5B bridging and semi-natural language Level B are deliberately gated on a positive, multi-seed held-out result.
+The implementation is Level A only. The first formal Level A run completed but did not pass the multi-seed stability gate. Qwen 0.5B bridging and semi-natural language Level B remain blocked.
 
 ## Audit and design
 
@@ -53,6 +53,6 @@ python benchmark.py --chunks 2 4 8 16 32
 
 Chance is 6.25% because every entity and every value token occurs during training, while the tested entity–value pair does not. A stage is not successful unless multiple seeds beat the strongest fair baseline on strict held-out bindings and Memory destruction causes the expected drop. Smoke results never satisfy this gate.
 
-## Current claim
+## First formal result
 
-The architecture and audit harness are implemented. No v0.5 empirical success is claimed until the formal run is completed and its generated report is reviewed.
+All 15 runs completed. Hybrid achieved mean strict held-out accuracy of `39.06% / 21.09% / 12.50%` at 2/8/32 chunks versus a 6.25% uniform-value guess, but seed variance was very high. Evidence destruction eliminated the usable long-range signal in the successful seeds, while Core destruction did not. The honest verdict is **partial Evidence signal, failed stability gate**. See [`results/v0_5/level_a/ANALYSIS.md`](results/v0_5/level_a/ANALYSIS.md).
