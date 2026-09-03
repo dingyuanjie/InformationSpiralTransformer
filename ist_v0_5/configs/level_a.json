@@ -1,0 +1,20 @@
+{
+  "vocab_size": 128,
+  "hidden_size": 64,
+  "heads": 4,
+  "layers": 2,
+  "chunk_size": 16,
+  "evidence_capacity": 12,
+  "evidence_span": 4,
+  "writes_per_chunk": 4,
+  "reads_per_query": 3,
+  "core_slots": 4,
+  "dropout": 0.0,
+  "train_steps": 300,
+  "batch_size": 32,
+  "learning_rate": 0.0005,
+  "train_chunks": [2, 4, 8],
+  "test_chunks": [2, 4, 8, 16, 32],
+  "seeds": [505, 1505, 2505],
+  "variants": ["no_memory", "last_k", "core_only", "evidence_only", "hybrid"]
+}

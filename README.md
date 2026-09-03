@@ -12,6 +12,7 @@ IST 是一个探索“有限状态、跨 Chunk、可干预持久记忆”的实�
 | `ist_v0_2` | 分层快/慢 Memory，并接入冻结 Qwen 0.5B | 简单外接 Memory 可以保存信号，但不能可靠转换为自然语言能力；多轮冻结干预没有稳定优于 baseline | 路线关闭，保留负结果 |
 | `ist_v0_3` | 保存真实 token 状态与来源位置，稀疏 Query top-k Reader | Writer 覆盖可以通过，但 Reader、干扰抑制、开放答案解码和容量会分别失败 | 严格 OOD gate 失败 |
 | `ist_v0_4` | 工作/情景/语义三层生命周期，事件级写入、强化与遗忘 | 已能控制“记什么、忘什么”，并解决关系被切断的问题；实体条件 Query 检索尚未学成 | 当前开发版本 |
+| `ist_v0_5` | 可溯源多向量 Evidence＋递归 Core 双通路 | 已完成严格新绑定协议、因果干预与 Level A 执行器；尚无正式实验结果 | 当前候选架构 |
 
 ## 已被实验支持的结论
 
@@ -128,6 +129,7 @@ python run_v0_4_relational_query_alignment.py --local-files-only
 - [`ist_v0_2/README.md`](ist_v0_2/README.md)
 - [`ist_v0_3/README.md`](ist_v0_3/README.md)
 - [`ist_v0_4/README.md`](ist_v0_4/README.md)
+- [`ist_v0_5/README.md`](ist_v0_5/README.md)
 - [`时间递归链分析.md`](时间递归链分析.md)
 
 ## 结果解释原则

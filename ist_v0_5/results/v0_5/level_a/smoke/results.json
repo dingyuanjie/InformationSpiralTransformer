@@ -1,0 +1,435 @@
+{
+  "status": "complete",
+  "device": "cuda",
+  "protocol": {
+    "config": {
+      "vocab_size": 128,
+      "hidden_size": 64,
+      "heads": 4,
+      "layers": 2,
+      "chunk_size": 16,
+      "evidence_capacity": 12,
+      "evidence_span": 4,
+      "writes_per_chunk": 4,
+      "reads_per_query": 3,
+      "core_slots": 4,
+      "dropout": 0.0,
+      "age_decay": 0.02,
+      "usage_bonus": 0.1,
+      "novelty_weight": 0.2,
+      "redundancy_weight": 0.1
+    },
+    "variants": [
+      "hybrid"
+    ],
+    "seeds": [
+      505
+    ],
+    "steps": 3,
+    "samples": 8,
+    "train_chunks": [
+      2
+    ],
+    "test_chunks": [
+      2,
+      4
+    ],
+    "split_audit": {
+      "binding_overlap": 0,
+      "train_binding_count": 206,
+      "heldout_binding_count": 50,
+      "shared_entity_vocabulary": true,
+      "shared_value_vocabulary": true,
+      "label_is_resampled_per_example": true,
+      "query_visible_during_history_write": false,
+      "passed": true
+    }
+  },
+  "aggregate": [
+    {
+      "variant": "hybrid",
+      "chunks": 2,
+      "seeds": 1,
+      "mean_accuracy": 0.0,
+      "std_accuracy": 0.0,
+      "chance": 0.0625,
+      "delta_vs_strong_baseline": 0.0
+    },
+    {
+      "variant": "hybrid",
+      "chunks": 4,
+      "seeds": 1,
+      "mean_accuracy": 0.125,
+      "std_accuracy": 0.0,
+      "chance": 0.0625,
+      "delta_vs_strong_baseline": 0.0
+    }
+  ],
+  "runs": [
+    {
+      "variant": "hybrid",
+      "seed": 505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 4.943418979644775,
+          "accuracy": 0.0,
+          "grad_norm": 4.529315948486328,
+          "chunks": 2
+        },
+        {
+          "step": 2,
+          "loss": 4.718654632568359,
+          "accuracy": 0.03125,
+          "grad_norm": 3.6320178508758545,
+          "chunks": 2
+        },
+        {
+          "step": 3,
+          "loss": 4.663517951965332,
+          "accuracy": 0.0,
+          "grad_norm": 3.7223477363586426,
+          "chunks": 2
+        }
+      ],
+      "training_tokens": 3360,
+      "training_seconds": 0.6050768000000062,
+      "parameters": {
+        "total": 170563,
+        "trainable": 170563,
+        "memory": 45571
+      },
+      "evaluation": [
+        {
+          "chunks": 2,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "multi_fact",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 1.0,
+          "slot_utilization": 0.3333333333333333,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 0.5,
+          "latency_ms_per_example": 2.3027999999953863,
+          "peak_memory_bytes": 20219904
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "multi_fact",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.5,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.7504374999978154,
+          "peak_memory_bytes": 20216832
+        }
+      ],
+      "causal": [
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "multi_fact",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.2000249999791777,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "zero",
+          "scenario": "multi_fact",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.0,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.892774999992298,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "zero_evidence",
+          "scenario": "multi_fact",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 3.3900500000072498,
+          "peak_memory_bytes": 20212736
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "zero_core",
+          "scenario": "multi_fact",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 3.6146749999943495,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "swap",
+          "scenario": "multi_fact",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.0,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 3.139374999989286,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "shuffle",
+          "scenario": "multi_fact",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.465812499991671,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "delete_target_source",
+          "scenario": "multi_fact",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.0,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 3.0598000000168213,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "block_writer",
+          "scenario": "multi_fact",
+          "accuracy": 0.0,
+          "writer_relation_recall": 0.0,
+          "reader_relation_hit": 0.0,
+          "slot_utilization": 0.0,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 0.0,
+          "latency_ms_per_example": 0.9776750000014545,
+          "peak_memory_bytes": 19924992
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "block_reader",
+          "scenario": "multi_fact",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.0,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.995924999993349,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "corrupt_identity",
+          "scenario": "multi_fact",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.6536874999862903,
+          "peak_memory_bytes": 20212736
+        }
+      ],
+      "scenario_panel": [
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "single_fact",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.75,
+          "slot_utilization": 0.3333333333333333,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 1.9422500000132459,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "multi_fact",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 1.8449375000102464,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "interference",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.25,
+          "slot_utilization": 0.75,
+          "slot_duplicate_rate": 0.1111111111111111,
+          "mean_memory_age": 1.5416666666666667,
+          "latency_ms_per_example": 2.1768375000021933,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "overwrite",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.375,
+          "slot_utilization": 0.6979166666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.4328358208955223,
+          "latency_ms_per_example": 2.780637499995464,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "temporal_update",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.375,
+          "slot_utilization": 0.6979166666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.4328358208955223,
+          "latency_ms_per_example": 2.2509499999898708,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "negative",
+          "accuracy": 0.0,
+          "writer_relation_recall": 0.0,
+          "reader_relation_hit": 0.0,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 3.641575000017383,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "two_hop",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.25,
+          "slot_utilization": 0.6875,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.4545454545454546,
+          "latency_ms_per_example": 2.5045000000147866,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "paraphrase",
+          "accuracy": 0.0,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.25,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.555012500010889,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "position_shift",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.6089624999769967,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "extrapolation",
+          "accuracy": 0.125,
+          "writer_relation_recall": 1.0,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 0.6666666666666666,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5,
+          "latency_ms_per_example": 2.435437499997306,
+          "peak_memory_bytes": 20216832
+        },
+        {
+          "chunks": 4,
+          "samples": 8,
+          "intervention": "normal",
+          "scenario": "density",
+          "accuracy": 0.125,
+          "writer_relation_recall": 0.5,
+          "reader_relation_hit": 0.125,
+          "slot_utilization": 1.0,
+          "slot_duplicate_rate": 0.0,
+          "mean_memory_age": 1.5833333333333333,
+          "latency_ms_per_example": 2.971500000001015,
+          "peak_memory_bytes": 20216832
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "All variants instantiate the same parameter envelope; inactive paths are reported, not removed."
+  ]
+}
