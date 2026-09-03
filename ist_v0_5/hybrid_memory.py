@@ -40,8 +40,10 @@ class HybridEvidenceCoreMemory(nn.Module):
         self.core_update_value = nn.Linear(hidden, hidden, bias=False)
         self.core_gate = nn.Linear(hidden * 2, hidden)
         self.core_norm = nn.LayerNorm(hidden)
-        self.evidence_gate = nn.Parameter(torch.tensor(0.0))
-        self.core_read_gate = nn.Parameter(torch.tensor(0.0))
+        self.role_embedding = nn.Parameter(torch.randn(config.evidence_span, hidden) / math.sqrt(hidden))
+        self.reranker = nn.Sequential(nn.Linear(hidden * 2, hidden), nn.GELU(), nn.Linear(hidden, 1))
+        self.evidence_gate = nn.Parameter(torch.tensor(config.evidence_gate_init))
+        self.core_read_gate = nn.Parameter(torch.tensor(config.core_gate_init))
         self.last_diagnostics: dict[str, Any] = {}
 
     def empty_state(self, batch: int, device, dtype):
@@ -177,9 +179,30 @@ class HybridEvidenceCoreMemory(nn.Module):
             if torch.is_tensor(source_chunk) and source_chunk.ndim == 1:
                 source_chunk = source_chunk[:, None]
             evidence["valid"] = evidence["valid"] & (evidence["source_chunks"] != source_chunk)
-        elif intervention == "corrupt_identity":
-            evidence["values"] = torch.flip(evidence["values"], dims=(2,))
-            evidence["token_ids"] = torch.flip(evidence["token_ids"], dims=(2,))
+        elif intervention in {"swap_entities", "swap_answers", "rebind", "corrupt_identity", "corrupt_roles"}:
+            evidence["values"] = evidence["values"].clone()
+            evidence["token_ids"] = evidence["token_ids"].clone()
+            for batch in range(core.size(0)):
+                slots = torch.where(evidence["valid"][batch])[0]
+                if slots.numel() < 2:
+                    continue
+                if intervention in {"swap_entities", "rebind", "corrupt_identity"}:
+                    evidence["values"][batch, slots, 1] = torch.roll(
+                        evidence["values"][batch, slots, 1].clone(), 1, 0)
+                    evidence["token_ids"][batch, slots, 1] = torch.roll(
+                        evidence["token_ids"][batch, slots, 1].clone(), 1, 0)
+                if intervention in {"swap_answers", "rebind", "corrupt_identity"}:
+                    evidence["values"][batch, slots, 3] = torch.roll(
+                        evidence["values"][batch, slots, 3].clone(), -1, 0)
+                    evidence["token_ids"][batch, slots, 3] = torch.roll(
+                        evidence["token_ids"][batch, slots, 3].clone(), -1, 0)
+                if intervention == "corrupt_roles":
+                    old = evidence["values"][batch, slots].clone()
+                    old_ids = evidence["token_ids"][batch, slots].clone()
+                    evidence["values"][batch, slots, 1] = old[:, 3]
+                    evidence["values"][batch, slots, 3] = old[:, 1]
+                    evidence["token_ids"][batch, slots, 1] = old_ids[:, 3]
+                    evidence["token_ids"][batch, slots, 3] = old_ids[:, 1]
         return evidence, core
 
     def read(self, query_hidden, state, intervention="normal", source_chunk=None):
@@ -196,8 +219,13 @@ class HybridEvidenceCoreMemory(nn.Module):
         token_scores = torch.einsum("bqh,bksh->bqks", query.float(), keys.float()) / math.sqrt(hidden)
         maxsim = token_scores.max(-1).values.sum(1)
         age = (int(state["clock"]) - evidence["born"]).clamp_min(0).float()
-        span_scores = maxsim - self.config.age_decay * age
+        ordered = (evidence["values"] * self.role_embedding[None, None].to(evidence["values"].dtype)).sum(2)
+        query_summary = query_hidden.mean(1)[:, None].expand(-1, ordered.size(1), -1)
+        rerank = self.reranker(torch.cat((query_summary, ordered), dim=-1)).squeeze(-1).float()
+        span_scores = (maxsim + self.config.reranker_weight * rerank) / self.config.reader_temperature
+        span_scores = span_scores - self.config.age_decay * age
         span_scores = span_scores.masked_fill(~evidence["valid"], -torch.inf)
+        self.last_span_scores = span_scores
         count = min(self.config.reads_per_query, self.config.evidence_capacity)
         top_scores, top = span_scores.topk(count, dim=-1)
         top_valid = evidence["valid"].gather(1, top)

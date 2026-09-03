@@ -23,6 +23,10 @@ class V05Config:
     usage_bonus: float = 0.1
     novelty_weight: float = 0.2
     redundancy_weight: float = 0.1
+    evidence_gate_init: float = 0.0
+    core_gate_init: float = 0.0
+    reader_temperature: float = 1.0
+    reranker_weight: float = 0.0
 
     def validate(self) -> None:
         integer_fields = ("vocab_size", "hidden_size", "heads", "layers", "chunk_size",
@@ -36,6 +40,8 @@ class V05Config:
             raise ValueError("writes_per_chunk exceeds available evidence windows")
         if self.reads_per_query > self.evidence_capacity:
             raise ValueError("reads_per_query exceeds evidence capacity")
+        if self.reader_temperature <= 0:
+            raise ValueError("reader_temperature must be positive")
 
     @classmethod
     def from_json(cls, path: str | Path) -> "V05Config":

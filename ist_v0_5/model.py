@@ -30,7 +30,8 @@ class HybridIST(nn.Module):
     def encode(self, tokens):
         return self.encoder(self.embedding(tokens))
 
-    def build_state(self, history, detach_between_chunks=False, intervention="normal"):
+    def build_state(self, history, detach_between_chunks=False, intervention="normal",
+                    oracle_positions=None):
         # history: [batch, chunks, tokens]. A later query is deliberately absent.
         state = None
         for chunk in range(history.size(1)):
@@ -44,12 +45,37 @@ class HybridIST(nn.Module):
                                       candidate_mask=candidate_mask)
             if detach_between_chunks:
                 state = detach_state(state)
+        if oracle_positions is not None:
+            state = self.force_oracle_evidence(history, state, oracle_positions)
         return state
 
+    def force_oracle_evidence(self, history, state, oracle_positions):
+        """Diagnostic only: force the supervised target occurrence into one Evidence slot."""
+        batch = history.size(0); width = history.size(2); device = history.device
+        chunks = torch.div(oracle_positions, width, rounding_mode="floor")
+        starts = oracle_positions.remainder(width)
+        source_tokens = history[torch.arange(batch, device=device), chunks]
+        source_hidden = self.encode(source_tokens)
+        offsets = starts[:, None] + torch.arange(self.config.evidence_span, device=device)[None]
+        target_values = source_hidden.gather(1, offsets[..., None].expand(-1, -1, self.config.hidden_size))
+        target_ids = source_tokens.gather(1, offsets)
+        evidence = {key: value.clone() for key, value in state["evidence"].items()}
+        slot = self.config.evidence_capacity - 1
+        evidence["values"][:, slot] = target_values
+        evidence["token_ids"][:, slot] = target_ids
+        evidence["positions"][:, slot] = offsets + chunks[:, None] * width
+        evidence["source_chunks"][:, slot] = chunks
+        evidence["born"][:, slot] = chunks + 1
+        evidence["last_read"][:, slot] = int(state["clock"])
+        evidence["usage"][:, slot] = 0
+        evidence["importance"][:, slot] = 1e6
+        evidence["valid"][:, slot] = True
+        return {"evidence": evidence, "core": state["core"], "clock": state["clock"]}
+
     def forward(self, history, query, state=None, intervention="normal",
-                source_chunk=None, detach_between_chunks=False):
+                source_chunk=None, detach_between_chunks=False, oracle_positions=None):
         if state is None:
-            state = self.build_state(history, detach_between_chunks, intervention)
+            state = self.build_state(history, detach_between_chunks, intervention, oracle_positions)
         query_hidden = self.query_norm(self.encode(query))
         query_summary = query_hidden.mean(1)
         if self.variant == "no_memory":

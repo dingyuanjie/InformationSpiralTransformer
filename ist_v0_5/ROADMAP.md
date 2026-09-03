@@ -25,4 +25,4 @@ These items are intentionally gated. Per protocol, they should not be added unti
 
 ## Formal Level A decision
 
-The first formal run failed the stability gate. The next registered experiment is a Writer-oracle versus fixed-capacity retention diagnosis with corrected identity corruption. Level B and Level C remain closed.
+The first formal run failed the stability gate. v0.5.1 now implements the registered Writer-oracle versus fixed-capacity retention diagnosis, corrected binding corruption, five-seed Reader stability comparison and capacity curve. Level B and Level C remain closed until its formal result passes.

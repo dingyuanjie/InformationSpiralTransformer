@@ -69,3 +69,26 @@ def test_all_registered_scenarios_generate_without_binding_leakage():
         batch = make_batch(2, 4, 16, 100 + index, "strict", scenario=scenario)
         assert batch.history.shape == (2, 4, 16)
         assert batch.query.shape == (2, 3)
+
+
+def test_oracle_evidence_preserves_exact_target_occurrence():
+    config = tiny_config(); model = HybridIST(config, "evidence_only")
+    batch = make_batch(2, 4, config.chunk_size, 210, "strict", facts_per_chunk=2)
+    state = model.build_state(batch.history, oracle_positions=batch.fact_positions)
+    slot = config.evidence_capacity - 1
+    assert torch.equal(state["evidence"]["positions"][:, slot, 0], batch.fact_positions)
+    assert torch.equal(state["evidence"]["token_ids"][:, slot, 1], batch.target_entities)
+    assert torch.equal(state["evidence"]["token_ids"][:, slot, 3], batch.answers)
+
+
+def test_rebinding_changes_entity_value_pairs_not_global_token_multiset():
+    config = tiny_config(); model = HybridIST(config)
+    batch = make_batch(2, 2, config.chunk_size, 211, "train", facts_per_chunk=2)
+    state = model.build_state(batch.history)
+    before = state["evidence"]["token_ids"]
+    after, _ = model.memory._intervene(state, "rebind", None)
+    for row in range(2):
+        valid = state["evidence"]["valid"][row]
+        assert torch.equal(before[row, valid].flatten().sort().values,
+                           after["token_ids"][row, valid].flatten().sort().values)
+        assert not torch.equal(before[row, valid, 1:], after["token_ids"][row, valid, 1:])

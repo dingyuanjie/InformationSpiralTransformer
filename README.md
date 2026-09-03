@@ -12,7 +12,7 @@ IST 是一个探索“有限状态、跨 Chunk、可干预持久记忆”的实�
 | `ist_v0_2` | 分层快/慢 Memory，并接入冻结 Qwen 0.5B | 简单外接 Memory 可以保存信号，但不能可靠转换为自然语言能力；多轮冻结干预没有稳定优于 baseline | 路线关闭，保留负结果 |
 | `ist_v0_3` | 保存真实 token 状态与来源位置，稀疏 Query top-k Reader | Writer 覆盖可以通过，但 Reader、干扰抑制、开放答案解码和容量会分别失败 | 严格 OOD gate 失败 |
 | `ist_v0_4` | 工作/情景/语义三层生命周期，事件级写入、强化与遗忘 | 已能控制“记什么、忘什么”，并解决关系被切断的问题；实体条件 Query 检索尚未学成 | 当前开发版本 |
-| `ist_v0_5` | 可溯源多向量 Evidence＋递归 Core 双通路 | 正式 Level A 出现可因果依赖的 Evidence 信号，但多 seed 方差很大、Core 收益未成立、长距离 Writer 保留下降 | 稳定性门控失败，继续诊断 |
+| `ist_v0_5` | 可溯源多向量 Evidence＋递归 Core 双通路 | 正式 Level A 出现可因果依赖的 Evidence 信号，但多 seed 方差很大；v0.5.1 已实现容量上限、Oracle Reader 与重绑定因果诊断 | 等待 v0.5.1 正式结果 |
 
 ## 已被实验支持的结论
 

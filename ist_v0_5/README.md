@@ -56,3 +56,15 @@ Chance is 6.25% because every entity and every value token occurs during trainin
 ## First formal result
 
 All 15 runs completed. Hybrid achieved mean strict held-out accuracy of `39.06% / 21.09% / 12.50%` at 2/8/32 chunks versus a 6.25% uniform-value guess, but seed variance was very high. Evidence destruction eliminated the usable long-range signal in the successful seeds, while Core destruction did not. The honest verdict is **partial Evidence signal, failed stability gate**. See [`results/v0_5/level_a/ANALYSIS.md`](results/v0_5/level_a/ANALYSIS.md).
+
+## v0.5.1
+
+v0.5.1 separates capacity and Reader failures. It forces the exact supervised source occurrence into Oracle Evidence, reports accuracy conditional on exact retention, scans capacities `4/8/12/16/24/32/64`, compares current and stabilized Reader initialization over five seeds, and replaces span reversal with entity/value rebinding.
+
+```powershell
+python run_v0_5_1.py --dry-run
+python run_v0_5_1.py --smoke-test
+python run_v0_5_1.py
+```
+
+Formal outputs are written to `results/v0_5_1`. Do not interpret the Oracle score as deployable performance; it is a Writer-bypassed Reader diagnostic.

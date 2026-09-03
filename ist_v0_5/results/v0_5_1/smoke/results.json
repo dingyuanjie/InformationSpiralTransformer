@@ -1,0 +1,349 @@
+{
+  "status": "complete",
+  "protocol": {
+    "base_config": "configs/level_a.json",
+    "capacities": [
+      4,
+      12
+    ],
+    "reader_conditions": [
+      "oracle_current",
+      "oracle_stable"
+    ],
+    "seeds": [
+      505
+    ],
+    "steps": 3,
+    "batch_size": 4,
+    "train_chunks": [
+      2,
+      4,
+      8
+    ],
+    "evaluation_chunks": [
+      2,
+      4
+    ],
+    "evaluation_samples": 8,
+    "learning_rate": 0.0005,
+    "contrastive_weight": 0.2,
+    "reference_capacity": 12
+  },
+  "split_audit": {
+    "binding_overlap": 0,
+    "train_binding_count": 206,
+    "heldout_binding_count": 50,
+    "shared_entity_vocabulary": true,
+    "shared_value_vocabulary": true,
+    "label_is_resampled_per_example": true,
+    "query_visible_during_history_write": false,
+    "passed": true
+  },
+  "device": "cuda",
+  "summary": [
+    {
+      "condition": "oracle_current",
+      "chunks": 2,
+      "mean_accuracy": 0.0,
+      "std_accuracy": 0.0,
+      "seeds": 1
+    },
+    {
+      "condition": "oracle_current",
+      "chunks": 4,
+      "mean_accuracy": 0.125,
+      "std_accuracy": 0.0,
+      "seeds": 1
+    },
+    {
+      "condition": "oracle_stable",
+      "chunks": 2,
+      "mean_accuracy": 0.0,
+      "std_accuracy": 0.0,
+      "seeds": 1
+    },
+    {
+      "condition": "oracle_stable",
+      "chunks": 4,
+      "mean_accuracy": 0.125,
+      "std_accuracy": 0.0,
+      "seeds": 1
+    }
+  ],
+  "runs": [
+    {
+      "condition": "oracle_current",
+      "seed": 505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 4.811451435089111,
+          "task_loss": 4.811451435089111,
+          "retrieval_loss": 1.6143481731414795,
+          "accuracy": 0.0,
+          "gradient_norm": 7.404295444488525,
+          "evidence_gate": 0.4998749792575836
+        },
+        {
+          "step": 2,
+          "loss": 4.300613880157471,
+          "task_loss": 4.300613880157471,
+          "retrieval_loss": 2.2769289016723633,
+          "accuracy": 0.25,
+          "gradient_norm": 7.559762001037598,
+          "evidence_gate": 0.4997839033603668
+        },
+        {
+          "step": 3,
+          "loss": 4.053479194641113,
+          "task_loss": 4.053479194641113,
+          "retrieval_loss": 2.2084555625915527,
+          "accuracy": 0.0,
+          "gradient_norm": 8.007231712341309,
+          "evidence_gate": 0.4996837079524994
+        }
+      ],
+      "training_seconds": 0.4667377999994642,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.875,
+          "reader_same_binding_hit": 0.875,
+          "mean_read_entropy": 1.0806477069854736,
+          "evidence_gate": 0.4996837079524994
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.375,
+          "reader_same_binding_hit": 0.375,
+          "mean_read_entropy": 1.079157829284668,
+          "evidence_gate": 0.4996837079524994
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.0,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.125,
+          "accuracy_given_exact_retained": 0.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.125,
+          "reader_same_binding_hit": 0.125,
+          "mean_read_entropy": 1.073275089263916,
+          "evidence_gate": 0.4996837079524994
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.0,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.125,
+          "accuracy_given_exact_retained": 0.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.0,
+          "reader_same_binding_hit": 0.0,
+          "mean_read_entropy": 1.0891454219818115,
+          "evidence_gate": 0.4996837079524994
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.25,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.0
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.25,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.0
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.375,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.0
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.375,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    },
+    {
+      "condition": "oracle_stable",
+      "seed": 505,
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.1766204833984375,
+          "task_loss": 4.848315238952637,
+          "retrieval_loss": 1.6415272951126099,
+          "accuracy": 0.0,
+          "gradient_norm": 7.531119346618652,
+          "evidence_gate": 0.8807435035705566
+        },
+        {
+          "step": 2,
+          "loss": 4.804290294647217,
+          "task_loss": 4.32379150390625,
+          "retrieval_loss": 2.4024949073791504,
+          "accuracy": 0.0,
+          "gradient_norm": 7.888699531555176,
+          "evidence_gate": 0.8806946873664856
+        },
+        {
+          "step": 3,
+          "loss": 4.597661018371582,
+          "task_loss": 4.168145656585693,
+          "retrieval_loss": 2.1475777626037598,
+          "accuracy": 0.0,
+          "gradient_norm": 8.289912223815918,
+          "evidence_gate": 0.8806486129760742
+        }
+      ],
+      "training_seconds": 0.0912423999998282,
+      "parameters": {
+        "total": 179140,
+        "trainable": 179140,
+        "memory": 54148
+      },
+      "oracle_evaluation": [
+        {
+          "chunks": 2,
+          "capacity": 12,
+          "facts": 4,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.0,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.875,
+          "reader_same_binding_hit": 0.875,
+          "mean_read_entropy": 1.0759040117263794,
+          "evidence_gate": 0.8806486129760742
+        },
+        {
+          "chunks": 4,
+          "capacity": 12,
+          "facts": 8,
+          "capacity_fraction": 1.0,
+          "oracle": true,
+          "accuracy": 0.125,
+          "exact_target_retention": 1.0,
+          "same_binding_retention": 1.0,
+          "accuracy_given_exact_retained": 0.125,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.375,
+          "reader_same_binding_hit": 0.375,
+          "mean_read_entropy": 1.08199143409729,
+          "evidence_gate": 0.8806486129760742
+        }
+      ],
+      "capacity_curve": [
+        {
+          "chunks": 32,
+          "capacity": 4,
+          "facts": 64,
+          "capacity_fraction": 0.0625,
+          "oracle": false,
+          "accuracy": 0.0,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.125,
+          "accuracy_given_exact_retained": 0.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.125,
+          "reader_same_binding_hit": 0.125,
+          "mean_read_entropy": 1.0706501007080078,
+          "evidence_gate": 0.8806486129760742
+        },
+        {
+          "chunks": 32,
+          "capacity": 12,
+          "facts": 64,
+          "capacity_fraction": 0.1875,
+          "oracle": false,
+          "accuracy": 0.0,
+          "exact_target_retention": 0.125,
+          "same_binding_retention": 0.125,
+          "accuracy_given_exact_retained": 0.0,
+          "accuracy_given_exact_absent": 0.0,
+          "reader_exact_hit": 0.125,
+          "reader_same_binding_hit": 0.125,
+          "mean_read_entropy": 1.0927631855010986,
+          "evidence_gate": 0.8806486129760742
+        }
+      ],
+      "binding_causality": [
+        {
+          "intervention": "swap_entities",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.125,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.0
+        },
+        {
+          "intervention": "swap_answers",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.0,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.125
+        },
+        {
+          "intervention": "rebind",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.0,
+          "counterfactual_available": 1.0,
+          "counterfactual_follow_rate": 0.0
+        },
+        {
+          "intervention": "corrupt_roles",
+          "original_accuracy": 0.0,
+          "prediction_change_rate": 0.0,
+          "counterfactual_available": 0.0,
+          "counterfactual_follow_rate": 0.0
+        }
+      ]
+    }
+  ]
+}
